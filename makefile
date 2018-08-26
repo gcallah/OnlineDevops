@@ -1,17 +1,18 @@
-SDIR = quiz
+SDIR = devops
 UDIR = utils
 MUDIR = myutils
 TDIR = tests
-SRCS = $(SDIR)/apps.py $(SDIR)/models.py
+MDL = $(SDIR)/models.py
+SRCS = $(MDL)
 DEVDIR = devops
 
 prod: $(SRCS)
 # run tests here before building!
 	-git commit -a
 	git push origin master
-#	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/mysite; /home/devopscourse/mysite/myutils/prod.sh'
+	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
 
-db:
+db: $(MDL)
 	python3 manage.py makemigrations
 	python3 manage.py migrate
 	git add $(DEVDIR)/migrations/*.py
