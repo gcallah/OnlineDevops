@@ -102,7 +102,7 @@ dt {
 }
 
 h1,h2,h3,h4,h5 {
-    font-weight: bold;
+    font-weight: 400;
 }
 
 h1 {
@@ -110,14 +110,14 @@ h1 {
     padding-bottom: 1em;
     padding-top: 1em;
     text-align: center;
-    font-weight: 300;
-    font-size: 2.2em;
+    font-size: 2em;
     color: #cab;
 }
 
 h1.brand {
     margin: 0em 0em 0em 0em;
     color: #622;
+    font-size: 2.2em;
 }
 
 h1.chap-title {
@@ -198,7 +198,7 @@ p.leadquote {
     text-align: center;
     margin: 1em 1em 1em 2em;
     font-size: 1.4em;
-    color: #9eb;
+    color: #9de;
 }
 
 p.def {
@@ -218,9 +218,9 @@ p.def {
 #user-tools {
     float: right;
     padding: 0;
-    margin: 0 0 0 1em;
+    margin: 0 4em 0 1em;
     font-weight: 300;
-    font-size: .7em;
+    font-size: 1em;
     letter-spacing: .1em;
     text-align: right;
     color: #622;
