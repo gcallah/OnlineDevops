@@ -5,9 +5,14 @@ TDIR = tests
 MDL = $(SDIR)/models.py
 SRCS = $(MDL)
 DEVDIR = devops
+TEMPLDIR = $(DEVDIR)/templates
+HTMLS = $(shell ls $(TEMPLDIR)/*.html)
 
-prod: $(SRCS)
-# run tests here before building!
+validate_html: $(HTMLS)
+	# here are the tests
+
+prod: $(SRCS) validate_html
+# run django tests here before committing code!
 	-git commit -a
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'

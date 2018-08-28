@@ -4,6 +4,9 @@ from . import views
 
 app_name = 'devops'  # type: str
 
+def view_templ(vname):
+    pass   # we ought to be able to turn all of the code below into a single
+           # call
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
