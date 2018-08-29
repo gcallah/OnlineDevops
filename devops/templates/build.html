@@ -17,20 +17,276 @@
 
         <details>
             <summary class="sum1">
-                Lesson 1
+                Lesson 1: Why Automate Our Builds?
             </summary>
+
+            <p>
+                Building software is often a complex process. A single software 
+                "product" may be composed of hundreds or thousands of parts,
+                some created by one team, some created by another, some
+                open-source software products, and some proprietary software
+                provided by some vendor. All of these parts must be "assembled"
+                correctly in order to create the final product.
+            </p>
+
+            <p>
+                So, as in every other process DevOps touches, as DevOps
+                practitioners we seek to <i>automate everything</i>. Why?
+                Because automation:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    Is less error-prone than performing the process
+                    "manually" every time it needs to be done.
+                </li>
+
+                <li>
+                    The scripts that automate the process also serve to
+                    <i>document</i> it, and in a more authoratative way than a
+                    Word document or Web page: the script <i>must</i> be
+                    correct, or the product won't build, whereas text
+                    documentation can get out of sync with what actually needs
+                    to be done.
+                </li>
+
+                <li>
+                    It divides the labor properly: machines do the drudge work,
+                    while the humans involved get to think creatively.
+                </li>
+            </ul>
+
         </details>
 
         <details>
             <summary class="sum1">
-                Lesson 2
+                Lesson 2: Build Tools Comparison
             </summary>
+
+            <p>
+                "A 'Build tool' is a single term that refers to anything that is 
+                needed to get a piece of software set up, but isn't needed after 
+                that"[5]. There are numerous number of build tools each having a 
+                different set of tradeoffs associated with them. Book titled 
+                "Managing projects with make" helped in creation of this 
+                comparison[3].Here are some of the major build tools and their 
+                features:
+            </p>
+            <details>
+                <summary class="sum2">
+                    Make
+                </summary>
+                <ul class="nested">
+                    <p>
+                    <code>make</code> was first created in 1976, but the variants of 
+                        this build tool are still in use.
+                        In <code>make</code> we have to specify 
+                        a dependency followed by a rule to resolve that 
+                        dependency. It is a powerful product oriented tool 
+                        which is highly capable of tracking dependencies within
+                        a build and building only those parts/components
+                        that have been updated/changed, thus helping in 
+                        optimizing performance whereby compilation time is 
+                        crucial in development cycles. The drawback of this
+                        tool is that with increase in the rise of complexity,
+                        the number of dependencies between components also 
+                        increases, making for complex rules that are
+                        hard to debug.
+                    </p>
+                </ul>
+            </details>
+            <details>
+                <summary class="sum2">
+                    Ant
+                </summary>
+                <ul class="nested">
+                    <p>
+                        Ant is a task-oriented build tool which was first 
+                        released in 2000. The limitations found in make
+                        led the Java Community to experiment with different 
+                        solutions such as porting make to Java. At this same 
+                        time XML was coming up into prominence.
+                        Combining the power of both these approaches led to the
+                        Apache Ant build tool. Being fully cross platform, a 
+                        set of instructions are written in Java to 
+                        address basic 
+                        operations like compilation and file manipulation.
+                        Besides being cross-platform, Ant is also an extremely 
+                        flexible and powerful system, with Ant Tasks for most 
+                        things we want to do. Despite being powerful,
+                        Ant comes with certain drawbacks, such as
+                        the fact that the build 
+                        scripts have to be written in XML (not quite pleasant 
+                        for human readability), a lot of time has to be spent
+                        in performing tasks (writing boiler plate to compile, 
+                        create jars, run tests etc) due to lack of a real 
+                        domain concept. Ant files are poorly factored and tend
+                        to get really long, so it won't be surprising to
+                        find files thousands of lines long.
+                    </p>
+                </ul>
+            </details>
+            <details>
+                <summary class="sum2">
+                    Maven
+                </summary>
+                <ul class="nested">
+                    <p>
+                        Maven is a build tool that was released in 2004. 
+                        Maven was built to overcome problems in Ant.
+                        Maven uses XML but less so than Ant does.
+                        Maven boasts that it will
+                        perform any kind of build, deploy, test and release 
+                        task with a single command as long as we conform to the
+                        structure dictated by Maven. The disadavntage lies in 
+                        the fact that we have to conform to the Maven 
+                        structure: if we don't follow the Maven structure then 
+                        it is almost impossible to make Maven do what we want.
+                        Another disadvantage is that it uses an 
+                        external DSL (Domain Specific Language) written in XML,
+                        which means that if we want to extend it then we have 
+                        to spend a lot of time learning something that
+                        language.
+                        Maven might also end up creating 
+                        issues since it continuously tries to automatically 
+                        upgrade itself every time it runs, this means some
+                        plugins might end up failing and we wont be able to 
+                        reproduce our builds.
+                    </p>
+                </ul>
+            </details>
+    
+            <details>
+                <summary class="sum2">
+                    PyBuild
+                </summary>
+                <p>
+                    PyBuild is a build tool which is 
+                    aimed at Python projects.
+                    PyBuild supports all the standard features of 
+                    typical build tools.
+
+                    There are many plugins created by Python
+                    developers to support building with PyBuild.
+                    Plugins exist for the following
+                    areas:
+
+                    <ul class="nested">
+                      <li>Unit Testing</li>
+                      <li>Measuring Unit Test Coverage</li>
+                      <li>Linting Python Source</li>
+                    </ul>
+                </p>
+            </details>
+    
+           
+    
+            <details>
+                <summary class="sum2">
+                    SonarQube
+                </summary>
+                <p>
+                    SonarQube is an open source tool written in Java that helps 
+                    to analyze the quality of source code.
+                    It has the ability to analyze source code
+                    in over 20 languages.
+    
+                    The code analysis step can be used manually by executing 
+                    sonar runner but however the best use of SonarQube
+                    is during the build process.
+    
+                    If SonarQube is integrated with the Jenkins server it 
+                    can provide continuous integration and 
+                    reports based on the analyzis of the code.
+                </p>
+
+            </details>
+            
+            <hr>
+    
+            <p>
+            Sources:
+            </p>
+
+            <ol class="nested">
+                <li>
+                <a href="http://pybuilder.github.io/">
+                    PyBuild
+                </a>
+                </li>
+    
+                <li>
+                <a href="https://en.wikipedia.org/wiki/Build_automation">
+                    Build Concept
+                </a>
+                </li>
+    
+                <li>
+                <a href="http://shop.oreilly.com/product/9780937175903.do">
+                    Managing projects with make
+                </a>
+                </li>
+    
+                <li>
+                <a href="https://www.javacodegeeks.com/2014/06/java-build-tools-ant-vs-maven-vs-gradle.html">
+                    Java Code Geeks
+                </a>
+                </li>
+    
+                <li>
+                    <a href="http://www.lihaoyi.com/post/WhatsinaBuildTool.html">
+                        What's in a build tool
+                    </a>
+                </li>
+            </ol>
+           
         </details>
 
         <details>
             <summary class="sum1">
-                Lesson 3
+                Lesson 3: Make
             </summary>
+
+            <p>
+                For our class, we will use <code>make</code> as our build tool.
+                Although there are more modern tools with additional features,
+                <code>make</code> is sufficient for our purposes because:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    <code>make</code> is widely available on all UNIX-based
+                    systems.
+                </li>
+
+                <li>
+                    <code>make</code> allows us to explore the automation of
+                    builds in a way that is quite enough for an introduction to
+                    such tools.
+                </li>
+            </ul>
+
+            <p>
+                <code>make</code> executes makefiles.
+                The basic structure of a <code>makefile</code> is:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    A target, that we seek to build.
+                </li>
+
+                <li>
+                    A list of dependencies, upon which that target depends; and
+                </li>
+
+                <li>
+                    A series of commands to be run, in order to build that
+                    target from its dependencies.
+                </li>
+
+            </ul>
+
         </details>
 
         <details>

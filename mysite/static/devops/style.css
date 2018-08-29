@@ -82,6 +82,13 @@ dt {
     margin: .4em 3em .4em 1em;
 }
 
+code {
+    font-size: 1.2em;
+    font-family: monospace;
+    background: inherit;
+    color: #fad;
+}
+
 #header {
     width: auto;
     height: 3em;
@@ -162,26 +169,26 @@ summary.sum1 {
 }
 
 summary.sum2 {
-    font-size: 1.6em;
-    color: #137;
+    font-size: 1.5em;
+    color: #9cf;
     margin: .6em 1.2em .6em 2em;
 }
 
 summary.sum3 {
-    font-size: 1.5em;
-    color: #339;
+    font-size: 1.3em;
+    color: #88e;
     margin: .4em 1.2em .4em 2.8em;
 }
 
 summary.sum4 {
-    font-size: 1.4em;
-    color: #903;
+    font-size: 1.2em;
+    color: #dac;
     margin: .4em 1.2em .4em 2.8em;
 }
 
 summary.menu_sum {
     font-size: 1.4em;
-    color: #639;
+    color: #ebd;
     margin: .5em 0em .5em 0em;
 }
 

@@ -54,5 +54,5 @@ def test(request: request)->object:
     return get_quiz(request, 'test')
 
 def work(request: request)->object:
-    return get_quiz(request, 'test')
+    return get_quiz(request, 'work')
 
