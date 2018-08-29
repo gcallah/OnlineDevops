@@ -145,8 +145,14 @@ h3 {
 h4 {
     font-size: 1.5em;
     margin: .8em 1.6em .6em 1.6em;
-    color: #339;
+    color: #aaf;
     font-weight: bold;
+}
+
+code {
+    font-family: monospace;
+    background: inherit;
+    color: #fad;
 }
 
 summary.sum1 {
