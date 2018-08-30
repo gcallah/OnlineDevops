@@ -64,10 +64,135 @@
                 model succeeded. But it turns out that most successful software
                 projects, over many decades, instead followed the 
                 "<a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX philosophy</a>, 
-                where development projects sought to quickly achieve a MVP,
+                where development projects sought to quickly achieve an
+                <a
+                    href="https://en.wikipedia.org/wiki/Minimum_viable_product">MVP</a>,
                 and then proceeded to improve that initial product with
                 incremental changes.
             </p>
+
+            <p>
+                The recognition of this fact lead, over time, to the
+                formulation of the
+                <a href="https://en.wikipedia.org/wiki/Lean_software_development">Lean</a> and 
+                <a href="https://en.wikipedia.org/wiki/Agile_software_development">Agile</a>
+                development methods. These methods focused on rapidly creating
+                and releasing to users incremental improvements in a software.
+                The advantages of small improvements to a software product,
+                released frequently, include:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    Value is delivered to the users quickly, rather than
+                    waiting for "release 2.0" for the users to get a hold of
+                    the features they need.
+                </li>
+
+                <li>
+                    Small batches can more easily be tested and verified as
+                    working properly.
+                </li>
+
+                <li>
+                    The "feedback loop" between users and programmers 
+                    is shortened, allowing programmers to  learn about
+                    users' needs more rapidly, and respond more quickly
+                    to them.
+                </li>
+
+                <li>
+                    Greater programmer satisfaction, as programmers can
+                    regularly see the value of their work to their users.
+                </li>
+
+            </ul>
+
+            <p>
+                As development teams adopted Lean and Agile methods, they often 
+                became capable of producing production-ready software on a
+                daily basis, or even more frequently. (For instance, Amazon
+                releases software into production once every 11 seconds, on
+                average.) But this created a problem: managing software in
+                production environments was traditionally the job of 
+                <i>operations</i>, not of the developers. And operations viewed
+                its job as <i>slowing</i> the pace of releases, because
+                releases meant bugs, crashes, and other problems operations had
+                to handle.
+            </p>
+
+            <p>
+                How could this gulf between development and operations be narrowed?
+                A few forward-thinking operations people saw a way to reconcile 
+                the aims of development and operations. One of them,
+                Patrick Debois, named a conference
+                <a href="https://en.wikipedia.org/wiki/DevOps#Definitions_and_history">
+                    DevOpsDays</a>, and from that seed, the term "DevOps"
+                spread.
+            </p>
+
+            <p>
+                As a result, the term "DevOps" is an umbrella beneath which 
+                reside a large number of methods and tools. We can better
+                undertand why each of the areas we will studying falls under
+                "DevOps" when we comprehend how they contribute to the DevOps
+                goal of delivering useful and correct software to users as
+                rapidly as possible. Let's look at how the main areas of DevOps
+                contribute to this goal:
+            </p>
+
+            <ul class="nested">
+               <li>
+                    Testers cannot test successfully
+                    unless they are part of the
+                    production process from day one: thus, <i>continuous
+                        testing</i>.
+                </li>
+
+                <li>
+                     Operations cannot successfully deploy constantly evolving
+                     products unless deployment itself becomes a software
+                     product capable of swiftly evolving:
+                     thus, <i>software as infrastructure</i>.
+                </li>
+
+                <li>
+                    The "business" stakeholders in the product can't ensure
+                    it is meeting business needs unless they
+                    are continually engaged: thus
+                    <i>continual interaction</i> between the engineers and the
+                    "business people."
+                </li>
+
+                <li>
+                    Why is "business" in scare quotes above?
+                    <br />
+                    "We are not developing software. We are doing something
+                    larger and software is just part of the solution." -- Tom
+                    Poppendieck
+                </li>
+                <li>
+                    How new versions of a piece of software impact the end
+                    users cannot be determined without <i>continual feedback</i>
+                    from those users, thus:
+                </li>
+                <li>
+                    <i>Incremental development</i>, which means
+                    developers work on small batches and can easily change
+                    course based on feedback;
+                </li>
+                <li>
+                    <i>Continuous deployment</i>, allowing users to
+                    comment on the work done in those small batches;
+                    and
+                </li>
+
+                <li>
+                    <i>Continuous monitoring</i>, so that problems using the
+                    product become known right away.
+                </li>
+
+            </ul>
 
         </details>
 
