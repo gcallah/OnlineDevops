@@ -3,6 +3,8 @@
                 Quiz
             </summary>
 
+            <form method="post">
+            {% csrf_token %}
             <ol class="nested">
                 {% for q in questions %}
                     <li>
@@ -47,4 +49,13 @@
                     </ol>
                 {% endfor %}
             </ol>
+
+            <p class="submit">
+                <button class="button" type="submit" name="submit">
+                    Grade Quiz
+                </button>
+            </p>
+            </form>
+
+
         </details>
