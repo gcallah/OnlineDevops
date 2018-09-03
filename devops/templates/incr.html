@@ -84,7 +84,21 @@
             </summary>
 
             <p>
-                For lesson 2, please read:
+                <i>Version control</i> is the name for tools that allow
+                the storing of different versions of project files, and the
+                ability to revert to an earlier version (for instance, when a
+                bug is found in the new version).
+                There are a variety of version control systems in existence,
+                such as <code>RCS</code>, <code>SCCS</code>,
+                <code>Suberversion</code>, <code>CVS</code>,
+                and <code>git</code>.
+                You should study the page on version control
+                <a
+                    href="https://en.wikipedia.org/wiki/Version_control">here</a>.
+            </p>
+
+            <p>
+                For the rest of lesson 2, please read:
                 <br />
                 <a href="https://www.ibm.com/developerworks/java/library/a-devops6/">
                     Version control everything
@@ -95,8 +109,95 @@
 
         <details>
             <summary class="sum1">
-                Lesson 3
+                Lesson 3: git and GitHub
             </summary>
+
+            <p>
+                First things first: don't confuse <code>git</code> with
+                GitHub! <code>git</code> is a system for creating and updating
+                a distributed source code control
+                <a href="devops/gloss/">repository</a>. It includes features
+                for adding new files, updating files, deleting files or
+                versions from the repository, branching, resolving 
+                version conflicts, and reverting to earlier versions.
+            </p>
+
+            <p>
+                GitHub, on the other hand, is a web site that allows for free
+                storage of public repositories ("repos" for short).
+                It is not necessary to use GitHub in order to use
+                <code>git</code>: some companies have a "origin" repo they keep
+                internally, while other people use other public sites, such as
+                <a href="https://bitbucket.org">BitBucket</a>,
+                to hold the origin version of their repo. (We, in fact, will
+                explore moving to BitBucket during our course.)
+            </p>
+
+            <p>
+                You will only need a small number of <code>git</code> commands
+                for most of our work.
+                (You can also use <code>git</code> from 
+                GitHub Desktop, but it is good to be at least a little
+                familiar with command line usage.)
+                In particular, you need to know:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    <code>git add &lt;filename&gt;</code>
+                    <br />
+                    Adds &lt;filename&gt; to the repo.
+                </li>
+
+                <li>
+                    <code>git commit &lt;filename&gt; -m "Message"</code>
+                    <br />
+                    Commits changes to &lt;filename&gt; into the repo,
+                    labeled with "Message". <b>Note</b>: Commit messages
+                    are important! They let your teammates know why a
+                    new version of the file has been created.
+                </li>
+
+                <li>
+                    <code>git push origin master</code>
+                    <br />
+                    This pushes the master branch of your code to the origin
+                    repo. (Some projects create multiple branches: following
+                    the guidelines for <i>continuous delivery</i>, we will not
+                    be doing that.) You run this when you are ready to share
+                    your work with your team: that should happen frequently!
+                    Several pushes per hour is not unusual.
+                </li>
+
+                <li>
+                    <code>git pull origin master</code>
+                    <br />
+                    This is how you refresh your local repo with the work
+                    others have been doing. You should certainly do this to
+                    start your work day, and if you know others are working at
+                    the same time, perhaps more often.
+                </li>
+
+                <li>
+                    <code>git rm &lt;filename&gt; </code>
+                    <br />
+                    This removes &lt;filename&gt; from the repo
+                    <i>and</i> your local file system. You should always 
+                    delete files through <code>git</code> and not using your
+                    native OS's capabilities.
+                </li>
+
+                <li>
+                    <code>git mv &lt;old_filename&gt; &lt;new_filename&gt;</code>
+                    <br />
+                    This renames &lt;old_filename&gt; to &lt;new_filename&gt;.
+                    You should always 
+                    rename files through <code>git</code> and not using your
+                    native OS's capabilities.
+                </li>
+
+            </ul>
+
         </details>
 
         <details>

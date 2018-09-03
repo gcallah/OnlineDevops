@@ -277,4 +277,9 @@ span.frac > sup, span.frac > sub {
 span.frac > sup {border-bottom: 0.08em solid;}
 span.frac > span {display: none;}
 
+
+span.hilight {
+    color: #fc2;
+}
+
 .over { text-decoration: overline; }
