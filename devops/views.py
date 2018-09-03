@@ -20,6 +20,9 @@ def index(request: request)->object:
 def about(request: request)->object:
     return render(request, 'about.html', {'header': site_hdr})
 
+def gloss(request: request)->object:
+    return render(request, 'gloss.html', {'header': site_hdr})
+
 def teams(request: request)->object:
     return render(request, 'teams.html', {'header': site_hdr})
 
