@@ -144,6 +144,16 @@
 
             <ul class="nested">
                 <li>
+                    <code>git clone
+                        https://github.com/gcallah/OnlineDevops.git
+                    </code>
+                    <br />
+                    This makes a local copy of a repo from an online
+                    copy. The online copy becomes the <i>origin</i>
+                    repo for the local copy.
+                </li>
+
+                <li>
                     <code>git add &lt;filename&gt;</code>
                     <br />
                     Adds &lt;filename&gt; to the repo.
@@ -188,15 +198,38 @@
                 </li>
 
                 <li>
-                    <code>git mv &lt;old_filename&gt; &lt;new_filename&gt;</code>
+                    <code>git mv &lt;old_filename&gt;
+                        &lt;new_filename&gt;</code>
                     <br />
                     This renames &lt;old_filename&gt; to &lt;new_filename&gt;.
                     You should always 
                     rename files through <code>git</code> and not using your
                     native OS's capabilities.
                 </li>
-
             </ul>
+
+            <p>
+                <code>git</code> is a <i>distributed</i> version control
+                system. This is important to understand for a couple of
+                reasons:
+            </p>
+
+            <ol class="nested">
+                <li>
+                    Using <code>git</code> one can work entirely offline,
+                    and continue checking code into the repo: each person
+                    who has cloned the repo has a full copy of it.
+                </li>
+
+                <li>
+                    Understanding many of the problems one will hit while
+                    using <code>git</code> is easier knowing this: typically, 
+                    problems arise when to copies of the repo get out
+                    of sync, and <code>git</code> has trouble re-syncing
+                    them.
+                </li>
+
+            </ol>
 
         </details>
 
