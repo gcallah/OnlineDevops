@@ -11,6 +11,9 @@ HTMLS = $(shell ls $(TEMPLDIR)/*.html)
 validate_html: $(HTMLS)
 	# here are the tests
 
+container:
+	docker build -t devops docker
+
 prod: $(SRCS) validate_html
 # run django tests here before committing code!
 	-git commit -a
