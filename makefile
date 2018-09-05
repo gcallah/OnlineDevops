@@ -9,7 +9,7 @@ TEMPLDIR = $(DEVDIR)/templates
 HTMLS = $(shell ls $(TEMPLDIR)/*.html)
 
 validate_html: $(HTMLS)
-	# here are the tests
+	./test_html.sh
 
 container:
 	docker build -t devops docker
