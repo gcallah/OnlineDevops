@@ -32,27 +32,33 @@
             <p>
                 So, as in every other process DevOps touches, as DevOps
                 practitioners we seek to <i>automate everything</i>. Why?
-                Because automation:
+                Because:
             </p>
 
+                
             <ul class="nested">
                 <li>
-                    Is less error-prone than performing the process
-                    "manually" every time it needs to be done.
+                    Repeatedly performing such a process by hand is
+                    <i>boring</i>.
                 </li>
 
                 <li>
-                    The scripts that automate the process also serve to
-                    <i>document</i> it, and in a more authoratative way than a
-                    Word document or Web page: the script <i>must</i> be
-                    correct, or the product won't build, whereas text
-                    documentation can get out of sync with what actually needs
-                    to be done.
+                    Repeatedly performing such a process by hand is,
+                    especially since it is boring, <i>error prone</i>.
                 </li>
 
                 <li>
-                    It divides the labor properly: machines do the drudge work,
-                    while the humans involved get to think creatively.
+                    By automating such a process, we can ensure the inclusion
+                    of steps like automated testing and security checks,
+                    which are likely to be left out, at least on occasion,
+                    if the process is performed manually.
+                </li>
+
+                <li>
+                    The scripts that automate such a process <i>also</i>
+                    serve to <i>document</i> it, and in a fashion such
+                    that the documentation cannot fall behind the actual 
+                    process, since it <i>is</i> the actual process!
                 </li>
             </ul>
 
@@ -64,13 +70,22 @@
             </summary>
 
             <p>
-                "A 'Build tool' is a single term that refers to anything that is 
-                needed to get a piece of software set up, but isn't needed after 
-                that"[5]. There are numerous number of build tools each having a 
-                different set of tradeoffs associated with them. Book titled 
-                "Managing projects with make" helped in creation of this 
-                comparison[3].Here are some of the major build tools and their 
-                features:
+                Build tools are programs that automate the creating of the
+                various products involved in some project. Whenever some
+                "product" is constructed by some program(s) from various
+                components that are combined into that product, we should
+                employ a build tool to automate that combining, rather than
+                building that product by running a series of commands "by
+                hand." 
+            </p>
+
+            <p>
+                The thing built may be a complete program, a portion of a
+                program, documentation, a book, a database configuration,
+                a Docker container: in short, whenever some component of
+                a system we are working on is composed of sub-components,
+                we should seek to automate the building of that component with
+                a build tool.
             </p>
             <details>
                 <summary class="sum2">
@@ -273,19 +288,58 @@
 
             <ul class="nested">
                 <li>
-                    A target, that we seek to build.
+                    A <span class="hilight">target</span>,
+                    that we seek to build.
                 </li>
 
                 <li>
-                    A list of dependencies, upon which that target depends; and
+                    A list of <span class="hilight">dependencies</span>,
+                    upon which that target depends; and
                 </li>
 
                 <li>
-                    A series of commands to be run, in order to build that
+                    A series of <span class="hilight">commands</span>
+                    to be run, in order to build that
                     target from its dependencies.
                 </li>
-
             </ul>
+
+            <p>
+                A key aspect of <code>make</code>'s behavior is that it
+                examines the time at which the target and its dependencies
+                were last updated in order to "decide" whether 
+                to execute the commands that build the target from its
+                dependencies. If the timestamp on the target file is newer 
+                than any of those on the dependency files, <code>make</code> 
+                will "judge" that the target is up-to-date, and does not need
+                to be rebuilt.
+            </p>
+
+            <p>
+                A second crucial aspect of <code>make</code>'s behavior is
+                that,
+                when it is building a target by executing one or more commands,
+                should any of those commands fail (return a non-zero exit
+                code), the <code>make</code> will stop trying to build that
+                target and report the error. It is this feature of <code>make</code>
+                that allows us to insert automated tests into a build, and halt
+                the build should any of those tests fail.
+            </p>
+
+            <p>
+                Having examined the logic of a makefile, let us look at an
+                actual instance of one, from one of our projects:
+            </p>
+
+            <iframe src="https://github.com/gcallah/Emu86/blob/master/makefile"
+                width="80%">
+            </iframe>
+
+            <p>
+                OK, DevOps participants, the iframe documentation I have read
+                suggests that the contents of this makefile should appear
+                above: but they don't! Let's debug this!
+            </p>
 
         </details>
 
