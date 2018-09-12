@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'participants',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "mysite", "static", ),
     )
 STATIC_ROOT = "/home/devopscourse/OnlineDevops/mysite/static"
+
+LOGIN_REDIRECT_URL = 'devops:index'
+LOGIN_URL = 'participant_login'
