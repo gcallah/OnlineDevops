@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}You were logged out successfully{% endblock %}
+
+{% block content %}
+    <h2>You were logged out successfully</h2>
+    <p>Please close all browser windows just to be sure.</p>
+    <a href="{% url 'devops:index' %}">Back to the Home</a>
+{% endblock %}
