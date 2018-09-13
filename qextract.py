@@ -31,11 +31,13 @@ def write_records(recs):
     """
         Args:
             filenm: where to output the CSV
-            recs: the data to output 
+            recs: the data to output
         Returns:
             None (for now: we probably want success or error codes)
     """
     i = 1
+    # 'j' will be used for writing answer options that aren't blank
+    j = ["c.", "d.", "e."]
     for question in recs:
         print(str(i) + ". (1 point)")
         print(question["text"])
@@ -43,7 +45,14 @@ def write_records(recs):
         # the answers get printed here: * the correct one
         print("a. " + question["answerA"])
         print("b. " + question["answerB"])
-        # remember to make sure the rest aren't blank!
+        # making sure the rest aren't blank!
+        k = [question["answerC"], question["answerD"], question["answerE"]]
+        for option in k:
+            if option:
+                # matching the index for 'j' & 'k' to get correct alphabet
+                print(j[k.index(option)] + " " + option)
+            else:
+                break
         i += 1
         print()
 
