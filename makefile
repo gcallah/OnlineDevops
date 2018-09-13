@@ -27,3 +27,5 @@ db: $(MDL)
 	-git commit $(DEVDIR)/migrations/*.py
 	git push origin master
 
+test:
+	./qextract.py > quizzes/new_test.txt
