@@ -36,17 +36,20 @@ def write_records(recs):
             None (for now: we probably want success or error codes)
     """
     i = 1
-    # 'j' will be used for writing answer options that aren't blank
-    j = ["c.", "d.", "e."]
     for question in recs:
         print(str(i) + ". (1 point)")
         print(question["text"])
         print()
-        # the answers get printed here: * the correct one
-        print("a. " + question["answerA"])
-        print("b. " + question["answerB"])
+        # the answers get printed here:
+
         # making sure the rest aren't blank!
-        k = [question["answerC"], question["answerD"], question["answerE"]]
+        k = [question["answerA"], question["answerB"], question["answerC"],
+        question["answerD"], question["answerE"]]
+        j = ["a.", "b.", "c.", "d.", "e."]
+
+        # marking the correct answer by '*'
+        correct = question["correct"].lower() + "."
+        j[j.index(correct)] = "*" + j[j.index(correct)]
         for option in k:
             if option:
                 # matching the index for 'j' & 'k' to get correct alphabet
