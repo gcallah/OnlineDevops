@@ -30,7 +30,6 @@ def read_records(mod_nm):
 def write_records(recs):
     """
         Args:
-            filenm: where to output the CSV
             recs: the data to output
         Returns:
             None (for now: we probably want success or error codes)
@@ -40,9 +39,7 @@ def write_records(recs):
         print(str(i) + ". (1 point)")
         print(question["text"])
         print()
-        # the answers get printed here:
 
-        # making sure the rest aren't blank!
         k = [question["answerA"], question["answerB"], question["answerC"],
         question["answerD"], question["answerE"]]
         j = ["a.", "b.", "c.", "d.", "e."]
