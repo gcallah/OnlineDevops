@@ -14,10 +14,7 @@ import sys
 import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 django.setup()
-from devops.models import *
-
-desired_flds = ['text', 'correct', 'answerA', 'answerB', 'answerC',
-                'answerD', 'answerE']
+from devops.models import Question
 
 def read_records(mod_nm):
     recs = None
