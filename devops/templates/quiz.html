@@ -3,7 +3,7 @@
                 Quiz
             </summary>
 
-            <form method="post">
+            <form method="post" action="{% url 'devops:grade_quiz' %}">
             {% csrf_token %}
             <ol class="nested">
                 {% for q in questions %}
@@ -13,7 +13,7 @@
                     <ol class="nested" type='a'>
                         {% if q.answerA %}
                             <li>
-                                <input type="radio" name="{{q.text}}"
+                                <input type="radio" name="_{{q.id}}"
                                     value='a'>
                                 {{ q.answerA }}
                             </li>
@@ -27,21 +27,21 @@
                         {% endif %}
                         {% if q.answerC %}
                             <li>
-                                <input type="radio" name="{{q.text}}"
+                                <input type="radio" name="_{{q.id}}"
                                     value='c'>
                                 {{ q.answerC }}
                             </li>
                         {% endif %}
                         {% if q.answerD %}
                             <li>
-                                <input type="radio" name="{{q.text}}"
+                                <input type="radio" name="_{{q.id}}"
                                     value='d'>
                                 {{ q.answerD }}
                             </li>
                         {% endif %}
                         {% if q.answerE %}
                             <li>
-                                <input type="radio" name="{{q.text}}"
+                                <input type="radio" name="_{{q.id}}"
                                     value='e'>
                                 {{ q.answerE }}
                             </li>
