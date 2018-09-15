@@ -102,6 +102,8 @@ def grade_quiz(request: HttpRequest()) -> list:
             proper_id = str(key).strip('_')
             user_answers.append({proper_id: value})
 
+    # forces user to answer all quiz questions, redirects to module page if not completed
+    # TODO: keep previously selected radio buttons checked instead of clearing form
     if (len(user_answers) != num_ques):
         messages.warning(request, 'Please complete all questions before submitting')
         return redirect('/devops/' + mod_nm)
@@ -140,4 +142,4 @@ def grade_quiz(request: HttpRequest()) -> list:
 
 
     # ok, all questions processed, lets render results...
-    return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers))
+    return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers, header=site_hdr))
