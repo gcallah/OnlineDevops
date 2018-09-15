@@ -93,7 +93,9 @@ def grade_quiz(request: HttpRequest()) -> list:
     form_data = request.POST
     mod_nm = form_data['submit']
 
+
     num_ques = Question.objects.filter(module=mod_nm).count()
+    num_ques_correct = 0
 
     # get only post fields containing user answers...
     for key, value in form_data.items():
@@ -130,16 +132,24 @@ def grade_quiz(request: HttpRequest()) -> list:
         if answered_question[id_to_retrieve] == original_question.correct:
             processed_answer['message'] = "Congrats, thats correct!"
             processed_answer['status'] = "right"
+            num_ques_correct += 1
         else:
             processed_answer['message'] = "Sorry, that's incorrect!"
             processed_answer['status'] = "wrong"
 
+
         # and store to ship to the Template.
         graded_answers.append(processed_answer)
+
+    # Calculating quiz score
+    num_ques_correct_percentage = int((num_ques_correct / num_ques) * 100)
 
     # TODO: Pass a quiz name to view & display at Here are your quiz results
     # TODO: Perform a validation/redirect forcing user answer all the questions
 
-
     # ok, all questions processed, lets render results...
-    return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers, header=site_hdr))
+    return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers,
+                                                    num_ques=num_ques,
+                                                    num_ques_correct=num_ques_correct,
+                                                    num_ques_correct_percentage=num_ques_correct_percentage,
+                                                    header=site_hdr))

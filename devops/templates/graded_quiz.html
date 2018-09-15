@@ -13,6 +13,13 @@
             <p>{{ graded_answer.message }}</p>
         </div>
     {% endfor %}
+
+     <p>
+        You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions!
+        <br>
+        Giving a score of {{ num_ques_correct_percentage }}%
+    </p>
+
     <p>
         <a href="{% url 'devops:index' %}">Back to the Main</a>
     </p>
