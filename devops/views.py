@@ -1,5 +1,6 @@
 from django.http import request, HttpRequest
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from .models import Question
 
@@ -13,7 +14,7 @@ def get_filenm(mod_nm):
 def get_quiz(request, mod_nm):
     questions = Question.objects.filter(module=mod_nm)
     return render(request, get_filenm(mod_nm),
-                  {'header': site_hdr, 'questions': questions})
+                  {'header': site_hdr, 'questions': questions, 'mod_nm': mod_nm})
 
 
 def index(request: request) -> object:
@@ -90,6 +91,9 @@ def grade_quiz(request: HttpRequest()) -> list:
     graded_answers = []
     user_answers =[]
     form_data = request.POST
+    mod_nm = form_data['submit']
+
+    num_ques = Question.objects.filter(module=mod_nm).count()
 
     # get only post fields containing user answers...
     for key, value in form_data.items():
@@ -97,6 +101,12 @@ def grade_quiz(request: HttpRequest()) -> list:
             # TODO: Thix code smells. Think why? Analyze all further code "what can go wrong
             proper_id = str(key).strip('_')
             user_answers.append({proper_id: value})
+
+    # forces user to answer all quiz questions, redirects to module page if not completed
+    # TODO: keep previously selected radio buttons checked instead of clearing form
+    if (len(user_answers) != num_ques):
+        messages.warning(request, 'Please complete all questions before submitting')
+        return redirect('/devops/' + mod_nm)
 
     # now get those answers from database & check if answer is right...
     for answered_question in user_answers:
@@ -132,4 +142,4 @@ def grade_quiz(request: HttpRequest()) -> list:
 
 
     # ok, all questions processed, lets render results...
-    return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers))
+    return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers, header=site_hdr))

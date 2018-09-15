@@ -163,7 +163,9 @@
                     <code>git commit &lt;filename&gt; -m "Message"</code>
                     <br />
                     Commits changes to &lt;filename&gt; into the repo,
-                    labeled with "Message". <b>Note</b>: Commit messages
+                    labeled with "Message".
+                    <br />
+                    <span class="hilight">Note</span>: Commit messages
                     are important! They let your teammates know why a
                     new version of the file has been created.
                 </li>
@@ -206,6 +208,26 @@
                     rename files through <code>git</code> and not using your
                     native OS's capabilities.
                 </li>
+
+                <li>
+                    <code>git status</code>
+                    <br />
+                    This shows you the current state of your repo.
+                </li>
+
+                <li>
+                    <code>git branch &lt;branchname&gt; </code>
+                    <br />
+                    This will create a new branch with &lt;branchname&gt;.
+                    As mentioned above, our projects generally discourage
+                    branching as an anti-CI pattern.
+                </li>
+
+                <li>
+                    <code>git checkout &lt;branchname&gt; </code>
+                    <br />
+                    This will set your working branch to &lt;branchname&gt;.
+                </li>
             </ul>
 
             <p>
@@ -219,6 +241,7 @@
                     Using <code>git</code> one can work entirely offline,
                     and continue checking code into the repo: each person
                     who has cloned the repo has a full copy of it.
+                    Whenever you get back online, you can resync.
                 </li>
 
                 <li>
@@ -228,13 +251,98 @@
                     of sync, and <code>git</code> has trouble re-syncing
                     them.
                 </li>
-
             </ol>
+
+            <p>
+                So what to do if your copy of the repo is out of date with the
+                origin copy? Here are some things to look at:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    Sometimes, the problem is simply that you haven't done 
+                    a <code>git pull</code> recently enough: try the pull command
+                    above, and see if that clears up your problem.
+                </li>
+
+                <li>
+                    But maybe you and someone else have actually been working
+                    on the same file at the same time? <code>git</code> does
+                    a pretty good job of trying to resolve this: if you have
+                    obviously been working on different parts of the file,
+                    <code>git</code> can often merge your changes correctly,
+                    without human intervention. But if <code>git</code>
+                    can't do this, it will produce a marked-up file for you to
+                    merge by hand. The file will contain lines like:
+                    <pre>
+                    <code>
+                        &lt;&lt;&lt;&lt;&lt; HEAD:file.txt
+                        Hello world
+                        =======
+                        Goodbye
+                        &gt;&gt;&gt;&gt;&gt; 77976da35a11db4580b80ae27e8d65caf5208086:file.txt
+                    </code>
+                    </pre>
+                    <br />
+                    Your job then is to choose whether you want "Hello world"
+                    or "Goodbye" in the file, and delete the one you don't
+                    want, as well as deleting those weird lines
+                    <code>git</code> added.
+                </li>
+
+                <li>
+                    Finally, you may have a situation where you realize
+                    you were just "messing around" and don't want to retain any
+                    of what you wrote. (In that case, a branch would have 
+                    been useful!) You can sometimes fix that up by letting 
+                    <code>git</code> know you want it to ignore your work:
+                    <br />
+                    <code>git checkout --theirs &lt;filename&gt; </code>
+                    <br />
+                    <code>git add &lt;filename&gt; </code>
+                    <br />
+                    After that, you can perform a comit and a push as
+                    above.
+                    This will cause <code>git</code> to ignore your changes
+                    and just use "theirs": the one's in the origin repo.
+                </li>
+
+            </ul>
 
             <p>
                 The final aspect of <code>git</code> we will discuss
                 here is submodules. They are a method of incorporating
-                one repo within another one.
+                one repo within another one. A good example of the use
+                of a submodule is our <code>utils</code> repo: it contains
+                various programs that are useful in multiple projects.
+                We don't want to have different copies of these programs:
+                that violates DRY!
+                So what we do is to share that repo among several repos 
+                by including it as a submodule.
+            </p>
+
+            <p>
+                Submodules are useful, but <code>git</code>'s implementation
+                of them is... tricky. First of all, a repo's submodules do not
+                update automatically! This is sensible, because the submodule
+                might be someone else's code, and you don't want a new version
+                to break your program. So you have to <code>cd</code> 
+                to the submodule directory, and do a pull there to update it.
+            </p>
+
+            <p>
+                (Here we need to document the init and update process.)
+            </p>
+
+            <p>
+                Submodules also appear to sometimes get so seriously out of
+                sync with the origin repo of the submodule that the only
+                solution is to delete the submodule and re-add it. That process
+                is described
+                <a
+                href="https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule">here</a>.
+                (After deleting it, you simply re-add it with the normal
+                steps.)
             </p>
 
         </details>
