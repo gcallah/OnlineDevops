@@ -1,5 +1,7 @@
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.http import request, HttpRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from .models import Question
@@ -80,7 +82,9 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
-
+# descriptor logic_required commented out until logic is created that displays
+# graded quiz when non-logged in user is prompted to log in is completed.
+#@login_required
 def grade_quiz(request: HttpRequest()) -> list:
     """
     Returns list of Questions user answered as right / wrong
@@ -89,10 +93,9 @@ def grade_quiz(request: HttpRequest()) -> list:
     """
     # TODO: this code smells. Think why ("what can go wrong?..) & fix
     graded_answers = []
-    user_answers =[]
+    user_answers = []
     form_data = request.POST
     mod_nm = form_data['submit']
-
 
     num_ques = Question.objects.filter(module=mod_nm).count()
     num_ques_correct = 0
@@ -105,8 +108,8 @@ def grade_quiz(request: HttpRequest()) -> list:
             user_answers.append({proper_id: value})
 
     # forces user to answer all quiz questions, redirects to module page if not completed
-    # TODO: keep previously selected radio buttons checked instead of clearing form
-    if (len(user_answers) != num_ques):
+    # keep previously selected radio buttons checked instead of clearing form handled within templates/quiz.html
+    if len(user_answers) != num_ques:
         messages.warning(request, 'Please complete all questions before submitting')
         return redirect('/devops/' + mod_nm)
 
@@ -114,7 +117,7 @@ def grade_quiz(request: HttpRequest()) -> list:
     for answered_question in user_answers:
         processed_answer = {}
         id_to_retrieve = next(iter(answered_question))
-        original_question = Question.objects.get(pk=id_to_retrieve)
+        original_question = get_object_or_404(Question, pk=id_to_retrieve)
 
         # Lets start building a dict with the status for this particular question...
         # Following the DRY principle - here comes shared part for both cases...
@@ -122,7 +125,7 @@ def grade_quiz(request: HttpRequest()) -> list:
         processed_answer['correctAnswer'] = original_question.correct
         processed_answer['yourAnswer'] = answered_question[id_to_retrieve]
 
-        correctanskey = "answer{}".format(processed_answer['correctAnswer'].upper()) 
+        correctanskey = "answer{}".format(processed_answer['correctAnswer'].upper())
         youranskey = "answer{}".format(processed_answer['yourAnswer'].upper()) 
 
         processed_answer['correctAnswerText'] = getattr(original_question, correctanskey) 
@@ -137,19 +140,32 @@ def grade_quiz(request: HttpRequest()) -> list:
             processed_answer['message'] = "Sorry, that's incorrect!"
             processed_answer['status'] = "wrong"
 
-
         # and store to ship to the Template.
         graded_answers.append(processed_answer)
 
     # Calculating quiz score
     num_ques_correct_percentage = int((num_ques_correct / num_ques) * 100)
 
-    # TODO: Pass a quiz name to view & display at Here are your quiz results
-    # TODO: Perform a validation/redirect forcing user answer all the questions
+    # Pass a quiz name to view & display at Here are your quiz results
+    quiz_name = {
+        'work': 'MOD1: The DevOps Way of Work',
+        'comm': 'MOD2: Cooperation and Communication (Tool: Slack)',
+        'incr': 'MOD3: Incremental Development (Tool: git)',
+        'build': 'MOD4: Automating Builds (Tool: make)',
+        'flow': 'MOD5: Workflow (Tool: kanban boards)',
+        'test': 'MOD6: Automating Testing (Tool: Jenkins)',
+        'infra': 'MOD7: Software as Infrastructure (Tool: Docker)',
+        'cloud': 'MOD8: Cloud Deployment (Tool: Kubernetes)',
+        'micro': 'MOD9: Microservices and Serverless Computing',
+        'monit': 'MOD10: Monitoring (Tool: StatusCake)',
+        'secur': 'MOD11: Security',
+        'sum': 'MOD12: Summing Up',
+    }
 
     # ok, all questions processed, lets render results...
     return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers,
                                                     num_ques=num_ques,
                                                     num_ques_correct=num_ques_correct,
                                                     num_ques_correct_percentage=num_ques_correct_percentage,
+                                                    quiz_name=quiz_name.get(mod_nm),
                                                     header=site_hdr))
