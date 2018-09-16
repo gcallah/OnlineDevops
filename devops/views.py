@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import PermissionDenied
-from django.http import request, HttpRequest
+from django.http import request, HttpRequest, Http404, HttpResponseServerError
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
@@ -82,9 +81,9 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
-# descriptor logic_required commented out until logic is created that displays
-# graded quiz when non-logged in user is prompted to log in is completed.
-#@login_required
+
+# TODO: implement login for quiz grading
+# @login_required
 def grade_quiz(request: HttpRequest()) -> list:
     """
     Returns list of Questions user answered as right / wrong
@@ -92,23 +91,33 @@ def grade_quiz(request: HttpRequest()) -> list:
     :return: list() of dict() containing question, right/wrong, correct answer
     """
     # TODO: this code smells. Think why ("what can go wrong?..) & fix
-    graded_answers = []
-    user_answers = []
-    form_data = request.POST
-    mod_nm = form_data['submit']
+    if request.method == 'POST':
+        graded_answers = []
+        user_answers = []
+        form_data = request.POST
+        mod_nm = form_data['submit']
 
-    num_ques = Question.objects.filter(module=mod_nm).count()
-    num_ques_correct = 0
+        num_ques = Question.objects.filter(module=mod_nm).count()
+        num_ques_correct = 0
+    else:
+        raise Http404
 
-    # get only post fields containing user answers...
-    for key, value in form_data.items():
-        if key.startswith('_'):
-            # TODO: Thix code smells. Think why? Analyze all further code "what can go wrong
-            proper_id = str(key).strip('_')
-            user_answers.append({proper_id: value})
+    try:
+        # get only post fields containing user answers...
+        for key, value in form_data.items():
+            if key.startswith('_'):
+                # TODO: Thix code smells. Think why? Analyze all further code "what can go wrong
+                proper_id = str(key).strip('_')
+                user_answers.append({proper_id: value})
+
+    except Exception as e:
+        """
+        Triggers a 500 error if there aren't any user answers
+        """
+        return HttpResponseServerError()
 
     # forces user to answer all quiz questions, redirects to module page if not completed
-    # keep previously selected radio buttons checked instead of clearing form handled within templates/quiz.html
+    # TODO: keep previously selected radio buttons checked instead of clearing form
     if len(user_answers) != num_ques:
         messages.warning(request, 'Please complete all questions before submitting')
         return redirect('/devops/' + mod_nm)
