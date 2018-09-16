@@ -20,10 +20,7 @@ class Quiz(models.Model):
     def __str__(self):
         return "Quiz for " + self.module
 
-
-#TODO:link question model to the quiz
 class Question(models.Model):
-    #quiz = models.ForeignKey(Quiz,related_name="quiz",on_delete=models.DO_NOTHING)
     module = models.CharField(max_length=MODNM_LEN)
     text = models.CharField(max_length=QUEST_LEN)
     difficulty = models.IntegerField(null=True, blank=True)
