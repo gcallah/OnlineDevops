@@ -159,6 +159,9 @@ def grade_quiz(request: HttpRequest()) -> list:
                     'sum': 'MOD12: Summing Up',
                 }
 
+                # now we are ready to record quiz results...
+
+
                 # ok, all questions processed, lets render results...
                 return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers,
                                                                 num_ques=num_ques,

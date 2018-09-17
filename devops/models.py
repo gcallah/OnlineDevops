@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 QUEST_LEN = 256
@@ -34,3 +35,10 @@ class Question(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Grade(models.Model):
+    quiz = models.ForeignKey(Quiz, related_name='quiz', on_delete=models.DO_NOTHING())
+    score = models.DecimalField()
+    participant = models.ForeignKey(User, related_name='participant', on_delete=models.DO_NOTHING())
+    record_date = models.DateTimeField(auto_now=True)
