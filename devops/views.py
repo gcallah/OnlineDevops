@@ -139,7 +139,7 @@ def grade_quiz(request: HttpRequest()) -> list:
         processed_answer['yourAnswerText'] = getattr(original_question, youranskey) 
 
         # and now we are evaluating either as right or wrong...
-        if answered_question[id_to_retrieve] == original_question.correct:
+        if answered_question[id_to_retrieve] == original_question.correct.lower():
             processed_answer['message'] = "Congrats, thats correct!"
             processed_answer['status'] = "right"
             num_ques_correct += 1
