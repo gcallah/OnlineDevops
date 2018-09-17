@@ -10,7 +10,7 @@
             <h4>{{ graded_answer.question }}</h4>
             <p>The correct answer is:<br>{{ graded_answer.correctAnswer }}) {{ graded_answer.correctAnswerText }}.</p>
             <p {% if 'incorrect' in graded_answer.message %} class="errors" {% endif %}>
-                You answered {{ graded_answer.yourAnswer }}: {{ graded_answer.yourAnswerText }}.
+                You answered: <br> {{ graded_answer.yourAnswer }}) {{ graded_answer.yourAnswerText }}.
             </p>
         </div>
     {% endfor %}
