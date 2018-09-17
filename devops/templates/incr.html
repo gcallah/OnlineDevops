@@ -331,11 +331,53 @@
             </p>
 
             <p>
-                (Here we need to document the init and update process.)
+                First, let's add a submodule: we will add 
+                the <code>utils</code> repo we use in all of our projects as
+                a submodule in our practice repo. The first thing to do 
+                is to add it:
+                <br />
+                <code>git submodule add https://github.com/gcallah/utils.git</code>
+                <br />
+                (The presenter will do this step for the class, since we can
+                only add a submodule once per repo!)
+                <br />
+                This will create a new file called <code>.gitmodules</code> 
+                and a new dir called <code>utils</code>.
+                These store the information about
+                the submodule we have added <i>in the repo</i>.
+                <code>utils</code> will store the information on where the
+                files in this submodule come from.
             </p>
 
             <p>
-                Submodules also appear to sometimes get so seriously out of
+                Now we need to see how to clone a repo that has a submodule
+                and make things work properly. After you clone a repo with a
+                submodule, you will see that you have a directory for the
+                submodule, but that it is empty. You need to do two more steps:
+                <br />
+                <code>git submodule init</code>
+                <br />
+                will initialize your local configuration files to "know"
+                about the submodule. And:
+                <br />
+                <code>git submodule update</code>
+                <br />
+                Will fill the submodule directory with the proper files.
+            </p>
+
+            <p>
+                From that point on, it is important to note that the
+                submodule will <i>not</i> update automatically when
+                you do a pull. Given that the submodule might be third party 
+                software, we don't want a new version that might break
+                our code automatically joining our repo! Thus, when 
+                you need the new version of a submodule in a repo, you have
+                to explicitly run an update. We are working to automatically
+                include such an update in our build files, where appropriate.
+            </p>
+
+            <p>
+                Submodules sometimes get so seriously out of
                 sync with the origin repo of the submodule that the only
                 solution is to delete the submodule and re-add it. That process
                 is described
