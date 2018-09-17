@@ -90,7 +90,6 @@ def grade_quiz(request: HttpRequest()) -> list:
     :param request: request as HttpRequest()
     :return: list() of dict() containing question, right/wrong, correct answer
     """
-    # TODO: this code smells. Think why ("what can go wrong?..) & fix
     if request.method == 'POST':
         graded_answers = []
         user_answers = []
@@ -106,7 +105,6 @@ def grade_quiz(request: HttpRequest()) -> list:
         # get only post fields containing user answers...
         for key, value in form_data.items():
             if key.startswith('_'):
-                # TODO: Thix code smells. Think why? Analyze all further code "what can go wrong
                 proper_id = str(key).strip('_')
                 user_answers.append({proper_id: value})
 
