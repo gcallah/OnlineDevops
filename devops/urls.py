@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^devops/sum/*$', views.sum, name='sum'),
     url(r'^devops/test/*$', views.test, name='test'),
     url(r'^devops/work/*$', views.work, name='work'),
+    url(r'^devops/grade_quiz/*$', views.grade_quiz, name='grade_quiz'),
 ]
