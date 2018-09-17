@@ -70,6 +70,10 @@ ol, ul, dl, li {
     font-size: 1.4em;
 }
 
+ul.errors {
+    color: red;
+}
+
 ul.mod_list, ol.mod_list {
     color: #bcf;
     text-align: center;
