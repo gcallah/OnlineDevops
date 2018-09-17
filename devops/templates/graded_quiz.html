@@ -8,16 +8,18 @@
     {% for graded_answer in graded_answers %}
         <div>
             <h4>{{ graded_answer.question }}</h4>
-            <p>Correct answer was {{ graded_answer.correctAnswer }}: {{ graded_answer.correctAnswerText }}</p>
-            <p>you answered {{ graded_answer.yourAnswer }}: {{ graded_answer.yourAnswerText }}</p>
-            <p>{{ graded_answer.message }}</p>
+            <p>Correct answer is {{ graded_answer.correctAnswer }}: {{ graded_answer.correctAnswerText }}.</p>
+	    {% if 'incorrect' in graded_answer.message %}
+                <p><font color='red'>You answered {{ graded_answer.yourAnswer }}: {{ graded_answer.yourAnswerText }}.</font></p>
+            {% else %}
+                <p>You answered {{ graded_answer.yourAnswer }}: {{ graded_answer.yourAnswerText }}.</p>
+	    {% endif %}
         </div>
     {% endfor %}
 
      <p>
-        You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions!
         <br>
-        Giving you a score of {{ num_ques_correct_percentage }}%
+        You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions giving you a score of {{ num_ques_correct_percentage }}%!
     </p>
 
     <p>
