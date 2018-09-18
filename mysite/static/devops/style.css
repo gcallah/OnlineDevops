@@ -179,19 +179,19 @@ summary.sum1 {
 summary.sum2 {
     font-size: 1.5em;
     color: #9cf;
-    margin: .6em 1.2em .6em 2em;
+    margin: .6em 3em .6em 3em;
 }
 
 summary.sum3 {
     font-size: 1.3em;
     color: #88e;
-    margin: .4em 1.2em .4em 2.8em;
+    margin: .4em 1.2em .4em 4em;
 }
 
 summary.sum4 {
     font-size: 1.2em;
     color: #dac;
-    margin: .4em 1.2em .4em 2.8em;
+    margin: .4em 1.2em .4em 4em;
 }
 
 summary.menu_sum {
