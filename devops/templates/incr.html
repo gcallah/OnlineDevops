@@ -133,6 +133,11 @@
                 explore moving to BitBucket during our course.)
             </p>
 
+            <details>
+            <summary class="sum2">
+                Basic git
+            </summary>
+
             <p>
                 You will only need a small number of <code>git</code> commands
                 for most of our work.
@@ -228,6 +233,16 @@
                     <br />
                     This will set your working branch to &lt;branchname&gt;.
                 </li>
+
+                <li>
+                    <code>git merge &lt;branchname&gt; </code>
+                    <br />
+                    This will merge &lt;branchname&gt;
+                    into the current branch. Therefore, use
+                    <code>git status</code> to make sure you are on the branch 
+                    into which you want to merge before you do
+                    the merge.
+                </li>
             </ul>
 
             <p>
@@ -252,6 +267,12 @@
                     them.
                 </li>
             </ol>
+            </details>
+
+            <details>
+            <summary class="sum2">
+                Resolving conflicts
+            </summary>
 
             <p>
                 So what to do if your copy of the repo is out of date with the
@@ -308,6 +329,12 @@
                 </li>
 
             </ul>
+            </details>
+
+            <details>
+            <summary class="sum2">
+                Submodules
+            </summary>
 
             <p>
                 The final aspect of <code>git</code> we will discuss
@@ -386,6 +413,7 @@
                 (After deleting it, you simply re-add it with the normal
                 steps.)
             </p>
+            </details>
 
         </details>
 
