@@ -120,7 +120,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                 # Lets start building a dict with the status for this particular question...
                 # Following the DRY principle - here comes shared part for both cases...
                 processed_answer['question'] = original_question.text
-                processed_answer['correctAnswer'] = original_question.correct
+                processed_answer['correctAnswer'] = original_question.correct.lower()
                 processed_answer['yourAnswer'] = answered_question[id_to_retrieve]
 
                 correctanskey = "answer{}".format(processed_answer['correctAnswer'].upper())
@@ -130,7 +130,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                 processed_answer['yourAnswerText'] = getattr(original_question, youranskey)
 
                 # and now we are evaluating either as right or wrong...
-                if answered_question[id_to_retrieve] == original_question.correct:
+                if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
                     processed_answer['message'] = "Congrats, thats correct!"
                     processed_answer['status'] = "right"
                     num_ques_correct += 1
