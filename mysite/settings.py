@@ -126,8 +126,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "mysite", "static", ),
     )
-# seeing if we work without this:
-# STATIC_ROOT = "/home/devopscourse/OnlineDevops/mysite/static"
 
 LOGIN_REDIRECT_URL = 'devops:index'
 LOGIN_URL = 'participant_login'
