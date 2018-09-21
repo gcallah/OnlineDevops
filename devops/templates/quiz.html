@@ -4,7 +4,9 @@
             </summary>
 
             {% if not questions %}
-                <p> There is no quiz available for this module. </p> <br/>
+                <ul class="nested">
+                    <p> There is no quiz available for this module. </p>
+                </ul>
             {% else %}
                 {% if messages %}
                     <ul class="errors">
