@@ -1,0 +1,15 @@
+[run]
+branch = True
+omit = *venv/*
+       */__init__*
+       */test*.py
+       */migrations/*
+       */documentation/*
+       */urls.py
+       */manage.py
+       *mysite/*
+       devops/admin.py
+       devops/apps.py
+       *utils/*
+       qexport.py
+       qextract.py
