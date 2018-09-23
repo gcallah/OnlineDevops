@@ -64,7 +64,6 @@ class GradeQuizTestCase(TestCase):
             # create num_questions_to_test and store them...
             self.questions = fixture.create(self.num_questions_to_test, commit=True)
 
-
         # Read about it here: https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs
 
         # ok, we are all set - we have quizzes, questions, and the user. Lets rock!
@@ -117,7 +116,7 @@ class GradeQuizTestCase(TestCase):
         Check is returned graded_answers done right work evaluating right & wrong.
         """
         quizzes = Quiz.objects.all()
-
+        running_id = 0
         # for each of the Quizzes lets try to answer it...
         answers_given = {}
         for quiz in quizzes:
@@ -125,7 +124,6 @@ class GradeQuizTestCase(TestCase):
             quiz_questions = Question.objects.filter(module=quiz.module)
 
             # Now lets build a form, interleaving rights \ wrongs...
-            running_id = 0
             answer_status = ''
             form_data = {}
             for question in quiz_questions:
@@ -144,6 +142,7 @@ class GradeQuizTestCase(TestCase):
                     'answer_status': answer_status
                 }
                 answers_given[question.text] = status_record
+                running_id += 1
 
             # Send form_data in POST request...
             form_data['submit'] = quiz.module
@@ -162,11 +161,36 @@ class GradeQuizTestCase(TestCase):
                 # Check what answer was given and does it match right one & assert that they match......
                 self.assertEqual(specimen['answer_status'], graded_answer['status'])
 
+    def test_grade_quiz_display_attempted_wrong_answers(self):
+        """
+        Integration test for  for DC-7 Display attempted wrong answers.
+        Check is returned graded_answers done good job painting wrong answers.
+        """
+        quizzes = Quiz.objects.all()
+        total_right = 0
+        total_wrong = 0
 
+        # for each of the Quizzes lets try to answer it...
+        for quiz in quizzes:
+            # get all questions & Generate form_data with the right answers...
+            quiz_questions = Question.objects.filter(module=quiz.module)
 
+            # Now lets build a form, interleaving rights \ wrongs...
+            running_id = 0
+            total_wrong = 0
+            form_data = {}
+            for question in quiz_questions:
+                if running_id % 2 == 0:
+                    form_data['_' + str(question.pk)] = question.correct
+                    total_wrong += 1
+                else:
+                    possible_answers = ['A', 'B', 'C', 'D', 'E']
+                    possible_answers.remove(question.correct.upper())
+                    form_data['_' + str(question.pk)] = possible_answers.pop()
+                running_id += 1
+            # Send form_data in POST request...
+            form_data['submit'] = quiz.module
+            results = self.client.post(reverse('devops:grade_quiz'), data=form_data)
 
-
-
-
-
-
+            # Check wrong answers were marked for the user...
+            self.assertContains(results, 'class="errors"', total_wrong)
