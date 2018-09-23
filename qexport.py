@@ -41,8 +41,11 @@ def write_records(recs):
         print(question["text"])
         print()
 
+        #list of answer options
         k = [question["answerA"], question["answerB"], question["answerC"],
         question["answerD"], question["answerE"]]
+
+        #separate list for answer option bullets
         j = ["a.", "b.", "c.", "d.", "e."]
 
         # marking the correct answer by '*'
