@@ -95,7 +95,7 @@ DATABASES = {
 
     'TEST': {
         'ENGINE': os.environ.get('ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('NAME', failover_db),
+        'NAME': os.environ.get('TEST_NAME', failover_db),
         'USER': os.environ.get('USER'),
         'PASSWORD': os.environ.get('PASSWORD'),
         'HOST': os.environ.get('HOST')
