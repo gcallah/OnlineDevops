@@ -28,4 +28,8 @@ db: $(MDL)
 	git push origin master
 
 test:
-	./qextract.py > quizzes/new_test.txt
+	./qexport.py > quizzes/new_test.txt
+
+# to make a quiz for 'mod' set MOD=mod on the command line:
+quiz:
+	./qexport.py $(MOD) > quizzes/$(MOD).txt
