@@ -5,7 +5,7 @@ from django.http import HttpResponseForbidden, HttpResponseBadRequest
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
-from devops.models import Quiz, Question
+from devops.models import Quiz, Question, Grade
 
 
 class GradeQuizTestCase(TestCase):
@@ -13,6 +13,7 @@ class GradeQuizTestCase(TestCase):
     What is Test Case? A Test Case is a set of actions executed
     to verify a particular feature or functionality of your software application.
     This test tests if our grade_quiz() does what is defined in the user story.
+    This one contains set of integration tests for the
     """
 
     def setUp(self):
@@ -108,7 +109,6 @@ class GradeQuizTestCase(TestCase):
             expected_message = "<span>You have correctly answered {0} out of {1} questions giving you a score of 100%!</span>".format(
                 str(self.num_questions_to_test), str(self.num_questions_to_test))
             self.assertInHTML(expected_message, str(results.content))
-
     def test_grade_quiz_displays_right_wrong_answers(self):
         # get all Quizzes...
         """
@@ -194,3 +194,33 @@ class GradeQuizTestCase(TestCase):
 
             # Check wrong answers were marked for the user...
             self.assertContains(results, 'class="errors"', total_wrong)
+    def test_grade_quiz_saves_quiz_results_when_user_authenticated(self):
+        # ARRANGE: Login with the user we created...
+        self.client.force_login(self.user)
+
+        # ACT: Answer the quizz...
+        sample_quiz = Quiz.objects.first()
+        quiz_questions = Question.objects.filter(module=sample_quiz.module)
+
+        # Now lets build a form...
+        form_data = {}
+        for question in quiz_questions:
+            form_data['_' + str(question.pk)] = question.correct
+
+        form_data['submit'] = sample_quiz.module
+
+        # Send form_data in POST request...
+        results = self.client.post(reverse('devops:grade_quiz'), data=form_data)
+
+        # Check if there is a grade of 100% for this quiz
+        grade = Grade.objects.get(quiz=sample_quiz)
+
+        # ASSERT: Check that everythings is saved correct...
+        self.assertEqual(self.user, grade.participant)
+        self.assertEqual(sample_quiz, grade.quiz)
+        self.assertEqual(grade.score, 100.00)
+
+class UserAuthenticationTestCase(TestCase):
+    """
+    This testcase contains set of integration tests for DC-3 User Auth
+    """
