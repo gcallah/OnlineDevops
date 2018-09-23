@@ -12,7 +12,7 @@ class GradeQuizTestCase(TestCase):
     """
     What is Test Case? A Test Case is a set of actions executed
     to verify a particular feature or functionality of your software application.
-    This test tests if our grade_quiz() view produces correct list of Dicts given user data.
+    This test tests if our grade_quiz() does what is defined in the user story.
     """
 
     def setUp(self):
@@ -57,7 +57,6 @@ class GradeQuizTestCase(TestCase):
             # This one will allows us create any number of tasks for current Quiz
             # with the A being the right choice...
             fixture = AutoFixture(Question, generate_fk=True, field_values={
-                'pk': None,
                 'correct': 'a',
                 'module': key
             })
@@ -71,11 +70,15 @@ class GradeQuizTestCase(TestCase):
         # ok, we are all set - we have quizzes, questions, and the user. Lets rock!
 
     @skip
-    def test_grade_quiz_sending_update_request_shall_disallow(self):
+    def test_grade_quiz_sending_anything_except_POST_request_shall_be_disallowed(self):
         results = self.client.put(reverse('devops:grade_quiz'))
         self.assertRaises(HttpResponseBadRequest)
 
-    def test_grade_quiz_recognizes_correct_answers(self):
+    def test_grade_quiz_displays_correct_quiz_score(self):
+        """
+        Integration test for DC-6 Display score to the user
+        Checks if grade_quiz() calculates user score right.
+        """
         # get all Quizzes...
         quizzes = Quiz.objects.all()
 
@@ -103,8 +106,67 @@ class GradeQuizTestCase(TestCase):
             self.assertEqual(len(graded_answers), self.num_questions_to_test)
 
             # Did we counter results right?
-            expected_message = "<p>You have correctly answered 10 out of 10 questions giving you a score of 100%!</p>"
+            expected_message = "<span>You have correctly answered {0} out of {1} questions giving you a score of 100%!</span>".format(
+                str(self.num_questions_to_test), str(self.num_questions_to_test))
             self.assertInHTML(expected_message, str(results.content))
+
+    def test_grade_quiz_displays_right_wrong_answers(self):
+        # get all Quizzes...
+        """
+        Integration test for  for DC-5 Display correct answers.
+        Check is returned graded_answers done right work evaluating right & wrong.
+        """
+        quizzes = Quiz.objects.all()
+
+        # for each of the Quizzes lets try to answer it...
+        answers_given = {}
+        for quiz in quizzes:
+            # get all questions & Generate form_data with the right answers...
+            quiz_questions = Question.objects.filter(module=quiz.module)
+
+            # Now lets build a form, interleaving rights \ wrongs...
+            running_id = 0
+            answer_status = ''
+            form_data = {}
+            for question in quiz_questions:
+                answer_status = ''
+                if running_id % 2 == 0:
+                    form_data['_' + str(question.pk)] = question.correct
+                    answer_status = 'right'
+                else:
+                    possible_answers = ['A', 'B', 'C', 'D', 'E']
+                    possible_answers.remove(question.correct.upper())
+                    form_data['_' + str(question.pk)] = possible_answers.pop()
+                    answer_status = 'wrong'
+                # Now lets store given answer for future evaluation...
+                status_record = {
+                    'answer_given': form_data['_' + str(question.pk)],
+                    'answer_status': answer_status
+                }
+                answers_given[question.text] = status_record
+
+            # Send form_data in POST request...
+            form_data['submit'] = quiz.module
+            results = self.client.post(reverse('devops:grade_quiz'), data=form_data)
+
+            # Lets get evaluation results...
+            graded_answers = results.context['graded_answers']
+
+            # Did all answers were graded?
+            self.assertEqual(len(graded_answers), self.num_questions_to_test)
+
+            # Did we got all the messages right?..
+            for graded_answer in graded_answers:
+                # Find this question in given answer...
+                specimen = answers_given[graded_answer['question']]
+                # Check what answer was given and does it match right one & assert that they match......
+                self.assertEqual(specimen['answer_status'], graded_answer['status'])
+
+
+
+
+
+
 
 
 
