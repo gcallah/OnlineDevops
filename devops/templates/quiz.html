@@ -3,67 +3,71 @@
                 Quiz
             </summary>
 
-            {% if messages %}
-                <ul class="errors">
-                    {% for message in messages %}
-                        <li> {{ message }} </li>
-                    {% endfor %}
+            {% if not questions %}
+                <ul class="nested">
+                    <p> There is no quiz available for this module. </p>
                 </ul>
-            {% endif %}
+            {% else %}
+                {% if messages %}
+                    <ul class="errors">
+                        {% for message in messages %}
+                            <li> {{ message }} </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
 
-            <form method="post" action="{% url 'devops:grade_quiz' %}">
-            {% csrf_token %}
-            <ol class="nested">
-                {% for q in questions %}
-                    <li>
-                        {{ q.text }}
-                    </li>
-                    <ol class="nested" type='a'>
-                        {% if q.answerA %}
+                <form method="post" action="{% url 'devops:grade_quiz' %}">
+                {% csrf_token %}
+                    <ol class="nested">
+                        {% for q in questions %}
                             <li>
-                                <input type="radio" name="_{{q.id}}"
-                                    value='a'>
-                                {{ q.answerA }}
+                                {{ q.text }}
                             </li>
-                        {% endif %}
-                        {% if q.answerB %}
-                            <li>
-                                <input type="radio" name="_{{q.id}}"
-                                    value='b'>
-                                {{ q.answerB }}
-                            </li>
-                        {% endif %}
-                        {% if q.answerC %}
-                            <li>
-                                <input type="radio" name="_{{q.id}}"
-                                    value='c'>
-                                {{ q.answerC }}
-                            </li>
-                        {% endif %}
-                        {% if q.answerD %}
-                            <li>
-                                <input type="radio" name="_{{q.id}}"
-                                    value='d'>
-                                {{ q.answerD }}
-                            </li>
-                        {% endif %}
-                        {% if q.answerE %}
-                            <li>
-                                <input type="radio" name="_{{q.id}}"
-                                    value='e'>
-                                {{ q.answerE }}
-                            </li>
-                        {% endif %}
+                            <ol class="nested" type='a'>
+                                {% if q.answerA %}
+                                    <li>
+                                        <input type="radio" name="_{{q.id}}"
+                                            value='a'>
+                                        {{ q.answerA }}
+                                    </li>
+                                {% endif %}
+                                {% if q.answerB %}
+                                    <li>
+                                        <input type="radio" name="_{{q.id}}"
+                                            value='b'>
+                                        {{ q.answerB }}
+                                    </li>
+                                {% endif %}
+                                {% if q.answerC %}
+                                    <li>
+                                        <input type="radio" name="_{{q.id}}"
+                                            value='c'>
+                                        {{ q.answerC }}
+                                    </li>
+                                {% endif %}
+                                {% if q.answerD %}
+                                    <li>
+                                        <input type="radio" name="_{{q.id}}"
+                                            value='d'>
+                                        {{ q.answerD }}
+                                    </li>
+                                {% endif %}
+                                {% if q.answerE %}
+                                    <li>
+                                        <input type="radio" name="_{{q.id}}"
+                                            value='e'>
+                                        {{ q.answerE }}
+                                    </li>
+                                {% endif %}
+                            </ol>
+                        {% endfor %}
                     </ol>
-                {% endfor %}
-            </ol>
 
-            <p class="submit">
-                <button class="button" type="submit" name="submit" value={{mod_nm}}>
-                    Grade Quiz
-                </button>
-            </p>
-            </form>
-
-
+                    <p class="submit">
+                        <button class="button" type="submit" name="submit" value={{mod_nm}}>
+                            Grade Quiz
+                        </button>
+                    </p>
+                </form>
+            {% endif %}
         </details>
