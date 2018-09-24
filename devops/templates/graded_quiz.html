@@ -21,6 +21,12 @@
     </p>
 
     <p>
-        <a href="{% url 'devops:index' %}">Back to the Main</a>
+        <a href={% url navigate_link %}> 
+            {% if quiz_name in navigate_link %}
+                Return to current module
+            {% else %}
+                Continue to next module
+            {% endif %}
+        </a>
     </p>
 {% endblock %}
