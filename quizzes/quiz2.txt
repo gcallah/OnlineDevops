@@ -1,0 +1,80 @@
+1. (1 point)
+What is our main tool for communication in our course?
+
+a. git
+b. Docker
+c. Kubernetes
+*d. Slack
+
+2. (1 point)
+Testing should be done on...?
+
+a. only the most crucial code in the application
+b. all of the application code
+*c. all of the application code AND all of the infrastructure code
+d. none of the above
+
+3. (1 point)
+In DevOps, "silos" refers to the fact that...?
+
+*a. departments in organizations often seemed sealed off from each other
+b. good software should be divided into "silos"
+c. granaries are major users of software
+d. all of the above
+
+4. (1 point)
+We want to script our environment so that...?
+
+a. environments are always in a known state
+b. we lessen the chance that knowledge is locked in team members' heads
+c. deployments are more predictable and repeatable
+*d. all of the above
+
+5. (1 point)
+"Chaos Monkey" is...?
+
+*a. a tool Netflix developed to intentionally crash their servers
+b. a description of who is in charge of most software projects
+c. the state of infrastructure before DevOps
+d. none of the above
+
+6. (1 point)
+The right artifacts of a project to put under version control are...?
+
+a. project source code
+b. scripts to build the project infrastructure
+c. project documentation
+*d. all of the above
+
+7. (1 point)
+If we version control everything about our project, we...?
+
+a. create a big mess no one could understand
+b. waste a lot of time
+*c. establish a single source of truth for the system
+d. clog our version control system with trivial stuff
+
+8. (1 point)
+Who should have "ownership" (be able to change) parts of a product in an agile team?
+
+a. only the creator of that part
+*b. anyone on the team
+c. only the project supervisor
+d. only the system administrator
+
+9. (1 point)
+A poly-skilled engineer
+
+a. graduated from NYU Poly
+b. knows several languages
+*c. knows all parts of the technology their team uses
+d. all of the above
+
+10. (1 point)
+An advantage Slack has over email threads is
+
+a. people can join and leave threads as they need to
+b. people won't forget to include someone who needs to see a message
+c. it is easy to bring in a new person and have them pick up on the whole conversation
+*d. all of the above
+
