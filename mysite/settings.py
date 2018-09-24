@@ -80,9 +80,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 
-db = os.environ.get('USER') + '$' + os.environ.get('NAME')
 failover_db = os.path.join(BASE_DIR, 'db.sqlite3')
-staging_test_db = os.environ.get('USER') + '$' + os.environ.get('TEST_NAME')
 
 DATABASES = {
     'default': {
