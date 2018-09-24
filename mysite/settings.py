@@ -90,16 +90,10 @@ DATABASES = {
         'NAME': os.environ.get('NAME', failover_db),
         'USER': os.environ.get('USER'),
         'PASSWORD': os.environ.get('PASSWORD'),
-        'HOST': os.environ.get('HOST')
+        'HOST': os.environ.get('HOST'),
+        'TEST': {
+            'NAME': os.environ.get('TEST_NAME', 'test_' + failover_db), }
     },
-
-    'TEST': {
-        'ENGINE': os.environ.get('ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('TEST_NAME', failover_db),
-        'USER': os.environ.get('USER'),
-        'PASSWORD': os.environ.get('PASSWORD'),
-        'HOST': os.environ.get('HOST')
-        }
 }
 
 
