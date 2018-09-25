@@ -39,10 +39,19 @@ Since we are using python 3, we need to install python3-dev
 INSTALLED_APPS = (
     ...
     'django_mysql',
+    ...
 )
 ```
 * check Django + MySQL config is good to go
- * `$python3 manage.py check`
+ * `$ python3 manage.py check`
+
+### Mac OS X
+
+_comming soon_
+
+### Windows
+
+_comming soon_
 
 ## Configure MySQL local instance
 
@@ -54,8 +63,8 @@ Log in with root
 
 If that fails, sudo su and you should be able to use mysql
 
-* `$sudo su`
-* `# mysql`
+* `$ sudo su`
+* `# mysql <command>`
 
 Create a user if desired
 
