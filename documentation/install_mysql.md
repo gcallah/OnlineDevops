@@ -47,11 +47,11 @@ INSTALLED_APPS = (
 
 ### Mac OS X
 
-_comming soon_
+_coming soon_
 
 ### Windows
 
-_comming soon_
+_coming soon_
 
 ## Configure MySQL local instance
 
