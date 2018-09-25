@@ -59,12 +59,12 @@ If that fails, sudo su and you should be able to use mysql
 
 Create a user if desired
 
-* `mysql> CREATE USER '<name>'@'localhost' IDENTIFIED BY '<passwd>';
-* `mysql> GRANT ALL PRIVILEGES ON *.* TO '<name>'@'localhost';
-* `mysql> FLUSH PRIVILEGES`
+* `mysql> CREATE USER '<name>'@'localhost' IDENTIFIED BY '<passwd>';`
+* `mysql> GRANT ALL PRIVILEGES ON *.* TO '<name>'@'localhost';`
+* `mysql> FLUSH PRIVILEGES;`
 
 If you get an **ERROR 1396** message, you can use this work around to get around the known bug
 
 * drop user, flush, and try to create again
- * `mysql> DROP USER '<name>'@'localhost';
- * `mysql> FLUSH PRIVILEGES`
+ * `mysql> DROP USER '<name>'@'localhost';`
+ * `mysql> FLUSH PRIVILEGES;`
