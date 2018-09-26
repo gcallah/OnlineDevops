@@ -1,9 +1,9 @@
 # Components needed to have Django + MySQL
 
-* Python 3.6
-* Django 2.1
-* MySQL 5.7
-* mysqlclient 1.3 (Python 3 compatible version of MySQL-python)
+* [Python 3.6](https://www.python.org/downloads/release/python-360/)
+* [Django 2.1](https://www.djangoproject.com/download/)
+* [MySQL 5.7](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)
+* [mysqlclient 1.3 (Python 3 compatible version of MySQL-python)](https://pypi.org/project/mysqlclient/)
 
 ## Installation
 
