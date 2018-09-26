@@ -71,7 +71,7 @@ _coming soon_
 
 Log in with root
 
-`$ mysql -u root -p`
+* `$ mysql -u root -p`
 
 If that fails, sudo su and you should be able to use mysql
 
@@ -113,7 +113,7 @@ Create the database (run commands as root, or another user that you gave admin p
 ### Migrate existing data and change django app settings to MySQL
 
 Create a data dump to be loaded later
-`$ python3 manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > datadump.json`
+* `$ python3 manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > datadump.json`
 
 #### settings.py
 
@@ -160,8 +160,8 @@ For your local dev instance, the host and port lines are optional. You should al
 
 Apply any migrations to the new MySQL database(s)
 
-> `$ python3 manage.py makemigrations`
-> `$ python3 manage.py migrate --run-syncdb`
+> `$ python3 manage.py makemigrations`  
+> `$ python3 manage.py migrate --run-syncdb`  
 > `$ python3 manage.py loaddata datadump.json`
 
 ## Validation
@@ -179,4 +179,4 @@ View table structure
 * `mysql> describe <tablename>;`
 
 View data within table
-`mysql> select * from <tablename>;`
+* `mysql> select * from <tablename>;`
