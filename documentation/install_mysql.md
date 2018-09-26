@@ -63,7 +63,26 @@ _coming soon_
 
 ### Windows
 
-_coming soon_
+#### Download and run msi
+
+[MySql Installer for windows](https://dev.mysql.com/downloads/installer/)
+
+Choose whichever setup type you'd like. If unsure, `Developer default` is satisfactory, but any option that includes mysql server will work. if the option you pick does not include [Connector/Python](https://dev.mysql.com/downloads/connector/python/) you can download and install that separately
+
+Accept the defaults within the installation wizard with the exception of the `Accounts and Roles` section. In `Accounts and Roles` set a root password and create a user account within that same screen if you'd like.
+
+By default, the windows installer doesn't add mysql.exe to PATH. Open up PowerShell (or add it from the system properties GUI) and run the following command (mysql.exe may be located somewhere else in your filesystem. change the path directory as appropriate)
+* `PS Z:\> [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\MySQL\MySQL Server 8.0\bin", [EnvironmentVariableTarget]::Machine)`
+
+#### Windows installation issues
+
+On windows, you may have issues when installing mysqlclient from pip
+* `> python -m pip install mysqlclient`
+* Thus, try installing mysqlclient from [source](https://github.com/PyMySQL/mysqlclient-python/archive/master.zip)
+
+On windows, you may get an error `error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools`
+* download the [visual C++ build tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and install. Even though the error is complaining about visual c++ 2014, everything works fine with newer versions
+* after rebooting, try installing mysqlclient from source again
 
 ## Configure MySQL local instance
 
