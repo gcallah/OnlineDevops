@@ -22,7 +22,7 @@
 
     <p>
         <a href={% url navigate_link %}> 
-            {% if quiz_name in navigate_link %}
+            {% if not passed %}
                 Return to current module
             {% else %}
                 Continue to next module

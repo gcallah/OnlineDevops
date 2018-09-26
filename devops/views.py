@@ -188,9 +188,11 @@ def grade_quiz(request: HttpRequest()) -> list:
             navigate_link = 'devops:'
             if (num_ques_correct_percentage < curr_quiz.minpass):
                 navigate_link += mod_nm
+                passed = False
             # Else if student passed, display link to next module
             else:
                 navigate_link += quiz_name[1]
+                passed = True
 
             # now we are ready to record quiz results...
             if request.user.username != '':
@@ -206,6 +208,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                                                             num_ques_correct_percentage=int(num_ques_correct_percentage),
                                                             quiz_name=quiz_name[0],
                                                             navigate_link=navigate_link,
+                                                            passed=passed,
                                                             header=site_hdr))
 
 
