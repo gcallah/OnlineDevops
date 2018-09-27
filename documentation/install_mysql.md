@@ -72,15 +72,19 @@ Choose whichever setup type you'd like. If unsure, `Developer default` is satisf
 Accept the defaults within the installation wizard with the exception of the `Accounts and Roles` section. In `Accounts and Roles` set a root password and create a user account within that same screen if you'd like.
 
 By default, the windows installer doesn't add mysql.exe to PATH. Open up PowerShell (or add it from the system properties GUI) and run the following command (mysql.exe may be located somewhere else in your filesystem. change the path directory as appropriate)
-* `PS Z:\> [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\MySQL\MySQL Server 8.0\bin", [EnvironmentVariableTarget]::Machine)`
+* `> [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\MySQL\MySQL Server 8.0\bin", [EnvironmentVariableTarget]::Machine)`
 
 #### Windows installation issues
 
 On windows, you may have issues when installing mysqlclient from pip
 * `> python -m pip install mysqlclient`
-* Thus, try installing mysqlclient from [source](https://github.com/PyMySQL/mysqlclient-python/archive/master.zip)
 
-On windows, you may get an error `error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools`
+Try specifying the prior version
+* `> python -m pip install mysqlclient==1.3.12`
+
+If that did not work, try installing mysqlclient from [source](https://github.com/PyMySQL/mysqlclient-python/archive/master.zip). You may also need to download a specific connector (6.0.2) as the source package is explictly looking for that. After downloading `Connector 6.0.2` update site.cfg with the appropriate path e.g. `connector = C:\Program Files (x86)\MySQL\MySQL Connector C 6.0.2`
+
+On windows, you may get the error `error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools`
 * download the [visual C++ build tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and install. Even though the error is complaining about visual c++ 2014, everything works fine with newer versions
 * after rebooting, try installing mysqlclient from source again
 
@@ -99,7 +103,13 @@ If that fails, sudo su and you should be able to use mysql
 
 Create a user if desired
 
-* `mysql> CREATE USER '<name>'@'localhost' IDENTIFIED BY '<passwd>';`
+**On windows, the latest MySQL installer version uses caching_sha2_password as default authentication plugin causing compatibility issues**
+> when creating a user on windows with the newer MySQL version specify the previous authentication plugin instead  
+> `mysql> CREATE USER '<name>'@'localhost' IDENTIFIED WITH mysql_native_password BY '<passwd>';`
+
+If not using the newer version of MySQL or the newer authentication plugin was not selected upon installation,
+
+> `mysql> CREATE USER '<name>'@'localhost' IDENTIFIED BY '<passwd>';`
 * `mysql> GRANT ALL PRIVILEGES ON *.* TO '<name>'@'localhost';`
 * `mysql> FLUSH PRIVILEGES;`
 
