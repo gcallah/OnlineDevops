@@ -20,10 +20,17 @@ def get_quiz(request, mod_nm):
     # :param: mod_nm
     # :return: header, list() containing randomized questions, mod_nm
     try:
-
         questions = Question.objects.filter(module=mod_nm)
+        number_of_questions = questions.count()
         number_of_questions_to_randomize = get_object_or_404(Quiz, module=mod_nm).numq
-        questions_randomized = random.sample(list(questions), number_of_questions_to_randomize)
+
+        if number_of_questions != 0:
+            if number_of_questions >= number_of_questions_to_randomize:
+                    questions_randomized = random.sample(list(questions), number_of_questions_to_randomize)
+            else:
+                    questions_randomized = random.sample(list(questions), number_of_questions)
+        else:
+            questions_randomized = random.sample(list(questions), 0)
 
         return render(request, get_filenm(mod_nm),
                       {'header': site_hdr, 'questions': questions_randomized, 'mod_nm': mod_nm})
@@ -121,7 +128,16 @@ def grade_quiz(request: HttpRequest()) -> list:
             # forces user to answer all quiz questions, redirects to module page if not completed
             # TODO: keep previously selected radio buttons checked instead of clearing form
             mod_nm = form_data['submit']
-            num_ques_of_quiz = get_object_or_404(Quiz, module=mod_nm).numq
+
+            questions = Question.objects.filter(module=mod_nm)
+            questions_count = questions.count()
+            questions_count_randomized = get_object_or_404(Quiz, module=mod_nm).numq
+
+
+            if questions_count >= questions_count_randomized:
+                num_ques_of_quiz = questions_count_randomized
+            else:
+                num_ques_of_quiz = questions_count
 
             number_of_ques_to_check = num_ques_of_quiz #Number of randomized questions from get_quiz.
 
