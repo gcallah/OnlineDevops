@@ -22,8 +22,7 @@ def get_quiz(request, mod_nm):
     try:
 
         questions = Question.objects.filter(module=mod_nm)
-        number_of_questions = questions.count()
-        number_of_questions_to_randomize = int(number_of_questions * .8)
+        number_of_questions_to_randomize = get_object_or_404(Quiz, module=mod_nm).numq
         questions_randomized = random.sample(list(questions), number_of_questions_to_randomize)
 
         return render(request, get_filenm(mod_nm),
@@ -122,9 +121,9 @@ def grade_quiz(request: HttpRequest()) -> list:
             # forces user to answer all quiz questions, redirects to module page if not completed
             # TODO: keep previously selected radio buttons checked instead of clearing form
             mod_nm = form_data['submit']
-            num_ques_of_quiz = Question.objects.filter(module=mod_nm).count()
+            num_ques_of_quiz = get_object_or_404(Quiz, module=mod_nm).numq
 
-            number_of_ques_to_check = int(num_ques_of_quiz * .8) #Number of randomized questions from get_quiz.
+            number_of_ques_to_check = num_ques_of_quiz #Number of randomized questions from get_quiz.
 
             if len(user_answers) != number_of_ques_to_check:
                 messages.warning(request, 'Please complete all questions before submitting')
