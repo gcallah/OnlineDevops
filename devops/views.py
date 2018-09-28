@@ -3,6 +3,7 @@ from django.http import request, HttpRequest, Http404, HttpResponseServerError, 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from decimal import Decimal
+import random
 
 from .models import Question, Grade, Quiz
 
@@ -14,10 +15,25 @@ def get_filenm(mod_nm):
 
 
 def get_quiz(request, mod_nm):
-    questions = Question.objects.filter(module=mod_nm)
-    return render(request, get_filenm(mod_nm),
-                  {'header': site_hdr, 'questions': questions, 'mod_nm': mod_nm})
 
+    #  Returns list of Randomized Questions
+    # :param: mod_nm
+    # :return: header, list() containing randomized questions, mod_nm
+    try:
+
+        questions = Question.objects.filter(module=mod_nm)
+        number_of_questions = questions.count()
+        number_of_questions_to_randomize = int(number_of_questions * .8)
+        questions_randomized = random.sample(list(questions), number_of_questions_to_randomize)
+
+        return render(request, get_filenm(mod_nm),
+                      {'header': site_hdr, 'questions': questions_randomized, 'mod_nm': mod_nm})
+
+        # And if we crashed along the way - we crash gracefully...
+    except Exception as e:
+        return HttpResponseServerError(e.__cause__,
+                                       e.__context__,
+                                       e.__traceback__)
 
 def index(request: request) -> object:
     return render(request, 'index.html', {'header': site_hdr})
@@ -106,8 +122,11 @@ def grade_quiz(request: HttpRequest()) -> list:
             # forces user to answer all quiz questions, redirects to module page if not completed
             # TODO: keep previously selected radio buttons checked instead of clearing form
             mod_nm = form_data['submit']
-            num_ques = Question.objects.filter(module=mod_nm).count()
-            if len(user_answers) != num_ques:
+            num_ques_of_quiz = Question.objects.filter(module=mod_nm).count()
+
+            number_of_ques_to_check = int(num_ques_of_quiz * .8) #Number of randomized questions from get_quiz.
+
+            if len(user_answers) != number_of_ques_to_check:
                 messages.warning(request, 'Please complete all questions before submitting')
                 return redirect('/devops/' + mod_nm)
 
@@ -141,7 +160,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                 graded_answers.append(processed_answer)
 
             # Calculating quiz score
-            num_ques_correct_percentage = Decimal((num_ques_correct / num_ques) * 100)
+            num_ques_correct_percentage = Decimal((num_ques_correct / number_of_ques_to_check) * 100)
 
             # Pass a quiz name to view & display at Here are your quiz results
             quiz_name = {
@@ -168,7 +187,7 @@ def grade_quiz(request: HttpRequest()) -> list:
 
             # ok, all questions processed, lets render results...
             return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers,
-                                                            num_ques=num_ques,
+                                                            num_ques=number_of_ques_to_check,
                                                             num_ques_correct=num_ques_correct,
                                                             num_ques_correct_percentage=int(num_ques_correct_percentage),
                                                             quiz_name=quiz_name.get(mod_nm),
