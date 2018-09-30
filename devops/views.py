@@ -184,15 +184,14 @@ def grade_quiz(request: HttpRequest()) -> list:
             # Pass a quiz name to view & display at Here are your quiz results
             quiz_name = get_quiz_name(mod_nm)
 
-            # If student failed, display link to current module
-            navigate_link = 'devops:'
+            # No matter if user passes or fails, show link to next module
+            navigate_links = {
+                'next': 'devops:' + quiz_name[1]
+            }
+
+            # If user fails, show link to previous module
             if (num_ques_correct_percentage < curr_quiz.minpass):
-                navigate_link += mod_nm
-                passed = False
-            # Else if student passed, display link to next module
-            else:
-                navigate_link += quiz_name[1]
-                passed = True
+                navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
             if request.user.username != '':
@@ -207,8 +206,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                                                             num_ques_correct=num_ques_correct,
                                                             num_ques_correct_percentage=int(num_ques_correct_percentage),
                                                             quiz_name=quiz_name[0],
-                                                            navigate_link=navigate_link,
-                                                            passed=passed,
+                                                            navigate_links=navigate_links,
                                                             header=site_hdr))
 
 

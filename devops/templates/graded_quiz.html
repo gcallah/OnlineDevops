@@ -21,12 +21,15 @@
     </p>
 
     <p>
-        <a href={% url navigate_link %}> 
-            {% if not passed %}
-                Return to current module
-            {% else %}
-                Continue to next module
-            {% endif %}
+        {% if navigate_links.previous %}
+            <a href={% url navigate_links.previous %}>
+                We suggest you repeat this module
+            </a>
+            <br/>
+        {% endif %}
+        <a href={% url navigate_links.next %}>
+            Continue onto next module
         </a>
+        <br/>
     </p>
 {% endblock %}
