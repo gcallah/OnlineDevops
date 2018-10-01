@@ -11,6 +11,6 @@ def home(request):
     :returns: welcome message with username in it as HttpResponse()
     """
     logged_in_user = request.user.__str__()
-    message = "Welcome, " + logged_in_user + "! You now seeing restricted content..."
+    message = "<p>Welcome, " + logged_in_user + "! You now seeing restricted content...</p>"
     return HttpResponse(message)
 
