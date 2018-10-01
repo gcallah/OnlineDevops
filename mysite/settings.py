@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'www.thedevopscourse.com',
     '127.0.0.1',
+    'nyustaging.pythonanywhere.com'
 ]
 
 
