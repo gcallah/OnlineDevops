@@ -6,19 +6,26 @@
         </h1>
 
         <figure>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tijuana_residential_construction.jpg/440px-Tijuana_residential_construction.jpg"
-            width="20%">
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/l6Sg3e1oKoQ"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
             <figcaption>
+                Automating our builds
             </figcaption>
         </figure>
-
-        <p class="leadquote">
-        </p>
 
         <details>
             <summary class="sum1">
                 Lesson 1: Why Automate Our Builds?
             </summary>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tijuana_residential_construction.jpg/440px-Tijuana_residential_construction.jpg"
+                width="20%">
+                <figcaption>
+                </figcaption>
+            </figure>
 
             <p>
                 Building software is often a complex process. A single software 
@@ -320,7 +327,7 @@
                 that,
                 when it is building a target by executing one or more commands,
                 should any of those commands fail (return a non-zero exit
-                code), the <code>make</code> will stop trying to build that
+                code), <code>make</code> will stop trying to build that
                 target and report the error. It is this feature of <code>make</code>
                 that allows us to insert automated tests into a build, and halt
                 the build should any of those tests fail.
