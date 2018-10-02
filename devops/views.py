@@ -104,6 +104,24 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
+def get_quiz_name(mod_nm):
+    # Returns a tuple consisting of the module's quiz name and the name of the next module
+    quiz_names = {
+        'work': ('MOD1: The DevOps Way of Work', 'comm'),
+        'comm': ('MOD2: Cooperation and Communication (Tool: Slack)', 'incr'),
+        'incr': ('MOD3: Incremental Development (Tool: git)', 'build'),
+        'build': ('MOD4: Automating Builds (Tool: make)', 'flow'),
+        'flow': ('MOD5: Workflow (Tool: kanban boards)', 'test'),
+        'test': ('MOD6: Automating Testing (Tool: Jenkins)', 'infra'),
+        'infra': ('MOD7: Software as Infrastructure (Tool: Docker)', 'cloud'),
+        'cloud': ('MOD8: Cloud Deployment (Tool: Kubernetes)', 'micro'),
+        'micro': ('MOD9: Microservices and Serverless Computing', 'monit'),
+        'monit': ('MOD10: Monitoring (Tool: StatusCake)', 'secur'),
+        'secur': ('MOD11: Security', 'sum'),
+        'sum': ('MOD12: Summing Up')
+    }
+
+    return quiz_names.get(mod_nm)
 
 def grade_quiz(request: HttpRequest()) -> list:
     """
@@ -176,28 +194,25 @@ def grade_quiz(request: HttpRequest()) -> list:
 
             # Calculating quiz score
             num_ques_correct_percentage = Decimal((num_ques_correct / number_of_ques_to_check) * 100)
+            curr_quiz = Quiz.objects.get(module=mod_nm)
 
             # Pass a quiz name to view & display at Here are your quiz results
-            quiz_name = {
-                'work': 'MOD1: The DevOps Way of Work',
-                'comm': 'MOD2: Cooperation and Communication (Tool: Slack)',
-                'incr': 'MOD3: Incremental Development (Tool: git)',
-                'build': 'MOD4: Automating Builds (Tool: make)',
-                'flow': 'MOD5: Workflow (Tool: kanban boards)',
-                'test': 'MOD6: Automating Testing (Tool: Jenkins)',
-                'infra': 'MOD7: Software as Infrastructure (Tool: Docker)',
-                'cloud': 'MOD8: Cloud Deployment (Tool: Kubernetes)',
-                'micro': 'MOD9: Microservices and Serverless Computing',
-                'monit': 'MOD10: Monitoring (Tool: StatusCake)',
-                'secur': 'MOD11: Security',
-                'sum': 'MOD12: Summing Up',
+            quiz_name = get_quiz_name(mod_nm)
+
+            # No matter if user passes or fails, show link to next module
+            navigate_links = {
+                'next': 'devops:' + quiz_name[1]
             }
+
+            # If user fails, show link to previous module
+            if (num_ques_correct_percentage < curr_quiz.minpass):
+                navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
             if request.user.username != '':
                 action_status = Grade.objects.create(participant=request.user,
                                                      score=num_ques_correct_percentage.real,
-                                                     quiz=Quiz.objects.get(module=mod_nm),
+                                                     quiz=curr_quiz,
                                                      quiz_name=mod_nm)
 
             # ok, all questions processed, lets render results...
@@ -205,7 +220,8 @@ def grade_quiz(request: HttpRequest()) -> list:
                                                             num_ques=number_of_ques_to_check,
                                                             num_ques_correct=num_ques_correct,
                                                             num_ques_correct_percentage=int(num_ques_correct_percentage),
-                                                            quiz_name=quiz_name.get(mod_nm),
+                                                            quiz_name=quiz_name[0],
+                                                            navigate_links=navigate_links,
                                                             header=site_hdr))
 
 
