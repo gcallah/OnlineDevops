@@ -205,6 +205,52 @@
 
         <details>
             <summary class="sum1">
+                Our Docker Implementation
+            </summary>
+
+            <p>
+            Each project we work on should have a 
+            <code>Dockerfile</code> consisting of instructions
+            on how to build the image for that project, a
+            <code>requirements.txt</code> listing what
+            external modules need to be included in the image,
+            and a line in the project's <code>makefile</code>
+            automating the build of the image.
+            </p>
+
+            <p>
+                So, in the <code>makefile</code> we want something 
+                like:
+            </p>
+
+            <p>
+            <code>
+                <pre>
+        container: $(DOCKER_DIR)/Dockerfile  $(DOCKER_DIR)/requirements.txt
+	        docker build -t indra docker
+                </pre>
+            </code>
+            </p>
+
+            <ul class="nested">
+                <li>
+                    <a href="https://github.com/gcallah/indras_net/blob/master/docker/Dockerfile">
+                        Here is a sample Dockerfile.
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/gcallah/indras_net/blob/master/docker/requirements.txt">
+                        Here is the requirements file it uses.
+                    </a>
+                </li>
+            </ul>
+
+
+        </details>
+
+        <details>
+            <summary class="sum1">
                 Other Readings
             </summary>
 
