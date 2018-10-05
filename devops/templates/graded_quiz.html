@@ -9,9 +9,7 @@
         <div>
             <h4>{{ graded_answer.question }}</h4>
             <p>
-                {% if graded_answer.status == 'right' %}
-                    You got it correct!
-                {% endif %}
+                {{ graded_answer.message }}
                 The correct answer is: <br/>
                 {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
             </p>
