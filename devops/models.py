@@ -13,6 +13,11 @@ QTYPES = (
     ('ESSAY', 'Essay'),
 )
 
+class Module(models.Model):
+    module = models.CharField(max_length=MODNAM_LEN)
+    title = models.TextField()
+    next_module = models.CharField(max_length=MODNAM_LEN)
+
 class Quiz(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
     minpass = models.FloatField(default=DEF_PASS)
