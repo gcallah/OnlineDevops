@@ -14,9 +14,9 @@ QTYPES = (
 )
 
 class Module(models.Model):
-    module = models.CharField(max_length=MODNAM_LEN)
+    module = models.CharField(max_length=MODNM_LEN)
     title = models.TextField()
-    next_module = models.CharField(max_length=MODNAM_LEN)
+    next_module = models.CharField(max_length=MODNM_LEN)
 
 class Quiz(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
