@@ -5,7 +5,7 @@ from django.contrib import messages
 from decimal import Decimal
 import random
 
-from .models import Question, Grade, Quiz
+from .models import Question, Grade, Quiz, Module
 
 site_hdr = "The DevOps Course"
 
@@ -197,11 +197,11 @@ def grade_quiz(request: HttpRequest()) -> list:
             curr_quiz = Quiz.objects.get(module=mod_nm)
 
             # Pass a quiz name to view & display at Here are your quiz results
-            quiz_name = get_quiz_name(mod_nm)
+            curr_mod = Module.objects.get(module=mod_nm)
 
             # No matter if user passes or fails, show link to next module if it exists
             navigate_links = {
-                'next': 'devops:' + quiz_name[1] if quiz_name[1] else False
+                'next': 'devops:' + curr_mod.next_module if curr_mod.next_module else False
             }
 
             # If user fails, show link to previous module
@@ -220,7 +220,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                                                             num_ques=number_of_ques_to_check,
                                                             num_ques_correct=num_ques_correct,
                                                             num_ques_correct_percentage=int(num_ques_correct_percentage),
-                                                            quiz_name=quiz_name[0],
+                                                            quiz_name=curr_mod.title,
                                                             navigate_links=navigate_links,
                                                             header=site_hdr))
 
