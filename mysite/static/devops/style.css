@@ -34,7 +34,7 @@ th, td {
 }
 
 th {
-    background: #bdf;
+    background: #444;
 }
 
 th.table-head {
@@ -42,7 +42,7 @@ th.table-head {
 }
 
 td {
-    background: #fff;
+    background: #444;
 }
 
 p {
