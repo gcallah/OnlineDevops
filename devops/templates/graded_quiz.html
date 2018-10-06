@@ -4,40 +4,65 @@
 {% block title %}Quiz Evaluation{% endblock %}
 
 {% block content %}
-    <h1>{{ quiz_name }} - Here are your quiz results</h1>
+    <div class="card">
+      <div class="card-body bg-info">
+        <h1 style="margin-bottom: 3vh;">{{ quiz_name }} -  results</h1>
+        <h4 class="card-subtitle mb-2 text-secondary">You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions giving you a score of {{ num_ques_correct_percentage }}%!</h4>
+
+      </div>
+    </div>
+
+
+
+
     {% for graded_answer in graded_answers %}
-        <div>
-            <h4>{{ graded_answer.question }}</h4>
-            <p>
+
+        <div class="card" style="margin-top:2vh;font-size:1.5rem;">
+          <div class="card-body">
+            <h5 class="card-title">
+                {{ graded_answer.question }}
+
+            </h5>
+            <p class="card-text">
                 {% if graded_answer.status == 'right' %}
                     You got it correct!
                 {% endif %}
                 The correct answer is: <br/>
                 {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
+
             </p>
-            {% if graded_answer.status == 'wrong' %}
-                <p class="errors">
-                    You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
-                </p>
-            {% endif %}
+
+              <p class="card-text">
+                {% if graded_answer.status == 'wrong' %}
+                    <p class="errors">
+                        You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
+                    </p>
+                {% endif %}
+              </p>
+
+          </div>
         </div>
+
     {% endfor %}
 
-     <p>
-        <br>
-         <span>You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions giving you a score of {{ num_ques_correct_percentage }}%!</span>
-    </p>
 
-    <p>
-        {% if navigate_links.previous %}
-            <a href={% url navigate_links.previous %}>
+
+    <p class="text-right">
+
+         {% if navigate_links.previous %}
+            <a href={% url navigate_links.previous %} class=" btn btn-danger" style="margin-bottom:1vh;margin-top:1vh;width:100%;">
                 We suggest you repeat this module
             </a>
             <br/>
         {% endif %}
-        <a href={% url navigate_links.next %}>
+
+         <a href={% url navigate_links.next %} class='btn btn-primary' style="width:100%;">
             Continue onto next module
         </a>
-        <br/>
+
+
+
+
+
     </p>
 {% endblock %}
