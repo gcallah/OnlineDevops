@@ -1,0 +1,42 @@
+version: '2'
+services:
+
+  dbengine:
+    image: mysql
+    container_name: dbengine
+    command: mysqld --user=root
+    volumes:
+      - ./dbcreation.sql:/tmp/dbcreation.sql
+      - ./import_db.sh:/tmp/import_db.sh
+    ports:
+      - "3306:3306"
+    networks:
+      - devops_net
+    restart: always
+    environment:
+      MYSQL_DATABASE: "devops"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "releaseit!"
+      MYSQL_ROOT_PASSWORD: "releaseit!"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  devopsapp:
+    depends_on:
+      - dbengine
+    restart: always
+    container_name: devopsapp
+    ports:
+      - "8000:8000"
+    build:
+      context: .
+      dockerfile: django-container.yml
+    volumes:
+      - ../.:/home/DevOps
+    command: python3 manage.py runserver 8000
+    networks:
+    - devops_net
+
+networks:
+  devops_net:
+    driver: bridge
+
