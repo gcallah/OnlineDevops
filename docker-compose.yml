@@ -6,8 +6,7 @@ services:
     container_name: dbengine
     command: mysqld --user=root
     volumes:
-      - ./dbcreation.sql:/tmp/dbcreation.sql
-      - ./import_db.sh:/tmp/import_db.sh
+      - .:/source
     ports:
       - "3306:3306"
     networks:
@@ -23,16 +22,15 @@ services:
   devopsapp:
     depends_on:
       - dbengine
+    build:
+      context: .
+      dockerfile: django-container.yml
     restart: always
     container_name: devopsapp
     ports:
       - "8000:8000"
-    build:
-      context: .
-      dockerfile: django-container.yml
     volumes:
-      - ../.:/home/DevOps
-    command: python3 manage.py runserver 8000
+      - .:/home/DevOps
     networks:
     - devops_net
 
