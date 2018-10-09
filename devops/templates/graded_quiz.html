@@ -34,9 +34,16 @@
             </a>
             <br/>
         {% endif %}
-        <a href={% url navigate_links.next %}>
-            Continue onto next module
-        </a>
-        <br/>
+        {% if navigate_links.next %}
+            <a href={% url navigate_links.next %}>
+                Continue onto next module
+            </a>
+            <br/>
+        {% else %}
+            <a href={% url "devops: home" %}>
+                Go back to home page
+            </a>
+            <br/>
+        {% endif %}
     </p>
 {% endblock %}
