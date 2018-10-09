@@ -1,72 +1,79 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="module">
-        <h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>
             Microservices and Serverless Computing
         </h1>
 
-        <figure>
-            <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/SOA_Metamodel.svg/900px-SOA_Metamodel.svg.png"
-            width="26%">
-            <figcaption>
-            </figcaption>
-        </figure>
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/SOA_Metamodel.svg/900px-SOA_Metamodel.svg.png"
+                    width="26%">
+                    <figcaption>
+                    </figcaption>
+                </figure>
 
-        <p class="leadquote">
-            "The philosophy of the microservices architecture essentially
-            equates to the Unix philosophy of 'Do one thing and do it well.'"
-            -- <a href="https://en.wikipedia.org/wiki/Microservices#Philosophy">
-                Wikipedia</a>
-        </p>
+                <p class="leadquote">
+                    "The philosophy of the microservices architecture essentially
+                    equates to the Unix philosophy of 'Do one thing and do it well.'"
+                    -- <a href="https://en.wikipedia.org/wiki/Microservices#Philosophy">
+                        Wikipedia</a>
+                </p>
 
-        <details>
-            <summary class="sum1">
-                Lesson 1
-            </summary>
-        </details>
+                <details>
+                    <summary class="sum1">
+                        Lesson 1
+                    </summary>
+                </details>
 
-        <details>
-            <summary class="sum1">
-                Lesson 2
-            </summary>
-        </details>
+                <details>
+                    <summary class="sum1">
+                        Lesson 2
+                    </summary>
+                </details>
 
-        <details>
-            <summary class="sum1">
-                Lesson 3
-            </summary>
-        </details>
+                <details>
+                    <summary class="sum1">
+                        Lesson 3
+                    </summary>
+                </details>
 
-        <details>
-            <summary class="sum1">
-                Other Readings
-            </summary>
+                <details>
+                    <summary class="sum1">
+                        Other Readings
+                    </summary>
 
-            <ul class="nested">
-                <li>
-                    <a href="https://thenewstack.io/led-amazon-microservices-architecture/">
-                        Amazon's move to microservices
-                    </a>
-                </li>
-            </ul>
-
-
-            <ul class="nested">
-                <li>
-                    <a href="https://en.wikipedia.org/wiki/Microservices">
-                        Microservices
-                    </a>
-                </li>
-
-                <li>
-                </li>
-            </ul>
-
-        </details>
+                    <ul class="nested">
+                        <li>
+                            <a href="https://thenewstack.io/led-amazon-microservices-architecture/">
+                                Amazon's move to microservices
+                            </a>
+                        </li>
+                    </ul>
 
 
-        {% include 'quiz.html' %}
+                    <ul class="nested">
+                        <li>
+                            <a href="https://en.wikipedia.org/wiki/Microservices">
+                                Microservices
+                            </a>
+                        </li>
+
+                        <li>
+                        </li>
+                    </ul>
+
+                </details>
+
+
+                {% include 'quiz.html' %}
+
+
+            </div>
+        </div>
+    </div>
 
 
 {% endblock content %}
