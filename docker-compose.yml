@@ -33,14 +33,13 @@ services:
     networks:
       - devops_net
     environment:
-      USE_MYSQL: "true"
+      USE_MYSQL: "Yes"
       ENGINE: "django.db.backends.mysql"
       NAME: "devops"
       USER: "root"
       PASSWORD: "releaseit!"
       HOST: "dbengine"
       PORT: "3306"
-    command: ["./wait-for-it.sh", "localhost:3306", "--timeout=90", "--", "/home/DevOps/migrate-and-start.sh"] 
 
 networks:
   devops_net:
