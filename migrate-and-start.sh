@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# migration
+until curl -s dbengine:3306
+do
+  >&2 echo "Waiting for MySQL to accept connections"
+  sleep 5
+done
 
-echo "Waiting for MySQL to come up"
-
-sleep 90
-
-echo "Apply database migrations"
+>&2 echo "Applying database migrations"
 # python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > datadump.json
 python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata /home/DevOps/datadump.json
 
-echo "Starting server"
+>&2 echo "Starting server"
 python manage.py runserver 0.0.0.0:8000
