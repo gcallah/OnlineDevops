@@ -4,7 +4,7 @@ services:
   dbengine:
     image: mysql
     container_name: dbengine
-    command: mysqld --user=root
+    command: mysqld --user=root --default-authentication-plugin=mysql_native_password
     volumes:
       - .:/source
     ports:
@@ -14,7 +14,6 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: "devops"
-      MYSQL_USER: "root"
       MYSQL_PASSWORD: "releaseit!"
       MYSQL_ROOT_PASSWORD: "releaseit!"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -32,7 +31,16 @@ services:
     volumes:
       - .:/home/DevOps
     networks:
-    - devops_net
+      - devops_net
+    environment:
+      USE_MYSQL: "true"
+      ENGINE: "django.db.backends.mysql"
+      NAME: "devops"
+      USER: "root"
+      PASSWORD: "releaseit!"
+      HOST: "dbengine"
+      PORT: "3306"
+    command: ["./wait-for-it.sh", "localhost:3306", "--timeout=90", "--", "/home/DevOps/migrate-and-start.sh"] 
 
 networks:
   devops_net:

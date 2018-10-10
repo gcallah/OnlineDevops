@@ -96,7 +96,8 @@ if os.environ.get('USE_MYSQL') is not None:
             'NAME': os.environ.get('NAME', 'db.sqlite3'),
             'USER': os.environ.get('USER'),
             'PASSWORD': os.environ.get('PASSWORD'),
-            'HOST': os.environ.get('HOST')
+            'HOST': os.environ.get('HOST'),
+            'PORT': os.environ.get('PORT', '')
         }
     }
 
