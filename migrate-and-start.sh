@@ -1,6 +1,6 @@
 #!/bin/bash
 
-until curl -s dbengine:3306
+until curl -s dbengine:3306 > /dev/null
 do
   >&2 echo "Waiting for MySQL to accept connections"
   sleep 5
