@@ -27,6 +27,19 @@ db: $(MDL)
 	-git commit $(DEVDIR)/migrations/*.py
 	git push origin master
 
+staging:
+    git remote | grep staging > /dev/null
+    if [ "$?" -eq "0" ]
+    then
+        echo 'INFO: Staging exists & configured!'
+    else
+        echo "INFO: Staging does not exist in git remotes, configuring now..."
+        git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
+    fi
+    echo 'INFO: pushing master to the staging now...'
+    git push -u staging master
+
+
 test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
 
