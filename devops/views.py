@@ -104,25 +104,6 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
-def get_quiz_name(mod_nm):
-    # Returns a tuple consisting of the module's quiz name and the name of the next module
-    quiz_names = {
-        'work': ('MOD1: The DevOps Way of Work', 'comm'),
-        'comm': ('MOD2: Cooperation and Communication (Tool: Slack)', 'incr'),
-        'incr': ('MOD3: Incremental Development (Tool: git)', 'build'),
-        'build': ('MOD4: Automating Builds (Tool: make)', 'flow'),
-        'flow': ('MOD5: Workflow (Tool: kanban boards)', 'test'),
-        'test': ('MOD6: Automating Testing (Tool: Jenkins)', 'infra'),
-        'infra': ('MOD7: Software as Infrastructure (Tool: Docker)', 'cloud'),
-        'cloud': ('MOD8: Cloud Deployment (Tool: Kubernetes)', 'micro'),
-        'micro': ('MOD9: Microservices and Serverless Computing', 'monit'),
-        'monit': ('MOD10: Monitoring (Tool: StatusCake)', 'secur'),
-        'secur': ('MOD11: Security', 'sum'),
-        'sum': ('MOD12: Summing Up')
-    }
-
-    return quiz_names.get(mod_nm)
-
 def grade_quiz(request: HttpRequest()) -> list:
     """
     Returns list of Questions user answered as right / wrong
