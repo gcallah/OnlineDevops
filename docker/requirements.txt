@@ -5,4 +5,5 @@ six==1.11.0
 coverage==4.5.1
 django-autofixture==0.12.1
 selenium==3.14.1
-urllib3==1.23
+urllib3==1.23pip
+django-crispy-forms==1.7.2
