@@ -20,8 +20,8 @@ services:
     healthcheck:
       test: mysql -u root -preleaseit! -e 'show databases'
       interval: 5s
-      timeout: 30s
-      retries: 20
+      timeout: 60s
+      retries: 30
 
   devopsapp:
     depends_on:
