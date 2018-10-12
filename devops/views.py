@@ -5,7 +5,7 @@ from django.contrib import messages
 from decimal import Decimal
 import random
 
-from .models import Question, Grade, Quiz
+from .models import Question, Grade, Quiz, Module
 
 site_hdr = "The DevOps Course"
 
@@ -104,25 +104,6 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
-def get_quiz_name(mod_nm):
-    # Returns a tuple consisting of the module's quiz name and the name of the next module
-    quiz_names = {
-        'work': ('MOD1: The DevOps Way of Work', 'comm'),
-        'comm': ('MOD2: Cooperation and Communication (Tool: Slack)', 'incr'),
-        'incr': ('MOD3: Incremental Development (Tool: git)', 'build'),
-        'build': ('MOD4: Automating Builds (Tool: make)', 'flow'),
-        'flow': ('MOD5: Workflow (Tool: kanban boards)', 'test'),
-        'test': ('MOD6: Automating Testing (Tool: Jenkins)', 'infra'),
-        'infra': ('MOD7: Software as Infrastructure (Tool: Docker)', 'cloud'),
-        'cloud': ('MOD8: Cloud Deployment (Tool: Kubernetes)', 'micro'),
-        'micro': ('MOD9: Microservices and Serverless Computing', 'monit'),
-        'monit': ('MOD10: Monitoring (Tool: StatusCake)', 'secur'),
-        'secur': ('MOD11: Security', 'sum'),
-        'sum': ('MOD12: Summing Up')
-    }
-
-    return quiz_names.get(mod_nm)
-
 def grade_quiz(request: HttpRequest()) -> list:
     """
     Returns list of Questions user answered as right / wrong
@@ -196,12 +177,11 @@ def grade_quiz(request: HttpRequest()) -> list:
             num_ques_correct_percentage = Decimal((num_ques_correct / number_of_ques_to_check) * 100)
             curr_quiz = Quiz.objects.get(module=mod_nm)
 
-            # Pass a quiz name to view & display at Here are your quiz results
-            quiz_name = get_quiz_name(mod_nm)
+            curr_module = Module.objects.get(module=mod_nm)
 
             # No matter if user passes or fails, show link to next module if it exists
             navigate_links = {
-                'next': 'devops:' + quiz_name[1] if quiz_name[1] else False
+                'next': 'devops:' + curr_module.next_module if curr_module.next_module else False
             }
 
             # If user fails, show link to previous module
@@ -220,7 +200,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                                                             num_ques=number_of_ques_to_check,
                                                             num_ques_correct=num_ques_correct,
                                                             num_ques_correct_percentage=int(num_ques_correct_percentage),
-                                                            quiz_name=quiz_name[0],
+                                                            quiz_name=curr_module.title,
                                                             navigate_links=navigate_links,
                                                             header=site_hdr))
 
