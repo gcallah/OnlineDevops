@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
 
   dbengine:
@@ -17,10 +17,16 @@ services:
       MYSQL_PASSWORD: "releaseit!"
       MYSQL_ROOT_PASSWORD: "releaseit!"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    healthcheck:
+      test: mysql -u root -preleaseit! -e 'show databases'
+      interval: 5s
+      timeout: 30s
+      retries: 20
 
   devopsapp:
     depends_on:
-      - dbengine
+      dbengine:
+        condition: service_healthy
     build:
       context: .
       dockerfile: django-container.yml
@@ -40,6 +46,11 @@ services:
       PASSWORD: "releaseit!"
       HOST: "dbengine"
       PORT: "3306"
+    command: >
+      sh -c "python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py loaddata /home/DevOps/datadump.json &&
+             python manage.py runserver 0.0.0.0:8000"
 
 networks:
   devops_net:

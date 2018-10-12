@@ -7,6 +7,3 @@ RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 
 EXPOSE 8000
-
-#CMD sh /home/DevOps/migrate-and-start.sh
-CMD sh /migrate-and-start.sh
