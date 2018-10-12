@@ -5,13 +5,13 @@
 
 {% block content %}
     <h1>{{ quiz_name }} - Here are your quiz results</h1>
-    {% for graded_answer in graded_answers %}
-        <div>
-            <h4>{{ graded_answer.question }}</h4>
+    <ol class="nested">
+        {% for graded_answer in graded_answers %}
+            <li style="color: #aaf"> 
+                {{ graded_answer.question }} 
+            </li>
             <p>
-                {% if graded_answer.status == 'right' %}
-                    You got it correct!
-                {% endif %}
+                {{ graded_answer.message }}
                 The correct answer is: <br/>
                 {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
             </p>
@@ -20,10 +20,9 @@
                     You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
                 </p>
             {% endif %}
-        </div>
-    {% endfor %}
-
-     <p>
+        {% endfor %}
+    </ol>
+    <p>
         <br>
          <span>You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions giving you a score of {{ num_ques_correct_percentage }}%!</span>
     </p>
@@ -35,9 +34,16 @@
             </a>
             <br/>
         {% endif %}
-        <a href={% url navigate_links.next %}>
-            Continue onto next module
-        </a>
-        <br/>
+        {% if navigate_links.next %}
+            <a href={% url navigate_links.next %}>
+                Continue onto next module
+            </a>
+            <br/>
+        {% else %}
+            <a href="/">
+                Go to home page
+            </a>
+            <br/>
+        {% endif %}
     </p>
 {% endblock %}

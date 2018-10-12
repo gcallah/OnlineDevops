@@ -199,9 +199,9 @@ def grade_quiz(request: HttpRequest()) -> list:
             # Pass a quiz name to view & display at Here are your quiz results
             quiz_name = get_quiz_name(mod_nm)
 
-            # No matter if user passes or fails, show link to next module
+            # No matter if user passes or fails, show link to next module if it exists
             navigate_links = {
-                'next': 'devops:' + quiz_name[1]
+                'next': 'devops:' + quiz_name[1] if quiz_name[1] else False
             }
 
             # If user fails, show link to previous module
