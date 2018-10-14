@@ -7,16 +7,13 @@
 
         <figure>
             <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/SOA_Metamodel.svg/900px-SOA_Metamodel.svg.png"
-            width="26%">
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/IBM402plugboard.Shrigley.wireside.jpg/440px-IBM402plugboard.Shrigley.wireside.jpg"
+            width="22%">
             <figcaption>
             </figcaption>
         </figure>
 
         <p class="leadquote">
-            ""
-            -- <a href="">
-                </a>
         </p>
 
         <details>
@@ -27,27 +24,106 @@
 
             <ul class="nested">
                 <li>
-                    Indent properly.
+                    <span class="hilight">DRY</span>
+                    <br />
+                    This stands for Don't Repeat Yourself! It means that any
+                    part of your system that might ever need to change should
+                    have a single place where you can make the change.
+                    Don't copy blocks of code
+                    to wherever you need them in your program: write a function
+                    and call it from each of those places.
+                    Don't define your data tables in your database, and
+                    also in your code: find a way (like the Django
+                    <code>models.py</code> file) to define your data one place
+                    and use that definition to generate both the database
+                    and the code that uses the DB.
                 </li>
 
                 <li>
-                    Keep functions short.
+                    <span class="hilight">No magic constants.</span>
+                    <br />
+                    This is a special case of DRY. It is very tempting,
+                    when coding your an NYU scheduling app, to write
+                    code assuming there are two (major) semesters per year.
+                    This will be fine... until NYU adopts a tri-mester
+                    system. Instead, define a constant
+                    <code>NUM_SEMS = 2</code>.
+                    You
+                    might get away with writing <code>day_of_week = day mod
+                    7</code>, since that number probably will never change.
+                    But you really ought to write <code>hour_of_day =
+                    hour mod CLOCK_PERIOD</code>, since both 12 and 24 hour
+                    timekeeping methods exist.
                 </li>
 
                 <li>
-                    No magic constants.
+                    <span class="hilight">Make functions do one job.</span>
+                    <br />
+                    Funcitons that perform a single job are simpler to 
+                    understand, easier to change or eliminate, and render
+                    the overall system more comprehensible. For instance,
+                    if the county writes a tax program with a function
+                    called <code>calc_taxes</code>, it would be 
+                    natural to eliminate that function if the job is 
+                    later passed off to a microservice running on the cloud.
+                    <i>But</i>, if the coders also happened to include 
+                    the code to clear tax liens (county claims against the
+                    property for unpaid taxes) in the same function...
+                    Oops! No one who ever had a tax lien can sell their
+                    property, because the lien never gets cleared.
                 </li>
 
                 <li>
-                    Comment judiciously.
+                    <span class="hilight">Keep functions short.</span>
+                    <br />
+                    This is related to the previous principle, but focuses
+                    on the <i>size</i> of the one job that should be done.
+                    A function named <code>handle_yearly_taxes() </code>
+                    is doing one job, but probably way to big a job.
+                    It would make more sense to have
+                    <code>create_tax_roll()</code>,
+                    <code>calculate_taxes()</code>, 
+                    <code>send_bills()</code>, 
+                    <code>record_payments()</code>,
+                    and perhaps more.
                 </li>
 
                 <li>
-                    Go for the golden mean in naming.
+                    <span class="hilight">Format and indent properly.</span>
+                    <br />
+                    Different languages have different conventions for how to 
+                    name variables (<code>camelCase</code>,
+                    <code>with_underscores</code>, <code>MixedCase</code>,
+                    and so on), how to space operators, where to put braces,
+                    and so on. You should follow those conventions, unless
+                    there is a strong reason not to. Consistent indentation is
+                    <i>especially</i> important: it allows a reader of your
+                    code to easily line up blocks of control. Irregular
+                    indentation is a significant source of bugs, as people
+                    modifying the code will make mistakes,
+                    for example, about which 
+                    <code>else</code> goes with which <code>if</code>.
+                </li>
+
+                <li>
+                    <span class="hilight">Comment judiciously.</span>
+                    <br />
+                </li>
+
+                <li>
+                    <span class="hilight">Go for the golden mean in
+                        naming.</span>
+                    <br />
                 </li>
 
                 <li>
                     
+                    <br />
+                </li>
+
+                <li>
+                    
+                    <br />
                 </li>
 
             </ul>
