@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                  <h1>
+<div class="module">
+        <h1>
             Automating Builds
         </h1>
 
@@ -30,7 +28,7 @@
             </figure>
 
             <p>
-                Building software is often a complex process. A single software
+                Building software is often a complex process. A single software 
                 "product" may be composed of hundreds or thousands of parts,
                 some created by one team, some created by another, some
                 open-source software products, and some proprietary software
@@ -44,7 +42,7 @@
                 Because:
             </p>
 
-
+                
             <ul class="nested">
                 <li>
                     Repeatedly performing such a process by hand is
@@ -66,7 +64,7 @@
                 <li>
                     The scripts that automate such a process <i>also</i>
                     serve to <i>document</i> it, and in a fashion such
-                    that the documentation cannot fall behind the actual
+                    that the documentation cannot fall behind the actual 
                     process, since it <i>is</i> the actual process!
                 </li>
             </ul>
@@ -85,7 +83,7 @@
                 components that are combined into that product, we should
                 employ a build tool to automate that combining, rather than
                 building that product by running a series of commands "by
-                hand."
+                hand." 
             </p>
 
             <p>
@@ -102,18 +100,18 @@
                 </summary>
                 <ul class="nested">
                     <p>
-                    <code>make</code> was first created in 1976, but the variants of
+                    <code>make</code> was first created in 1976, but the variants of 
                         this build tool are still in use.
-                        In <code>make</code> we have to specify
-                        a dependency followed by a rule to resolve that
-                        dependency. It is a powerful product oriented tool
+                        In <code>make</code> we have to specify 
+                        a dependency followed by a rule to resolve that 
+                        dependency. It is a powerful product oriented tool 
                         which is highly capable of tracking dependencies within
                         a build and building only those parts/components
-                        that have been updated/changed, thus helping in
-                        optimizing performance whereby compilation time is
+                        that have been updated/changed, thus helping in 
+                        optimizing performance whereby compilation time is 
                         crucial in development cycles. The drawback of this
                         tool is that with increase in the rise of complexity,
-                        the number of dependencies between components also
+                        the number of dependencies between components also 
                         increases, making for complex rules that are
                         hard to debug.
                     </p>
@@ -125,25 +123,25 @@
                 </summary>
                 <ul class="nested">
                     <p>
-                        Ant is a task-oriented build tool which was first
+                        Ant is a task-oriented build tool which was first 
                         released in 2000. The limitations found in make
-                        led the Java Community to experiment with different
-                        solutions such as porting make to Java. At this same
+                        led the Java Community to experiment with different 
+                        solutions such as porting make to Java. At this same 
                         time XML was coming up into prominence.
                         Combining the power of both these approaches led to the
-                        Apache Ant build tool. Being fully cross platform, a
-                        set of instructions are written in Java to
-                        address basic
+                        Apache Ant build tool. Being fully cross platform, a 
+                        set of instructions are written in Java to 
+                        address basic 
                         operations like compilation and file manipulation.
-                        Besides being cross-platform, Ant is also an extremely
-                        flexible and powerful system, with Ant Tasks for most
+                        Besides being cross-platform, Ant is also an extremely 
+                        flexible and powerful system, with Ant Tasks for most 
                         things we want to do. Despite being powerful,
                         Ant comes with certain drawbacks, such as
-                        the fact that the build
-                        scripts have to be written in XML (not quite pleasant
+                        the fact that the build 
+                        scripts have to be written in XML (not quite pleasant 
                         for human readability), a lot of time has to be spent
-                        in performing tasks (writing boiler plate to compile,
-                        create jars, run tests etc) due to lack of a real
+                        in performing tasks (writing boiler plate to compile, 
+                        create jars, run tests etc) due to lack of a real 
                         domain concept. Ant files are poorly factored and tend
                         to get really long, so it won't be surprising to
                         find files thousands of lines long.
@@ -156,38 +154,38 @@
                 </summary>
                 <ul class="nested">
                     <p>
-                        Maven is a build tool that was released in 2004.
+                        Maven is a build tool that was released in 2004. 
                         Maven was built to overcome problems in Ant.
                         Maven uses XML but less so than Ant does.
                         Maven boasts that it will
-                        perform any kind of build, deploy, test and release
+                        perform any kind of build, deploy, test and release 
                         task with a single command as long as we conform to the
-                        structure dictated by Maven. The disadavntage lies in
-                        the fact that we have to conform to the Maven
-                        structure: if we don't follow the Maven structure then
+                        structure dictated by Maven. The disadavntage lies in 
+                        the fact that we have to conform to the Maven 
+                        structure: if we don't follow the Maven structure then 
                         it is almost impossible to make Maven do what we want.
-                        Another disadvantage is that it uses an
+                        Another disadvantage is that it uses an 
                         external DSL (Domain Specific Language) written in XML,
-                        which means that if we want to extend it then we have
+                        which means that if we want to extend it then we have 
                         to spend a lot of time learning something that
                         language.
-                        Maven might also end up creating
-                        issues since it continuously tries to automatically
+                        Maven might also end up creating 
+                        issues since it continuously tries to automatically 
                         upgrade itself every time it runs, this means some
-                        plugins might end up failing and we wont be able to
+                        plugins might end up failing and we wont be able to 
                         reproduce our builds.
                     </p>
                 </ul>
             </details>
-
+    
             <details>
                 <summary class="sum2">
                     PyBuild
                 </summary>
                 <p>
-                    PyBuild is a build tool which is
+                    PyBuild is a build tool which is 
                     aimed at Python projects.
-                    PyBuild supports all the standard features of
+                    PyBuild supports all the standard features of 
                     typical build tools.
 
                     There are many plugins created by Python
@@ -202,32 +200,32 @@
                     </ul>
                 </p>
             </details>
-
-
-
+    
+           
+    
             <details>
                 <summary class="sum2">
                     SonarQube
                 </summary>
                 <p>
-                    SonarQube is an open source tool written in Java that helps
+                    SonarQube is an open source tool written in Java that helps 
                     to analyze the quality of source code.
                     It has the ability to analyze source code
                     in over 20 languages.
-
-                    The code analysis step can be used manually by executing
+    
+                    The code analysis step can be used manually by executing 
                     sonar runner but however the best use of SonarQube
                     is during the build process.
-
-                    If SonarQube is integrated with the Jenkins server it
-                    can provide continuous integration and
+    
+                    If SonarQube is integrated with the Jenkins server it 
+                    can provide continuous integration and 
                     reports based on the analyzis of the code.
                 </p>
 
             </details>
-
+            
             <hr>
-
+    
             <p>
             Sources:
             </p>
@@ -238,32 +236,32 @@
                     PyBuild
                 </a>
                 </li>
-
+    
                 <li>
                 <a href="https://en.wikipedia.org/wiki/Build_automation">
                     Build Concept
                 </a>
                 </li>
-
+    
                 <li>
                 <a href="http://shop.oreilly.com/product/9780937175903.do">
                     Managing projects with make
                 </a>
                 </li>
-
+    
                 <li>
                 <a href="https://www.javacodegeeks.com/2014/06/java-build-tools-ant-vs-maven-vs-gradle.html">
                     Java Code Geeks
                 </a>
                 </li>
-
+    
                 <li>
                     <a href="http://www.lihaoyi.com/post/WhatsinaBuildTool.html">
                         What's in a build tool
                     </a>
                 </li>
             </ol>
-
+           
         </details>
 
         <details>
@@ -316,10 +314,10 @@
             <p>
                 A key aspect of <code>make</code>'s behavior is that it
                 examines the time at which the target and its dependencies
-                were last updated in order to "decide" whether
+                were last updated in order to "decide" whether 
                 to execute the commands that build the target from its
-                dependencies. If the timestamp on the target file is newer
-                than any of those on the dependency files, <code>make</code>
+                dependencies. If the timestamp on the target file is newer 
+                than any of those on the dependency files, <code>make</code> 
                 will "judge" that the target is up-to-date, and does not need
                 to be rebuilt.
             </p>
@@ -368,11 +366,5 @@
         </details>
 
         {% include 'quiz.html' %}
-
-            </div>
-        </div>
-    </div>
-
-
 
 {% endblock content %}

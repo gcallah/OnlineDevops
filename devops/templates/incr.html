@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>
+<div class="module">
+        <h1>
             Incremental Development
         </h1>
 
@@ -58,8 +56,8 @@
                 </li>
 
                 <li>
-                    Small batches are more satisfying to the developers,
-                    because they get to see their software being used soon
+                    Small batches are more satisfying to the developers, 
+                    because they get to see their software being used soon 
                     after they write it.
                 </li>
             </ul>
@@ -74,7 +72,7 @@
 
             <p>
                 In older models of software development, it was thought that
-                rapid delivery of software to users meant buggy systems that
+                rapid delivery of software to users meant buggy systems that 
                 crashed a lot.
             </p>
 
@@ -122,9 +120,9 @@
             </summary>
 
             <figure>
-                <iframe width="560" height="315"
-                    src="https://www.youtube.com/embed/CTBaNX-WEKI"
-                    frameborder="0" allow="autoplay; encrypted-media"
+                <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/CTBaNX-WEKI" 
+                    frameborder="0" allow="autoplay; encrypted-media" 
                     allowfullscreen>
                 </iframe>
                 <figcaption>
@@ -161,7 +159,7 @@
             <p>
                 You will only need a small number of <code>git</code> commands
                 for most of our work.
-                (You can also use <code>git</code> from
+                (You can also use <code>git</code> from 
                 GitHub Desktop, but it is good to be at least a little
                 familiar with command line usage.)
                 In particular, you need to know:
@@ -219,7 +217,7 @@
                     <code>git rm &lt;filename&gt; </code>
                     <br />
                     This removes &lt;filename&gt; from the repo
-                    <i>and</i> your local file system. You should always
+                    <i>and</i> your local file system. You should always 
                     delete files through <code>git</code> and not using your
                     native OS's capabilities.
                 </li>
@@ -229,7 +227,7 @@
                         &lt;new_filename&gt;</code>
                     <br />
                     This renames &lt;old_filename&gt; to &lt;new_filename&gt;.
-                    You should always
+                    You should always 
                     rename files through <code>git</code> and not using your
                     native OS's capabilities.
                 </li>
@@ -259,7 +257,7 @@
                     <br />
                     This will merge &lt;branchname&gt;
                     into the current branch. Therefore, use
-                    <code>git status</code> to make sure you are on the branch
+                    <code>git status</code> to make sure you are on the branch 
                     into which you want to merge before you do
                     the merge.
                 </li>
@@ -301,7 +299,7 @@
 
                 <li>
                     Understanding many of the problems one will hit while
-                    using <code>git</code> is easier knowing this: typically,
+                    using <code>git</code> is easier knowing this: typically, 
                     problems arise when to copies of the repo get out
                     of sync, and <code>git</code> has trouble re-syncing
                     them.
@@ -321,7 +319,7 @@
 
             <ul class="nested">
                 <li>
-                    Sometimes, the problem is simply that you haven't done
+                    Sometimes, the problem is simply that you haven't done 
                     a <code>git pull</code> recently enough: try the pull command
                     above, and see if that clears up your problem.
                 </li>
@@ -354,8 +352,8 @@
                 <li>
                     Finally, you may have a situation where you realize
                     you were just "messing around" and don't want to retain any
-                    of what you wrote. (In that case, a branch would have
-                    been useful!) You can sometimes fix that up by letting
+                    of what you wrote. (In that case, a branch would have 
+                    been useful!) You can sometimes fix that up by letting 
                     <code>git</code> know you want it to ignore your work:
                     <br />
                     <code>git checkout --theirs &lt;filename&gt; </code>
@@ -368,7 +366,7 @@
                     and just use "theirs": the one's in the origin repo.
                     <br />
                     On the other hand, sometimes you want your own
-                    version to be used rather than the version from
+                    version to be used rather than the version from 
                     "their" repo; then you can use <code>--ours</code>
                     rather than <code>--theirs</code>:
                     <br />
@@ -391,7 +389,7 @@
                 various programs that are useful in multiple projects.
                 We don't want to have different copies of these programs:
                 that violates DRY!
-                So what we do is to share that repo among several repos
+                So what we do is to share that repo among several repos 
                 by including it as a submodule.
             </p>
 
@@ -400,14 +398,14 @@
                 of them is... tricky. First of all, a repo's submodules do not
                 update automatically! This is sensible, because the submodule
                 might be someone else's code, and you don't want a new version
-                to break your program. So you have to <code>cd</code>
+                to break your program. So you have to <code>cd</code> 
                 to the submodule directory, and do a pull there to update it.
             </p>
 
             <p>
-                First, let's add a submodule: we will add
+                First, let's add a submodule: we will add 
                 the <code>utils</code> repo we use in all of our projects as
-                a submodule in our practice repo. The first thing to do
+                a submodule in our practice repo. The first thing to do 
                 is to add it:
                 <br />
                 <code>git submodule add https://github.com/gcallah/utils.git</code>
@@ -415,7 +413,7 @@
                 (The presenter will do this step for the class, since we can
                 only add a submodule once per repo!)
                 <br />
-                This will create a new file called <code>.gitmodules</code>
+                This will create a new file called <code>.gitmodules</code> 
                 and a new dir called <code>utils</code>.
                 These store the information about
                 the submodule we have added <i>in the repo</i>.
@@ -442,9 +440,9 @@
             <p>
                 From that point on, it is important to note that the
                 submodule will <i>not</i> update automatically when
-                you do a pull. Given that the submodule might be third party
+                you do a pull. Given that the submodule might be third party 
                 software, we don't want a new version that might break
-                our code automatically joining our repo! Thus, when
+                our code automatically joining our repo! Thus, when 
                 you need the new version of a submodule in a repo, you have
                 to explicitly run an update. We are working to automatically
                 include such an update in our build files, where appropriate.
@@ -489,10 +487,5 @@
 
 
         {% include 'quiz.html' %}
-
-            </div>
-        </div>
-    </div>
-
 
 {% endblock content %}

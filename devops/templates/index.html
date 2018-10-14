@@ -1,131 +1,100 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="module">
+        <h1>
+            The DevOps Course: Modules
+        </h1>
 
-<div class="row" style="margin-top:1vh;">
-       <div class="col-sm-4">
+        <figure>
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Devops-toolchain.svg/220px-Devops-toolchain.svg.png">
+            <figcaption>
+                The DevOps toolchain
+            </figcaption>
+        </figure>
 
-               <iframe width="350" height="315" src="https://www.youtube.com/embed/_I94-tJlovg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p class="leadquote">
+            Here are the top-level modules for our DevOps course:
+        </p>
 
-                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2018/02/12/13/58/devops-3148393_1280.png" alt="Second slide">
+        <ol class="mod_list">
+            <li>
+                <a href="/devops/basics">
+                Software Engineering Fundamentals
+                </a>
+            </li>
 
-            </div>
-      <div class="col-sm-8">
-    <ul class="list-group" style="font-size:1.1rem;font-weight:bold;">
-
-
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-
-              <a href="/devops/work">
+            <li>
+                <a href="/devops/work">
                 The DevOps Way of Work
-              </a>
-              <span class="badge badge-primary badge-pill">1</span>
+                </a>
+            </li>
 
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-
-
-             <a href="/devops/comm">
+            <li>
+                <a href="/devops/comm">
                 Cooperation and Communication (Tool: Slack)
                 </a>
-               <span class="badge badge-primary badge-pill">2</span>
+            </li>
 
-
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-
-
-               <a href="/devops/incr">
+            <li>
+                <a href="/devops/incr">
                 Incremental Development (Tool: git)
                 </a>
-             <span class="badge badge-primary badge-pill">3</span>
+            </li>
 
-          </li>
-
-
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-
-              <a href="/devops/build">
+            <li>
+                <a href="/devops/build">
                 Automating Builds (Tool: make)
                 </a>
+            </li>
 
-             <span class="badge badge-primary badge-pill">4</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-
+            <li>
                 <a href="/devops/flow">
                 Workflow (Tool: kanban boards)
                 </a>
-             <span class="badge badge-primary badge-pill">5</span>
-          </li>
+            </li>
 
-
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                 <a href="/devops/test">
+            <li>
+                <a href="/devops/test">
                 Automated Testing (Tool: Jenkins)
                 </a>
-                 <span class="badge badge-primary badge-pill">6</span>
-          </li>
+            </li>
 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-
-              <a href="/devops/infra">
+            <li>
+                <a href="/devops/infra">
                 Software as Infrastructure (Tool: Docker)
                 </a>
-                 <span class="badge badge-primary badge-pill">7</span>
-          </li>
+            </li>
 
-
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-
-              <a href="/devops/cloud">
+            <li>
+                <a href="/devops/cloud">
                 Cloud Deployment (Tool: Kubernetes)
                 </a>
-                 <span class="badge badge-primary badge-pill">8</span>
-          </li>
+            </li>
 
-
-
-
-
-             <li class="list-group-item d-flex justify-content-between align-items-center">
-
+            <li>
                 <a href="/devops/micro">
                     Microservices and Severless Computing
                 </a>
-                  <span class="badge badge-primary badge-pill">9</span>
-          </li>
+            </li>
 
-
-             <li class="list-group-item d-flex justify-content-between align-items-center">
-
+            <li>
                 <a href="/devops/monit">
                 Monitoring (Tool: StatusCake)
                 </a>
-                 <span class="badge badge-primary badge-pill">10</span>
-          </li>
+            </li>
 
-             <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                 <a href="/devops/secur">
+            <li>
+                <a href="/devops/secur">
                 Security
                 </a>
-                 <span class="badge badge-primary badge-pill">11</span>
-          </li>
+            </li>
 
-
-             <li class="list-group-item d-flex justify-content-between align-items-center">
-
-               <a href="/devops/sum">
+            <li>
+                <a href="/devops/sum">
                 Summing Up
                 </a>
-                 <span class="badge badge-primary badge-pill">12</span>
-          </li>
-        </ul>
-
-</div>
-
-
-<div>
+            </li>
+        </ol>
 
 {% endblock content %}

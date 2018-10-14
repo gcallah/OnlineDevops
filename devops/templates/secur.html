@@ -1,359 +1,351 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                   <h1>
+<div class="module">
+        <h1>
             Security
         </h1>
 
-                <figure>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Cybersecurity.png/526px-Cybersecurity.png"
-                    width="22%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
+        <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Cybersecurity.png/526px-Cybersecurity.png"
+            width="22%">
+            <figcaption>
+            </figcaption>
+        </figure>
 
-                <p class="leadquote">
-                </p>
+        <p class="leadquote">
+        </p>
 
-                <details>
-                    <summary class="sum1">
-                        Lesson 1
-                    </summary>
-                </details>
+        <details>
+            <summary class="sum1">
+                Lesson 1
+            </summary>
+        </details>
 
-                <details>
-                    <summary class="sum1">
-                        Lesson 2: Some types of attacks
-                    </summary>
-                    <h4>
-                        SQL Injection
-                    </h4>
-                    <p>
-                        "A SQL Injection attack consists of insertion or "injection"
-                        of a SQL query via the input data from the client to the
-                        application. A successful SQL injection exploit can read
-                        sensitive data from the database, modify database data (Insert
-                        /Update/Delete), execute administration operations on the
-                        database (such as shutdown the DBMS), recover the content of a
-                        given file present on the DBMS file system and in some cases
-                        issue commands to the operating system. SQL injection attacks
-                        are a type of injection attack, in which SQL commands are
-                        injected into data-plane input in order to effect the
-                        execution of predefined SQL commands."
-                        <br>
-                      -www.owasp.org
-                    </p>
+        <details>
+            <summary class="sum1">
+                Lesson 2: Some types of attacks
+            </summary>
+            <h4>
+                SQL Injection
+            </h4>
+            <p>
+                "A SQL Injection attack consists of insertion or "injection"
+                of a SQL query via the input data from the client to the
+                application. A successful SQL injection exploit can read
+                sensitive data from the database, modify database data (Insert
+                /Update/Delete), execute administration operations on the
+                database (such as shutdown the DBMS), recover the content of a
+                given file present on the DBMS file system and in some cases
+                issue commands to the operating system. SQL injection attacks
+                are a type of injection attack, in which SQL commands are
+                injected into data-plane input in order to effect the
+                execution of predefined SQL commands."
+                <br>
+              -www.owasp.org
+            </p>
 
-                  <h4>
-                    Cross-Site Scripting (XSS)
-                 </h4>
-                <p>
-                  "Cross-Site Scripting (XSS) attacks are a type of injection, in which
-                  malicious scripts are injected into otherwise benign and trusted web
-                  sites. XSS attacks occur when an attacker uses a web application to
-                  send malicious code, generally in the form of a browser side script,
-                  to a different end user. Flaws that allow these attacks to succeed
-                  are quite widespread and occur anywhere a web application uses input
-                  from a user within the output it generates without validating or
-                  encoding it.
-                  XSS can be used by an attacker to send a malicious script to an unsuspecting
-                   user.
-                  The end user’s browser has no way to know that the script should not
-                  be
-                  trusted, and will execute the script. Because it thinks the script
-                  came from
-                  a trusted source, the malicious script can access any cookies,
-                  session
-                  tokens, or other sensitive information retained by the browser and
-                  used with
-                  that site. These scripts can even rewrite the content of the HTML
-                            that site. These scripts can even rewrite the content of the HTML
-                  page."
-                  <br>
-                  -www.owasp.org
-                </p>
+          <h4>
+            Cross-Site Scripting (XSS)
+         </h4>
+        <p>
+          "Cross-Site Scripting (XSS) attacks are a type of injection, in which
+          malicious scripts are injected into otherwise benign and trusted web
+          sites. XSS attacks occur when an attacker uses a web application to
+          send malicious code, generally in the form of a browser side script,
+          to a different end user. Flaws that allow these attacks to succeed
+          are quite widespread and occur anywhere a web application uses input
+          from a user within the output it generates without validating or
+          encoding it.
+          XSS can be used by an attacker to send a malicious script to an unsuspecting
+           user.
+          The end user’s browser has no way to know that the script should not
+          be
+          trusted, and will execute the script. Because it thinks the script
+          came from
+          a trusted source, the malicious script can access any cookies,
+          session
+          tokens, or other sensitive information retained by the browser and
+          used with
+          that site. These scripts can even rewrite the content of the HTML
+                    that site. These scripts can even rewrite the content of the HTML
+          page."
+          <br>
+          -www.owasp.org
+        </p>
 
-                  <h4>
-                    Cross-Site Request Forgery (CSRF)
-                 </h4>
-                <p>
-                  "Cross-Site Request Forgery (CSRF) is an attack that forces an end
-                  user to execute unwanted actions on a web application in which
-                  they're currently authenticated. CSRF attacks specifically target
-                  state-changing requests, not theft of data, since the attacker has no
-                  way to see the response to the forged request. With a little help of
-                  social engineering (such as sending a link via email or chat), an
-                  attacker may trick the users of a web application into executing
-                  actions of the attacker's choosing. If the victim is a normal user, a
-                  successful CSRF attack can force the user to perform state changing
-                  requests like transferring funds, changing their email address, and
-                  so forth. If the victim is an administrative account, CSRF can
-                  compromise the entire web application."
-                  <br>
-                  -www.owasp.org
-                </p>
+          <h4>
+            Cross-Site Request Forgery (CSRF)
+         </h4>
+        <p>
+          "Cross-Site Request Forgery (CSRF) is an attack that forces an end
+          user to execute unwanted actions on a web application in which
+          they're currently authenticated. CSRF attacks specifically target
+          state-changing requests, not theft of data, since the attacker has no
+          way to see the response to the forged request. With a little help of
+          social engineering (such as sending a link via email or chat), an
+          attacker may trick the users of a web application into executing
+          actions of the attacker's choosing. If the victim is a normal user, a
+          successful CSRF attack can force the user to perform state changing
+          requests like transferring funds, changing their email address, and
+          so forth. If the victim is an administrative account, CSRF can
+          compromise the entire web application."
+          <br>
+          -www.owasp.org
+        </p>
 
-                  <h4>
-                    Command Injection
-                 </h4>
-                <p>
-                  "Command injection is an attack in which the goal is execution of
-                  arbitrary commands on the host operating system via a vulnerable
-                  application. Command injection attacks are possible when an
-                  application passes unsafe user supplied data (forms, cookies, HTTP
-                  headers etc.) to a system shell. In this attack, the
-                  attacker-supplied operating system commands are usually executed with
-                  the privileges of the vulnerable application. Command injection
-                  attacks are possible largely due to insufficient input validation."
-                  <br>
-                  -www.owasp.org
-                </p>
+          <h4>
+            Command Injection
+         </h4>
+        <p>
+          "Command injection is an attack in which the goal is execution of
+          arbitrary commands on the host operating system via a vulnerable
+          application. Command injection attacks are possible when an
+          application passes unsafe user supplied data (forms, cookies, HTTP
+          headers etc.) to a system shell. In this attack, the
+          attacker-supplied operating system commands are usually executed with
+          the privileges of the vulnerable application. Command injection
+          attacks are possible largely due to insufficient input validation."
+          <br>
+          -www.owasp.org
+        </p>
 
-                  <h4>
-                    Web Shell
-                 </h4>
-                <p>
-                 "A web shell is a script that can be uploaded to a web server to
-                  enable remote administration of the machine. Infected web servers can
-                  be either Internet-facing or internal to the network, where the web
-                  shell is used to pivot further to internal hosts."
-                  <br>
-                  -www.us-cert.gov
-                </p>
+          <h4>
+            Web Shell
+         </h4>
+        <p>
+         "A web shell is a script that can be uploaded to a web server to
+          enable remote administration of the machine. Infected web servers can
+          be either Internet-facing or internal to the network, where the web
+          shell is used to pivot further to internal hosts."
+          <br>
+          -www.us-cert.gov
+        </p>
 
-                  <h4>
-                    Path Traversal
-                 </h4>
-                <p>
-                  "A path traversal attack (also known as directory traversal) aims to
-                  access files and directories that are stored outside the web root
-                  folder. By manipulating variables that reference files with
-                  “dot-dot-slash (../)” sequences and its variations or by using
-                  absolute file paths, it may be possible to access arbitrary files and
-                  directories stored on file system including application source code
-                  or configuration and critical system files. It should be noted that
-                  access to files is limited by system operational access control (such
-                  as in the case of locked or in-use files on the Microsoft Windows
-                  operating system)."
-                  <br>
-                  -www.owasp.org
-                </p>
-
-
-                 <h4>
-                    XML External Entity
-                 </h4>
-
-                <p>
-                   "An XML External Entity attack is a type of attack against an
-                   application that parses XML input.
-                   This attack occurs when XML input containing a reference to an
-                   external entity is processed by
-                   a weakly configured XML parser. This attack may lead to the
-                   disclosure of confidential data,
-                   denial of service, server side request forgery, port scanning from
-                   the perspective of the
-                   machine where the parser is located, and other system impacts."
-                   <br>
-                   -www.owasp.org
-                </p>
-
-                 <h4>
-                    Insecure Deserialization
-                 </h4>
-                <p>
-                    "Insecure Deserialization is a vulnerability which occurs when
-                    untrusted data is used to abuse the
-                    logic of an application, inflict a denial of service (DoS) attack,
-                    or even execute arbitrary code upon
-                    it being deserialized. Web applications make use of serialization
-                    and deserialization on a regular basis
-                    and most programming languages even provide native features to
-                    serialize data (especially into common formats like JSON and XML).
-                    It’s frequently possible for an attacker to abuse these
-                    deserialization features when the application is deserializing
-                    untrusted
-                    data which the attacker controls. Successful insecure
-                    deserialization attacks could allow an attacker to carry out
-                    denial-of-service (DoS) attacks, authentication bypasses, and
-                    remote code execution attacks."
-                    <br>
-                    -www.acunetix.com
-                </p>
-
-                 <h4>
-                    Cloud Security
-                 </h4>
-
-                <p>
-                   Delivering IT services via the Cloud be is a time saver,
-                   but it has a
-                   downside:
-                   the security of those services. Clouds provide
-                   these services by relying on virtualization technology. While
-                   virtualization
-                   reduces some security risks, others are increased because the
-                   attack surface in a cloud service is greater. The risks can be
-                   broadly categorised into
-                   hypervisor security, network security, data
-                   security (in transit and at rest), security of monitoring and
-                   incident response.
-                </p>
-
-                </details>
-
-                <details>
-                    <summary class="sum1">
-                        Lesson 3
-                    </summary>
-                </details>
-
-                <details>
-                    <summary class="sum1">
-                        Other Readings
-                    </summary>
-
-                    <ul class="nested">
-                        <li>
-                                                <a href="https://learn.techbeacon.com/units/devsecops-basics-guide-security-professionals">
-                                An introduction to DevSecOps or rugged DevOps
-                            </a>
-                            <br />
-                                Rugged DevOps is the practice of shifting Security left.
-                                Security teams can introduce security much earlier in the
-                                development process. This is contrary to the standard
-                                approach where security practices of code analysis and
-                                vulnerability testing is placed just before the
-                                application is deployed into production.
-                        </li>
-
-                        <li>
-                            <a href="https://insights.sei.cmu.edu/devops/2016/11/an-introduction-to-secure-devops-including-security-in-the-software-lifecycle.html">
-                                DevSecOps: Including Security in Software Life cycle
-                            </a>
-                            <br />
-                                Introducing security practices earlier in the software
-                                engineering will enable developers to always think of
-                                security while developing their application. This will
-                                also enable them to come up with creative solutions for
-                                enabling security in their applications.
-                        </li>
-
-                        <li>
-                            <a href="https://www.csoonline.com/article/3039313/security/is-devops-the-holy-grail-for-information-security.html">
-                                DevOps: A Holy Grail for Security?
-                            </a>
-                            <br />
-                                DevOps provides a method to have the concept of "Security
-                                by Design" integrated into the software engineering
-                                lifecycle from the start. It also helps keep security
-                                balanced with business objectives.
-                        </li>
-
-                        <li>
-                            <a href="https://www.cybrary.it/course/web-application-pen-testing/">
-                                DevOps:Performing Penetration Testing
-                                on Web Based Application to find Vulnerabilities
-                            </a>
-                            <br />
-                                Performing a Automated/Manual penetration testing in
-                                SDLC can help to find vulnerability at early stage of
-                                development and reduce the threat to the system.  Its
-                                good to work in tandem with penetration tetsing team to
-                                build a robust security posture.
-                        </li>
-                        <li>
-                            <a href="https://www.computerweekly.com/tip/5-penetration-test-tools-to-secure-your-network">
-                                DevOps: Performing a Network Penetration Testing
-                            </a>
-                            <br />
-                                Performing a Network or Infrastructure based
-                                penetration testing helps to identify the weak links
-                                inside the network components such as Servers, it also
-                                detects presence/absence of firewalls, NIDS/HIDS,
-                                vulnerable ports and services running on them. The
-                                early detection and mitigation of these vulnerabilities
-                                can help an organisation to build a robust and secure
-                                infrastructure. NMAP is an important tools to scan
-                                ports and find vulnerable services running on a server.
-                        </li>
-                       <li>
-                             <a
-                                 href="https://wiki.sei.cmu.edu/confluence/display/seccode/Top+10+Secure+Coding+Practices">
-                                 DevOps: Secure Coding Practice
-                             </a>
-                             <br/>
-                                 Enforcing a secure coding practice makes a
-                                 programme/application resitant to malicious attackers
-                                 or potentially malicious programmes. Implementing such
-                                 practices in DevOps can help to build a robust
-                                 security posture right from the beginning. This link
-                                 enumerates top 10 best practice which any organisation
-                                 follwing a devops practice should follow.
-                         </li>
-
-                        <li>
-                             <a href="https://techbeacon.com/getting-devsecops-5-best-practices-integrating-security-your-devops">
-                                 DevOps: 5 best practices for integrating security into your DevOps
-                             </a>
-                             <br/>
-                                These five best practice can help to integrate security
-                                features in SDLC within DevOps practice.  It entails
-                                fast and efficient way to cultivate security and has an
-                                edge over traditional way of implementing security.
-                        </li>
-
-                        <li>
-                             <a href="https://www.safaribooksonline.com/library/view/cloud-security-and/9780596806453/ch06.html">
-                                 DevOps: Cloud Security in DevOps
-                             </a>
-                             <br/>
-                                Cloud security is paramount in DevOps culture since
-                                most of the organisation is prefering to host
-                                off-premises services. This book provides the best way
-                                to provide security at SaaS,IaaS,PaaS services.
-                        </li>
-
-                        <li>
-                             <a href="http://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/mistakes-in-the-iaas-cloud-could-put-your-data-at-risk.pdf">
-                                 DevOps: Misconfiguration and Security Threat in IaaS cloud
-                             </a>
-                             <br/>
-                                 Various problems affecting the cloud are insecure
-                                 interface APIs, shared resources, data breaches,
-                                 malicious insiders, and misconfiguration issues.  The
-                                 potential attack vectors could be storage enumeration
-                                 attack, link swap attacks, leaked access tokens, Key
-                                 management and legal concerns.  Deploying mitigation
-                                 techniques like second factor authentication,
-                                 encrypted key management, Logging, Audits can help to
-                                 reduce the risk.
-                        </li>
-                        <li>
-                             <a href="https://www.akamai.com/us/en/products/cloud-security/">
-                                 Cloud Security Solution
-                            </a>
-                            <br/>
-                            Few of the security solution infrastructure can be deployed
-                            in cloud environment to stop attacks like DDoS, web
-                            application attack can without reducing performance. Akamai
-                            Intelligent perform can be instrumental into threat
-                            intelligence to detect latest threats and act as a
-                            expertise to adapt to shifting and new tactics.
-                       </li>
-                    </ul>
-
-                </details>
-
-                {% include 'quiz.html' %}
+          <h4>
+            Path Traversal
+         </h4>
+        <p>
+          "A path traversal attack (also known as directory traversal) aims to
+          access files and directories that are stored outside the web root
+          folder. By manipulating variables that reference files with
+          “dot-dot-slash (../)” sequences and its variations or by using
+          absolute file paths, it may be possible to access arbitrary files and
+          directories stored on file system including application source code
+          or configuration and critical system files. It should be noted that
+          access to files is limited by system operational access control (such
+          as in the case of locked or in-use files on the Microsoft Windows
+          operating system)."
+          <br>
+          -www.owasp.org
+        </p>
 
 
-            </div>
-        </div>
-    </div>
+         <h4>
+            XML External Entity
+         </h4>
 
+        <p>
+           "An XML External Entity attack is a type of attack against an
+           application that parses XML input.
+           This attack occurs when XML input containing a reference to an
+           external entity is processed by
+           a weakly configured XML parser. This attack may lead to the
+           disclosure of confidential data,
+           denial of service, server side request forgery, port scanning from
+           the perspective of the
+           machine where the parser is located, and other system impacts."
+           <br>
+           -www.owasp.org
+        </p>
+
+         <h4>
+            Insecure Deserialization
+         </h4>
+        <p>
+            "Insecure Deserialization is a vulnerability which occurs when
+            untrusted data is used to abuse the
+            logic of an application, inflict a denial of service (DoS) attack,
+            or even execute arbitrary code upon
+            it being deserialized. Web applications make use of serialization
+            and deserialization on a regular basis
+            and most programming languages even provide native features to
+            serialize data (especially into common formats like JSON and XML).
+            It’s frequently possible for an attacker to abuse these
+            deserialization features when the application is deserializing
+            untrusted
+            data which the attacker controls. Successful insecure
+            deserialization attacks could allow an attacker to carry out
+            denial-of-service (DoS) attacks, authentication bypasses, and
+            remote code execution attacks."
+            <br>
+            -www.acunetix.com
+        </p>
+
+         <h4>
+            Cloud Security
+         </h4>
+
+        <p>
+           Delivering IT services via the Cloud be is a time saver,
+           but it has a
+           downside: 
+           the security of those services. Clouds provide
+           these services by relying on virtualization technology. While
+           virtualization
+           reduces some security risks, others are increased because the
+           attack surface in a cloud service is greater. The risks can be
+           broadly categorised into
+           hypervisor security, network security, data
+           security (in transit and at rest), security of monitoring and
+           incident response.
+        </p>
+
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Lesson 3
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Other Readings
+            </summary>
+
+            <ul class="nested">
+                <li>
+                                        <a href="https://learn.techbeacon.com/units/devsecops-basics-guide-security-professionals">
+                        An introduction to DevSecOps or rugged DevOps
+                    </a>
+                    <br />
+                        Rugged DevOps is the practice of shifting Security left.
+                        Security teams can introduce security much earlier in the
+                        development process. This is contrary to the standard
+                        approach where security practices of code analysis and
+                        vulnerability testing is placed just before the
+                        application is deployed into production.
+                </li>
+
+                <li>
+                    <a href="https://insights.sei.cmu.edu/devops/2016/11/an-introduction-to-secure-devops-including-security-in-the-software-lifecycle.html">
+                        DevSecOps: Including Security in Software Life cycle
+                    </a>
+                    <br />
+                        Introducing security practices earlier in the software
+                        engineering will enable developers to always think of
+                        security while developing their application. This will
+                        also enable them to come up with creative solutions for
+                        enabling security in their applications.
+                </li>
+
+                <li>
+                    <a href="https://www.csoonline.com/article/3039313/security/is-devops-the-holy-grail-for-information-security.html">
+                        DevOps: A Holy Grail for Security?
+                    </a>
+                    <br />
+                        DevOps provides a method to have the concept of "Security
+                        by Design" integrated into the software engineering
+                        lifecycle from the start. It also helps keep security
+                        balanced with business objectives.
+                </li>
+
+                <li>
+                    <a href="https://www.cybrary.it/course/web-application-pen-testing/">
+                        DevOps:Performing Penetration Testing
+                        on Web Based Application to find Vulnerabilities
+                    </a>
+                    <br />
+                        Performing a Automated/Manual penetration testing in
+                        SDLC can help to find vulnerability at early stage of
+                        development and reduce the threat to the system.  Its
+                        good to work in tandem with penetration tetsing team to
+                        build a robust security posture.
+                </li>
+                <li>
+                    <a href="https://www.computerweekly.com/tip/5-penetration-test-tools-to-secure-your-network">
+                        DevOps: Performing a Network Penetration Testing
+                    </a>
+                    <br />
+                        Performing a Network or Infrastructure based
+                        penetration testing helps to identify the weak links
+                        inside the network components such as Servers, it also
+                        detects presence/absence of firewalls, NIDS/HIDS,
+                        vulnerable ports and services running on them. The
+                        early detection and mitigation of these vulnerabilities
+                        can help an organisation to build a robust and secure
+                        infrastructure. NMAP is an important tools to scan
+                        ports and find vulnerable services running on a server.
+                </li>
+               <li>
+                     <a
+                         href="https://wiki.sei.cmu.edu/confluence/display/seccode/Top+10+Secure+Coding+Practices">
+                         DevOps: Secure Coding Practice
+                     </a>
+                     <br/>
+                         Enforcing a secure coding practice makes a
+                         programme/application resitant to malicious attackers
+                         or potentially malicious programmes. Implementing such
+                         practices in DevOps can help to build a robust
+                         security posture right from the beginning. This link
+                         enumerates top 10 best practice which any organisation
+                         follwing a devops practice should follow.
+                 </li>
+
+                <li>
+                     <a href="https://techbeacon.com/getting-devsecops-5-best-practices-integrating-security-your-devops">
+                         DevOps: 5 best practices for integrating security into your DevOps
+                     </a>
+                     <br/>
+                        These five best practice can help to integrate security
+                        features in SDLC within DevOps practice.  It entails
+                        fast and efficient way to cultivate security and has an
+                        edge over traditional way of implementing security.
+                </li>
+
+                <li>
+                     <a href="https://www.safaribooksonline.com/library/view/cloud-security-and/9780596806453/ch06.html">
+                         DevOps: Cloud Security in DevOps
+                     </a>
+                     <br/>
+                        Cloud security is paramount in DevOps culture since
+                        most of the organisation is prefering to host
+                        off-premises services. This book provides the best way
+                        to provide security at SaaS,IaaS,PaaS services.
+                </li>
+
+                <li>
+                     <a href="http://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/mistakes-in-the-iaas-cloud-could-put-your-data-at-risk.pdf">
+                         DevOps: Misconfiguration and Security Threat in IaaS cloud
+                     </a>
+                     <br/>
+                         Various problems affecting the cloud are insecure
+                         interface APIs, shared resources, data breaches,
+                         malicious insiders, and misconfiguration issues.  The
+                         potential attack vectors could be storage enumeration
+                         attack, link swap attacks, leaked access tokens, Key
+                         management and legal concerns.  Deploying mitigation
+                         techniques like second factor authentication,
+                         encrypted key management, Logging, Audits can help to
+                         reduce the risk.
+                </li>
+                <li>
+                     <a href="https://www.akamai.com/us/en/products/cloud-security/">
+                         Cloud Security Solution
+                    </a>
+                    <br/>
+                    Few of the security solution infrastructure can be deployed
+                    in cloud environment to stop attacks like DDoS, web
+                    application attack can without reducing performance. Akamai
+                    Intelligent perform can be instrumental into threat
+                    intelligence to detect latest threats and act as a
+                    expertise to adapt to shifting and new tactics.
+               </li>
+            </ul>
+
+        </details>
+
+        {% include 'quiz.html' %}
 
 
 {% endblock content %}

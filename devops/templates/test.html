@@ -1,120 +1,112 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                 <h1>
+<div class="module">
+        <h1>
             Automated Testing
         </h1>
 
-                <figure>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/TestingCup-Polish-Championship-in-Software-Testing-Katowice-2016.jpg/440px-TestingCup-Polish-Championship-in-Software-Testing-Katowice-2016.jpg"
-                    width="24%">
-                    <figcaption>
-                    </figcaption>
-                </figure>
+        <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/TestingCup-Polish-Championship-in-Software-Testing-Katowice-2016.jpg/440px-TestingCup-Polish-Championship-in-Software-Testing-Katowice-2016.jpg"
+            width="24%">
+            <figcaption>
+            </figcaption>
+        </figure>
 
-                <p class="leadquote">
-                </p>
+        <p class="leadquote">
+        </p>
 
-                <details>
-                    <summary class="sum1">
-                        Lesson 1
-                    </summary>
-                </details>
+        <details>
+            <summary class="sum1">
+                Lesson 1
+            </summary>
+        </details>
 
-                <details>
-                    <summary class="sum1">
-                        Lesson 2
-                    </summary>
-                </details>
+        <details>
+            <summary class="sum1">
+                Lesson 2
+            </summary>
+        </details>
 
-                <details>
-                    <summary class="sum1">
-                        Lesson 3: Jenkins
-                    </summary>
+        <details>
+            <summary class="sum1">
+                Lesson 3: Jenkins
+            </summary>
 
-                    <figure>
-                        <iframe width="560" height="315"
-                            src="https://www.youtube.com/embed/V568cAbz2ls"
-                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                        </iframe>
-                        <figcaption>
-                            What Is Jenkins?
-                        </figcaption>
-                    </figure>
+            <figure>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/V568cAbz2ls" 
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+                <figcaption>
+                    What Is Jenkins?
+                </figcaption>
+            </figure>
 
-                </details>
+        </details>
 
-                <details>
-                    <summary class="sum1">
-                        Other Readings
-                    </summary>
+        <details>
+            <summary class="sum1">
+                Other Readings
+            </summary>
 
-                    <ul class="nested">
-                       <li>
-                            <a
-                        href="https://devops.com/a-crash-course-in-continuous-testing/">
-                                A Crash  Course in Continuous Testing
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a
-                                href="https://devops.com/future-continuous-testing-fail-faster/">
-                                The Future of Continuous Testing: Fail Faster
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://norvig.com/spell-correct.html">
-                                Design for a Python-based spell checker
-                            </a>
-                            <br />
-                            (We want one of these for our web pages!
-                            We will try to build it.)
-                        </li>
-
-                        <li>
-                            <a href="https://gist.github.com/misterbrownlee/3708738">
-                                Setting up Jenkins as a webhook in GitHub
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://www.youtube.com/watch?v=TWwvxn2-J7E">
-                                Slack notification plugin integration with Jenkins
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://blog.travis-ci.com/2017-12-05-what-is-ci-part-1">
-                                Testing and Continuous Integration Part 1
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://blog.travis-ci.com/2018-01-25-what-is-ci-part-2">
-                                Testing and Continuous Integration Part 2
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://techblog.covermymeds.com/databases/jenkins-test-files-changed-git-commit/">
-                                Testing only recently changed git files in jenkins
-                            </a>
-                        </li>
-                    </ul>
-
-                </details>
-
-                {% include 'quiz.html' %}
+            <ul class="nested">
+               <li>
+                    <a
+                href="https://devops.com/a-crash-course-in-continuous-testing/">
+                        A Crash  Course in Continuous Testing
+                    </a>
+                </li>
 
 
-            </div>
-        </div>
-    </div>
+                <li>
+                    <a
+                        href="https://devops.com/future-continuous-testing-fail-faster/">
+                        The Future of Continuous Testing: Fail Faster
+                    </a>
+                </li>
 
+                <li>
+                    <a href="http://norvig.com/spell-correct.html">
+                        Design for a Python-based spell checker
+                    </a>
+                    <br />
+                    (We want one of these for our web pages!
+                    We will try to build it.)
+                </li>
+
+                <li>
+                    <a href="https://gist.github.com/misterbrownlee/3708738">
+                        Setting up Jenkins as a webhook in GitHub
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.youtube.com/watch?v=TWwvxn2-J7E">
+                        Slack notification plugin integration with Jenkins
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://blog.travis-ci.com/2017-12-05-what-is-ci-part-1">
+                        Testing and Continuous Integration Part 1
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://blog.travis-ci.com/2018-01-25-what-is-ci-part-2">
+                        Testing and Continuous Integration Part 2
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://techblog.covermymeds.com/databases/jenkins-test-files-changed-git-commit/">
+                        Testing only recently changed git files in jenkins
+                    </a>
+                </li>
+            </ul>
+
+        </details>
+
+        {% include 'quiz.html' %}
 
 {% endblock content %}

@@ -1,4 +1,3 @@
-
         <details {% if messages %} open {% endif %}>
             <summary class="sum1">
                 Quiz
@@ -9,8 +8,6 @@
                     <p> There is no quiz available for this module. </p>
                 </ul>
             {% else %}
-
-
                 {% if messages %}
                     <ul class="errors">
                         {% for message in messages %}
@@ -23,13 +20,10 @@
                 {% csrf_token %}
                     <ol class="nested">
                         {% for q in questions %}
-
-                             <div class="card" style="margin-top:2vh;font-size:1.5rem;">
-                              <div class="card-body">
-                                <h5 class="card-title" style="font-size:1.5rem;"> {{ q.text }}</h5>
-
-                                <p class="card-text">
-                                       <ol class="nested" type='a'>
+                            <li>
+                                {{ q.text }}
+                            </li>
+                            <ol class="nested" type='a'>
                                 {% if q.answerA %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
@@ -66,19 +60,11 @@
                                     </li>
                                 {% endif %}
                             </ol>
-                                </p>
-
-                              </div>
-                            </div>
-
-
-
-
                         {% endfor %}
                     </ol>
 
-                    <p class="text-center">
-                        <button class="btn btn-xl btn-success" style="width:100%;" type="submit" name="submit" value={{mod_nm}}>
+                    <p class="submit">
+                        <button class="button" type="submit" name="submit" value={{mod_nm}}>
                             Grade Quiz
                         </button>
                     </p>
