@@ -5,10 +5,11 @@ from django.contrib import messages
 from decimal import Decimal
 import random
 
-from .models import Question, Grade, Quiz, Module
+from .models import Question, Grade, Quiz, CourseModule
 
 site_hdr = "The DevOps Course"
 
+NUM_RAND_QS = 10
 
 def get_filenm(mod_nm):
     return mod_nm + '.html'
@@ -22,16 +23,19 @@ def get_quiz(request, mod_nm):
     try:
         questions = Question.objects.filter(module=mod_nm)
         num_questions = questions.count()
-        num_qs_to_randomize = get_object_or_404(Quiz, module=mod_nm).numq
         rand_qs = []
+        num_qs_to_randomize = NUM_RAND_QS
 
-        if num_questions != 0:
+        if num_questions > 0:
+            # we have to fetch numq from here:
+            quizzes = Quiz.objects.filter(module=mod_nm)
+
             if num_questions >= num_qs_to_randomize:
                     rand_qs = random.sample(list(questions),
-                                                         num_qs_to_randomize)
+                                            num_qs_to_randomize)
             else:
                     rand_qs = random.sample(list(questions),
-                                                         num_questions)
+                                            num_questions)
 
         return render(request, get_filenm(mod_nm),
                       {'header': site_hdr, 'questions': rand_qs,
@@ -124,7 +128,7 @@ def grade_quiz(request: HttpRequest()) -> list:
             graded_answers = []
             user_answers = []
             form_data = request.POST
-            num_ques_correct = 0
+            num_correct = 0
 
             # get only post fields containing user answers...
             for key, value in form_data.items():
@@ -132,24 +136,32 @@ def grade_quiz(request: HttpRequest()) -> list:
                     proper_id = str(key).strip('_')
                     user_answers.append({proper_id: value})
 
-            # forces user to answer all quiz questions, redirects to module page if not completed
-            # TODO: keep previously selected radio buttons checked instead of clearing form
+            # forces user to answer all quiz questions,
+            # redirects to module page if not completed
+            # TODO: keep previously selected radio buttons 
+            # checked instead of clearing form
             mod_nm = form_data['submit']
 
             questions = Question.objects.filter(module=mod_nm)
             questions_count = questions.count()
-            questions_count_randomized = get_object_or_404(Quiz, module=mod_nm).numq
 
+            # can't do this this way: no 404s
+            # please write a query that checks for result,
+            # and have a default if no result
+            # num_rand_qs = get_object_or_404(Quiz, module=mod_nm).numq
+            num_rand_qs = 10  # temporary!
 
-            if questions_count >= questions_count_randomized:
-                num_ques_of_quiz = questions_count_randomized
+            if questions_count >= num_rand_qs:
+                num_ques_of_quiz = num_rand_qs
             else:
                 num_ques_of_quiz = questions_count
 
-            number_of_ques_to_check = num_ques_of_quiz #Number of randomized questions from get_quiz.
+            number_of_ques_to_check = num_ques_of_quiz
+            # Number of randomized questions from get_quiz.
 
             if len(user_answers) != number_of_ques_to_check:
-                messages.warning(request, 'Please complete all questions before submitting')
+                messages.warning(request,
+                                 'Please complete all questions before submitting')
                 return redirect('/devops/' + mod_nm)
 
             # now get those answers from database & check if answer is right...
@@ -174,7 +186,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                 if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
                     processed_answer['message'] = "Congrats, thats correct!"
                     processed_answer['status'] = "right"
-                    num_ques_correct += 1
+                    num_correct += 1
                 else:
                     processed_answer['message'] = "Sorry, that's incorrect!"
                     processed_answer['status'] = "wrong"
@@ -182,36 +194,45 @@ def grade_quiz(request: HttpRequest()) -> list:
                 graded_answers.append(processed_answer)
 
             # Calculating quiz score
-            num_ques_correct_percentage = Decimal((num_ques_correct / number_of_ques_to_check) * 100)
+            correct_pct = Decimal((num_correct
+                                                   / number_of_ques_to_check)
+                                                  * 100)
             curr_quiz = Quiz.objects.get(module=mod_nm)
 
-            curr_module = Module.objects.get(module=mod_nm)
+            # this code just assumes that the query below works!
+            # can't code like that!
+            # curr_module = CourseModule.objects.get(module=mod_nm)
 
-            # No matter if user passes or fails, show link to next module if it exists
-            navigate_links = {
-                'next': 'devops:' + curr_module.next_module if curr_module.next_module else False
-            }
+            navigate_links = {}
 
-            # If user fails, show link to previous module
-            if (num_ques_correct_percentage < curr_quiz.minpass):
-                navigate_links['previous'] = 'devops:' + mod_nm
+            # No matter if user passes or fails, 
+            # show link to next module if it exists
+#            navigate_links = {
+#                'next': 'devops:'
+#                + curr_module.next_module if curr_module.next_module else False
+#            }
+#
+#            # If user fails, show link to previous module
+#            if (correct_pct < curr_quiz.minpass):
+#                navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
             if request.user.username != '':
                 action_status = Grade.objects.create(participant=request.user,
-                                                     score=num_ques_correct_percentage.real,
+                                                     score=correct_pct.real,
                                                      quiz=curr_quiz,
                                                      quiz_name=mod_nm)
 
             # ok, all questions processed, lets render results...
-            return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers,
-                                                            num_ques=number_of_ques_to_check,
-                                                            num_ques_correct=num_ques_correct,
-                                                            num_ques_correct_percentage=int(num_ques_correct_percentage),
-                                                            quiz_name=curr_module.title,
-                                                            navigate_links=navigate_links,
-                                                            header=site_hdr))
-
+            return render(request,
+                          'graded_quiz.html',
+                          dict(graded_answers=graded_answers,
+                               num_ques=number_of_ques_to_check,
+                               num_correct=num_correct,
+                               correct_pct=int(correct_pct),
+                               quiz_name='Quiz',  # curr_module.title,
+                               navigate_links=navigate_links,
+                               header=site_hdr))
 
         # If it is PUT, DELETE etc. we say we dont do that...
         else:
