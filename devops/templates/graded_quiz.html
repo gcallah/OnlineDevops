@@ -34,7 +34,7 @@
 
               <p class="card-text">
                 {% if graded_answer.status == 'wrong' %}
-                    <p class="errors">
+                    <p class="grade-errors">
                         You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
                     </p>
                 {% endif %}
