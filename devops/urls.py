@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^devops/infra/*$', views.infra, name='infra'),
     url(r'^devops/micro/*$', views.micro, name='micro'),
     url(r'^devops/monit/*$', views.monit, name='monit'),
+    url(r'^devops/no_quiz/*$', views.no_quiz, name='no_quiz'),
     url(r'^devops/secur/*$', views.secur, name='secur'),
     url(r'^devops/sum/*$', views.sum, name='sum'),
     url(r'^devops/test/*$', views.test, name='test'),

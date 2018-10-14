@@ -93,6 +93,10 @@ def monit(request: request) -> object:
     return get_quiz(request, 'monit')
 
 
+def no_quiz(request: request) -> object:
+    return get_quiz(request, 'no_quiz')
+
+
 def secur(request: request) -> object:
     return get_quiz(request, 'secur')
 
