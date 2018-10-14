@@ -1,34 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="module">
-        <h1>
-            The DevOps Way of Work
+<div class="container">
+   <div class="row">
+   <div class="col-sm-12 font__size__container">
+         <h1 class="font__size__title">
+             Lecture 1: The DevOps Way of Work:What is DevOps
         </h1>
 
         <figure>
-            <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Labor-Pearce-Highsmith-detail-1.jpeg/440px-Labor-Pearce-Highsmith-detail-1.jpeg"
-            width="21%">
-            <figcaption>
-            </figcaption>
-        </figure>
-
-        <p class="leadquote">
-            "Working software is the primary measure of progress." -- The Agile
-            Manifesto
-        </p>
-
-        <figure>
-            <iframe width="560" height="315"
+            <iframe class="lecture__video"
                 src="https://www.youtube.com/embed/QayYJouXzSk"
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
             </iframe>
-            <figcaption>
-                Lecture 1: What is DevOps?
-            </figcaption>
+
         </figure>
 
-        <details>
+       <blockquote class="blockquote text-right">
+          <p class="mb-0">   "Working software is the primary measure of progress."</p>
+          <footer class="blockquote-footer">-- <cite title="Source Title">The Agile Manifesto </cite></footer>
+        </blockquote>
+
+        <details class="details">
             <summary class="sum1">
                 Lesson 1: DevOps as Software Engineering
             </summary>
@@ -49,7 +41,7 @@
 
             <figure>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Waterfall_model.svg/700px-Waterfall_model.svg.png"
-                width="24%">
+                class="lecture__image" />
                 <figcaption>
                     The waterfall model
                 </figcaption>
@@ -58,7 +50,7 @@
             <p>
                 But the waterfall model produced many failures:
                 <a href="https://en.wikipedia.org/wiki/Death_march_(project_management)">death marches</a>,
-                instances of the 
+                instances of the
                 <a href="https://en.wikipedia.org/wiki/Ninety-ninety_rule">ninety-ninety rule</a>,
                 <a
                     href="https://en.wikipedia.org/wiki/Small_matter_of_programming">small
@@ -81,9 +73,9 @@
             <p>
                 Of course, <i>some</i> software projects using the waterfall
                 model succeeded. But it turns out that most successful software
-                projects, over many decades, instead followed the 
+                projects, over many decades, instead followed the
                 "<a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX
-                    philosophy</a>", 
+                    philosophy</a>",
                 where development projects sought to quickly achieve an
                 <a
                     href="https://en.wikipedia.org/wiki/Minimum_viable_product">MVP</a>,
@@ -95,7 +87,7 @@
                 The recognition of this fact lead, over time, to the
                 formulation of the
                 <a href="https://en.wikipedia.org/wiki/Lean_software_development">Lean</a>
-                and 
+                and
                 <a href="https://en.wikipedia.org/wiki/Agile_software_development">Agile</a>
                 development methods. These methods focused on rapidly creating
                 and releasing to users incremental improvements in a software.
@@ -124,7 +116,7 @@
                 </li>
 
                 <li>
-                    The "feedback loop" between users and programmers 
+                    The "feedback loop" between users and programmers
                     is shortened, allowing programmers to  learn about
                     users' needs more rapidly, and respond more quickly
                     to them.
@@ -138,12 +130,12 @@
             </ul>
 
             <p>
-                As development teams adopted Lean and Agile methods, they often 
+                As development teams adopted Lean and Agile methods, they often
                 became capable of producing production-ready software on a
                 daily basis, or even more frequently. (For instance, Amazon
                 releases software into production once every 11 seconds, on
                 average.) But this created a problem: managing software in
-                production environments was traditionally the job of 
+                production environments was traditionally the job of
                 <i>operations</i>, not of the developers. And operations viewed
                 its job as <i>slowing</i> the pace of releases, because
                 releases meant bugs, crashes, and other problems operations had
@@ -152,9 +144,9 @@
 
             <p>
                 How could this gulf between development and operations be narrowed?
-                A few forward-thinking operations people saw a way to reconcile 
+                A few forward-thinking operations people saw a way to reconcile
                 the aims of development and operations: operations itself had
-                to become Lean and Agile! In particular, rather than 
+                to become Lean and Agile! In particular, rather than
                 hand-provisioning operations infrastructure, operations team
                 members had to themselves become coders, and apply the full
                 toolkit of Lean and Agile methods to operations: incremental
@@ -168,7 +160,7 @@
             </p>
 
             <p>
-                As a result, the term "DevOps" is an umbrella beneath which 
+                As a result, the term "DevOps" is an umbrella beneath which
                 reside a large number of methods and tools. We can better
                 undertand why each of the areas we will studying falls under
                 "DevOps" when we comprehend how they contribute to the DevOps
@@ -376,7 +368,7 @@
             href="http://www.econlib.org/library/Essays/rdPncl1.html">here</a>)
             by noting:
             </p>
-            
+
             <blockquote>
             I, Pencil, simple though I appear to be, merit your wonder and awe,
             a claim I shall attempt to prove… Simple? Yet, not a single person
@@ -385,7 +377,7 @@
             are about one and one-half billion of my kind produced in the
             U.S.A. each year.
             </blockquote>
-            
+
             <p>
             Read goes on to list just a few of the many, many people who
             contribute to the making of a “simple” pencil: loggers, miners,
@@ -394,7 +386,7 @@
             assembly-line machines, the harvesters of canola seed, farmers
             growing castor beans, and more.
             </p>
-            
+
             <p>
             What Read is praising in his essay are the benefits of the division
             of labor, the economic process through which a human community, by
@@ -430,7 +422,7 @@
             of pins per day as would have been possible without the division of
             labor.
             </p>
-            
+
             <p>
             In the early 20th century, this method of increasing productivity
             was pushed to its limits. Tasks were broken down to the extent that
@@ -445,9 +437,9 @@
             what they do with “making a car.” But even Adam Smith, who, as we
             have seen, praised the effects of the division of labor, commented:
             </p>
-            
+
             <blockquote>
-            
+
             In the progress of the division of labour, the employment of the
             far greater part of those who live by labour, that is, of the great
             body of people, comes to be confined to a few very simple
@@ -463,7 +455,7 @@
             become for a human creature to become. (<a
             href="http://www.econlib.org/library/Smith/smWN20.html#V.1.178">http://www.econlib.org/library/Smith/smWN20.html#V.1.178</a>)
             </blockquote>
-            
+
             <p>
             Smith is pointing out a <i>general</i> problem with the extensive
             division of labor, but there is a much more <i>particular</i>
@@ -482,7 +474,7 @@
             below the peak were to just mindlessly follow the orders of those
             knowledge commissars.
             </p>
-            
+
             <p>
             A major problem with this approach is that as products become more
             complicated and the pace of innovation increases, no single mind,
@@ -497,7 +489,7 @@
             the forerunner of Lean Software Development. As Mary and Tom
             Poppendieck note in <i>Implementing Lean Software Development</i>:
             </p>
-            
+
             <blockquote>
             Toyota’s real innovation is its ability to harness the
             intellect of “ordinary” employees. Successful lean initiatives must be based
@@ -505,7 +497,7 @@
             especially the “ordinary” people who make the product or pound out the code.
             (pp. 124-125)
             </blockquote>
-            
+
             <p>
             As important as these ideas were in factory production, their
             importance is even greater in the world of software development,
@@ -514,7 +506,7 @@
             product, which is almost always a lower cost venture than “rolling
             your own.”
             </p>
-            
+
             <p>
             In such an environment, it is simply not possible to assign the
             “workers” (programmers) a simple, repetitive task, and expect them
@@ -527,7 +519,7 @@
             orders: the programmer can bring production to a halt simply by
             asking, “OK, what line of code should I write next?”
             </p>
-            
+
             <p>
             But further: no knowledge worker producing an even moderately
             complex product can do his work properly without his understanding
@@ -539,7 +531,7 @@
             whom the changes in her component have an impact, and that set of
             workers typically encompasses <i>almost everyone</i> working on the
             product. As the Disciplined Agile Framework has it:</p>
-            
+
             <blockquote>
             Enterprise awareness is one of the key principles behind the
             Disciplined Agile (DA) framework. The observation is that DA teams
@@ -555,7 +547,7 @@
             exists which hopefully enhances what your team is doing. (<a
             href="http://www.disciplinedagiledelivery.com/enterpriseawareness/)">http://www.disciplinedagiledelivery.com/enterpriseawareness/)</a>
             </blockquote>
-            
+
             <p>
             The various aspects of Agile / Lean / DevOps production follow from
             recognizing these realities concerning knowledge workers
@@ -583,7 +575,7 @@
             so that any problems using the product become known almost as soon
             as they occur.
             </p>
-            
+
             <p>
             Given the above realities, a rigid division of labor hinders
             businesses from responding agilely to changing market conditions
@@ -594,7 +586,7 @@
             from an initially defined pattern of interaction. In Disciplined
             Agile, it is noted:
             </p>
-            
+
             <blockquote>
             IT departments are complex adaptive organizations.  What we mean by
             that is that the actions of one team will affect the actions of
@@ -608,13 +600,13 @@
             (<a
             href="http://www.disciplinedagiledelivery.com/agility-at-scale/disciplined-agile-2/">Disciplined Agile</a>)
             </blockquote>
-            
+
             <p>
             Let us consider a realistic
             change that might hit a project mid-stream, and just a few of the areas it
             might impact.
             </p>
-            
+
             <p>
             I was once developing an option-trading package for a team of
             traders. At first, we were only getting quotes for options from a
@@ -633,7 +625,7 @@
             to detect if there was a lag on quotes arriving from four sources,
             not one.
             </p>
-            
+
             <p>
             Or consider the patterns and tales from Michael T. Nygard’s book,
             <i>Release It!</i>. Continually, in Nygard’s stories, solving a
@@ -652,7 +644,7 @@
             online store, the order management system, and the scheduling
             system, and the interactions of the three.
             </p>
-            
+
             <p>
             A software engineer who thinks of his job narrowly, as just
             being responsible for writing the code to do the task he is told the code
@@ -668,7 +660,7 @@
             walls produced by a rigid division of labor, and embrace agile
             development principles. Or, as said in Disciplined Agile:
             </p>
-            
+
             <blockquote>
                 However, to succeed delivery teams must often work with people
                 outside of the team, such as enterprise architects, operations
@@ -688,13 +680,13 @@
 
             <p>
                 Nobel-Prize-winning economist F.A. Hayek was one of the most
-                significant social theorists of the 20th century. 
+                significant social theorists of the 20th century.
                 He did important work on the theory of the business cycle, on
                 monetary theory, on the theory of capital, on the informational
                 role of market prices, on the nature of complex phenomena, and on
                 the importance of group selection in evolution.
             </p>
-    
+
             <p>
                 Hayek's work has important insights to
                 offer those advancing Lean / Agile / DevOps ideas for IT.
@@ -704,7 +696,7 @@
                 importance of the "development" part of the phrase "software
                 development."
             </p>
-    
+
             <p>
                 That essay of Hayek's was written in response to the model of
                 "perfect competition" that had come to dominate economics in the
@@ -718,7 +710,7 @@
                 to charge, and simply passively accepts their situation as it
                 stands.
             </p>
-    
+
             <p>
                 Similarly, the waterfall model of software development simply
                 assumes that what has to be discovered, in the process of software
@@ -736,7 +728,7 @@
                 software being "developed" should actually do. But in reality,
                 as Eric Evans notes:
             </p>
-                
+
             <blockquote>
                 <i>When we set out to write software, we
                     never know enough.</i> Knowledge on the project is fragmented,
@@ -747,12 +739,12 @@
                 how much we don't know. This ignorance leads us to make
                 false assumptions. (Evans, p. 15)
             </blockquote>
-    
+
             <p>
                 Hayek, describing the dependence of economists on the perfect
                 competition model, admits:
             </p>
-    
+
             <blockquote>
                 It is difficult to defend economists against the charge that for
                 some 40 or 50 years they have been discussing competition on
@@ -762,11 +754,11 @@
                 indeed be a very wasteful method of securing adjustment to these
                 facts. (Hayek, 179)
             </blockquote>
-    
+
             <p>
                 He goes on to write:
             </p>
-    
+
             <blockquote>
                 In sports or in examinations, no less than in the world of
                 government contracts or prizes for poetry, it would clearly be
@@ -775,7 +767,7 @@
                 procedure for the discovery of such facts as, without resort to it,
                 would not be known to anyone... (Hayek, 179)
             </blockquote>
-    
+
             <p>
                 This, I suggest, is quite analogous to software development: it
                 would be pointless to engage in such a time-consuming, mentally
@@ -790,14 +782,14 @@
                 tell if our CDN design meets our goals when it actually has to
                 deliver content. None of this means that we should not plan <i>as
                 much as possible</i>, in advance, to make sure our software is up
-            to snuff, just that how much is possible is quite limited. 
+            to snuff, just that how much is possible is quite limited.
             </p>
-    
+
             <p>
                 Hayek highlights the true value of competition in the following
                 passage:
             </p>
-    
+
             <blockquote>
                 [C]ompetition is valuable only because, and so far as,
                 its results are unpredictable and on the whole different from those
@@ -813,12 +805,12 @@
                 they are better adapted to delivering the goods than alternative
                 approaches. (Hayek, 180)
             </blockquote>
-    
+
             <p>
                 Bjarne Stroustrup, the creator of C++, has very similar things to
                 say about programming:
             </p>
-    
+
             <blockquote>
                 When we start, we rarely know the problem well. We often think we
                 do... but we don't. Only a combination of thinking about the
@@ -829,7 +821,7 @@
                 take advantage of the feedback that writing code and testing give
                 us (Stroustrup, 178).
             </blockquote>
-    
+
             <p>
                 Given that competition is a discovery procedure, and thus we
                 can't ever predict, with certainty, the results of market
@@ -838,14 +830,14 @@
                 it to say at least something about the course of events. Hayek
                 concludes that:
             </p>
-    
+
             <blockquote>
                 [The theory of the market's] capacity to predict is necessarily
                 limited to predicting the kind of pattern, or the abstract
                 character of the order that will form itself, but does not extend
                 to the prediction of particular facts. (Hayek, 181)
             </blockquote>
-    
+
             <p>
                 Similarly, in software development, although we can't anticipate in
                 advance exactly what lines of code will be needed... or development
@@ -855,7 +847,7 @@
                 the architectural works of Christopher Alexander into software
                 development.
             </p>
-    
+
             <p>
                 Let us turn aside from contemplating the market order, upon
                 which Hayek focuses most of his attention, and consider the
@@ -875,7 +867,7 @@
                 working code, realizations that would expose the "specs," the
                 master plan, as being based upon false hypotheses.
             </p>
-    
+
             <p>
                 One aspect of recognizing an order as a discovery procedure is
                 the implication that <i>where</i> in an organization the most
@@ -886,7 +878,7 @@
                 market innovations arose at the level of the factory floor or
                 the sales visit, and not in the executive suite.
             </p>
-    
+
             <p>
                 The waterfall model assumes that every insight about the
                 proper form of the final software product will come from
@@ -897,8 +889,8 @@
                 production pioneered by Frederick Taylor around the turn
                 of the last century. As Jerry Muller describes it:
             </p>
-    
-    
+
+
             <blockquote>
                 Taylorism was based on trying to replace the implicit knowledge of
                 the workmen with mass production methods developed, planned,
@@ -912,7 +904,7 @@
                 management in accordance with the laws of science. (Muller,
                 pp.32-33)
             </blockquote>
-    
+
             <p>
                 But Taylorism and similar top-down approaches proved inadequate in
                 manufacturing, as demonstrated by the triumph of the Toyota
@@ -922,8 +914,8 @@
                 that the waterfall model of software development fails for very
                 similar reasons.
             </p>
-    
-    
+
+
             <p>
                 Once we recognize software development is a discovery procedure,
                 it should prove useful to categorize some of the features of a
@@ -936,7 +928,7 @@
                 likely areas where our initial analysis will fall short of the
                 mark:
             </p>
-    
+
             <ul class="nested">
                 <li>
                     We will discover "corner solutions" we had not anticipated.
@@ -983,11 +975,11 @@
                     developing their theories are better off" (Taleb, 144).
                 </li>
             </ul>
-    
+
             <h4>
                 Bibliography
             </h4>
-    
+
             <p>
                 <i>Domain-Driver Design: Tackling Complexity in the Heart of
                     Software</i>,
@@ -996,7 +988,7 @@
                 Upper Saddle River (New Jersey),
                 2004.
             </p>
-    
+
             <p>
                 "Competition as a Discovery Procedure," in
                 <i>New Studies in Philosophy, Politics, Economics
@@ -1006,7 +998,7 @@
                 Chicago,
                 1978.
             </p>
-    
+
             <p>
                 <i>Programming: Principles and Practice Using C++</i>,
                 Bjarne Stroustrup,
@@ -1014,7 +1006,7 @@
                 Upper Saddle River (New Jersey),
                 2014.
             </p>
-    
+
             <p>
                 <i>The Tyranny of Metrics</i>,
                 Jerry Z. Muller,
@@ -1022,7 +1014,7 @@
                 Princeton,
                 2018.
             </p>
-    
+
             <p>
                 <i>The Black Swan</i>,
                 Nassim Nicholas Taleb,
@@ -1103,8 +1095,15 @@
             </ul>
 
         </details>
+         {% include 'quiz.html' %}
+
+   </div>
+
+   </div>
+</div>
 
 
-        {% include 'quiz.html' %}
+
+
 
 {% endblock content %}
