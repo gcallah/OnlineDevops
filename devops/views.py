@@ -21,19 +21,21 @@ def get_quiz(request, mod_nm):
     # :return: header, list() containing randomized questions, mod_nm
     try:
         questions = Question.objects.filter(module=mod_nm)
-        number_of_questions = questions.count()
-        number_of_questions_to_randomize = get_object_or_404(Quiz, module=mod_nm).numq
+        num_questions = questions.count()
+        num_qs_to_randomize = get_object_or_404(Quiz, module=mod_nm).numq
+        rand_qs = []
 
-        if number_of_questions != 0:
-            if number_of_questions >= number_of_questions_to_randomize:
-                    questions_randomized = random.sample(list(questions), number_of_questions_to_randomize)
+        if num_questions != 0:
+            if num_questions >= num_qs_to_randomize:
+                    rand_qs = random.sample(list(questions),
+                                                         num_qs_to_randomize)
             else:
-                    questions_randomized = random.sample(list(questions), number_of_questions)
-        else:
-            questions_randomized = random.sample(list(questions), 0)
+                    rand_qs = random.sample(list(questions),
+                                                         num_questions)
 
         return render(request, get_filenm(mod_nm),
-                      {'header': site_hdr, 'questions': questions_randomized, 'mod_nm': mod_nm})
+                      {'header': site_hdr, 'questions': rand_qs,
+                       'mod_nm': mod_nm})
 
         # And if we crashed along the way - we crash gracefully...
     except Exception as e:
@@ -56,6 +58,8 @@ def gloss(request: request) -> object:
 def teams(request: request) -> object:
     return render(request, 'teams.html', {'header': site_hdr})
 
+def basics(request: request) -> object:
+    return get_quiz(request, 'basics')
 
 def build(request: request) -> object:
     return get_quiz(request, 'build')
@@ -87,6 +91,10 @@ def micro(request: request) -> object:
 
 def monit(request: request) -> object:
     return get_quiz(request, 'monit')
+
+
+def no_quiz(request: request) -> object:
+    return get_quiz(request, 'no_quiz')
 
 
 def secur(request: request) -> object:

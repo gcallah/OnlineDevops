@@ -11,6 +11,7 @@ def view_templ(vname):
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^devops/about/*$', views.about, name='about'),
+    url(r'^devops/basics/*$', views.basics, name='basics'),
     url(r'^devops/gloss/*$', views.gloss, name='gloss'),
     url(r'^devops/teams/*$', views.teams, name='teams'),
     url(r'^devops/build/*$', views.build, name='build'),
@@ -21,6 +22,7 @@ urlpatterns = [
     url(r'^devops/infra/*$', views.infra, name='infra'),
     url(r'^devops/micro/*$', views.micro, name='micro'),
     url(r'^devops/monit/*$', views.monit, name='monit'),
+    url(r'^devops/no_quiz/*$', views.no_quiz, name='no_quiz'),
     url(r'^devops/secur/*$', views.secur, name='secur'),
     url(r'^devops/sum/*$', views.sum, name='sum'),
     url(r'^devops/test/*$', views.test, name='test'),
