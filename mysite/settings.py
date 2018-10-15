@@ -80,12 +80,28 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# This is the default db engine & db file. If we are not getting override later - we will use it.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# This is how we switch to MySQL - by setting USE_MYSQL env. variables to YES or True...
+# if you forgot something - we fallback to SQLite, again...
+if os.environ.get('USE_MYSQL') is not None:
+    DATABASES = {
+        'default': {
+            'ENGINE': os.environ.get('ENGINE', 'django.db.backends.sqlite3'),
+            'NAME': os.environ.get('NAME', 'db.sqlite3'),
+            'USER': os.environ.get('USER'),
+            'PASSWORD': os.environ.get('PASSWORD'),
+            'HOST': os.environ.get('HOST')
+        }
+    }
+
+
 
 
 # Password validation
