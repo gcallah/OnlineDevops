@@ -9,7 +9,8 @@ from .models import Question, Grade, Quiz, CourseModule
 
 site_hdr = "The DevOps Course"
 
-NUM_RAND_QS = 10
+DEF_NUM_RAND_QS = 10
+DEF_MINPASS = 80
 
 def get_filenm(mod_nm):
     return mod_nm + '.html'
@@ -24,12 +25,16 @@ def get_quiz(request, mod_nm):
         questions = Question.objects.filter(module=mod_nm)
         num_questions = questions.count()
         rand_qs = []
-        num_qs_to_randomize = NUM_RAND_QS
+        num_qs_to_randomize = DEF_NUM_RAND_QS
 
         if num_questions > 0:
             # we have to fetch numq from here:
             quizzes = Quiz.objects.filter(module=mod_nm)
-
+            # we should log if we get count > 1 here!
+            for quiz in quizzes:
+                # we should have only 1 if any!
+                num_qs_to_randomize = quiz.numq
+                break
             if num_questions >= num_qs_to_randomize:
                     rand_qs = random.sample(list(questions),
                                             num_qs_to_randomize)
@@ -123,6 +128,8 @@ def grade_quiz(request: HttpRequest()) -> list:
     :return: list() of dict() containing question, right/wrong, correct answer
     """
     try:
+        minpass = DEF_MINPASS
+        num_rand_qs = DEF_NUM_RAND_QS
         # First, we process only when form is POSTed...
         if request.method == 'POST':
             graded_answers = []
@@ -145,16 +152,14 @@ def grade_quiz(request: HttpRequest()) -> list:
             questions = Question.objects.filter(module=mod_nm)
             questions_count = questions.count()
 
-            # can't do this this way: no 404s
-            # please write a query that checks for result,
-            # and have a default if no result
-            # num_rand_qs = get_object_or_404(Quiz, module=mod_nm).numq
-            num_rand_qs = 10  # temporary!
+            quizzes = Quiz.objects.filter(module=mod_nm)
+            # we should log if we get count > 1 here!
+            for quiz in quizzes:
+                num_rand_qs = quiz.numq
+                minpass = quiz.minpass
+                break
 
-            if questions_count >= num_rand_qs:
-                num_ques_of_quiz = num_rand_qs
-            else:
-                num_ques_of_quiz = questions_count
+            num_ques_of_quiz = min(questions_count, num_rand_qs)
 
             number_of_ques_to_check = num_ques_of_quiz
             # Number of randomized questions from get_quiz.
@@ -195,26 +200,29 @@ def grade_quiz(request: HttpRequest()) -> list:
 
             # Calculating quiz score
             correct_pct = Decimal((num_correct
-                                                   / number_of_ques_to_check)
-                                                  * 100)
+                                   / number_of_ques_to_check) * 100)
             curr_quiz = Quiz.objects.get(module=mod_nm)
 
-            # this code just assumes that the query below works!
-            # can't code like that!
-            # curr_module = CourseModule.objects.get(module=mod_nm)
-
+            curr_module = None
+            quiz_name = 'Quiz'
             navigate_links = {}
+            modules = CourseModule.objects.filter(module=mod_nm)
+            for this_module in modules:
+            # we should log if we get count > 1 here!
+                curr_module = this_module
+                break
 
             # No matter if user passes or fails, 
             # show link to next module if it exists
-#            navigate_links = {
-#                'next': 'devops:'
-#                + curr_module.next_module if curr_module.next_module else False
-#            }
-#
-#            # If user fails, show link to previous module
-#            if (correct_pct < curr_quiz.minpass):
-#                navigate_links['previous'] = 'devops:' + mod_nm
+            if curr_module is not None:
+                quiz_name = curr_module.title
+                navigate_links = {
+                    'next': 'devops:'
+                    + curr_module.next_module if curr_module.next_module else False
+                }
+                # If user fails, show link to previous module
+                if (correct_pct < curr_quiz.minpass):
+                    navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
             if request.user.username != '':
@@ -230,7 +238,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                                num_ques=number_of_ques_to_check,
                                num_correct=num_correct,
                                correct_pct=int(correct_pct),
-                               quiz_name='Quiz',  # curr_module.title,
+                               quiz_name=quiz_name,
                                navigate_links=navigate_links,
                                header=site_hdr))
 
