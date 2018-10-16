@@ -27,31 +27,49 @@
 
             <ol class="nested">
                 <li>
-                Why to we test: verification -- does the software do what it is
+                Why do we test: we test to see if the software does what it is
                 expected to do?
                 </li>
                 <li>
                 Classic way to do testing: test cases, bugs, regression, growing
-                    "regression debt" (show examples).
+                    "regression debt".
+                    <br />
+                    Here we want some examples.
                 </li>
                 <li>
                 Revolutionary idea: zero-bug mindset: bugs are not tasks in backlog,
                 you have to fix them as you go -- by the end of the day zero bugs
                 exist.
+                <br />
+                This is part of the "incremental improvement" idea: if we do 
+                continuous integration and continuous delivery with small
+                batches, each delivery into production should produce at most a
+                "small batch" of bugs! And we can fix that small batch
+                immediately.
                 </li>
                 <li>
                 Revolutionary idea: zero-length feedback, developers can test and fix
-                    immediately.
+                    bugs immediately.
+                    <br />
+                    Part of this is establishing a culture of trust:
+                    If we need to feed approval for each change through
+                    multiple levels of bureaucracy, we can't fix bugs right
+                    away. And we can relate this back to the discussion in
+                    chapter one on "Taylorism" versus "Toyota Production
+                    System": in the former, the "workers" just carry out the
+                    plans of the "managers." In the latter, everyone is
+                    responsible for the entire production process.
                 </li>
                 <li>
                 Test pyramid:
                 </li>
                 <ol type="a" class="nested">
                   <li>
-                Unit tests for individual classes and methods (models, controllers, views)
+                      Unit tests for individual classes and methods (models,
+                      controllers, views)
                   </li>
                   <li>
-                Integration tests to check feature top-down.
+                      Integration tests to check feature top-down.
                   </li>
                   <li>
                 Acceptance test to check feature as user sees it.
