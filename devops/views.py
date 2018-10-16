@@ -5,10 +5,12 @@ from django.contrib import messages
 from decimal import Decimal
 import random
 
-from .models import Question, Grade, Quiz
+from .models import Question, Grade, Quiz, CourseModule
 
 site_hdr = "The DevOps Course"
 
+DEF_NUM_RAND_QS = 10
+DEF_MINPASS = 80
 
 def get_filenm(mod_nm):
     return mod_nm + '.html'
@@ -21,19 +23,28 @@ def get_quiz(request, mod_nm):
     # :return: header, list() containing randomized questions, mod_nm
     try:
         questions = Question.objects.filter(module=mod_nm)
-        number_of_questions = questions.count()
-        number_of_questions_to_randomize = get_object_or_404(Quiz, module=mod_nm).numq
+        num_questions = questions.count()
+        rand_qs = []
+        num_qs_to_randomize = DEF_NUM_RAND_QS
 
-        if number_of_questions != 0:
-            if number_of_questions >= number_of_questions_to_randomize:
-                    questions_randomized = random.sample(list(questions), number_of_questions_to_randomize)
+        if num_questions > 0:
+            # we have to fetch numq from here:
+            quizzes = Quiz.objects.filter(module=mod_nm)
+            # we should log if we get count > 1 here!
+            for quiz in quizzes:
+                # we should have only 1 if any!
+                num_qs_to_randomize = quiz.numq
+                break
+            if num_questions >= num_qs_to_randomize:
+                    rand_qs = random.sample(list(questions),
+                                            num_qs_to_randomize)
             else:
-                    questions_randomized = random.sample(list(questions), number_of_questions)
-        else:
-            questions_randomized = random.sample(list(questions), 0)
+                    rand_qs = random.sample(list(questions),
+                                            num_questions)
 
         return render(request, get_filenm(mod_nm),
-                      {'header': site_hdr, 'questions': questions_randomized, 'mod_nm': mod_nm})
+                      {'header': site_hdr, 'questions': rand_qs,
+                       'mod_nm': mod_nm})
 
         # And if we crashed along the way - we crash gracefully...
     except Exception as e:
@@ -56,6 +67,8 @@ def gloss(request: request) -> object:
 def teams(request: request) -> object:
     return render(request, 'teams.html', {'header': site_hdr})
 
+def basics(request: request) -> object:
+    return get_quiz(request, 'basics')
 
 def build(request: request) -> object:
     return get_quiz(request, 'build')
@@ -89,6 +102,10 @@ def monit(request: request) -> object:
     return get_quiz(request, 'monit')
 
 
+def no_quiz(request: request) -> object:
+    return get_quiz(request, 'no_quiz')
+
+
 def secur(request: request) -> object:
     return get_quiz(request, 'secur')
 
@@ -104,7 +121,6 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
-
 def grade_quiz(request: HttpRequest()) -> list:
     """
     Returns list of Questions user answered as right / wrong
@@ -112,12 +128,14 @@ def grade_quiz(request: HttpRequest()) -> list:
     :return: list() of dict() containing question, right/wrong, correct answer
     """
     try:
+        minpass = DEF_MINPASS
+        num_rand_qs = DEF_NUM_RAND_QS
         # First, we process only when form is POSTed...
         if request.method == 'POST':
             graded_answers = []
             user_answers = []
             form_data = request.POST
-            num_ques_correct = 0
+            num_correct = 0
 
             # get only post fields containing user answers...
             for key, value in form_data.items():
@@ -125,24 +143,30 @@ def grade_quiz(request: HttpRequest()) -> list:
                     proper_id = str(key).strip('_')
                     user_answers.append({proper_id: value})
 
-            # forces user to answer all quiz questions, redirects to module page if not completed
-            # TODO: keep previously selected radio buttons checked instead of clearing form
+            # forces user to answer all quiz questions,
+            # redirects to module page if not completed
+            # TODO: keep previously selected radio buttons 
+            # checked instead of clearing form
             mod_nm = form_data['submit']
 
             questions = Question.objects.filter(module=mod_nm)
             questions_count = questions.count()
-            questions_count_randomized = get_object_or_404(Quiz, module=mod_nm).numq
 
+            quizzes = Quiz.objects.filter(module=mod_nm)
+            # we should log if we get count > 1 here!
+            for quiz in quizzes:
+                num_rand_qs = quiz.numq
+                minpass = quiz.minpass
+                break
 
-            if questions_count >= questions_count_randomized:
-                num_ques_of_quiz = questions_count_randomized
-            else:
-                num_ques_of_quiz = questions_count
+            num_ques_of_quiz = min(questions_count, num_rand_qs)
 
-            number_of_ques_to_check = num_ques_of_quiz #Number of randomized questions from get_quiz.
+            number_of_ques_to_check = num_ques_of_quiz
+            # Number of randomized questions from get_quiz.
 
             if len(user_answers) != number_of_ques_to_check:
-                messages.warning(request, 'Please complete all questions before submitting')
+                messages.warning(request,
+                                 'Please complete all questions before submitting')
                 return redirect('/devops/' + mod_nm)
 
             # now get those answers from database & check if answer is right...
@@ -167,7 +191,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                 if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
                     processed_answer['message'] = "Congrats, thats correct!"
                     processed_answer['status'] = "right"
-                    num_ques_correct += 1
+                    num_correct += 1
                 else:
                     processed_answer['message'] = "Sorry, that's incorrect!"
                     processed_answer['status'] = "wrong"
@@ -175,39 +199,48 @@ def grade_quiz(request: HttpRequest()) -> list:
                 graded_answers.append(processed_answer)
 
             # Calculating quiz score
-            num_ques_correct_percentage = Decimal((num_ques_correct / number_of_ques_to_check) * 100)
+            correct_pct = Decimal((num_correct
+                                   / number_of_ques_to_check) * 100)
+            curr_quiz = Quiz.objects.get(module=mod_nm)
 
-            # Pass a quiz name to view & display at Here are your quiz results
-            quiz_name = {
-                'work': 'MOD1: The DevOps Way of Work',
-                'comm': 'MOD2: Cooperation and Communication (Tool: Slack)',
-                'incr': 'MOD3: Incremental Development (Tool: git)',
-                'build': 'MOD4: Automating Builds (Tool: make)',
-                'flow': 'MOD5: Workflow (Tool: kanban boards)',
-                'test': 'MOD6: Automating Testing (Tool: Jenkins)',
-                'infra': 'MOD7: Software as Infrastructure (Tool: Docker)',
-                'cloud': 'MOD8: Cloud Deployment (Tool: Kubernetes)',
-                'micro': 'MOD9: Microservices and Serverless Computing',
-                'monit': 'MOD10: Monitoring (Tool: StatusCake)',
-                'secur': 'MOD11: Security',
-                'sum': 'MOD12: Summing Up',
-            }
+            curr_module = None
+            quiz_name = 'Quiz'
+            navigate_links = {}
+            modules = CourseModule.objects.filter(module=mod_nm)
+            for this_module in modules:
+            # we should log if we get count > 1 here!
+                curr_module = this_module
+                break
+
+            # No matter if user passes or fails, 
+            # show link to next module if it exists
+            if curr_module is not None:
+                quiz_name = curr_module.title
+                navigate_links = {
+                    'next': 'devops:'
+                    + curr_module.next_module if curr_module.next_module else False
+                }
+                # If user fails, show link to previous module
+                if (correct_pct < curr_quiz.minpass):
+                    navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
             if request.user.username != '':
                 action_status = Grade.objects.create(participant=request.user,
-                                                     score=num_ques_correct_percentage.real,
-                                                     quiz=Quiz.objects.get(module=mod_nm),
+                                                     score=correct_pct.real,
+                                                     quiz=curr_quiz,
                                                      quiz_name=mod_nm)
 
             # ok, all questions processed, lets render results...
-            return render(request, 'graded_quiz.html', dict(graded_answers=graded_answers,
-                                                            num_ques=number_of_ques_to_check,
-                                                            num_ques_correct=num_ques_correct,
-                                                            num_ques_correct_percentage=int(num_ques_correct_percentage),
-                                                            quiz_name=quiz_name.get(mod_nm),
-                                                            header=site_hdr))
-
+            return render(request,
+                          'graded_quiz.html',
+                          dict(graded_answers=graded_answers,
+                               num_ques=number_of_ques_to_check,
+                               num_correct=num_correct,
+                               correct_pct=int(correct_pct),
+                               quiz_name=quiz_name,
+                               navigate_links=navigate_links,
+                               header=site_hdr))
 
         # If it is PUT, DELETE etc. we say we dont do that...
         else:

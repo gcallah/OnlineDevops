@@ -2,3 +2,5 @@
 *.pyc
 /.idea
 /venv
+/video
+.DS_Store

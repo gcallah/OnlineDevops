@@ -5,22 +5,45 @@
 
 {% block content %}
     <h1>{{ quiz_name }} - Here are your quiz results</h1>
-    {% for graded_answer in graded_answers %}
-        <div>
-            <h4>{{ graded_answer.question }}</h4>
-            <p>The correct answer is:<br>{{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.</p>
-            <p {% if 'incorrect' in graded_answer.message %} class="errors" {% endif %}>
-                You answered: <br> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
+    <ol class="nested">
+        {% for graded_answer in graded_answers %}
+            <li style="color: #aaf"> 
+                {{ graded_answer.question }} 
+            </li>
+            <p>
+                {{ graded_answer.message }}
+                The correct answer is: <br/>
+                {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
             </p>
-        </div>
-    {% endfor %}
-
-     <p>
+            {% if graded_answer.status == 'wrong' %}
+                <p class="errors">
+                    You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
+                </p>
+            {% endif %}
+        {% endfor %}
+    </ol>
+    <p>
         <br>
-        You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions giving you a score of {{ num_ques_correct_percentage }}%!
+         <span>You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions giving you a score of {{ num_ques_correct_percentage }}%!</span>
     </p>
 
     <p>
-        <a href="{% url 'devops:index' %}">Back to the Main</a>
+        {% if navigate_links.previous %}
+            <a href={% url navigate_links.previous %}>
+                We suggest you repeat this module
+            </a>
+            <br/>
+        {% endif %}
+        {% if navigate_links.next %}
+            <a href={% url navigate_links.next %}>
+                Continue onto next module
+            </a>
+            <br/>
+        {% else %}
+            <a href="/">
+                Go to home page
+            </a>
+            <br/>
+        {% endif %}
     </p>
 {% endblock %}

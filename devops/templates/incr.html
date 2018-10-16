@@ -119,14 +119,25 @@
                 Lesson 3: git and GitHub
             </summary>
 
+            <figure>
+                <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/CTBaNX-WEKI" 
+                    frameborder="0" allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                </iframe>
+                <figcaption>
+                    A brief tutorial on using <code>git</code>.
+                </figcaption>
+            </figure>
+
             <p>
-                First things first: don't confuse <code>git</code> with
-                GitHub! <code>git</code> is a system for creating and updating
-                a distributed source code control
-                <a href="gloss/">repository</a>. It includes features
-                for adding new files, updating files, deleting files or
-                versions from the repository, branching, resolving 
-                version conflicts, and reverting to earlier versions.
+                First things first: don't confuse <code>git</code> with GitHub!
+                <code>git</code> is a system for creating and updating a
+                distributed source code control <a
+                href="gloss/">repository</a>. It includes features for adding
+            new files, updating files, deleting files or versions from the
+            repository, branching, resolving version conflicts, and reverting
+            to earlier versions.
             </p>
 
             <p>
@@ -353,6 +364,13 @@
                     above.
                     This will cause <code>git</code> to ignore your changes
                     and just use "theirs": the one's in the origin repo.
+                    <br />
+                    On the other hand, sometimes you want your own
+                    version to be used rather than the version from 
+                    "their" repo; then you can use <code>--ours</code>
+                    rather than <code>--theirs</code>:
+                    <br />
+                    <code>git checkout --ours &lt;filename&gt; </code>
                 </li>
 
             </ul>

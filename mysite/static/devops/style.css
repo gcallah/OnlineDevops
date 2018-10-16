@@ -34,7 +34,7 @@ th, td {
 }
 
 th {
-    background: #bdf;
+    background: #444;
 }
 
 th.table-head {
@@ -42,7 +42,7 @@ th.table-head {
 }
 
 td {
-    background: #fff;
+    background: #444;
 }
 
 p {
@@ -136,6 +136,7 @@ h1.brand {
     margin: 0em 0em 0em 0em;
     color: #622;
     font-size: 2.2em;
+    text-align: center;
 }
 
 h1.chap-title {

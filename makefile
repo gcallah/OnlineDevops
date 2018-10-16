@@ -37,4 +37,4 @@ quiz:
 staging:
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
 	echo 'INFO: pushing master to the staging now...'
-	-git push -u staging master
+	git push -u staging master
