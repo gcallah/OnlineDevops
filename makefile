@@ -49,3 +49,5 @@ gloss: $(GLOSS)
 
 $(GLOSS): $(GLOSS_SRC)
 	$(UDIR)/create_gloss.py $(GLOSS_SRC) > $(GLOSS)
+	git add $(GLOSS)
+	git commit $(GLOSS) -m "Building new glossary template."
