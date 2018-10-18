@@ -9,6 +9,17 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/static/devops/style.css">
     {% endblock stylesheets %}
+    <style>
+        .list-group-item{
+            width:50%;
+            margin-left:25%;
+
+        }
+
+        .list-group-item a{
+            color:black;
+        }
+    </style>
 </head>
 
 <body class="dashboard">
@@ -17,6 +28,8 @@
             <div id="user-tools">
                 <a href="/" class="header-title">{{ header }}</a>
                 <a href="/">Home</a>
+                &nbsp;&nbsp;
+                <a href="/devops/gloss">Glossary</a>
                 &nbsp;&nbsp;
                 <a href="/devops/teams">Teams</a>
                 &nbsp;&nbsp;

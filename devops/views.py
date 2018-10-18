@@ -61,7 +61,7 @@ def about(request: request) -> object:
 
 
 def gloss(request: request) -> object:
-    return render(request, 'gloss.html', {'header': site_hdr})
+    return render(request, 'glossary.html', {'header': site_hdr})
 
 
 def teams(request: request) -> object:
