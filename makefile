@@ -1,8 +1,8 @@
 UDIR = utils
 TDIR = tests
-MDL = $(SDIR)/models.py
-SRCS = $(MDL)
 DEVDIR = devops
+MDL = $(DEVDIR)/models.py
+SRCS = $(MDL)
 TEMPLDIR = $(DEVDIR)/templates
 GLOSS = $(TEMPLDIR)/gloss.html
 GLOSS_SRC = templates/gloss_terms.txt
