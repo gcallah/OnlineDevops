@@ -26,37 +26,42 @@
                             <ol class="nested" type='a'>
                                 {% if q.answerA %}
                                     <li>
+
                                         <input type="radio" name="_{{q.id}}"
-                                            value='a'>
-                                        {{ q.answerA }}
+                                            value='a' id="a">
+                                        <label for='a'>{{ q.answerA }}</label>
                                     </li>
                                 {% endif %}
                                 {% if q.answerB %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='b'>
-                                        {{ q.answerB }}
+                                            value='b' id="b">
+                                         <label for='b'> {{ q.answerB }}</label>
+
                                     </li>
                                 {% endif %}
                                 {% if q.answerC %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='c'>
-                                        {{ q.answerC }}
+                                            value='c' id="c">
+                                           <label for='c'> {{ q.answerC }}</label>
+
                                     </li>
                                 {% endif %}
                                 {% if q.answerD %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='d'>
-                                        {{ q.answerD }}
+                                            value='d' id="d">
+                                           <label for='d'>         {{ q.answerD }}</label>
+
                                     </li>
                                 {% endif %}
                                 {% if q.answerE %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='e'>
-                                        {{ q.answerE }}
+                                            value='e' id="e">
+                                           <label for='e'> {{ q.answerE }}</label>
+
                                     </li>
                                 {% endif %}
                             </ol>
