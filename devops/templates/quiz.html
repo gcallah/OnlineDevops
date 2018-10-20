@@ -19,57 +19,64 @@
                 <form method="post" action="{% url 'devops:grade_quiz' %}">
                 {% csrf_token %}
                     <ol class="nested">
+
                         {% for q in questions %}
-                            <li>
-                                {{ q.text }}
-                            </li>
-                            <ol class="nested" type='a'>
+                            <div class="card" style="width: 95%;color:black;">
+
+                              <div class="card-body">
+                                <h5 class="card-title" style="font-size:1.5rem;"> {{ q.text }}</h5>
+                                       <ol class="nested" type='a' >
                                 {% if q.answerA %}
                                     <li>
 
                                         <input type="radio" name="_{{q.id}}"
-                                            value='a' id="a">
-                                        <label for='a'>{{ q.answerA }}</label>
+                                            value='a' id="{{ q.id }}">
+
+                                        {{ q.answerA }}
                                     </li>
                                 {% endif %}
                                 {% if q.answerB %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='b' id="b">
-                                         <label for='b'> {{ q.answerB }}</label>
+                                            value='b' >
+                                        {{ q.answerB }}
 
                                     </li>
                                 {% endif %}
                                 {% if q.answerC %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='c' id="c">
-                                           <label for='c'> {{ q.answerC }}</label>
+                                            value='c' >
+                                         {{ q.answerC }}
 
                                     </li>
                                 {% endif %}
                                 {% if q.answerD %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='d' id="d">
-                                           <label for='d'>         {{ q.answerD }}</label>
+                                            value='d' >
+                                            {{ q.answerD }}
 
                                     </li>
                                 {% endif %}
                                 {% if q.answerE %}
                                     <li>
                                         <input type="radio" name="_{{q.id}}"
-                                            value='e' id="e">
-                                           <label for='e'> {{ q.answerE }}</label>
+                                            value='e' >
+                                           {{ q.answerE }}
 
                                     </li>
                                 {% endif %}
                             </ol>
+                              </div>
+                            </div>
+
+
                         {% endfor %}
                     </ol>
 
                     <p class="submit">
-                        <button class="button" type="submit" name="submit" value={{mod_nm}}>
+                        <button class="btn btn-xl btn-primary" style='width:100%;' type="submit" name="submit" value={{mod_nm}}>
                             Grade Quiz
                         </button>
                     </p>
