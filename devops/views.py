@@ -189,11 +189,11 @@ def grade_quiz(request: HttpRequest()) -> list:
 
                 # and now we are evaluating either as right or wrong...
                 if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
-                    processed_answer['message'] = "Congrats, thats correct!"
+                    processed_answer['message'] = "Congratulations, that's correct!"
                     processed_answer['status'] = "right"
                     num_correct += 1
                 else:
-                    processed_answer['message'] = "Sorry, that's incorrect!"
+                    processed_answer['message'] = "You got that one wrong."
                     processed_answer['status'] = "wrong"
                     # and store to ship to the Template.
                 graded_answers.append(processed_answer)
