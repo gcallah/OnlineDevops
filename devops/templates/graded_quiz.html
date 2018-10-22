@@ -4,30 +4,27 @@
 {% block title %}Quiz Evaluation{% endblock %}
 
 {% block content %}
-    <h1>{{ quiz_name }} -- Here are your quiz results: </h1>
+    <h1>{{ quiz_name }} - Here are your quiz results</h1>
     <ol class="nested">
         {% for graded_answer in graded_answers %}
             <li style="color: #aaf"> 
                 {{ graded_answer.question }} 
             </li>
             <p>
-                The correct answer is: 
+{#                {{ graded_answer.message }}#}
+                The correct answer is:
                 {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
             </p>
             {% if graded_answer.status == 'wrong' %}
                 <p class="errors">
-                    {{ graded_answer.message }}
-                    You answered: <br/> {{ graded_answer.yourAnswer}})
-                    {{ graded_answer.yourAnswerText }}.
+                    You got that one wrong. You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
                 </p>
             {% endif %}
         {% endfor %}
     </ol>
     <p>
         <br>
-         <span>You have correctly answered {{num_ques_correct}}
-             out of {{ num_ques }} questions giving you a score of
-             {{ num_ques_correct_percentage }}%!</span>
+         <span>You have correctly answered {{num_correct}} out of {{ num_ques }} questions giving you a score of {{ correct_pct }}%!</span>
     </p>
 
     <p>
