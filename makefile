@@ -1,11 +1,11 @@
-SDIR = devops
 UDIR = utils
-MUDIR = myutils
 TDIR = tests
-MDL = $(SDIR)/models.py
-SRCS = $(MDL)
 DEVDIR = devops
+MDL = $(DEVDIR)/models.py
+SRCS = $(MDL)
 TEMPLDIR = $(DEVDIR)/templates
+GLOSS = $(TEMPLDIR)/gloss.html
+GLOSS_SRC = templates/gloss_terms.txt
 HTMLS = $(shell ls $(TEMPLDIR)/*.html)
 
 validate_html: $(HTMLS)
@@ -14,11 +14,22 @@ validate_html: $(HTMLS)
 container:
 	docker build -t devops docker
 
+# update our submodules:
+submods: 
+	git submodule update
+
+
 prod: $(SRCS) validate_html
 # run django tests here before committing code!
 	-git commit -a
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
+
+# by including subs here, we force everyone to update the submod now and again!
+staging: subs
+	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
+	echo 'INFO: pushing master to staging now...'
+	git push -u staging master
 
 db: $(MDL)
 	python3 manage.py makemigrations
@@ -34,7 +45,9 @@ test:
 quiz:
 	$(UDIR)/qexport.py $(MOD) > quizzes/$(MOD).txt
 
-staging:
-	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
-	echo 'INFO: pushing master to the staging now...'
-	git push -u staging master
+gloss: $(GLOSS)
+
+$(GLOSS): $(GLOSS_SRC)
+	$(UDIR)/create_gloss.py $(GLOSS_SRC) > $(GLOSS)
+	git add $(GLOSS)
+	git commit $(GLOSS) -m "Building new glossary template."

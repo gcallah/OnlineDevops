@@ -1,88 +1,88 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="module">
-        <h1>
-            The DevOps Course: Modules
-        </h1>
 
-        <figure>
+    <div class="container-fluid">
+     <div class="row">
+
+
+        <div class="col-sm-5">
+
+
+        <figure style="margin-top:40%;">
             <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Devops-toolchain.svg/220px-Devops-toolchain.svg.png">
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Devops-toolchain.svg/512px-Devops-toolchain.svg.png" style="width:60%;">
             <figcaption>
-                The DevOps toolchain
+                <h3>The DevOps toolchain</h3>
             </figcaption>
         </figure>
 
-        <p class="leadquote">
-            Here are the top-level modules for our DevOps course:
-        </p>
 
-        <ol class="mod_list">
-            <li>
-                <a href="/devops/basics">
+
+        </div>
+
+         <div class="col-sm-7">
+              <h1 style="font-size:3rem;margin-bottom:0;margin:0;padding:1rem;">
+             Course Modules
+        </h1>
+         <ol class="nested"  style="text-align:left;font-size:1.2rem;">
+
+          <li style="text-align:left;">
+              <a href="/devops/basics">
                 Programming Fundamentals
-                </a>
-            </li>
-
-            <li>
-                <a href="/devops/work">
+                </a></li>
+          <li>
+               <a href="/devops/work">
                 The DevOps Way of Work
                 </a>
-            </li>
-
-            <li>
-                <a href="/devops/comm">
+          </li>
+          <li>
+               <a href="/devops/comm">
                 Cooperation and Communication (Tool: Slack)
                 </a>
-            </li>
-
-            <li>
-                <a href="/devops/incr">
+          </li>
+          <li>
+               <a href="/devops/incr">
                 Incremental Development (Tool: git)
                 </a>
-            </li>
-
-            <li>
-                <a href="/devops/build">
+          </li>
+          <li> <a href="/devops/build">
                 Automating Builds (Tool: make)
-                </a>
-            </li>
-
-            <li>
-                <a href="/devops/flow">
+                </a></li>
+         <li>
+              <a href="/devops/flow">
                 Workflow (Tool: kanban boards)
                 </a>
-            </li>
+         </li>
 
-            <li>
-                <a href="/devops/test">
-                Automated Testing (Tool: Jenkins)
+         <li>
+              <a href="/devops/test">
+             Automated Testing (Tool: Jenkins)
                 </a>
-            </li>
+         </li>
 
-            <li>
-                <a href="/devops/infra">
-                Software as Infrastructure (Tool: Docker)
+         <li>
+              <a href="/devops/infra">
+                 Software as Infrastructure (Tool: Docker)
                 </a>
-            </li>
+         </li>
 
-            <li>
-                <a href="/devops/cloud">
-                Cloud Deployment (Tool: Kubernetes)
+         <li>
+              <a href="/devops/cloud">
+                 Cloud Deployment (Tool: Kubernetes)
                 </a>
-            </li>
+         </li>
 
-            <li>
-                <a href="/devops/micro">
+         <li>
+              <a href="/devops/micro">
                     Microservices and Severless Computing
                 </a>
-            </li>
+         </li>
 
-            <li>
-                <a href="/devops/monit">
-                Monitoring (Tool: StatusCake)
+         <li>
+              <a href="/devops/monit">
+                   Monitoring (Tool: StatusCake)
                 </a>
-            </li>
+         </li>
 
             <li>
                 <a href="/devops/secur">
@@ -90,11 +90,42 @@
                 </a>
             </li>
 
-            <li>
+             <li>
                 <a href="/devops/sum">
                 Summing Up
                 </a>
             </li>
+
         </ol>
+       </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock content %}
