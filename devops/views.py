@@ -15,6 +15,37 @@ DEF_MINPASS = 80
 def get_filenm(mod_nm):
     return mod_nm + '.html'
 
+def markingQuiz(user_answers, graded_answers):
+    num_correct = 0
+
+    for answered_question in user_answers:
+        processed_answer = {}
+        id_to_retrieve = next(iter(answered_question))
+        original_question = get_object_or_404(Question, pk=id_to_retrieve)
+
+        # Lets start building a dict with the status for this particular question...
+        # Following the DRY principle - here comes shared part for both cases...
+        processed_answer['question'] = original_question.text
+        processed_answer['correctAnswer'] = original_question.correct.lower()
+        processed_answer['yourAnswer'] = answered_question[id_to_retrieve]
+
+        correctanskey = "answer{}".format(processed_answer['correctAnswer'].upper())
+        youranskey = "answer{}".format(processed_answer['yourAnswer'].upper())
+
+        processed_answer['correctAnswerText'] = getattr(original_question, correctanskey)
+        processed_answer['yourAnswerText'] = getattr(original_question, youranskey)
+
+        # and now we are evaluating either as right or wrong...
+        if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
+           # processed_answer['message'] = "Congrats, thats correct!"
+            processed_answer['status'] = "right"
+            num_correct += 1
+        else:
+            processed_answer['message'] = "Sorry, that's incorrect!"
+            processed_answer['status'] = "wrong"
+            # and store to ship to the Template.
+        graded_answers.append(processed_answer)
+    return num_correct
 
 def get_quiz(request, mod_nm):
 
@@ -61,7 +92,7 @@ def about(request: request) -> object:
 
 
 def gloss(request: request) -> object:
-    return render(request, 'gloss.html', {'header': site_hdr})
+    return render(request, 'glossary.html', {'header': site_hdr})
 
 
 def teams(request: request) -> object:
@@ -169,34 +200,9 @@ def grade_quiz(request: HttpRequest()) -> list:
                                  'Please complete all questions before submitting')
                 return redirect('/devops/' + mod_nm)
 
-            # now get those answers from database & check if answer is right...
-            for answered_question in user_answers:
-                processed_answer = {}
-                id_to_retrieve = next(iter(answered_question))
-                original_question = get_object_or_404(Question, pk=id_to_retrieve)
+            # Function to mark quiz
+            num_correct = markingQuiz(user_answers, graded_answers)
 
-                # Lets start building a dict with the status for this particular question...
-                # Following the DRY principle - here comes shared part for both cases...
-                processed_answer['question'] = original_question.text
-                processed_answer['correctAnswer'] = original_question.correct.lower()
-                processed_answer['yourAnswer'] = answered_question[id_to_retrieve]
-
-                correctanskey = "answer{}".format(processed_answer['correctAnswer'].upper())
-                youranskey = "answer{}".format(processed_answer['yourAnswer'].upper())
-
-                processed_answer['correctAnswerText'] = getattr(original_question, correctanskey)
-                processed_answer['yourAnswerText'] = getattr(original_question, youranskey)
-
-                # and now we are evaluating either as right or wrong...
-                if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
-                    processed_answer['message'] = "Congrats, thats correct!"
-                    processed_answer['status'] = "right"
-                    num_correct += 1
-                else:
-                    processed_answer['message'] = "Sorry, that's incorrect!"
-                    processed_answer['status'] = "wrong"
-                    # and store to ship to the Template.
-                graded_answers.append(processed_answer)
 
             # Calculating quiz score
             correct_pct = Decimal((num_correct
