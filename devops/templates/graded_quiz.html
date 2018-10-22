@@ -7,19 +7,55 @@
     <h1>{{ quiz_name }} - Here are your quiz results</h1>
     <ol class="nested">
         {% for graded_answer in graded_answers %}
-            <li style="color: #aaf"> 
-                {{ graded_answer.question }} 
-            </li>
-            <p>
-{#                {{ graded_answer.message }}#}
+            <div class="card" style="width: 97%;color:black;margin-bottom: 3vh;box-shadow:0px 8px 6px snow;">
+
+              <div class="card-body">
+                <h5 class="card-title" style="font-size:2rem;">
+                    {{ graded_answer.question }}
+                </h5>
+                <p class="card-text">
+
+                {{ graded_answer.message }}
+                    <p>
                 The correct answer is:
-                {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
-            </p>
-            {% if graded_answer.status == 'wrong' %}
-                <p class="errors">
-                    You got that one wrong. You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
                 </p>
-            {% endif %}
+
+              <p>
+                {{ graded_answer.correctAnswer}})
+
+                {{ graded_answer.correctAnswerText }}.
+
+
+                </p>
+
+                  {% if graded_answer.status == 'wrong' %}
+                <p>
+                    <p class="text-danger">You got that one wrong.</p>
+
+                      <p class="text-danger">
+                    Your answers {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
+                    </p>
+                      <div style="position: absolute;top:4rem;right:5rem;">
+                      <i class="material-icons text-danger" style="font-size:150px">error_outline</i>
+                      </div>
+                </p>
+
+
+
+            {% else %}
+                    <div style="position: absolute;top:1rem;right:5rem;">
+                      <i class="material-icons text-success" style="font-size:150px">done</i>
+                      </div>
+
+
+                  {% endif %}
+
+
+              </div>
+            </div>
+
+
+
         {% endfor %}
     </ol>
     <p>
