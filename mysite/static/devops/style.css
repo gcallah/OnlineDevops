@@ -168,9 +168,15 @@ h4 {
     color: #aaf;
 }
 
+h5 {
+    font-size: 1.4em;
+    margin: .8em 1.8em .6em 1.8em;
+    color: #afa;
+}
+
 code {
+    font-size: 1.4em;
     font-family: monospace;
-    background: inherit;
     color: #fad;
 }
 
