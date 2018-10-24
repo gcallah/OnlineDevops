@@ -17,11 +17,11 @@ body {
 
 
 a:link {
-    color: #acf;
+    color: #01ffff;
 }
 
 a:visited {
-    color: #cbf;
+    color: #ff61ff;
 }
 
 table, th, td {
@@ -133,7 +133,7 @@ pre {
 }
 
 h1,h2,h3,h4,h5 {
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h1 {
@@ -142,7 +142,7 @@ h1 {
     padding-top: 1em;
     text-align: center;
     font-size: 2em;
-    color: #cab;
+    color: #9df;
 }
 
 .header-title{
@@ -192,7 +192,7 @@ code {
 
 summary.sum1 {
     font-size: 1.7em;
-    color: #f9b;
+    color: #f9d;
     margin: .8em 2em .8em 2em;
 }
 
