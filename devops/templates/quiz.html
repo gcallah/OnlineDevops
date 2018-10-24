@@ -24,8 +24,10 @@
                             <div class="card" style="width: 95%;color:black;">
 
                               <div class="card-body">
-                                <h5 class="card-title" style="font-size:1.5rem;"> {{ q.text }}</h5>
-                                       <ol class="nested" type='a' >
+                                <p class="quiz_quest">
+                                    {{ q.text }}
+                                </p>
+                                <ol class="nested" type='a' >
                                 {% if q.answerA %}
                                     <li>
 
@@ -76,7 +78,7 @@
                     </ol>
 
                     <p class="submit">
-                        <button class="btn btn-xl btn-primary" style='width:100%;' type="submit" name="submit" value={{mod_nm}}>
+                        <button class="btn btn-xl" style='width:30%;' type="submit" name="submit" value={{mod_nm}}>
                             Grade Quiz
                         </button>
                     </p>

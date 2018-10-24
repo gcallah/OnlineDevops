@@ -2,7 +2,7 @@
 {% block content %}
 <div class="module">
         <h1>
-            Software as Infrastructure
+            Infrastructure as Code
         </h1>
 
         <figure>
@@ -17,14 +17,228 @@
 
         <details>
             <summary class="sum1">
-                Lesson 1
+                Lesson 1: What Is Infrastructure as Code?
             </summary>
+
+            <figure>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/RO7VcUAsf-I"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+                <figcaption>
+                    Infrastructure as code: What is it? Why is it important?
+                    <br />
+                    (This is a fantastic <b>3 minute</b> explanation of the
+                    value of Infrastructure as Code.)
+                </figcaption>
+            </figure>
+
+            <p>
+                Infrastructure as code (IaC) as the idea that, rather than manually
+                provisioning servers, or setting up hardware through a
+                point-and-click GUI, the "server room" should itself be managed 
+                by code. That code can then be put under version control,
+                tested, deployed with automated build tools, and so on.
+                The code also serves as necessarily up-to-date documentation of 
+                what the infrastructure is.
+            </p>
+
+            <p>
+                The advantages of IaC can be divided into three main
+                categories:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    <span class="hilight">Cost savings</span>:
+                    By automating hardware provisioning, the time of the people
+                    who would have been doing that by hand is freed up for
+                    other tasks.
+                </li>
+
+                <li>
+                    <span class="hilight">Speed of deployment</span>:
+                    It is much faster to configure infrastructure
+                    by running a script than by manually setting a bunch
+                    of parameters in a GUI interface.
+                </li>
+
+                <li>
+                    <span class="hilight">Lower error rates</span>:
+                    It is error-prone, because it is boring, too configure
+                    systems "by hand." A script can be debugged once, and
+                    then will run reliably again and again.
+                </li>
+            </ul>
+
+            <p>
+                (Source:
+                <a href="https://en.wikipedia.org/wiki/Infrastructure_as_Code">
+                    Wikipedia on Infrastructure as Code
+                </a>
+                )
+            </p>
+
+            <p>
+                <span class="hilight">A DevOps principle</span>:
+                Asking people to <i>behave like automatons</i> 
+                bores and dehumanizes
+                them. Asking them to devise clever ways
+                <i>to automate things</i>
+                interests them, and treats them as the rational 
+                beings that they are!
+            </p>
+
         </details>
 
         <details>
             <summary class="sum1">
-                Lesson 2
+                Lesson 2: Available Tools
             </summary>
+
+            <details>
+                <summary class="sum2">
+                    Puppet
+                </summary>
+                    <h5>Pros:</h5>
+                    <ul class="nested">
+                        <li>
+                            Easy installation
+                        </li>
+                        <li>
+                            Supports all majors operating systems
+                        </li>
+                        <li>
+                            GUI is user friendly
+                        </li>
+                        <li>
+                            Stable and mature solution
+                        </li>
+                    </ul>
+
+                    <h5>Cons:</h5>
+                    <ul class="nested">
+                        <li>
+                            Built with Ruby, unlike other tools that are Python-based
+                        </li>
+                        <li>
+                            New users must learn Puppet DSL
+                        </li>
+                        <li>
+                            Remote execution is challenging
+                        </li>
+                    </ul>
+
+                    <p>
+                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html"> More on puppet </a>
+                    </p>
+
+            </details>
+
+            <details>
+                <summary class="sum2">
+                  Chef
+                </summary>
+                <h5>Pros:</h5>
+                <ul class="nested">
+                    <li>
+                        Meant to be used by programmers
+                    </li>
+                    <li>
+                        Useful for large-scale development
+                    </li>
+                    <li>
+                        Stable and mature solution
+                    </li>
+                    <li>
+                        Good version control capabilities
+                    </li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul class="nested">
+                    <li>
+                        Complicated tool to use
+                    </li>
+                    <li>
+                        Familiarity with Ruby is required
+                    </li>
+                    <li>
+                        Documentation can be overwhelming
+                    </li>
+                </ul>
+                <p>
+                <a href="https://gcallah.github.io/DevOps/deployment/chef.html"> More on Chef </a>
+                </p>
+            </details>
+            <details>
+                <summary class="sum2">
+                  Ansible
+                </summary>
+                <h5>Pros:</h5>
+                <ul class="nested">
+                    <li>
+                        Easy and fast deployment
+                    </li>
+                    <li>
+                        Secure SSH connection
+                    </li>
+                    <li>
+                        Meant for environments that can scale rapidly
+                    </li>
+                    <li>
+                        Push and pull models are supported
+                    </li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul class="nested">
+                    <li>
+                        Basic support for Windows
+                    </li>
+                    <li>
+                        GUI is not very interactive
+                    </li>
+                    <li>
+                        Difficult to locate syntax errors with YAML
+                    </li>
+                </ul>
+                <p>
+                <a href="https://gcallah.github.io/DevOps/deployment/ansible.html"> More on Ansible </a>
+                </p>
+            </details>
+            <details>
+                <summary class="sum2">
+                  SaltStack
+               </summary>
+                <h5>Pros:</h5>
+                <ul class="nested">
+                    <li>
+                        Implemented in Python and controlled with YAML files
+                    which are simple to understand
+                    </li>
+                    <li>
+                        Fast communication between master and client
+                    </li>
+                    <li>
+                        Provides high scalability and resiliency
+                    </li>
+                    <li>
+                        Vibrant support community
+                    </li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul class="nested">
+                    <li>
+                        Difficult to set up
+                    </li>
+                    <li>
+                        Salt GUI is under development
+                    </li>
+                    <li>
+                        Does not support a variety of Operating Systems
+                    </li>
+                </ul>
+            </details>
+
         </details>
 
         <details>
@@ -216,6 +430,8 @@
             external modules need to be included in the image,
             and a line in the project's <code>makefile</code>
             automating the build of the image.
+            This is <i>infrastrcuture as code</i>, since the infrastructure for 
+            the project is built from these files of code.
             </p>
 
             <p>
@@ -225,10 +441,9 @@
 
             <p>
             <code>
-                <pre>
         container: $(DOCKER_DIR)/Dockerfile  $(DOCKER_DIR)/requirements.txt
-	        docker build -t indra docker
-                </pre>
+        <br />
+	        &nbsp; &nbsp; &nbsp; &nbsp; docker build -t indra docker
             </code>
             </p>
 

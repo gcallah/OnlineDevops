@@ -58,6 +58,11 @@ p.submit {
     text-align: center
 }
 
+p.quiz_quest {
+   font-size: 1.5rem;
+   color: #539;
+}
+
 hr {
     margin: 2em 20em 2em 20em;
 }
@@ -100,6 +105,11 @@ code {
     font-size: 1.2em;
     font-family: monospace;
     background: inherit;
+    color: #fad;
+}
+
+pre {
+    font-size: 1.1em;
     color: #fad;
 }
 
@@ -168,9 +178,15 @@ h4 {
     color: #aaf;
 }
 
+h5 {
+    font-size: 1.4em;
+    margin: .8em 1.8em .6em 1.8em;
+    color: #afa;
+}
+
 code {
+    font-size: 1.4em;
     font-family: monospace;
-    background: inherit;
     color: #fad;
 }
 
