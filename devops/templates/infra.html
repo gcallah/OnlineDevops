@@ -250,42 +250,130 @@
                 <p class="author">
                     by
                     <br />
-                    Prashantkumar Patel
+                    Prashantkumar Patel and Prof. Callahan
+                </p>
+
+
+                <p>
+                    <span class="hilight">First thing</span>:
+                    make sure you have Docker installed! The rest
+                    of the demo will be inapplicable if you do not.
                 </p>
 
                 <p>
-                    In this webpage we are going to try and host a
-                     simple static website in nginx using docker.
-                    I have already talked about what version of
-                    docker you should use. If you are using Windows
-                    then docker-toolbox otherwise just using
-                    docker native should be okay for the Mac and
-                    Linux users.
-                    This tutorial is written and performed in a MacBook
-                    computer. Windows users
-                    should not have any problem performing the same steps
-                    in Windows, but if you
-                    find yourself stuck somewhere please send me a slack
-                     message, I will try to help you out.
+                    <span class="hilight">Secondly</span>:
+                    Please clone (if you have not already) our online DevOps
+                    repo:
+                    <br />
+                    <code>
+                        git clone https://github.com/gcallah/OnlineDevops.git
+                    </code>
                 </p>
 
                 <p>
-                    First step is to download and install docker,
-                    which I am sure everyone in the class did.
-                    If not please visit <a href="http://www.docker.com">
-                     http://www.docker.com
-                     </a>.
-                    You should follow the installation instructions
-                     given in the website.
+                    Once you have cloned that repo, please open to shells: in
+                    one, we will look at your local environment, and in the
+                    other we will explore the container.
                 </p>
-
-                <h4>
-                    Download the nginx image
-                </h4>
 
                 <p>
-                    Let's run the following command in terminal/quickstart-terminal.
+                    In one of the two shells, in your OnlineDevops directory,
+                    please run:
+                    <br />
+                    <code>
+                        ./devops_container.sh
+                    </code>
+                    <br />
+                    That should put you inside the OnlineDevops container: if
+                    that command worked, you should see your prompt change.
+                    <br />
+                    If it did, let's explore the shells you are in a little to
+                    try to understand better what a container is.
+                    <br />
+                    I am going to proceed by showing you the results of running
+                    the same command inside and outside the container on my
+                    machine: your results will be different, but similar, to
+                    mine.
                 </p>
+
+                <p>
+                    First of all, let's look at the root file system, inside
+                    and outside the container:
+                </p>
+
+                <p>
+                    Outside the container:
+                    <br />
+                    <code>ls / </code>
+                    <br />
+                    <pre>
+    Macintosh:OnlineDevops gcallah$ ls /
+    Applications			bin				net
+    Library				cores				opt
+    Network				debug.txt			private
+    Shockwave Log			debug.txt.1			sbin
+    System				dev				tmp
+    User Guides And Information	etc				usr
+    User Information		home				var
+    Users				installer.failurerequests
+    Volumes				logFile.xsl
+                    </pre>
+                    
+                </p>
+
+                <p>
+                    Inside the container:
+                    <br />
+                    <code>ls / </code>
+                    <br />
+                    <pre>
+    root@a5dd222a9812:/home/DevOps# ls /
+    bin   dev  home  lib64	mnt  proc	       root  sbin  sys	usr
+    boot  etc  lib	 media	opt  requirements.txt  run   srv   tmp	var
+                    </pre>
+                </p>
+
+                <p>
+                    What's of note here: From outside and from inside the
+                    container, we see completely different file systems!
+                    <br />
+                    What about our view of what processes are running?
+                </p>
+
+                <p>
+                    Outside the container:
+                    <br />
+                    <code>ps -ef | wc -l</code>
+                    <br />
+                    <pre>
+     Macintosh:OnlineDevops gcallah$ ps -ef | wc -l
+     667
+                    </pre>
+                </p>
+
+                <p>
+                   From outside the container, the OS sees 667 processes
+                   running on my Mac. 
+                </p>
+
+
+                <p>
+                    Inside the container:
+                    <br />
+                    <code>ps -ef</code>
+                    <br />
+                    <pre>
+    root@a5dd222a9812:/home/DevOps# ps -ef
+    UID        PID  PPID  C STIME TTY          TIME CMD
+    root         1     0  0 Oct25 pts/0    00:00:00 bash
+    root       192     1  0 21:18 pts/0    00:00:00 ps -ef
+                    </pre>
+                </p>
+
+                <p>
+                   From inside the container, there are two processes running! 
+                </p>
+
 
                 <p>
                    <code> docker images </code>
