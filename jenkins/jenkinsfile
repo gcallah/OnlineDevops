@@ -1,0 +1,26 @@
+stage 'Collecting Sources'
+node {
+    checkout([$class: 'GitSCM', branches: [[name: '*/staging']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/gcallah/OnlineDevops.git']]])
+}
+stage 'Creating Environment'
+node {
+    sh '''PYENV_HOME=$WORKSPACE/venv/
+    if [ -d $PYENV_HOME ]; then
+       rm -rf $PYENV_HOME
+    fi
+
+    virtualenv --no-site-packages $PYENV_HOME
+    . $PYENV_HOME/bin/activate
+    pip3 install -r $WORKSPACE/docker/requirements.txt'''
+}
+stage 'Running Tests'
+node {
+    sh '''PYENV_HOME=$WORKSPACE/venv/
+    virtualenv --no-site-packages $PYENV_HOME
+    . $PYENV_HOME/bin/activate
+    python manage.py test
+    coverage run manage.py test
+    coverage html -d coverage_report'''
+
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage_report', reportFiles: 'index.html', reportName: 'NYU DevOps Code Coverage', reportTitles: 'NYU DevOps Code Coverage'])
+}
