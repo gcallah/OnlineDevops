@@ -1,0 +1,64 @@
+stage 'Collecting Sources'
+node {
+    checkout([$class: 'GitSCM', branches: [[name: '*/staging']],
+    doGenerateSubmoduleConfigurations: false,
+    extensions: [], submoduleCfg: [],
+    userRemoteConfigs: [
+        [url: 'https://github.com/gcallah/OnlineDevops.git']]
+    ])
+}
+stage 'Creating Environment'
+node {
+    sh '''PYENV_HOME=$WORKSPACE/venv/
+    if [ -d $PYENV_HOME ]; then
+       rm -rf $PYENV_HOME
+    fi
+
+    virtualenv --no-site-packages $PYENV_HOME
+    . $PYENV_HOME/bin/activate
+    pip3 install -r $WORKSPACE/docker/requirements.txt'''
+}
+stage 'Running Tests'
+node {
+    sh '''PYENV_HOME=$WORKSPACE/venv/
+    virtualenv --no-site-packages $PYENV_HOME
+    . $PYENV_HOME/bin/activate
+    python manage.py test
+    coverage run manage.py test
+    coverage html -d coverage_report'''
+
+    publishHTML([allowMissing: false,
+    alwaysLinkToLastBuild: false,
+    keepAll: true,
+    reportDir: 'coverage_report',
+    reportFiles: 'index.html',
+    reportName: "Code Coverage",
+    reportTitles: "Code Coverage"])
+}
+
+stage 'Deploying to Staging'
+node {
+    withCredentials([usernamePassword(credentialsId: 'nyustaging', passwordVariable: 'USR', usernameVariable: 'PSW')]) {
+        // On the about page we will always see which build we are running...
+        sh '''echo '<p style='text-secondary'>Running build N${env.BUILD_DISPLAY_NAME}</p>' >> devops/templates/about.html'''
+        // Configure local git for pushing...
+        sh '''
+        git config user.email "Jenkins"
+        git config user.name "Jenkins"
+        '''
+
+        // Add staging as a remote...
+        sh '''if git remote | grep staging > /dev/null; then
+            git remote rm staging
+        fi
+        git remote add staging $USR:$PSW@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
+        git remote -v
+        '''
+
+        // Add files changed by our activities - reports etc.
+        sh '''git add .'''
+        sh '''git commit -m "Jenkins just finished build N"'''
+        sh '''git status'''
+        sh '''git push -u staging HEAD:master'''
+    }
+}
