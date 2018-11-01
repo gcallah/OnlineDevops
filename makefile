@@ -1,12 +1,19 @@
 UDIR = utils
 TDIR = tests
 DEVDIR = devops
+SITEDIR = mysite
+PARTSDIR = participants
 MDL = $(DEVDIR)/models.py
 SRCS = $(MDL)
 TEMPLDIR = $(DEVDIR)/templates
 GLOSS = $(TEMPLDIR)/gloss.html
 GLOSS_SRC = templates/gloss_terms.txt
 HTMLS = $(shell ls $(TEMPLDIR)/*.html)
+PYLINT = flake8
+PYLINTFLAGS = 
+PYTHONFILES = $(shell ls $(DEVDIR)/*.py)
+PYTHONFILES += $(shell ls $(SITEDIR)/*.py)
+PYTHONFILES += $(shell ls $(PARTSDIR)/*.py)
 
 validate_html: $(HTMLS)
 	./test_html.sh
@@ -40,6 +47,11 @@ db: $(MDL)
 
 test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
+
+lint: $(patsubst %.py,%.pylint,$(PYTHONFILES))
+
+%.pylint:
+	$(PYLINT) $(PYLINTFLAGS) $*.py
 
 # to make a quiz for 'mod' set MOD=mod on the command line:
 quiz:
