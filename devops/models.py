@@ -13,9 +13,9 @@ QTYPES = (
     ('ESSAY', 'Essay'),
 )
 
-class CourseModule(models.Model): 
-    module = models.CharField(max_length=MODNM_LEN) 
-    title = models.TextField()  
+class CourseModule(models.Model):
+    module = models.CharField(max_length=MODNM_LEN)
+    title = models.TextField()
     next_module = models.CharField(max_length=MODNM_LEN)
 
 class Quiz(models.Model):
