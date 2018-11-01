@@ -13,10 +13,12 @@ QTYPES = (
     ('ESSAY', 'Essay'),
 )
 
+
 class CourseModule(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
     title = models.TextField()
     next_module = models.CharField(max_length=MODNM_LEN)
+
 
 class Quiz(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
@@ -25,6 +27,7 @@ class Quiz(models.Model):
 
     def __str__(self):
         return "Quiz for " + self.module
+
 
 class Question(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
