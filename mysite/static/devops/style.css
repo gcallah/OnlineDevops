@@ -305,3 +305,18 @@ span.hilight {
 .over { text-decoration: overline; }
 
 .errors { color: red; }
+
+
+
+
+
+.zoom{
+    width:25%;
+    transition:0.5s all;
+}
+
+.zoom:hover{
+    margin-top:5vh;
+   transform: scale(1.5);
+}
+
