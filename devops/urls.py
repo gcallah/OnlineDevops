@@ -4,9 +4,11 @@ from . import views
 
 app_name = 'devops'  # type: str
 
+
 def view_templ(vname):
-    pass   # we ought to be able to turn all of the code below into a single
-           # call
+    pass
+    # we ought to be able to turn all of the code below into a single call
+
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -24,6 +26,7 @@ urlpatterns = [
     url(r'^devops/monit/*$', views.monit, name='monit'),
     url(r'^devops/no_quiz/*$', views.no_quiz, name='no_quiz'),
     url(r'^devops/secur/*$', views.secur, name='secur'),
+    url(r'^devops/suite/*$', views.suite, name='suite'),
     url(r'^devops/sum/*$', views.sum, name='sum'),
     url(r'^devops/test/*$', views.test, name='test'),
     url(r'^devops/work/*$', views.work, name='work'),

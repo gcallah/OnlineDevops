@@ -133,6 +133,10 @@ def monit(request: request) -> object:
     return get_quiz(request, 'monit')
 
 
+def suite(request: request) -> object:
+    return get_quiz(request, 'suite')
+
+
 def no_quiz(request: request) -> object:
     return get_quiz(request, 'no_quiz')
 

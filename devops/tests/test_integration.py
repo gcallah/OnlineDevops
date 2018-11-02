@@ -5,7 +5,7 @@ from django.http import HttpResponseForbidden, HttpResponseBadRequest
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
-from devops.models import Quiz, Question, Grade
+from devops.models import Quiz, Question, Grade, CourseModule
 
 
 class GradeQuizTestCase(TestCase):
@@ -97,6 +97,7 @@ class GradeQuizTestCase(TestCase):
             # Send form_data in POST request...
             results = self.client.post(reverse('devops:grade_quiz'), data=form_data)
 
+
             # get results and check if it corrects ones - right template, right messages...
             # Did the right template was used?
             self.assertTemplateUsed(results, template_name='graded_quiz.html')
@@ -105,9 +106,12 @@ class GradeQuizTestCase(TestCase):
             graded_answers = results.context['graded_answers']
             self.assertEqual(len(graded_answers), self.num_questions_to_test)
 
+
             # Did we counter results right?
-            expected_message = "<span>You have correctly answered {0} out of {1} questions giving you a score of 100%!</span>".format(
-                str(self.num_questions_to_test), str(self.num_questions_to_test))
+            correct_answers = results.context['num_correct']
+            expected_message = "<span>You have correctly answered {0} out of {1} questions giving you a score of 100%.</span>".format(
+                str(correct_answers), str(self.num_questions_to_test))
+
             self.assertInHTML(expected_message, str(results.content))
     def test_grade_quiz_displays_right_wrong_answers(self):
         # get all Quizzes...
@@ -194,6 +198,8 @@ class GradeQuizTestCase(TestCase):
 
             # Check wrong answers were marked for the user...
             self.assertContains(results, 'class="errors"', total_wrong)
+
+
     def test_grade_quiz_saves_quiz_results_when_user_authenticated(self):
         # ARRANGE: Login with the user we created...
         self.client.force_login(self.user)
