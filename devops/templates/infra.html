@@ -401,6 +401,34 @@
                 </p>
 
                 <p>
+                    <code>docker ps -a</code> 
+                    <br />
+                    This will list <i>all</i> images that have been run
+                    on the system, not just those that are active:
+                    <br />
+                        
+                        <pre>
+    Macintosh:OnlineDevops gcallah$ docker ps -a
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS                    NAMES
+    c560c3729d7e        devops              "bash"              18 minutes ago
+    Up 18 minutes                    0.0.0.0:8000-&gt;8000/tcp   brave_kirch
+    429ff1a37d21        devops              "bash"              About an hour ago   Exited (130) 44 minutes ago                               stupefied_swanson
+    32b272487675        devops              "bash"              5 days ago          Created                                                   wonderful_heyrovsky
+    a5dd222a9812        devops              "bash"              10 days ago         Exited (130) About an hour ago                            naughty_beaver
+    e82e4fb65823        devops              "bash"              11 days ago         Exited (130) 11 days ago                                  youthful_noyce
+    0433f774c394        devops              "bash"              11 days ago         Created                                                   stupefied_hawking
+    1ba39e023554        devops              "bash"              11 days ago         Created                                                   practical_ptolemy
+    4a6bc8cf7ab0        devops              "bash"              11 days ago         Created                                                   vigilant_curie
+    47cb14ca5b1b        devops              "bash"              2 weeks ago
+    Exited (255) 11 days ago         0.0.0.0:8000-&gt;8000/tcp   determined_goldwasser
+    7af5f14f88d9        f418f33054e8        "bash"              2 weeks ago         Exited (130) 2 weeks ago                                  modest_hypatia
+    e3292cdc1449        indra               "bash"              2 weeks ago         Exited (130) 2 weeks ago                                  competent_hugle
+    3ad630752ebf        indra               "bash"              2 weeks ago         Exited (130) 2 weeks ago                                  amazing_meitner
+    fe439d8e15c2        indra               "bash"              2 weeks ago         Exited (130) 2 weeks a
+                        </pre>
+                </p>
+
+                <p>
                    <code>docker images</code>
                 </p>
 
@@ -466,8 +494,8 @@
                     let's download the static website that you
                     are going to host inside the docker container.
                     We are going to use the algorithms website for
-                    professor's other subject. You can find the
-                    code for the website 
+                    another course.
+                    You can find the code for the website 
                     <a href="http://gitub.com/gcallah/algorithms.git">
                     here.
                     </a>
