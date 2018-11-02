@@ -101,18 +101,6 @@ dt {
     margin: .4em 3em .4em 1em;
 }
 
-code {
-    font-size: 1.2em;
-    font-family: monospace;
-    background: inherit;
-    color: #fad;
-}
-
-pre {
-    font-size: 1.1em;
-    color: #fad;
-}
-
 #header {
     width: auto;
     height: 3em;
@@ -143,6 +131,16 @@ h1 {
     text-align: center;
     font-size: 2em;
     color: #9df;
+}
+
+h1.toc_head {
+    font-size: 3rem;
+    padding: 1rem;
+    margin: 1em 0em .6em 0em;
+}
+
+h1.chap-title {
+    margin: 0em 0em 0em 0em;
 }
 
 .header-title{
@@ -185,9 +183,14 @@ h5 {
 }
 
 code {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-family: monospace;
-    color: #fad;
+    color: #8fc;
+}
+
+pre {
+    font-size: 1.1em;
+    color: #9ed;
 }
 
 summary.sum1 {
