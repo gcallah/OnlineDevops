@@ -14,8 +14,6 @@ body {
     background-color: #9bf;
 }
 
-
-
 a:link {
     color: #01ffff;
 }
@@ -64,7 +62,8 @@ p.quiz_quest {
 }
 
 hr {
-    margin: 2em 20em 2em 20em;
+    color: #e9f;
+    margin: 2em 8em 2em 8em;
 }
 
 blockquote {

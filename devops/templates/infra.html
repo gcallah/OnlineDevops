@@ -352,8 +352,8 @@
                 </p>
 
                 <p>
-                   From outside the container, the OS sees 667 processes
-                   running on my Mac. 
+                   From outside the container, the OS lists 667 processes
+                   as running on my Mac. 
                 </p>
 
 
@@ -374,20 +374,42 @@
                    From inside the container, there are two processes running! 
                 </p>
 
+                <h4>
+                    Some Docker commands
+                </h4>
 
                 <p>
-                   <code> docker images </code>
+                    Now let's look at what some Docker commands are available,
+                    and what they do.
                 </p>
+
+                <p>
+                    <code>docker ps</code>
+                </p>
+
+                <p>
+                    This will list your currently running Docker images. When 
+                    Prof. Callahan runs it while preparing this lecture, he
+                    sees:
+                    <br />
+                    <pre>
+    Macintosh:OnlineDevops gcallah$ docker ps
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+    429ff1a37d21        devops              "bash"              11 seconds ago
+    Up 6 seconds        0.0.0.0:32768-&gt;8000/tcp   stupefied_swanson
+                    </pre>
+                </p>
+
+                <p>
+                   <code>docker images</code>
+                </p>
+
                 <p>
                     This command should give you the list of images
-                    that are available in the system. For example
-                    in my system it looks something like
-                    this. Yours might have a different than what I have.
-                </p>
-                
-
-                <p>
-                <code>
+                    that are available on the system. For example
+                    in Prashant's system it looks something like
+                    this:
+                <br />
                     <pre>
     ENG-EJC369-02:$ docker images
     REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
@@ -401,14 +423,12 @@
     bash                  latest              59507b30b48a        6 months ago        12.2MB
     alpine                latest              3fd9065eaf02        7 months ago        4.15MB
                     </pre>
-                </code>
                 </p>
 
-
                 <p>
-                    As you can see that I don't have the nginx image
-                    install. I will run the following command which will
-                    install the nginx image for me.
+                    In the above listing, the <code>nginx</code> image
+                    is not installed. Running the following command will
+                    install the nginx imagee.
                 </p>
 
                 <p>
@@ -419,12 +439,8 @@
                 <p>
                     Now that you have installed the nginx image,
                     just run the docker images command again,
-                    in the list you should see ngnix image just like
-                    down below:
-                </p>
-
-                <p>
-                <code>
+                    in the list you should see ngnix image as below:
+                <br />
                     <pre>
     ENG-EJC369-02:$ docker images
     REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
@@ -439,7 +455,6 @@
     bash                  latest              59507b30b48a        6 months ago        12.2MB
     alpine                latest              3fd9065eaf02        7 months ago        4.15MB
                     </pre>
-                </code>
                 </p>
 
                 <h4>
@@ -452,9 +467,9 @@
                     are going to host inside the docker container.
                     We are going to use the algorithms website for
                     professor's other subject. You can find the
-                    code for the website to
+                    code for the website 
                     <a href="http://gitub.com/gcallah/algorithms.git">
-                    algorithms
+                    here.
                     </a>
                 </p>
 
@@ -494,16 +509,13 @@
                     Please don't forget to change the location of
                      algorithms directory in above command.
                      After you run the command open the browser
-                     and type http://localhost:8080 and you
-                     should be able to see the webpage.
+                     and type <code>http://localhost:8080</code>
+                     and you should be able to see the webpage.
                      Windows user should use the address
-                     http://192.168.99.100:8080 instead of localhost.
+                     <code>http://192.168.99.100:8080</code>
+                     instead of localhost.
                 </p>
 
-
-                <p class="copyright">
-                    &copy; 2018 Prashantkumar Patel
-                </p>
         </details>
 
         <details>
@@ -553,7 +565,7 @@
             <code>
         container: $(DOCKER_DIR)/Dockerfile  $(DOCKER_DIR)/requirements.txt
         <br />
-	        &nbsp; &nbsp; &nbsp; &nbsp; docker build -t indra docker
+            &nbsp; &nbsp; &nbsp; &nbsp; docker build -t indra docker
             </code>
             </p>
 
