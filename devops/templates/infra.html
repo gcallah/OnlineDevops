@@ -512,6 +512,27 @@
             </summary>
 
             <p>
+                We use Docker in our projects for two main reasons:
+            </p>
+
+            <ol class="nested">
+                <li>
+                    To set up a local version of a web server that will be
+                    configured "just like" our production server. ("Just like"
+                    is in quotes because that is always the ideal, but it may
+                    not be fully achieved.)
+                </li>
+                <li>
+                    To provide our full suite of development tools, such as the
+                    correct Python version, make, flake8, various Python
+                    libraries, etc., in one simple to build package, so all
+                    developer's have a consistent environment.
+                </li>
+            </ol>
+
+            <p>
+            So we need to know how to create the right container for 
+            each project. 
             Each project we work on should have a 
             <code>Dockerfile</code> consisting of instructions
             on how to build the image for that project, a
@@ -541,6 +562,26 @@
                     <a href="https://github.com/gcallah/indras_net/blob/master/docker/Dockerfile">
                         Here is a sample Dockerfile.
                     </a>
+                    <br />
+                    The <code>FROM python:3.6.0</code> 
+                    command says what base image to build
+                    our image from.
+                    <br />
+                    The <code>COPY requirements.txt /requirements.txt</code>
+                    line brings the requirements file inside the container.
+                    <br />
+                    The line
+                    <code>RUN pip install -r requirements.txt</code> 
+                    installs everything from the requirements file in the
+                    container.
+                    <br />
+                    The line
+                    <code>ENV user_type TERMINAL</code> 
+                    sets an environment variable (<code>user_type</code>)
+                    that will be available inside the container.
+                    <br />
+                    <code>WORKDIR /home/IndrasNet/</code>
+                    sets the starting directory inside the container.
                 </li>
 
                 <li>
