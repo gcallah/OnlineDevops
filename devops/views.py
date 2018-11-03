@@ -1,19 +1,20 @@
-from django.contrib.auth.decorators import login_required
-from django.http import request, HttpRequest, Http404, HttpResponseServerError, HttpResponseBadRequest
+from django.http import request, HttpRequest, HttpResponseServerError, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from decimal import Decimal
 import random
 
-from .models import Question, Grade, Quiz, CourseModule
+from .models import Question, Quiz, CourseModule
 
 site_hdr = "The DevOps Course"
 
 DEF_NUM_RAND_QS = 10
 DEF_MINPASS = 80
 
+
 def get_filenm(mod_nm):
     return mod_nm + '.html'
+
 
 def markingQuiz(user_answers, graded_answers):
     num_correct = 0
@@ -37,7 +38,6 @@ def markingQuiz(user_answers, graded_answers):
 
         # and now we are evaluating either as right or wrong...
         if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
-           # processed_answer['message'] = "Congrats, thats correct!"
             processed_answer['status'] = "right"
             num_correct += 1
         else:
@@ -46,6 +46,7 @@ def markingQuiz(user_answers, graded_answers):
             # and store to ship to the Template.
         graded_answers.append(processed_answer)
     return num_correct
+
 
 def get_quiz(request, mod_nm):
 
@@ -83,6 +84,7 @@ def get_quiz(request, mod_nm):
                                        e.__context__,
                                        e.__traceback__)
 
+
 def index(request: request) -> object:
     return render(request, 'index.html', {'header': site_hdr})
 
@@ -98,8 +100,10 @@ def gloss(request: request) -> object:
 def teams(request: request) -> object:
     return render(request, 'teams.html', {'header': site_hdr})
 
+
 def basics(request: request) -> object:
     return get_quiz(request, 'basics')
+
 
 def build(request: request) -> object:
     return get_quiz(request, 'build')
@@ -156,6 +160,7 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
+
 def grade_quiz(request: HttpRequest()) -> list:
     """
     Returns list of Questions user answered as right / wrong
@@ -163,7 +168,6 @@ def grade_quiz(request: HttpRequest()) -> list:
     :return: list() of dict() containing question, right/wrong, correct answer
     """
     try:
-        minpass = DEF_MINPASS
         num_rand_qs = DEF_NUM_RAND_QS
         # First, we process only when form is POSTed...
         if request.method == 'POST':
@@ -180,7 +184,7 @@ def grade_quiz(request: HttpRequest()) -> list:
 
             # forces user to answer all quiz questions,
             # redirects to module page if not completed
-            # TODO: keep previously selected radio buttons 
+            # TODO: keep previously selected radio buttons
             # checked instead of clearing form
             mod_nm = form_data['submit']
 
@@ -191,7 +195,6 @@ def grade_quiz(request: HttpRequest()) -> list:
             # we should log if we get count > 1 here!
             for quiz in quizzes:
                 num_rand_qs = quiz.numq
-                minpass = quiz.minpass
                 break
 
             num_ques_of_quiz = min(questions_count, num_rand_qs)
@@ -207,22 +210,20 @@ def grade_quiz(request: HttpRequest()) -> list:
             # Function to mark quiz
             num_correct = markingQuiz(user_answers, graded_answers)
 
-
             # Calculating quiz score
-            correct_pct = Decimal((num_correct
-                                   / number_of_ques_to_check) * 100)
+            correct_pct = Decimal((num_correct / number_of_ques_to_check) * 100)
             curr_quiz = Quiz.objects.get(module=mod_nm)
 
             curr_module = None
             quiz_name = 'Quiz'
             navigate_links = {}
             modules = CourseModule.objects.filter(module=mod_nm)
-            for this_module in modules:
             # we should log if we get count > 1 here!
+            for this_module in modules:
                 curr_module = this_module
                 break
 
-            # No matter if user passes or fails, 
+            # No matter if user passes or fails,
             # show link to next module if it exists
             if curr_module is not None:
                 quiz_name = curr_module.title
@@ -235,11 +236,11 @@ def grade_quiz(request: HttpRequest()) -> list:
                     navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
-            if request.user.username != '':
-                action_status = Grade.objects.create(participant=request.user,
-                                                     score=correct_pct.real,
-                                                     quiz=curr_quiz,
-                                                     quiz_name=mod_nm)
+            # if request.user.username != '':
+            #     action_status = Grade.objects.create(participant=request.user,
+            #                                          score=correct_pct.real,
+            #                                          quiz=curr_quiz,
+            #                                          quiz_name=mod_nm)
 
             # ok, all questions processed, lets render results...
             return render(request,
