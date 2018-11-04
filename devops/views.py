@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from decimal import Decimal
 import random
 
-from .models import Question, Quiz, CourseModule
+from .models import Question, Grade, Quiz, CourseModule
 
 site_hdr = "The DevOps Course"
 
@@ -241,6 +241,12 @@ def grade_quiz(request: HttpRequest()) -> list:
                     navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
+            if request.user.username != '':
+                Grade.objects.create(participant=request.user,
+                                     score=correct_pct.real,
+                                     quiz=curr_quiz,
+                                     quiz_name=mod_nm)
+
             # ok, all questions processed, lets render results...
             return render(request,
                           'graded_quiz.html',
