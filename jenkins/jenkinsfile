@@ -1,11 +1,15 @@
 stage 'Collecting Sources'
 node {
-    checkout([$class: 'GitSCM', branches: [[name: '*/staging']],
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']],
     doGenerateSubmoduleConfigurations: false,
-    extensions: [], submoduleCfg: [],
-    userRemoteConfigs: [
-        [url: 'https://github.com/gcallah/OnlineDevops.git']]
-    ])
+    extensions: [[$class: 'SubmoduleOption',
+    disableSubmodules: false,
+    parentCredentials: false,
+    recursiveSubmodules: true,
+    reference: '',
+    trackingSubmodules: true]],
+    submoduleCfg: [],
+    userRemoteConfigs: [[url: 'https://github.com/gcallah/OnlineDevops']]])
 }
 stage 'Creating Environment'
 node {
@@ -23,11 +27,10 @@ node {
     sh '''PYENV_HOME=$WORKSPACE/venv/
     virtualenv --no-site-packages $PYENV_HOME
     . $PYENV_HOME/bin/activate
-    python manage.py test
-    coverage run manage.py test
+    python manage.py test devops/tests
+    coverage run manage.py test devops/tests
     coverage html -d coverage_report'''
-
-    publishHTML([allowMissing: false,
+    publishHTML([allowMissing: true,
     alwaysLinkToLastBuild: false,
     keepAll: true,
     reportDir: 'coverage_report',
@@ -49,15 +52,10 @@ node {
 
         // Add staging as a remote...
         sh '''if git remote | grep staging > /dev/null; then
-            git remote rm staging
-        fi
-        git remote add staging $USR:$PSW@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
-        git remote -v
-        '''
-
-        // Add files changed by our activities - reports etc.
-        sh '''git add .'''
-        sh '''git commit -m "Jenkins just finished build N"'''
-        sh '''git push -u staging HEAD:master'''
-    }
+                git remote rm staging
+            fi'''
+        sh '''git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git '''
+        sh '''git remote show staging'''
+        sh '''git push staging HEAD:master'''
+}
 }
