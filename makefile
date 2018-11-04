@@ -35,7 +35,6 @@ prod: $(SRCS) validate_html
 # by including subs here, we force everyone to update the submod now and again!
 staging: submods
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
-	echo 'INFO: pushing master to staging now...'
 	git push -u staging master
 
 db: $(MDL)
