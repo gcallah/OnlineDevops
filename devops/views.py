@@ -1,10 +1,11 @@
-from django.http import request, HttpRequest, HttpResponseServerError, HttpResponseBadRequest
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
+from django.http \
+    import request, \
+    HttpRequest, HttpResponseServerError, HttpResponseBadRequest
+from django.shortcuts import render, get_object_or_404
 from decimal import Decimal
 import random
 
-from .models import Question, Quiz, CourseModule
+from .models import Question, Grade, Quiz, CourseModule
 
 site_hdr = "The DevOps Course"
 
@@ -24,20 +25,25 @@ def markingQuiz(user_answers, graded_answers):
         id_to_retrieve = next(iter(answered_question))
         original_question = get_object_or_404(Question, pk=id_to_retrieve)
 
-        # Lets start building a dict with the status for this particular question...
-        # Following the DRY principle - here comes shared part for both cases...
+        # Lets start building a dictionary
+        # with the status for the particular questions.
         processed_answer['question'] = original_question.text
         processed_answer['correctAnswer'] = original_question.correct.lower()
         processed_answer['yourAnswer'] = answered_question[id_to_retrieve]
 
-        correctanskey = "answer{}".format(processed_answer['correctAnswer'].upper())
-        youranskey = "answer{}".format(processed_answer['yourAnswer'].upper())
+        correctanskey =\
+            "answer{}".format(processed_answer['correctAnswer'].upper())
+        youranskey =\
+            "answer{}".format(processed_answer['yourAnswer'].upper())
 
-        processed_answer['correctAnswerText'] = getattr(original_question, correctanskey)
-        processed_answer['yourAnswerText'] = getattr(original_question, youranskey)
+        processed_answer['correctAnswerText'] =\
+            getattr(original_question, correctanskey)
+        processed_answer['yourAnswerText'] =\
+            getattr(original_question, youranskey)
 
         # and now we are evaluating either as right or wrong...
-        if answered_question[id_to_retrieve] == processed_answer['correctAnswer']:
+        if answered_question[id_to_retrieve] ==\
+                processed_answer['correctAnswer']:
             processed_answer['status'] = "right"
             num_correct += 1
         else:
@@ -199,19 +205,15 @@ def grade_quiz(request: HttpRequest()) -> list:
 
             num_ques_of_quiz = min(questions_count, num_rand_qs)
 
-            number_of_ques_to_check = num_ques_of_quiz
             # Number of randomized questions from get_quiz.
-
-            if len(user_answers) != number_of_ques_to_check:
-                messages.warning(request,
-                                 'Please complete all questions before submitting')
-                return redirect('/devops/' + mod_nm)
+            number_of_ques_to_check = num_ques_of_quiz
 
             # Function to mark quiz
             num_correct = markingQuiz(user_answers, graded_answers)
 
             # Calculating quiz score
-            correct_pct = Decimal((num_correct / number_of_ques_to_check) * 100)
+            correct_pct =\
+                Decimal((num_correct / number_of_ques_to_check) * 100)
             curr_quiz = Quiz.objects.get(module=mod_nm)
 
             curr_module = None
@@ -229,18 +231,21 @@ def grade_quiz(request: HttpRequest()) -> list:
                 quiz_name = curr_module.title
                 navigate_links = {
                     'next': 'devops:'
-                    + curr_module.next_module if curr_module.next_module else False
+                    + curr_module.next_module
+                    if curr_module.next_module
+                    else
+                    False
                 }
                 # If user fails, show link to previous module
                 if (correct_pct < curr_quiz.minpass):
                     navigate_links['previous'] = 'devops:' + mod_nm
 
             # now we are ready to record quiz results...
-            # if request.user.username != '':
-            #     action_status = Grade.objects.create(participant=request.user,
-            #                                          score=correct_pct.real,
-            #                                          quiz=curr_quiz,
-            #                                          quiz_name=mod_nm)
+            if request.user.username != '':
+                Grade.objects.create(participant=request.user,
+                                     score=correct_pct.real,
+                                     quiz=curr_quiz,
+                                     quiz_name=mod_nm)
 
             # ok, all questions processed, lets render results...
             return render(request,
