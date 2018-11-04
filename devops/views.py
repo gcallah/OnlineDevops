@@ -201,6 +201,7 @@ def grade_quiz(request: HttpRequest()) -> list:
             # we should log if we get count > 1 here!
             for quiz in quizzes:
                 num_rand_qs = quiz.numq
+                show_answers = quiz.show_answers
                 break
 
             num_ques_of_quiz = min(questions_count, num_rand_qs)
@@ -255,6 +256,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                                num_correct=num_correct,
                                correct_pct=int(correct_pct),
                                quiz_name=quiz_name,
+                               show_answers=show_answers,
                                navigate_links=navigate_links,
                                header=site_hdr))
 
