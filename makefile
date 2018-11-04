@@ -3,6 +3,7 @@ TDIR = tests
 DEVDIR = devops
 SITEDIR = mysite
 PARTSDIR = participants
+TESTSDIR = tests
 MDL = $(DEVDIR)/models.py
 SRCS = $(MDL)
 TEMPLDIR = $(DEVDIR)/templates
@@ -10,10 +11,11 @@ GLOSS = $(TEMPLDIR)/gloss.html
 GLOSS_SRC = templates/gloss_terms.txt
 HTMLS = $(shell ls $(TEMPLDIR)/*.html)
 PYLINT = flake8
-PYLINTFLAGS = 
+PYLINTFLAGS =
 PYTHONFILES = $(shell ls $(DEVDIR)/*.py)
 PYTHONFILES += $(shell ls $(SITEDIR)/*.py)
 PYTHONFILES += $(shell ls $(PARTSDIR)/*.py)
+PYTHONFILES += $(shell ls $(DEVDIR)/$(TESTSDIR)/*.py)
 
 validate_html: $(HTMLS)
 	./test_html.sh
@@ -22,7 +24,7 @@ container:
 	docker build -t devops docker
 
 # update our submodules:
-submods: 
+submods:
 	git submodule update
 
 
