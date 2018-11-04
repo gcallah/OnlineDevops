@@ -58,7 +58,6 @@ node {
         // Add files changed by our activities - reports etc.
         sh '''git add .'''
         sh '''git commit -m "Jenkins just finished build N"'''
-        sh '''git status'''
         sh '''git push -u staging HEAD:master'''
     }
 }
