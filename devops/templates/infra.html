@@ -398,6 +398,9 @@
     429ff1a37d21        devops              "bash"              11 seconds ago
     Up 6 seconds        0.0.0.0:32768-&gt;8000/tcp   stupefied_swanson
                     </pre>
+                    <br />
+                    (The 0.0.0.0 is the IP address to use for the container,
+                    and 32768 is the port it is using.)
                 </p>
 
                 <p>
@@ -456,7 +459,8 @@
                 <p>
                     In the above listing, the <code>nginx</code> image
                     is not installed. Running the following command will
-                    install the nginx imagee.
+                    pull the nginx imagee from DockerHub, which is like GitHub,
+                    but for docker images.
                 </p>
 
                 <p>
@@ -483,6 +487,9 @@
     bash                  latest              59507b30b48a        6 months ago        12.2MB
     alpine                latest              3fd9065eaf02        7 months ago        4.15MB
                     </pre>
+                    <br />
+                    (You can put an image <i>into</i> DockerHub using
+                    <code>docker push</code>.)
                 </p>
 
                 <h4>
@@ -503,11 +510,10 @@
 
                 <p>
                     Please remember the location where you have
-                    cloned the repository. I have cloned it in
-                    <code> /Users/prashant/school/algorithms</code>
-                    you's will be different than this, please note
-                    the location. Below is the screenshot of algorithms
-                    directory.
+                    cloned the repository. Prashant has cloned it in
+                    <code> /Users/prashant/school/algorithms</code>.
+                    Your location will be different than this, please note
+                    the location.
                 </p>
 
                 <h4>
@@ -543,6 +549,11 @@
                      Windows user should use the address
                      <code>http://192.168.99.100:8080</code>
                      instead of localhost.
+                </p>
+
+                <p>
+                    After we leave the container, we can get rid of it using
+                    <code>docker rm algo_website</code>.
                 </p>
 
         </details>
