@@ -19,6 +19,9 @@ class CourseModule(models.Model):
     title = models.TextField()
     next_module = models.CharField(max_length=MODNM_LEN)
 
+    def __str__(self):
+        return self.title
+
 
 class Quiz(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
