@@ -207,14 +207,13 @@ def grade_quiz(request: HttpRequest()) -> list:
             num_ques_of_quiz = min(questions_count, num_rand_qs)
 
             # Number of randomized questions from get_quiz.
-            number_of_ques_to_check = num_ques_of_quiz
+            num_qs_to_check = num_ques_of_quiz
 
             # Function to mark quiz
             num_correct = markingQuiz(user_answers, graded_answers)
 
             # Calculating quiz score
-            correct_pct =\
-                Decimal((num_correct / number_of_ques_to_check) * 100)
+            correct_pct = Decimal((num_correct / num_qs_to_check) * 100)
             curr_quiz = Quiz.objects.get(module=mod_nm)
 
             curr_module = None
@@ -252,7 +251,7 @@ def grade_quiz(request: HttpRequest()) -> list:
             return render(request,
                           'graded_quiz.html',
                           dict(graded_answers=graded_answers,
-                               num_ques=number_of_ques_to_check,
+                               num_ques=num_qs_to_check,
                                num_correct=num_correct,
                                correct_pct=int(correct_pct),
                                quiz_name=quiz_name,
