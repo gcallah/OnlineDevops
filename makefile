@@ -47,7 +47,7 @@ db: $(MDL)
 	git push origin master
 
 tests: lint
-	python3 manage.py test
+	coverage run manage.py test
 
 final_test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
