@@ -13,25 +13,13 @@ QTYPES = (
     ('ESSAY', 'Essay'),
 )
 
-
-class CourseModule(models.Model):
-    module = models.CharField(max_length=MODNM_LEN)
-    title = models.TextField()
-    next_module = models.CharField(max_length=MODNM_LEN)
-
-    def __str__(self):
-        return self.title
-
-
 class Quiz(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
     minpass = models.FloatField(default=DEF_PASS)
     numq = models.IntegerField()
-    show_answers = models.BooleanField(default=True)
 
     def __str__(self):
         return "Quiz for " + self.module
-
 
 class Question(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
@@ -50,10 +38,8 @@ class Question(models.Model):
 
 
 class Grade(models.Model):
-    quiz = models.ForeignKey(Quiz, related_name='quiz',
-                             on_delete=models.DO_NOTHING)
+    quiz = models.ForeignKey(Quiz, related_name='quiz', on_delete=models.DO_NOTHING)
     score = models.DecimalField(max_digits=5, decimal_places=2)
-    participant = models.ForeignKey(User, related_name='participant',
-                                    on_delete=models.DO_NOTHING)
+    participant = models.ForeignKey(User, related_name='participant', on_delete=models.DO_NOTHING)
     record_date = models.DateTimeField(auto_now=True)
     quiz_name = models.CharField(max_length=MODNM_LEN, default='work')

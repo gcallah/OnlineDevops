@@ -1,21 +1,12 @@
+SDIR = devops
 UDIR = utils
+MUDIR = myutils
 TDIR = tests
-DEVDIR = devops
-SITEDIR = mysite
-PARTSDIR = participants
-TESTSDIR = tests
-MDL = $(DEVDIR)/models.py
+MDL = $(SDIR)/models.py
 SRCS = $(MDL)
+DEVDIR = devops
 TEMPLDIR = $(DEVDIR)/templates
-GLOSS = $(TEMPLDIR)/gloss.html
-GLOSS_SRC = templates/gloss_terms.txt
 HTMLS = $(shell ls $(TEMPLDIR)/*.html)
-PYLINT = flake8
-PYLINTFLAGS =
-PYTHONFILES = $(shell ls $(DEVDIR)/*.py)
-PYTHONFILES += $(shell ls $(SITEDIR)/*.py)
-PYTHONFILES += $(shell ls $(PARTSDIR)/*.py)
-PYTHONFILES += $(shell ls $(DEVDIR)/$(TESTSDIR)/*.py)
 
 validate_html: $(HTMLS)
 	./test_html.sh
@@ -23,21 +14,11 @@ validate_html: $(HTMLS)
 container:
 	docker build -t devops docker
 
-# update our submodules:
-submods:
-	git submodule update
-
-
-prod: $(SRCS) validate_html lint
+prod: $(SRCS) validate_html
 # run django tests here before committing code!
 	-git commit -a
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
-
-# by including subs here, we force everyone to update the submod now and again!
-staging: submods lint
-	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
-	git push -u staging master
 
 db: $(MDL)
 	python3 manage.py makemigrations
@@ -46,24 +27,27 @@ db: $(MDL)
 	-git commit $(DEVDIR)/migrations/*.py
 	git push origin master
 
-tests: lint
-	coverage run manage.py test
+staging:
+    git remote | grep staging > /dev/null
+    if [ "$?" -eq "0" ]
+    then
+        echo 'INFO: Staging exists & configured!'
+    else
+        echo "INFO: Staging does not exist in git remotes, configuring now..."
+        git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
+    fi
+    echo 'INFO: pushing master to the staging now...'
+    git push -u staging master
 
-final_test:
+
+test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
-
-lint: $(patsubst %.py,%.pylint,$(PYTHONFILES))
-
-%.pylint:
-	$(PYLINT) $(PYLINTFLAGS) $*.py
 
 # to make a quiz for 'mod' set MOD=mod on the command line:
 quiz:
 	$(UDIR)/qexport.py $(MOD) > quizzes/$(MOD).txt
 
-gloss: $(GLOSS)
-
-$(GLOSS): $(GLOSS_SRC)
-	$(UDIR)/create_gloss.py $(GLOSS_SRC) > $(GLOSS)
-	git add $(GLOSS)
-	git commit $(GLOSS) -m "Building new glossary template."
+staging:
+	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
+	echo 'INFO: pushing master to the staging now...'
+	-git push -u staging master

@@ -5,32 +5,26 @@
 
 {% block content %}
     <h1>{{ quiz_name }} - Here are your quiz results</h1>
-    {% if show_answers %}
-        <ol class="nested">
-            {% for graded_answer in graded_answers %}
-                <li style="color: #aaf"> 
-                    {{ graded_answer.question }} 
-                </li>
-                <p>
-                    {{ graded_answer.message }}
-                    The correct answer is:
-                    {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
+    <ol class="nested">
+        {% for graded_answer in graded_answers %}
+            <li style="color: #aaf"> 
+                {{ graded_answer.question }} 
+            </li>
+            <p>
+                {{ graded_answer.message }}
+                The correct answer is: <br/>
+                {{ graded_answer.correctAnswer}}) {{ graded_answer.correctAnswerText }}.
+            </p>
+            {% if graded_answer.status == 'wrong' %}
+                <p class="errors">
+                    You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
                 </p>
-                {% if graded_answer.status == 'wrong' %}
-                    <p class="errors">
-                        You got that one wrong. You answered: <br/> {{ graded_answer.yourAnswer}}) {{ graded_answer.yourAnswerText }}.
-                    </p>
-                {% endif %}
-            {% endfor %}
-        </ol>
-    {% else %}
-        <p>
-            <h4> There are no answers available at the moment for this quiz. </h4>
-        </p>
-    {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ol>
     <p>
         <br>
-         <span>You have correctly answered {{num_correct}} out of {{ num_ques }} questions giving you a score of {{ correct_pct }}%.</span>
+         <span>You have correctly answered {{num_ques_correct}} out of {{ num_ques }} questions giving you a score of {{ num_ques_correct_percentage }}%!</span>
     </p>
 
     <p>

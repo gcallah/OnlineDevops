@@ -6,10 +6,9 @@ set -e
 
 export TEST_DIR="devops/templates"
 export CODE_DIR="utils"
-export DATA_DIR="$CODE_DIR/data"
 
 for test_file in $TEST_DIR/*.html; 
 do
     echo 'Checking file:' $test_file 
-    python3 $CODE_DIR/html_checker.py "$test_file" 
+    python3 $CODE_DIR/html_checker.py "$test_file"; 
 done
