@@ -94,6 +94,10 @@ ol.nested, ul.nested, dl.nested {
     list-style-position: inside;
 }
 
+ol.inner_nested, ul.inner_nested, dl.inner_nested {
+    font-size: .7em;
+}
+
 dt {
     font-size: 1.1rem;
     font-weight: bold;

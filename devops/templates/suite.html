@@ -23,10 +23,17 @@
                 Lesson 1
             </summary>
 
+            <p>
+                Here we have Denis Petelin presenting, first, his understanding
+                of what DevOps is, and secondly, how the Microsoft
+                toolkit offers end-to-end support for good DevOps practices:
+            </p>
+
             <figure>
                 <iframe width="560" height="315"
                    src="https://www.youtube.com/embed/r5venuVst40" frameborder="0"
-                                                                                                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                   allow="accelerometer; autoplay;
+							encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
                 <figcaption>
@@ -38,7 +45,8 @@
                 <iframe width="560" height="315"
                  src="https://www.youtube.com/embed/8jjtY9sxNlY"
                  frameborder="0"
-                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                 allow="accelerometer; autoplay; encrypted-media;
+					gyroscope; picture-in-picture"
                  allowfullscreen>
                 </iframe>
                 <figcaption>
@@ -46,6 +54,129 @@
                 </figcaption>
             </figure>
             
+            <p>
+                Below are the key DevOps ideas that Denis presented, with some
+                commentary as to how they relate to other material presented in
+                our course:
+            </p>
+
+            <ol class="nested">
+                <li>
+                    <span class="hilight">
+                        Small releases
+                    </span>
+                    <br />
+                    This is our 
+                    incremental development
+                    idea stated a little differently. The result of adopting
+                    this practice is almost magical: whereas previously, you
+                    may have found yourself doing an eight-hour coding spree,
+                    and then testing and correcting bugs for another 20 hours,
+                    you will find that 12 one-hour sessions, each aimed to get
+                    a tiny part of your software working, will get the same
+                    amount of work done as the 8-hour session... but will be
+                    followed by 20 <i>minutes</i> of debugging.
+                </li>
+
+                <li>
+                    <span class="hilight">
+                        Everything as code
+                    </span>
+                    <br />
+                    <a href=" {% url 'devops:infra' %}">
+                    Infrastructure as code
+                    </a>
+                    is a
+                    part of this principle. But also, your tests should be
+                    code (<code>pytest</code>),
+                    and your code reviews should be code (<code>flake8</code>),
+                    and your builds should be code (<code>make</code>).
+                </li>
+
+                <li>
+                    <span class="hilight">
+                        Use components
+                    </span>
+                    <br />
+                    This is an extension of the UNIX tool philosophy, which 
+                    over many years led to the idea of
+                    <a href=" {% url 'devops:micro' %}">
+                        microservices.
+                    </a>
+                    The basic idea is the code that has the fewest bugs 
+                    and the minimum development time is the code you don't have
+                    to write, since somebody else already wrote it!
+                </li>
+
+                <li>
+                    <span class="hilight">
+                        Automate everything you can
+                    </span>
+                    <br />
+                    Automating routine workflows allows us to:
+
+                    <ol class="inner_nested">
+                        <li>
+                            Turn them into code that itself can be put under
+                            version control and tested.
+                        </li>
+                        <li>
+                            Remove the drudgery of these repeated tasks 
+                            from humans and assign it to machines.
+                        </li>
+                        <li>
+                            Document these workflows through the very code
+                            that automates them.
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span class="hilight">
+                        Zero-bug mindset
+                    </span>
+                    <br />
+                    When we embrace the idea of (very) small releases, and
+                    adopt automated testing, there is no need for us to have
+                    any "bug backlog" at all: the automated tests should catch
+                    most problems, and anything they miss, since our release
+                    was a very small addition to the previous code, will be
+                    easy to track down.
+                </li>
+
+                <li>
+                    <span class="hilight">
+                        Develop resilience (be anti-fragile!)
+                    </span>
+                    <br />
+                    <a href="https://en.wikipedia.org/wiki/Nassim_Nicholas_Taleb">
+                        Nassim Taleb</a>
+                    teaches in Tandon's finance department. He has developed 
+                    the idea of
+                    <a href="https://en.wikipedia.org/wiki/Antifragility">anti-fragility.
+                    </a>
+                    An application of that idea is Netflix's 
+                    <a href="https://en.wikipedia.org/wiki/Chaos_Monkey">Chaos
+                        Monkey</a>
+                    tool, part of its
+                    <a
+                        href="https://en.wikipedia.org/wiki/Chaos_Monkey#Different_variants_of_the_Simian_Army">Simian
+                        Army</a>
+                    toolkit.
+                </li>
+
+                <li>
+                    <span class="hilight">
+                        Use cloud services
+                    </span>
+                    <br />
+                    This is really an extension of the "Use components"
+                    idea: why manage your own server room when there are pros
+                    at managing server rooms who will sell you their expertise
+                    at a reasonable cost?
+                </li>
+            </ol>
+
         </details>
 
         <details>
@@ -54,7 +185,7 @@
             </summary>
 
             <p>
-                No content yet.
+                The key components of Azure DevOps are:
             </p>
 
         </details>
