@@ -1,11 +1,120 @@
 [
 {
+    "model": "devops.coursemodule",
+    "pk": 1,
+    "fields": {
+        "module": "work",
+        "title": "MOD1: The DevOps Way of Work",
+        "next_module": "comm"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 2,
+    "fields": {
+        "module": "comm",
+        "title": "MOD2: Cooperation and Communication (Tool: Slack)",
+        "next_module": "incr"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 3,
+    "fields": {
+        "module": "incr",
+        "title": "MOD3: Incremental Development (Tool: git)",
+        "next_module": "build"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 4,
+    "fields": {
+        "module": "build",
+        "title": "MOD4: Automating Builds (Tool: make)",
+        "next_module": "flow"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 5,
+    "fields": {
+        "module": "flow",
+        "title": "MOD5: Workflow (Tool: kanban boards)",
+        "next_module": "test"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 6,
+    "fields": {
+        "module": "test",
+        "title": "MOD6: Automating Testing (Tool: Jenkins)",
+        "next_module": "infra"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 7,
+    "fields": {
+        "module": "infra",
+        "title": "MOD7: Software as Infrastructure (Tool: Docker)",
+        "next_module": "cloud"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 8,
+    "fields": {
+        "module": "cloud",
+        "title": "MOD8: Cloud Deployment (Tool: Kubernetes)",
+        "next_module": "micro"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 9,
+    "fields": {
+        "module": "micro",
+        "title": "MOD9: Microservices and Serverless Computing",
+        "next_module": "monit"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 10,
+    "fields": {
+        "module": "monit",
+        "title": "MOD10: Monitoring (Tool: StatusCake)",
+        "next_module": "secur"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 11,
+    "fields": {
+        "module": "secur",
+        "title": "MOD11: Security",
+        "next_module": "sum"
+    }
+},
+{
+    "model": "devops.coursemodule",
+    "pk": 12,
+    "fields": {
+        "module": "sum",
+        "title": "MOD12: Summing Up",
+        "next_module": ""
+    }
+},
+{
     "model": "devops.quiz",
     "pk": 1,
     "fields": {
         "module": "build",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -14,7 +123,8 @@
     "fields": {
         "module": "work",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -23,7 +133,8 @@
     "fields": {
         "module": "incr",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -32,7 +143,8 @@
     "fields": {
         "module": "comm",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -41,7 +153,8 @@
     "fields": {
         "module": "flow",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -50,7 +163,8 @@
     "fields": {
         "module": "test",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -59,7 +173,8 @@
     "fields": {
         "module": "infra",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -68,7 +183,8 @@
     "fields": {
         "module": "cloud",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -77,7 +193,8 @@
     "fields": {
         "module": "micro",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -86,7 +203,8 @@
     "fields": {
         "module": "monit",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -95,7 +213,8 @@
     "fields": {
         "module": "secur",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -104,7 +223,18 @@
     "fields": {
         "module": "sum",
         "minpass": 80.0,
-        "numq": 10
+        "numq": 10,
+        "show_answers": true
+    }
+},
+{
+    "model": "devops.quiz",
+    "pk": 13,
+    "fields": {
+        "module": "basics",
+        "minpass": 80.0,
+        "numq": 10,
+        "show_answers": true
     }
 },
 {
@@ -972,10 +1102,442 @@
     }
 },
 {
+    "model": "devops.question",
+    "pk": 55,
+    "fields": {
+        "module": "basics",
+        "text": "\"No magic constants\" means you should not...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "a",
+        "answerA": "scatter constants like 7, 12, or 3.14 through your program",
+        "answerB": "define constants to have values like \"Harry Potter\"",
+        "answerC": "use integer values in your code",
+        "answerD": "use an irrational number in your code",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 56,
+    "fields": {
+        "module": "basics",
+        "text": "Our functions should...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "c",
+        "answerA": "precisely embody the mathematical notion of a function",
+        "answerB": "do as many tasks as possible, since functions calls take time",
+        "answerC": "do one clearly definable task",
+        "answerD": "none of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 57,
+    "fields": {
+        "module": "basics",
+        "text": "PEP 8 recommends that when indenting, we should use..?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "b",
+        "answerA": "tabs",
+        "answerB": "spaces",
+        "answerC": "underscores",
+        "answerD": "asterisks",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 58,
+    "fields": {
+        "module": "basics",
+        "text": "When it comes to naming variables, we should...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "always use camel case",
+        "answerB": "always employ underscores",
+        "answerC": "keep everything in ALL Caps",
+        "answerD": "use the convention most widespread in our coding language",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 59,
+    "fields": {
+        "module": "basics",
+        "text": "Comments should be...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "a",
+        "answerA": "employed only when necessary",
+        "answerB": "scattered through the code as widely as possible",
+        "answerC": "used for every line of code",
+        "answerD": "never used at all",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 60,
+    "fields": {
+        "module": "basics",
+        "text": "The best way to make your code understandable is...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "c",
+        "answerA": "to use as many comments as possible",
+        "answerB": "to use the longest variable names possible",
+        "answerC": "to write clear code",
+        "answerD": "none of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 61,
+    "fields": {
+        "module": "basics",
+        "text": "The most important reason to use consistent indentation is...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "a",
+        "answerA": "it makes it easy for readers to see the control blocks",
+        "answerB": "to pass the tests of code-style tools",
+        "answerC": "it looks prettier that way",
+        "answerD": "all of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 62,
+    "fields": {
+        "module": "basics",
+        "text": "According to PEP 8, constants should...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "a",
+        "answerA": "BE_IN_ALL_CAPS",
+        "answerB": "beInCamelCase",
+        "answerC": "be_defined_with_underscores",
+        "answerD": "be defined on a per project basis",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 63,
+    "fields": {
+        "module": "basics",
+        "text": "If our program employs a database, we should define the data tables...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "in our code",
+        "answerB": "in the database",
+        "answerC": "in both the code and database",
+        "answerD": "in one place used by both our code and the database",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 64,
+    "fields": {
+        "module": "basics",
+        "text": "Function and variable names should be...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "c",
+        "answerA": "as short as possible",
+        "answerB": "as long as possible",
+        "answerC": "hitting the mean between very short and very long",
+        "answerD": "in all upper case",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 65,
+    "fields": {
+        "module": "basics",
+        "text": "DRY means your code should ...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "not be all wet",
+        "answerB": "Delete Random Years",
+        "answerC": "Dally Really Youthfully",
+        "answerD": "not repeat itself",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 66,
+    "fields": {
+        "module": "basics",
+        "text": "PEP 8 recommends using blank lines in functions...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "b",
+        "answerA": "whenever the heck you want to",
+        "answerB": "sparingly, to indicate logical sections",
+        "answerC": "never",
+        "answerD": "as much as possible",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 67,
+    "fields": {
+        "module": "basics",
+        "text": "According to PEP 8, if we need a line break near a binary operator, it should come...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "b",
+        "answerA": "after the operator",
+        "answerB": "before the operator",
+        "answerC": "wherever looks good",
+        "answerD": "nowhere: rewrite the code so you don't need it",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 68,
+    "fields": {
+        "module": "infra",
+        "text": "Infrastructure as code can reduce costs, since...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "c",
+        "answerA": "code is lighter in weight than hardware",
+        "answerB": "executing in software is faster than doing so in hardware",
+        "answerC": "it relieves operations people of the time they would spend setting up infrastructure by hand",
+        "answerD": "all of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 69,
+    "fields": {
+        "module": "infra",
+        "text": "Infrastructure as code speeds up deployment because...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "b",
+        "answerA": "there is no testing involved",
+        "answerB": "running a script is faster than clicking through a GUI interface",
+        "answerC": "it eliminates the need for version control",
+        "answerD": "none of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 70,
+    "fields": {
+        "module": "infra",
+        "text": "Infrastructure as code is less error-prone than manual deployment because...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "it can be debugged once and that's that",
+        "answerB": "manual deployment is boring, and humans will make errors",
+        "answerC": "we can look over the code and reason about it",
+        "answerD": "all of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 71,
+    "fields": {
+        "module": "infra",
+        "text": "A core DevOps principle is that automation is good because...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "a",
+        "answerA": "it gives machines the boring, repetitive work, and humans the interesting stuff",
+        "answerB": "it helps eliminate lots of jobs",
+        "answerC": "otherwise, lower-wage countries will have an advantage",
+        "answerD": "all of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 72,
+    "fields": {
+        "module": "infra",
+        "text": "Which of the following are popular infrastructure-as-code tools?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "a",
+        "answerA": "Puppet, Chef, and Ansible",
+        "answerB": "Git, Jenkins, and Travis",
+        "answerC": "AWS, Google Cloud, and Azure",
+        "answerD": "Python, C++, and Java",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 73,
+    "fields": {
+        "module": "infra",
+        "text": "Among the reasons infrastructure as code (IAC) is desirable is/are...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "IAC can be put under version control",
+        "answerB": "IAC can be be automatically deployed",
+        "answerC": "IAC can be put through automated testing",
+        "answerD": "all of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 74,
+    "fields": {
+        "module": "infra",
+        "text": "A disadvantage of Chef is...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "c",
+        "answerA": "it can't be used for large-scale deployment",
+        "answerB": "it is not designed for programmers",
+        "answerC": "using it requires knowledge of Ruby",
+        "answerD": "it can't be put under version control",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 75,
+    "fields": {
+        "module": "infra",
+        "text": "A disadvantage of Puppet is that users must...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "b",
+        "answerA": "only run on Linux",
+        "answerB": "learn the Puppet DSL",
+        "answerC": "commit to running Windows",
+        "answerD": "deal with a terrible GUI",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 76,
+    "fields": {
+        "module": "infra",
+        "text": "One reason we use Docker in our projects is...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "it cuts down on memory usage",
+        "answerB": "it makes our unit testing simpler",
+        "answerC": "it provides automatic documentation for the source code",
+        "answerD": "it allows us to specify a local server that will be just like production",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 77,
+    "fields": {
+        "module": "infra",
+        "text": "When a Dockerfile says 'FROM Alpine-2.3' that means...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "b",
+        "answerA": "this will be a mountainous docker image",
+        "answerB": "the image being built will be based on the 'Alpine-2.3' image",
+        "answerC": "we will be running the 'Alpine-2.3' image",
+        "answerD": "none of the above",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 78,
+    "fields": {
+        "module": "infra",
+        "text": "A line in a Dockerfile that says 'RUN pip install -r requirements.txt' means...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "c",
+        "answerA": "once the container is launched, it will run that command",
+        "answerB": "if pip install is True, the container should RUN, or exit",
+        "answerC": "that command should be run to build the container",
+        "answerD": "nothing: that is an invalid command",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 79,
+    "fields": {
+        "module": "infra",
+        "text": "The command 'docker ps' will list...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "all containers named 'ps'",
+        "answerB": "all containers",
+        "answerC": "all images currently installed on the system",
+        "answerD": "all images currently running on the system",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 80,
+    "fields": {
+        "module": "infra",
+        "text": "If we run the 'ps' command to list running processes both inside and outside a container, we will likely see more processes...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "b",
+        "answerA": "inside the container",
+        "answerB": "outside the container",
+        "answerC": "no telling",
+        "answerD": "you can't run it inside a container",
+        "answerE": null
+    }
+},
+{
+    "model": "devops.question",
+    "pk": 81,
+    "fields": {
+        "module": "infra",
+        "text": "Infrastructure as code is important in the cloud (compared to old machine rooms) because...?",
+        "difficulty": 1,
+        "qtype": "MCHOICE",
+        "correct": "d",
+        "answerA": "we are likely to have more servers",
+        "answerB": "the servers life-span is shorter",
+        "answerC": "we often need to scale deployment up and down in a matter of minutes",
+        "answerD": "all of the above",
+        "answerE": null
+    }
+},
+{
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$120000$DyE0cSjteqYy$zRFCYqtYBZMh+i5J00wY1yp5hJc64LTVsr5StoAVn9w=",
-        "last_login": "2018-10-02T05:10:10.451Z",
+        "last_login": "2018-10-27T16:50:44.373Z",
         "is_superuser": true,
         "username": "gcallah",
         "first_name": "",
@@ -1023,11 +1585,44 @@
     }
 },
 {
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$120000$uHQ49qBJQlOs$og3qnkW0ixWxp+rtFKPM/uF2qxvqaaogI4zqjDc3/H8=",
+        "last_login": "2018-11-05T04:48:43.764Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "ejc369@nyu.edu",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2018-10-14T06:24:37.122Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "27vr31k31j5qpwi3wb8m2r31bsf3kdg9",
+    "fields": {
+        "session_data": "NmYzNDM3NDkyY2E5MzExYjUwOGU5NDA4ZDU1ZDdjNjQ2NTM3MzcxMDp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ODY1YzgwNjJlN2Y0MWMyNjgwOGU4NTgxN2RlZWQxMzZlZjhhODkyIn0=",
+        "expire_date": "2018-10-28T19:51:03.957Z"
+    }
+},
+{
     "model": "sessions.session",
     "pk": "2ta4mtd5y9ejrmtb03ts53qxwhzglbzy",
     "fields": {
         "session_data": "MmVjMWUxZmNkMDg5ZTg5Y2QyMDQ1Y2NlZmNjYjM3Yjg5MGFhNzY1ODp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkYjJmODliNjEwOTg3YWRiMWI4NjQ0OTU2OThmMTVlYzRlYmM0ZjZlIn0=",
         "expire_date": "2018-10-04T20:31:08.300Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "62zl894iudkfudo1eidi7di90457d533",
+    "fields": {
+        "session_data": "NmYzNDM3NDkyY2E5MzExYjUwOGU5NDA4ZDU1ZDdjNjQ2NTM3MzcxMDp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ODY1YzgwNjJlN2Y0MWMyNjgwOGU4NTgxN2RlZWQxMzZlZjhhODkyIn0=",
+        "expire_date": "2018-10-28T06:24:46.055Z"
     }
 },
 {
@@ -1052,6 +1647,22 @@
     "fields": {
         "session_data": "MmVjMWUxZmNkMDg5ZTg5Y2QyMDQ1Y2NlZmNjYjM3Yjg5MGFhNzY1ODp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkYjJmODliNjEwOTg3YWRiMWI4NjQ0OTU2OThmMTVlYzRlYmM0ZjZlIn0=",
         "expire_date": "2018-10-07T04:13:24.885Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ggdjnuul4fekbzwayok6dnt7k0qxr3jf",
+    "fields": {
+        "session_data": "MmVjMWUxZmNkMDg5ZTg5Y2QyMDQ1Y2NlZmNjYjM3Yjg5MGFhNzY1ODp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkYjJmODliNjEwOTg3YWRiMWI4NjQ0OTU2OThmMTVlYzRlYmM0ZjZlIn0=",
+        "expire_date": "2018-11-10T16:50:44.407Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "gugvaqaxe4w8kwuluu2f850bzl47vj56",
+    "fields": {
+        "session_data": "NmYzNDM3NDkyY2E5MzExYjUwOGU5NDA4ZDU1ZDdjNjQ2NTM3MzcxMDp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ODY1YzgwNjJlN2Y0MWMyNjgwOGU4NTgxN2RlZWQxMzZlZjhhODkyIn0=",
+        "expire_date": "2018-11-19T04:48:43.773Z"
     }
 },
 {
@@ -2589,6 +3200,690 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2018-10-14T06:25:08.523Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "quiz"
+        ],
+        "object_id": "13",
+        "object_repr": "Quiz for basics",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2018-10-14T06:26:59.951Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "55",
+        "object_repr": "\"No magic constants\" means you should not...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2018-10-14T07:26:51.913Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "56",
+        "object_repr": "Our functions should...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2018-10-14T07:28:52.463Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "57",
+        "object_repr": "PEP 8 recommends that when indenting, we should use..?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2018-10-14T07:31:05.771Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "58",
+        "object_repr": "When it comes to naming variables, we should...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2018-10-14T07:32:42.553Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "59",
+        "object_repr": "Comments should be...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2018-10-14T07:34:45.431Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "60",
+        "object_repr": "The best way to make your code understandable is...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2018-10-14T07:37:13.883Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "61",
+        "object_repr": "The most important reason to use consistent indentation is...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2018-10-14T07:56:42.236Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "62",
+        "object_repr": "According to PEP 8, constants should...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2018-10-14T07:58:49.814Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "63",
+        "object_repr": "If our program employs a database, we should define the data tables...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2018-10-14T08:00:23.229Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "55",
+        "object_repr": "\"No magic constants\" means you should not...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"answerC\", \"answerD\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2018-10-14T08:02:29.505Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "64",
+        "object_repr": "Function and variable names should be...\"",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2018-10-14T19:51:20.237Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "64",
+        "object_repr": "Function and variable names should be...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"text\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2018-10-14T19:53:29.226Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "65",
+        "object_repr": "DRY means your code should ...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2018-10-14T19:55:57.919Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "66",
+        "object_repr": "PEP 8 recommends using blank lines in functions...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2018-10-14T19:58:14.872Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "67",
+        "object_repr": "According to PEP 8, if we need a line break near a binary operator, it should come...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 100,
+    "fields": {
+        "action_time": "2018-10-21T16:15:37.899Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "67",
+        "object_repr": "According to PEP 8, if we need a line break near a binary operator, it should come...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"correct\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 101,
+    "fields": {
+        "action_time": "2018-10-27T16:55:27.143Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "68",
+        "object_repr": "Infrastructure as code can reduce costs, since...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 102,
+    "fields": {
+        "action_time": "2018-10-27T16:57:38.769Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "69",
+        "object_repr": "Infrastructure as code speeds up deployment because...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 103,
+    "fields": {
+        "action_time": "2018-10-27T17:00:02.390Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "70",
+        "object_repr": "Infrastructure as code is less error-prone than manual deployment because...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 104,
+    "fields": {
+        "action_time": "2018-10-27T17:03:10.593Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "71",
+        "object_repr": "A core DevOps principle is that automation is good because...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 105,
+    "fields": {
+        "action_time": "2018-10-27T17:06:04.787Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "72",
+        "object_repr": "Which of the following are popular infrastructure-as-code tools?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 106,
+    "fields": {
+        "action_time": "2018-10-27T17:25:07.309Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "73",
+        "object_repr": "Among the reasons infrastructure as code (IAC) is desirable is/are...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 107,
+    "fields": {
+        "action_time": "2018-10-27T17:33:42.038Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "74",
+        "object_repr": "A disadvantage of Chef is...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 108,
+    "fields": {
+        "action_time": "2018-10-27T17:59:18.675Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "75",
+        "object_repr": "A disadvantage of Puppet is that users must...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 109,
+    "fields": {
+        "action_time": "2018-10-27T18:00:25.006Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "75",
+        "object_repr": "A disadvantage of Puppet is that users must...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"answerD\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 110,
+    "fields": {
+        "action_time": "2018-11-02T03:28:14.213Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "76",
+        "object_repr": "One reason we use Docker in our projects is...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 111,
+    "fields": {
+        "action_time": "2018-11-02T04:24:36.423Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "77",
+        "object_repr": "When a Dockerfile says 'FROM Alpine-2.3' that means...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 112,
+    "fields": {
+        "action_time": "2018-11-02T04:24:43.381Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "75",
+        "object_repr": "A disadvantage of Puppet is that users must...?",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2018-11-02T04:28:08.905Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "78",
+        "object_repr": "A line in a Dockerfile that says 'RUN pip install -r requirements.txt' means...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2018-11-02T06:11:45.077Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "79",
+        "object_repr": "The command 'docker ps' will list...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2018-11-04T04:26:24.498Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "80",
+        "object_repr": "If we run the 'ps' command to list running processes both inside and outside a container, we will likely see more processes...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2018-11-04T04:47:56.295Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "76",
+        "object_repr": "One reason we use Docker in our projects is...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"answerD\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2018-11-04T04:53:00.009Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "81",
+        "object_repr": "Infrastructure as code is important in the cloud (compared to old machine rooms) because...?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2018-11-04T04:59:38.546Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "79",
+        "object_repr": "The command 'docker ps' will list...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"module\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2018-11-04T04:59:48.706Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "80",
+        "object_repr": "If we run the 'ps' command to list running processes both inside and outside a container, we will likely see more processes...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"module\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2018-11-04T05:00:01.140Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "79",
+        "object_repr": "The command 'docker ps' will list...?",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2018-11-04T05:00:09.458Z",
+        "user": [
+            "gcallah"
+        ],
+        "content_type": [
+            "devops",
+            "question"
+        ],
+        "object_id": "78",
+        "object_repr": "A line in a Dockerfile that says 'RUN pip install -r requirements.txt' means...?",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"module\"]}}]"
+    }
+},
+{
     "model": "devops.grade",
     "pk": 1,
     "fields": {
@@ -2807,6 +4102,279 @@
         ],
         "record_date": "2018-09-22T00:44:56.031Z",
         "quiz_name": "comm"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 18,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-14T21:26:45.178Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 19,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-14T21:27:53.046Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 20,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-14T21:28:32.508Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 21,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-14T21:28:37.618Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 22,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-14T21:28:49.894Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 23,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-14T21:30:32.759Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 24,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-14T21:34:18.092Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 25,
+    "fields": {
+        "quiz": 13,
+        "score": "50.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-15T21:58:44.097Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 26,
+    "fields": {
+        "quiz": 2,
+        "score": "20.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-15T22:00:32.604Z",
+        "quiz_name": "work"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 27,
+    "fields": {
+        "quiz": 7,
+        "score": "50.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-15T22:00:53.979Z",
+        "quiz_name": "infra"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 28,
+    "fields": {
+        "quiz": 7,
+        "score": "50.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-15T22:08:59.817Z",
+        "quiz_name": "infra"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 29,
+    "fields": {
+        "quiz": 13,
+        "score": "60.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-15T22:09:43.966Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 30,
+    "fields": {
+        "quiz": 13,
+        "score": "70.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-19T18:27:25.872Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 31,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-21T15:58:11.495Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 32,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-21T16:05:01.688Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 33,
+    "fields": {
+        "quiz": 2,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-21T16:14:13.332Z",
+        "quiz_name": "work"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 34,
+    "fields": {
+        "quiz": 13,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-21T21:00:26.584Z",
+        "quiz_name": "basics"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 35,
+    "fields": {
+        "quiz": 2,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-22T15:02:36.047Z",
+        "quiz_name": "work"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 36,
+    "fields": {
+        "quiz": 2,
+        "score": "30.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-22T15:03:14.119Z",
+        "quiz_name": "work"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 37,
+    "fields": {
+        "quiz": 2,
+        "score": "30.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-10-24T14:46:32.820Z",
+        "quiz_name": "work"
+    }
+},
+{
+    "model": "devops.grade",
+    "pk": 38,
+    "fields": {
+        "quiz": 2,
+        "score": "80.00",
+        "participant": [
+            "admin"
+        ],
+        "record_date": "2018-11-05T05:07:46.691Z",
+        "quiz_name": "work"
     }
 }
 ]

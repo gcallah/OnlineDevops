@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-size: 100%;
     color: #ddd;
-    background: #444;
+    background: #021734;
     font-family: Arial, Helvetica, sans-serif
 }
 
@@ -15,11 +15,11 @@ body {
 }
 
 a:link {
-    color: #acf;
+    color: #01ffff;
 }
 
 a:visited {
-    color: #cbf;
+    color: #e9f;
 }
 
 table, th, td {
@@ -56,8 +56,14 @@ p.submit {
     text-align: center
 }
 
+p.quiz_quest {
+   font-size: 1.5rem;
+   color: #539;
+}
+
 hr {
-    margin: 2em 20em 2em 20em;
+    color: #e9f;
+    margin: 2em 8em 2em 8em;
 }
 
 blockquote {
@@ -85,19 +91,17 @@ ul.centered {
 
 ol.nested, ul.nested, dl.nested {
     font-size: 1em;
+    list-style-position: inside;
+}
+
+ol.inner_nested, ul.inner_nested, dl.inner_nested {
+    font-size: .7em;
 }
 
 dt {
     font-size: 1.1rem;
     font-weight: bold;
     margin: .4em 3em .4em 1em;
-}
-
-code {
-    font-size: 1.2em;
-    font-family: monospace;
-    background: inherit;
-    color: #fad;
 }
 
 #header {
@@ -120,7 +124,7 @@ code {
 }
 
 h1,h2,h3,h4,h5 {
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h1 {
@@ -129,14 +133,24 @@ h1 {
     padding-top: 1em;
     text-align: center;
     font-size: 2em;
-    color: #cab;
+    color: #9df;
 }
 
-h1.brand {
+h1.toc_head {
+    font-size: 3rem;
+    padding: 1rem;
+    margin: 1em 0em .6em 0em;
+}
+
+h1.chap-title {
     margin: 0em 0em 0em 0em;
-    color: #622;
-    font-size: 2.2em;
-    text-align: center;
+}
+
+.header-title{
+    position: absolute;
+    top:0.5rem;
+    left:1rem;
+    font-size:1.5rem;
 }
 
 h1.chap-title {
@@ -165,15 +179,26 @@ h4 {
     color: #aaf;
 }
 
+h5 {
+    font-size: 1.4em;
+    margin: .8em 1.8em .6em 1.8em;
+    color: #afa;
+}
+
 code {
+    font-size: 1.2em;
     font-family: monospace;
-    background: inherit;
-    color: #fad;
+    color: #8fc;
+}
+
+pre {
+    font-size: 1.1em;
+    color: #9ed;
 }
 
 summary.sum1 {
     font-size: 1.7em;
-    color: #f9b;
+    color: #f9d;
     margin: .8em 2em .8em 2em;
 }
 
@@ -286,3 +311,18 @@ span.hilight {
 .over { text-decoration: overline; }
 
 .errors { color: red; }
+
+
+
+
+
+.zoom{
+    width:25%;
+    transition:0.5s all;
+}
+
+.zoom:hover{
+    margin-top:5vh;
+   transform: scale(1.5);
+}
+

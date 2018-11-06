@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="module">
+        <h1>
+            This page has no quiz!
+        </h1>
+
+        <figure>
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/IBM402plugboard.Shrigley.wireside.jpg/440px-IBM402plugboard.Shrigley.wireside.jpg"
+            width="20%">
+            <figcaption>
+                Our modern digital creations are complex: a key job of 
+                programmers is to express that complexity as simply as
+                possible.
+            </figcaption>
+        </figure>
+
+        <p class="leadquote">
+        "The best programs are written so that computing machines can perform
+        them quickly and so that human beings can understand them clearly. A
+        programmer is ideally an essayist who works with traditional aesthetic
+        and literary forms as well as mathematical concepts, to communicate the
+        way that an algorithm works and to convince a reader that the results
+        will be correct." --
+        <a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>
+        </p>
+
+        <details>
+            <summary class="sum1">
+                Lesson 1
+            </summary>
+
+            <p>
+                Humans have been programming computers for seven or so decades
+                now. DevOps is a hot new topic in that practice, but the
+                current popularity of the term does not mean we should ignore
+                the many findings on how to write the best programs possible
+                that came before DevOps should be ignored!
+            </p>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Lesson 2
+            </summary>
+
+            <p>
+                For this lesson, please read the Python coding standard,
+                <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>.
+                It is a very good example of what a coding standard is like,
+                and most of the guidelines can be applied in other languages.
+                Our JavaScript team is choosing a standard at present, and soon
+                we will link to that here as well.
+            </p>
+
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Coming Up: No quiz!
+            </summary>
+
+            <p>
+                Below this is the page's quiz: use this to test and
+                make sure that a module with no Quiz and/or
+                Question entries still works!
+            </p>
+
+        </details>
+
+
+        {% include 'quiz.html' %}
+
+
+{% endblock content %}

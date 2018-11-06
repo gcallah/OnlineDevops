@@ -1,82 +1,95 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="module">
-        <h1>
-            The DevOps Course: Modules
-        </h1>
 
-        <figure>
+    <div class="container-fluid">
+     <div class="row">
+
+
+        <div class="col-sm-5">
+
+
+        <figure style="margin-top:40%;">
             <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Devops-toolchain.svg/220px-Devops-toolchain.svg.png">
+            src="/static/devops/devops_inter.jpg" style="width:60%;">
             <figcaption>
-                The DevOps toolchain
+                <h3>The DevOps toolchain</h3>
             </figcaption>
         </figure>
 
-        <p class="leadquote">
-            Here are the top-level modules for our DevOps course:
-        </p>
 
-        <ol class="mod_list">
-            <li>
-                <a href="/devops/work">
+
+        </div>
+
+         <div class="col-sm-7">
+              <h1 class="toc_head">
+              Course Modules
+              </h1>
+         <ol>
+
+          <li>
+              <a href="/devops/basics">
+                Programming Fundamentals
+              </a>
+          </li>
+
+          <li>
+               <a href="/devops/work">
                 The DevOps Way of Work
                 </a>
-            </li>
+          </li>
 
-            <li>
-                <a href="/devops/comm">
+          <li>
+               <a href="/devops/comm">
                 Cooperation and Communication (Tool: Slack)
                 </a>
-            </li>
+          </li>
 
-            <li>
-                <a href="/devops/incr">
+          <li>
+               <a href="/devops/incr">
                 Incremental Development (Tool: git)
                 </a>
-            </li>
+          </li>
 
-            <li>
-                <a href="/devops/build">
+          <li> <a href="/devops/build">
                 Automating Builds (Tool: make)
                 </a>
-            </li>
+          </li>
 
-            <li>
-                <a href="/devops/flow">
+         <li>
+              <a href="/devops/flow">
                 Workflow (Tool: kanban boards)
-                </a>
-            </li>
+              </a>
+         </li>
 
-            <li>
-                <a href="/devops/test">
-                Automated Testing (Tool: Jenkins)
-                </a>
-            </li>
+         <li>
+              <a href="/devops/test">
+                  Automated Testing (Tool: Jenkins)
+              </a>
+         </li>
 
-            <li>
-                <a href="/devops/infra">
-                Software as Infrastructure (Tool: Docker)
-                </a>
-            </li>
+         <li>
+              <a href="/devops/infra">
+                 Infrastructure as Code (Tool: Docker)
+              </a>
+         </li>
 
-            <li>
-                <a href="/devops/cloud">
-                Cloud Deployment (Tool: Kubernetes)
-                </a>
-            </li>
+         <li>
+              <a href="/devops/cloud">
+                 Cloud Deployment (Tool: Kubernetes)
+              </a>
+         </li>
 
-            <li>
-                <a href="/devops/micro">
+         <li>
+              <a href="/devops/micro">
                     Microservices and Severless Computing
-                </a>
-            </li>
+              </a>
+         </li>
 
-            <li>
-                <a href="/devops/monit">
-                Monitoring (Tool: StatusCake)
-                </a>
-            </li>
+         <li>
+              <a href="/devops/monit">
+                   Monitoring (Tool: StatusCake)
+              </a>
+         </li>
 
             <li>
                 <a href="/devops/secur">
@@ -84,11 +97,42 @@
                 </a>
             </li>
 
-            <li>
-                <a href="/devops/sum">
-                Summing Up
+             <li>
+                <a href="/devops/suite">
+                A Complete DevOps Suite: Azure DevOps
                 </a>
             </li>
+
         </ol>
+       </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock content %}
