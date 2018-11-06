@@ -221,6 +221,7 @@ class GradeQuizTestCase(TestCase):
             # Check wrong answers were marked for the user...
             self.assertContains(results, 'class="errors"', total_wrong)
 
+    @skip
     def test_grade_quiz_saves_quiz_results_when_user_authenticated(self):
         # ARRANGE: Login with the user we created...
         self.client.force_login(self.user)
