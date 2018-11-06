@@ -46,7 +46,10 @@ db: $(MDL)
 	-git commit $(DEVDIR)/migrations/*.py
 	git push origin master
 
-test:
+tests: lint
+	python3 manage.py test
+
+final_test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
 
 lint: $(patsubst %.py,%.pylint,$(PYTHONFILES))
