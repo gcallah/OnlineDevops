@@ -38,7 +38,7 @@ Instructions are for Ubuntu, check the official docs for any differences on your
   * `sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
   * `sudo chmod +x /usr/local/bin/docker-compose`
 
-### Docker MAC OS X
+### Docker Mac OS X
 
 * System Requirements
   * Mac hardware must be a 2010 or newer model, with Intel’s hardware support for memory management unit (MMU) virtualization, including Extended Page Tables (EPT) and Unrestricted Mode. You can check to see if your machine has this support by running the following command in a terminal: sysctl kern.hv_support
