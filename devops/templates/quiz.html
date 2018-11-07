@@ -16,7 +16,7 @@
                     </ul>
                 {% endif %}
 
-                <form method="post" action="{% url 'devops:grade_quiz' %}">
+                <form method="post" action="{% url 'devops:grade_quiz' %}" id="formID">
                 {% csrf_token %}
                     <ol class="nested">
 
@@ -85,3 +85,14 @@
                 </form>
             {% endif %}
         </details>
+
+<script type="text/javascript">
+    var form = document.getElementById('formID'); // form has to have ID: <form id="formID">
+    form.noValidate = true;
+    form.addEventListener('submit', function(event) { // listen for form submitting
+        if (!event.target.checkValidity()) {
+            event.preventDefault(); // dismiss the default functionality
+            alert('Please answer all questions.'); // error message
+        }
+    }, false);
+</script>
