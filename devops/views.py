@@ -143,16 +143,16 @@ def monit(request: request) -> object:
     return get_quiz(request, 'monit')
 
 
-def suite(request: request) -> object:
-    return get_quiz(request, 'suite')
-
-
 def no_quiz(request: request) -> object:
     return get_quiz(request, 'no_quiz')
 
 
 def secur(request: request) -> object:
     return get_quiz(request, 'secur')
+
+
+def suite(request: request) -> object:
+    return get_quiz(request, 'suite')
 
 
 def sum(request: request) -> object:

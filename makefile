@@ -28,14 +28,14 @@ submods:
 	git submodule update
 
 
-prod: $(SRCS) validate_html
+prod: $(SRCS) validate_html lint
 # run django tests here before committing code!
 	-git commit -a
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
 
 # by including subs here, we force everyone to update the submod now and again!
-staging: submods
+staging: submods lint
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
 	git push -u staging master
 
@@ -46,7 +46,10 @@ db: $(MDL)
 	-git commit $(DEVDIR)/migrations/*.py
 	git push origin master
 
-test:
+tests: lint
+	coverage run manage.py test
+
+final_test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
 
 lint: $(patsubst %.py,%.pylint,$(PYTHONFILES))

@@ -41,7 +41,6 @@ node {
 
 stage 'Deploying to Staging'
 node {
-    withCredentials([usernamePassword(credentialsId: 'nyustaging', passwordVariable: 'USR', usernameVariable: 'PSW')]) {
         // On the about page we will always see which build we are running...
         sh '''echo '<p style='text-secondary'>Running build N${env.BUILD_DISPLAY_NAME}</p>' >> devops/templates/about.html'''
         // Configure local git for pushing...
@@ -57,5 +56,5 @@ node {
         sh '''git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git '''
         sh '''git remote show staging'''
         sh '''git push staging HEAD:master'''
-}
+
 }
