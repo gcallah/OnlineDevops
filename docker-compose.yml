@@ -50,7 +50,7 @@ services:
       sh -c "python manage.py makemigrations &&
              python manage.py migrate &&
              python manage.py loaddata /home/DevOps/datadump.json &&
-             python manage.py runserver 0.0.0.0:8000"
+             python /home/DevOps/manage.py runserver 0.0.0.0:8000"
 
 networks:
   devops_net:
