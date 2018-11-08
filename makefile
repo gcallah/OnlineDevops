@@ -36,8 +36,7 @@ prod: $(SRCS) validate_html lint
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
 
-# by including subs here, we force everyone to update the submod now and again!
-staging: submods validate_html lint 
+staging: validate_html lint 
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
 	git push -u staging master
 
