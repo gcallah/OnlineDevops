@@ -1,18 +1,28 @@
 Agile Development	A method of developing software featuring frequent releases, adaptability to change, and close collaboration with customers.
 Anti-Pattern	A set of characteristics of some code structure or development practice that have been found to be common and harmful.
 Automated Testing	Testing through scripts rather than "by hand."
+Azure DevOps	Microsoft's end-to-end DevOps solution.
 Containerization	The process of packaging an application and everything it depends upon in a "container," then running it in its own virtual environment.
 Continuous Integration (CI)	The process of integrating different developers' work with high regularity.
 Continuous Deployment (CD)	Regularly deploying new work into production, usually with every push to the master branch on the origin source-code control server.
 Docker	The most popular tool for <i>containerizing</i> applications.
+DockerHub	A site hosting publically available Docker images.
+git	Today's most popular version control system.
+GitHub	A site hosting git repositories.
+image	The static version of a Docker container: we run the image to get a container.
+Infrastructure-as-Code (IAC)	Using code to set up and provision servers, network connections, and so on.
+Jenkins	A CI/CD tool that automates building and testing a product.
 Kanban	A tool for controlling <i>work-in-progress</i> and making visible who is working on what tasks.
 Kubernetes	An open-source tool for orchestrating containers.
 Lean Development	Similar to Agile Development; strong inheritance from Toyota Production Systems
+linting	Cleaning up source code by running a 'lint' tool that catches common coding errors.
 make	A venerable tool for automating builds.
 Microservices	Tiny applications that do a single job, like authentication or scheduling deliveries.
 Monitoring	Software that "watches" an application and sends out alerts at signs of trouble.
 Pattern	A set of characteristics of some code structure or development practice that have been found to be common and beneficial.
+repository	The 'database' of a version control system.
 Slack	A popular tool for communication in development teams; also, the "empty" periods that are necessary in a schedule for anyone to do creative work.
+StatusCake	The monitoring software we are using in our course.
 Test-Driven Development	A method of developing software that writes tests for a new feature first, then writes the feature.
 Toyota Production Systems (TPS)	A lean manufacturing system put in place at Toyota in the 1960s, featuring flexible production and employee empowerment.
 Version Control	A tool that allows users to keep multiple versions of a file, revert to earlier versions, compare versions, and so on.
