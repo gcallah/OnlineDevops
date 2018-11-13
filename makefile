@@ -6,10 +6,11 @@ PARTSDIR = participants
 TESTSDIR = tests
 MDL = $(DEVDIR)/models.py
 SRCS = $(MDL)
-TEMPLDIR = $(DEVDIR)/templates
-GLOSS = $(TEMPLDIR)/gloss.html
-GLOSS_SRC = templates/gloss_terms.txt
-HTMLS = $(shell ls $(TEMPLDIR)/*.html)
+DJANGO_TEMPLDIR = $(DEVDIR)/templates
+GLOSS = $(DJANGO_TEMPLDIR)/gloss.html
+OUR_TEMPLDIR = templates
+GLOSS_SRC = $(OUR_TEMPLDIR)/gloss_terms.txt
+HTMLS = $(shell ls $(DJANGO_TEMPLDIR)/*.html)
 PYLINT = flake8
 PYLINTFLAGS =
 PYTHONFILES = $(shell ls $(DEVDIR)/*.py)
@@ -68,6 +69,7 @@ final_test:
 gloss: $(GLOSS)
 
 $(GLOSS): $(GLOSS_SRC)
+# Monjur run your program here; write output to $(OUR_TEMPLDIR)
 	$(UDIR)/create_gloss.py $(GLOSS_SRC) > $(GLOSS)
 	git add $(GLOSS)
 	git commit $(GLOSS) -m "Building new glossary template."
