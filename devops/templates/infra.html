@@ -90,6 +90,10 @@
                 <i>to automate things</i>
                 interests them, and treats them as the rational 
                 beings that they are!
+                <br />
+                Aristotle: humans are
+                <a href="https://en.wikipedia.org/wiki/Rational_animal">
+                    rational animals</a>.
             </p>
 
         </details>
@@ -256,8 +260,9 @@
 
                 <p>
                     <span class="hilight">First thing</span>:
-                    Make sure you have Docker installed! The rest
-                    of the demo will be inapplicable if you do not.
+                    Make sure you have Docker installed! You
+                    won't get any further in following along on your laptop 
+                    if you do not.
                 </p>
 
                 <p>
@@ -281,7 +286,7 @@
                     please run:
                     <br />
                     <code>
-                        ./devops_container.sh
+                        ./container.sh
                     </code>
                     <br />
                     That should put you inside the OnlineDevops container: if
@@ -336,12 +341,15 @@
                 <p>
                     What's of note here: From outside and from inside the
                     container, we see completely different file systems!
-                    <br />
-                    What about our view of what processes are running?
+                    Inside the container, we are in a 
+                    <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a>
+                    file system.
                 </p>
 
                 <p>
-                    Outside the container:
+                    What about our view of what processes are running?
+                    <br />
+                    Outside the container we see:
                     <br />
                     <code>ps -ef | wc -l</code>
                     <br />
@@ -358,7 +366,7 @@
 
 
                 <p>
-                    Inside the container:
+                    Inside the container we see:
                     <br />
                     <code>ps -ef</code>
                     <br />
@@ -372,6 +380,14 @@
 
                 <p>
                    From inside the container, there are two processes running! 
+                   The container has process isolation from the host. It has
+                   its own
+                   <a href="https://en.wikipedia.org/wiki/Linux_namespaces">process 
+                    namespace</a> separate from its host's namespace and from
+                   the namespace of any other containers running on that host.
+                   The separate namespace also provides the container with its
+                   own hostname, its own user IDs, and its own inter-process
+                   communication names.
                 </p>
 
                 <h4>
@@ -658,7 +674,40 @@
                     </a>
                 </li>
             </ul>
+        </details>
 
+        <details>
+            <summary class="sum1">
+                Our More Advanced Docker Usage
+            </summary>
+
+            <p>
+                In the Online DevOps course project, we use a more advanced
+                Docker setup: we employ
+                <a href="https://docs.docker.com/compose/">Docker Compose</a>
+                to define and run an application composed of more than
+                one Docker container.
+            </p>
+
+            <p>
+                Docker Compose use a 
+                <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>
+                file to specify the configuration of a multi-container
+                Docker app.
+            </p>
+
+            <p>
+                In the Online DevOps course setup, we are running just two
+                containers: one to run the MySQL database, and the other
+                to run our Django web server. But other Docker Compose
+                setups might include a web server, a load balancer,
+                a database, an authentication server, and more!
+                <br />
+                <a
+                   href="https://github.com/gcallah/OnlineDevops/blob/master/docker-compose.yml">Here</a>
+                is the YAML file that specifies our two-container
+                application.
+            </p>
 
         </details>
 
