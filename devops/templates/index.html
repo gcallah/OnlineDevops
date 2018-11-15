@@ -8,15 +8,51 @@
         <div class="col-sm-5">
 
 
-        <figure style="margin-top:40%;">
-            <img
-            src="/static/devops/devops_inter.jpg" style="width:60%;">
-            <figcaption>
-                <h3>The DevOps toolchain</h3>
-            </figcaption>
-        </figure>
+            <figure style="margin-top:40%;">
+                <img
+                src="/static/devops/devops_inter.jpg" style="width:60%;">
+                <figcaption>
+                    <h3>The DevOps toolchain</h3>
+                </figcaption>
+            </figure>
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                {%  if SliderSlides %}
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                {% endif %}
+
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <a href="{{ activeSlidePicsLink }}" target="_blank">
+                        <img class="d-block w-100" src="{{ activeImageSlideSource }}">
+                      </a>
+                  </div>
 
 
+              {%  if not SliderSlides %}
+                  {% for s in SliderSlides %}
+                    <div class="carousel-item">
+                        <a href="{{ s.img }}" target="_blank">
+                            <img class="d-block w-100" src="{{ s.link }}">
+                        </a>
+                    </div>
+                  {% endfor %}
+              {% endif %}
+              </div>
+
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
 
         </div>
 
@@ -107,5 +143,7 @@
        </div>
       </div>
     </div>
+
+
 
 {% endblock content %}
