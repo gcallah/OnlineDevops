@@ -58,9 +58,10 @@ def markingQuiz(user_answers, graded_answers):
 
 
 class SliderSlide:
-    def __init__(self, img, link):
+    def __init__(self, img, link, index):
         self.img = img
         self.link = link
+        self.index = index
 
 
 def get_dynamicslideshow(request, site,site_hdr):
@@ -79,11 +80,14 @@ def get_dynamicslideshow(request, site,site_hdr):
 
         slidePicsSource = []
 
-        for index, img in enumerate(allImgTags):
-            if index == 0:
-                activeSlidePicsSource = img.get('src')
-            else:
-                slidePicsSource.append(img.get('src'))
+        for img in allImgTags:
+            slidePicsSource.append(img.get('src'))
+
+        # for index, img in enumerate(allImgTags):
+        #     if index == 0:
+        #         activeSlidePicsSource = img.get('src')
+        #     else:
+        #         slidePicsSource.append(img.get('src'))
 
         # Getting Slide Links
         # Find all <a> tags and <dictionary> tags
@@ -91,7 +95,7 @@ def get_dynamicslideshow(request, site,site_hdr):
         allDescriptionTags = soup.find_all('description')
 
         descriptionWithImgTag = []
-        index = []
+        indexOfImgTagInDescriptionList = []
         aTagList = []
         slidePicsLinkList = []
 
@@ -102,30 +106,39 @@ def get_dynamicslideshow(request, site,site_hdr):
 
         for i, d in enumerate(descriptionWithImgTag):
             if (d.name == 'img'):
-                index.append(i)
+                indexOfImgTagInDescriptionList.append(i)
 
-        # Remove Devop Links
+        # Remove Devop home Links, seems to be one for every a Tag.
         for i, a in enumerate(allaTags):
             if (i % 2 == 0):
                 aTagList.append(a)
 
         # Get <a> HREF Links based off dictionary index.
         for i, a in enumerate(aTagList):
-            if (i + 1) in index:
+            if (i + 1) in indexOfImgTagInDescriptionList:
                 slidePicsLinkList.append(a.get('href'))
 
         # Assign links to active slide and sibling slides.
-        for index, l in enumerate(slidePicsLinkList):
-            if index == 0:
-                activeSlidePicsLink = l
-            else:
+        for l in slidePicsLinkList:
                 slidePicsLink.append(l)
+
+        # for index, l in enumerate(slidePicsLinkList):
+        #     if index == 0:
+        #         activeSlidePicsLink = l
+        #     else:
+        #         slidePicsLink.append(l)
 
         # Create SlideShowObject List
         SliderSlides = []
 
-        for x in range(index):
-            SliderSlides.append(SliderSlide(slidePicsSource[x], slidePicsLink[x]))
+        for x in range(0, len(indexOfImgTagInDescriptionList)):
+            SliderSlides.append(SliderSlide(slidePicsSource[x], slidePicsLink[x], x))
+
+        # for i, item in enumerate(indexOfImgTagInDescriptionList):
+        #     SliderSlides.append(SliderSlide(slidePicsSource[i], slidePicsLink[i]))
+
+        # for x in range(indexOfImgTag):
+        #     SliderSlides.append(SliderSlide(slidePicsSource[x], slidePicsLink[x]))
 
 
 
@@ -133,8 +146,6 @@ def get_dynamicslideshow(request, site,site_hdr):
         return render(request,
                       site,
                       dict(header=site_hdr,
-                           activeSlidePicsLink=activeSlidePicsLink,
-                           activeImageSlideSource=activeSlidePicsSource,
                            SliderSlides=SliderSlides
                            ))
     except Exception as e:

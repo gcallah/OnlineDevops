@@ -16,39 +16,55 @@
                 </figcaption>
             </figure>
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselDynamicSlider" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
                 {%  if SliderSlides %}
-                  <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  </ol>
+                    {% for s in SliderSlides %}
+                        <li data-target="#carouselDynamicSlider" data-slide-to="{{ s.index }}"></li>
+                    {% endfor %}
+                {% else %}
+                    <li data-target="#carouselDynamicSlider" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselDynamicSlider" data-slide-to="1"></li>
+                    <li data-target="#carouselDynamicSlider" data-slide-to="2"></li>
                 {% endif %}
+                </ol>
 
-              <div class="carousel-inner">
-                  <div class="carousel-item active">
-                      <a href="{{ activeSlidePicsLink }}" target="_blank">
-                        <img class="d-block w-100" src="{{ activeImageSlideSource }}">
-                      </a>
-                  </div>
+                <div class="carousel-inner">
 
 
-              {%  if not SliderSlides %}
-                  {% for s in SliderSlides %}
-                    <div class="carousel-item">
-                        <a href="{{ s.img }}" target="_blank">
-                            <img class="d-block w-100" src="{{ s.link }}">
-                        </a>
-                    </div>
-                  {% endfor %}
-              {% endif %}
+                    {%  if SliderSlides %}
+                        {% for s in SliderSlides %}
+                            <div class="carousel-item">
+                                <a href="{{ s.link }}" target="_blank">
+                                    <img class="d-block w-100" src="{{ s.img }}">
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {#Place Holder, if no images on devops.com/feed#}
+                    {% else %}
+                        <div class="carousel-item">
+                             <a href="https://devops.com/ibm-allies-with-servicenow-to-bridge-devops-divide-with-itil/" target="_blank">
+                                 <img class="d-block w-100" src="https://devops.com/wp-content/uploads/2018/11/canstockphoto32473892_Fotor.jpg">
+                             </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://devops.com/so-many-devops-tools-so-little-time/" target="_blank">
+                                <img class="d-block w-100" src="https://devops.com/wp-content/uploads/2018/11/DevOps-Tools-Time.jpg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://devops.com/role-of-devops-in-mobile-app-development/" target="_blank">
+                                <img class="d-block w-100" src="https://devops.com/wp-content/uploads/2018/11/Mobile-App-Development.jpg">
+                            </a>
+                        </div>
+                    {% endif %}
               </div>
 
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carouselDynamicSlider" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
               </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carouselDynamicSlider" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
@@ -144,6 +160,15 @@
       </div>
     </div>
 
+<script>
+    var carouselindicators = document.getElementsByClassName("carousel-indicators");
+    var carouselindicatorsliTags = carouselindicators[0].getElementsByTagName("li");
+    carouselindicatorsliTags[0].className += "active";
 
+    var slides = document.getElementsByClassName("carousel-item");
+    slides[0].className += " active";
+</script>
 
 {% endblock content %}
+
+
