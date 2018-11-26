@@ -22,6 +22,7 @@
                     {% for s in SliderSlides %}
                         <li data-target="#carouselDynamicSlider" data-slide-to="{{ s.index }}"></li>
                     {% endfor %}
+                {#Place Holder, if no images on devops.com/feed#}
                 {% else %}
                     <li data-target="#carouselDynamicSlider" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselDynamicSlider" data-slide-to="1"></li>

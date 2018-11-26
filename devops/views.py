@@ -66,28 +66,26 @@ class SliderSlide:
 
 def get_dynamicslideshow(request, site,site_hdr):
     try:
-        # page = requests.get('https://devops.com/feed/')
+        # Set Feed Site and Headers
         url = "https://devops.com/feed/"
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+
+        # Fetch feed
         r = requests.get(url, headers=headers)
 
+        # Set text from fetch to data to query.
         data = r.text
 
+        # Using BeautifulSoup to parse data.
         soup = BeautifulSoup(data, 'lxml')
 
-        # Getting Slide Image Source
+        # Getting Slide Image Source elements
         allImgTags = soup.find_all('img')
 
         slidePicsSource = []
 
         for img in allImgTags:
             slidePicsSource.append(img.get('src'))
-
-        # for index, img in enumerate(allImgTags):
-        #     if index == 0:
-        #         activeSlidePicsSource = img.get('src')
-        #     else:
-        #         slidePicsSource.append(img.get('src'))
 
         # Getting Slide Links
         # Find all <a> tags and <dictionary> tags
@@ -101,9 +99,11 @@ def get_dynamicslideshow(request, site,site_hdr):
 
         slidePicsLink = []
 
+        # Fetches Description tags which contain img tag
         for d in allDescriptionTags:
             descriptionWithImgTag.append(d.contents[0])
 
+        # Fetch index to match links
         for i, d in enumerate(descriptionWithImgTag):
             if (d.name == 'img'):
                 indexOfImgTagInDescriptionList.append(i)
@@ -122,26 +122,11 @@ def get_dynamicslideshow(request, site,site_hdr):
         for l in slidePicsLinkList:
                 slidePicsLink.append(l)
 
-        # for index, l in enumerate(slidePicsLinkList):
-        #     if index == 0:
-        #         activeSlidePicsLink = l
-        #     else:
-        #         slidePicsLink.append(l)
-
-        # Create SlideShowObject List
+        # Create and set SlideShowObject List
         SliderSlides = []
 
         for x in range(0, len(indexOfImgTagInDescriptionList)):
             SliderSlides.append(SliderSlide(slidePicsSource[x], slidePicsLink[x], x))
-
-        # for i, item in enumerate(indexOfImgTagInDescriptionList):
-        #     SliderSlides.append(SliderSlide(slidePicsSource[i], slidePicsLink[i]))
-
-        # for x in range(indexOfImgTag):
-        #     SliderSlides.append(SliderSlide(slidePicsSource[x], slidePicsLink[x]))
-
-
-
 
         return render(request,
                       site,
