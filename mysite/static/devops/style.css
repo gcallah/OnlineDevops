@@ -113,10 +113,12 @@ dt {
     background-color: #cbe;
     color: #622;
     overflow: hidden;
+
 }
 
 #header a:link, #header a:visited {
     color: #622;
+    font-size:1.5rem;
 }
 
 #header a:focus , #header a:hover {
@@ -263,14 +265,16 @@ p.def {
 }
 
 #user-tools {
+
     float: right;
-    padding: 0;
+    padding: 0.3rem;
     margin: 0 4em 0 1em;
     font-weight: 300;
     font-size: 1em;
     letter-spacing: .1em;
     text-align: right;
     color: #622;
+
 }
 
 figure {
@@ -315,7 +319,6 @@ span.hilight {
 
 
 
-
 .zoom{
     width:25%;
     transition:0.5s all;
@@ -325,4 +328,18 @@ span.hilight {
     margin-top:5vh;
    transform: scale(1.5);
 }
+
+.search{
+    padding-top:2vh;
+    width:100%;
+
+}
+
+.query{
+    width:100%;
+    text-align:center;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
 
