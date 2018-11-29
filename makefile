@@ -25,7 +25,7 @@ container:
 
 # update our submodules:
 submods:
-	git submodule update
+	git submodule foreach 'git pull origin master'
 
 
 db: $(MDL)
