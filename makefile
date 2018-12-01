@@ -39,7 +39,7 @@ prod: $(SRCS) validate_html lint
 
 staging: validate_html lint 
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
-	git push -u staging master
+	git push -u -f staging master
 
 db: $(MDL)
 	python3 manage.py makemigrations
