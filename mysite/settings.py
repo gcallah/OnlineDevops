@@ -152,8 +152,8 @@ STATICFILES_DIRS = (
 
 TINYMCE_DEFAULT_CONFIG = {
     'theme': "advanced",
-    'width' : '80%',
-    'height' : 800,
+    'width': '80%',
+    'height': 800,
 }
 
 LOGIN_REDIRECT_URL = 'devops:index'
