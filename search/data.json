@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<script  src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js"></script>
-</head>
-<body>
-	<input type="query" name="gan" id="query"/> <button id="bt">search</button>
-	
-	<div id = "gan">
-		
-	</div>
-
-	<!--
-	<a href="http://127.0.0.1:8080/#chapter"> gan </a>	
-
-	<div style="margin-top: 5000px;">
-		<a name="chapter" >gan</a>
-	</div>-->
-	<script type="text/javascript">
-		//prepare for the data
-		var list = [
+[
   {
     "info": {
       "url": "http://127.0.0.1:8000/devops/infra",
@@ -40965,44 +40944,3 @@
     "title": "longer"
   }
 ]
-    var options = {
-  shouldSort: true,
-  findAllMatches: true,
-  threshold: 0.2,
-  location: 0,
-  distance: 100,
-  maxPatternLength: 32,
-  minMatchCharLength: 1,
-  keys: [
-    "title"
-    
-
-]
-};
-
-//load the data
-var fuse = new Fuse(list, options); // "list" is the item array
-
-//get id's info
-var query = document.getElementById("query")
-var bt = document.getElementById("bt")
-	var gan = document.getElementById("gan")
-
-//search and display result
-bt.addEventListener("click", function(){
-   var result = fuse.search(query.value);
-
-	for(var i=0;i<result.length;i++){
-		var jb =  result[i].info.sentence + "<br />"
-		gan.innerHTML += jb
-	}
-
-});
-
-
-
-
-	</script>
-</body>
-
-</html>
