@@ -15,20 +15,53 @@
         rel="stylesheet">
     {% endblock stylesheets %}
    <script  src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js"></script>
+ <style>
+    .search-output{
+    display: none;
+    height:85vh;
+    overflow:scroll;
+}
+
+     .header-button{
+          color: #622;
+             font-size:1.5rem;
+
+     }
+
+     .header-search-input{
+         background:none;
+         border:none;
+          font-size:1.5rem;
+         margin-right:1vh;
+         width:10vw;
+        color:#622;
+         padding:0;
+          border-top:3px solid #622;
+          border-left:3px solid #622;
+         text-align:center;
+     }
+
+
+
+     .header-search-input:focus{
+        outline:none;
+           }
+
+     .header-search-input:focused{
+         outline:none;
+     }
+
+
+ </style>
 </head>
 
 <body class="dashboard">
-    <div id="container">
+    <div id="container-fluid">
         <div id="header">
             <div id="user-tools">
                 <a href="/" class="header-title">{{ header }}</a>
 
 
-                <input  type="text" id="search" />
-
-                <button id="bt">Search</button>
-             <button id="back"> Back</button>
-                <button id="clear"> Clear</button>
                 <a href="/">Home</a>
                 &nbsp;&nbsp;
                 <a href="/devops/gloss">Glossary</a>
@@ -48,49 +81,44 @@
                 {% endif %}
 
 
+                <input  type="text" id="search"  class="header-search-input"/>
+
+                 <button id="bt" class="header-button">Search</button>
+                <button id="back" class="header-button"> Back</button>
+                <button id="clear" class="header-button"> Clear</button>
+
+
 
 
             </div>
 
         </div>
+
+
+
+        <div id="output" class="container-fluid search-output">
+        </div>
+
 
         <div id="content" class="container-fluid">
 
                 {% block content %}
                 {% endblock content %}
 
+
+
+
         </div>
 
-          <div id="output" class="container-fluid" style="display: none;height:90vh;overflow:scroll;">
+
+
+
 
 
 
             </div>
         <script>
-            search = document.getElementById("search")
-
-            bt = document.getElementById("bt")
-            clear = document.getElementById("clear")
-            content = document.getElementById("content")
-            output = document.getElementById("output")
-            output.style.scroll="scroll"
-            output.style.height="85vh"
-
-            back=document.getElementById('back')
-            back.addEventListener("click",function(){
-                output.innerHTML=""
-                output.style.display="none"
-                content.style.display="block"
-
-            })
-
-            clear.addEventListener("click",function(){
-                search.value = ""
-            })
-
-
-            //prepare for the data
-var list = [
+            var list = [
   {
     "info": {
       "url": "http://127.0.0.1:8000/devops/infra",
@@ -41036,6 +41064,30 @@ var list = [
     "title": "longer"
   }
 ]
+            search = document.getElementById("search")
+
+            bt = document.getElementById("bt")
+            clear = document.getElementById("clear")
+            content = document.getElementById("content")
+            output = document.getElementById("output")
+            output.style.scroll="scroll"
+            output.style.height="85vh"
+
+            back=document.getElementById('back')
+            back.addEventListener("click",function(){
+                output.innerHTML=""
+                output.style.display="none"
+                content.style.display="block"
+
+            })
+
+            clear.addEventListener("click",function(){
+                search.value = ""
+            })
+
+
+            //prepare for the data
+
     var options = {
   shouldSort: true,
   findAllMatches: true,

@@ -342,4 +342,15 @@ span.hilight {
     font-weight:bold;
 }
 
+.search-output{
+    display: none;
+    height:85vh;
+    overflow:scroll;
+}
+
+.header-button{
+     color: #622;
+    font-size:1.5rem;
+}
+
 
