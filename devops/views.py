@@ -1,7 +1,8 @@
 from django.http \
     import request, \
     HttpRequest, HttpResponseServerError, HttpResponseBadRequest
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
+from django.views.decorators.http import require_http_methods
 from decimal import Decimal
 import random
 
@@ -165,6 +166,24 @@ def test(request: request) -> object:
 
 def work(request: request) -> object:
     return get_quiz(request, 'work')
+
+def work(request: request) -> object:
+    return get_quiz(request, 'search')
+
+@require_http_methods(["GET", "POST"])
+def parse_search(request) -> object:
+    try:
+        header = "The DevOps Course"
+        path = request.get_full_path()
+        query = path.split("query=")[1]
+        return render(request,
+                          'search.html',dict(path = query,
+                                             header=header
+                                             ))
+    except Exception as e:
+        return HttpResponseServerError(e.__cause__,
+                                       e.__context__,
+                                       e.__traceback__)
 
 
 def grade_quiz(request: HttpRequest()) -> list:
