@@ -14,25 +14,24 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
     {% endblock stylesheets %}
-   <script  src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js"></script>
- <style>
+   <script  src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js">
+   </script>
 
-     .header-search-input{
-         background:none;
-         border:none;
+    <style>
+        .header-search-input{
+          background:none;
+          border:none;
           font-size:1.5rem;
-         margin-right:1vh;
-         width:10vw;
-        color:#622;
-         padding:0;
+          margin-right:1vh;
+          width:10vw;
+          color:#622;
+          padding:0;
           border-top:3px solid #622;
           border-left:3px solid #622;
-         text-align:center;
-     }
+          text-align:center;
+        }
+    </style>
 
-
-
- </style>
 </head>
 
 <body class="dashboard">
@@ -74,8 +73,6 @@
 
         </div>
 
-
-
         <div id="output" class="container-fluid search-output">
         </div>
 
@@ -84,19 +81,7 @@
 
                 {% block content %}
                 {% endblock content %}
-
-
-
-
         </div>
-
-
-
-
-
-
-
-            </div>
 
     </div>
     <script src="/static/devops/js/search.js"></script>
