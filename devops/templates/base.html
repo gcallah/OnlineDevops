@@ -71,7 +71,7 @@
             <div id="user-tools">
 
                 <a href="/" class="header-title">{{ header }}</a>
-  <div id="navbar">
+                <div id="navbar">
                     <a href="/">Home</a>
                 &nbsp;&nbsp;
                 <a href="/devops/gloss">Glossary</a>
@@ -111,48 +111,24 @@
                  <button class="header-button" id='bt' style="position: absolute;top:1.2vh;right:3.5vw;">
                           <i class="material-icons "  style="margin-bottom: 0.3vh;">search</i>
                  </button>
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
         </div>
-
-
-
-
 
         <div id="content" class="container-fluid">
-
                 {% block content %}
                 {% endblock content %}
-
-
-
-
         </div>
 
-
-
-
-
-
-
-            </div>
-
     </div>
-    <script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+ <script>
         var bt = document.getElementById("bt")
         var navbar = document.getElementById("navbar")
         var search = document.getElementById("search")
@@ -179,11 +155,4 @@
 
 
     </script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-</body>
 </html>

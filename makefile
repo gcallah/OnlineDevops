@@ -74,6 +74,6 @@ prod: $(SRCS) html_tests lint
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
 
-staging: html_tests lint 
+staging: html_tests lint
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
 	git push -u staging master

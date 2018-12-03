@@ -5,6 +5,9 @@ from django.shortcuts import render, get_object_or_404,redirect
 from django.views.decorators.http import require_http_methods
 from decimal import Decimal
 import random
+import urllib.request
+from bs4 import BeautifulSoup as bs
+import re
 
 from .models import Question, Grade, Quiz, CourseModule
 
@@ -172,13 +175,64 @@ def work(request: request) -> object:
 
 @require_http_methods(["GET", "POST"])
 def parse_search(request) -> object:
+
+    def crawl_index(url):
+        with urllib.request.urlopen(url) as response:
+            html = response.read()
+            html = bs(html, "html.parser")
+            lst = bs.find_all(html, "a")
+            url_lst = []
+            for i in lst:
+                web_url = i["href"]
+                if "/devops/" in web_url:
+                    url_lst.append(web_url)
+            return url_lst
+
+    def search_page(url_lst, query):
+        result = []
+        for i in url_lst:
+            content_url = url + i
+            with urllib.request.urlopen(content_url) as res:
+
+                html = res.read()
+                html = bs(html, "html.parser")
+                strings = html.body.strings
+                title = html.h1
+                if (title == None):
+                    title = i.split("/")[-1]
+                else:
+                    title = re.sub("[\n]", "", title.string).strip()
+                for i in strings:
+                    i = re.sub("\n", " ", i)
+                    if query in i.lower():
+                        dic = {
+                            "url": content_url,
+                            "page": title,
+                            "content": i
+                        }
+                        result.append(dic)
+        return result
+
+    url = "http://www.thedevopscourse.com"
+
+
     try:
         header = "The DevOps Course"
         path = request.get_full_path()
         query = path.split("query=")[1]
+        if("+") in query:
+            query = " ".join(query.split("+")).lower()
+
+
+        else:
+            query = query.lower()
+
+        data = search_page(crawl_index(url),query)
+
         return render(request,
-                          'search.html',dict(path = query,
-                                             header=header
+                          'search.html',dict(data = data,
+                                             header=header,
+                                             query = query
                                              ))
     except Exception as e:
         return HttpResponseServerError(e.__cause__,
