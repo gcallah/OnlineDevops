@@ -160,6 +160,76 @@
 
                     </ul>
 
+                    <h5>Architecture:</h5>
+                    <ul class="nested">
+
+                        <p>
+                            The Puppet master is installed on a linux server and an agent is installed on member nodes of any OS (linux, unix, mac, windows). When the agent runs on the member node, it composes "facts" based on system information (operating system, IP address, etc). The agent then sends the facts to the Puppet master and requests a catalog. The master uses the facts received to determine what should be in the catalog (desired state of the member node) and then sends the catalog back to the agent. When the agent receives the catalog, it checks whether each resource in the catalog matches the system's current state. If it doesn't, Puppet will perform the necessary changes. At completetion of agent run, a report is generated and sent back to the master. The report is then stored within PuppetDB which is accessible on through the Puppet console through a browser.
+                        </p>
+
+                        <p>
+                            All of the code, modules, and plugins are located on the Puppet master. Besides, the Puppet agent, nothing resides on the member node. To ensure secure communication, agents request certificates from the master when the agent is installed so that all communication is done over HTTPS with SSL certificates. The master pulls code from whichever source control versioning system you use and keeps a cached copy of it on the local filesystem. The cached copy will be updated whenever an environment is deployed (development, test, production ,etc).
+                        </p>
+
+                        <p>
+                            The Puppet code stack is designed to be modular for ease of use and flexibile deployments. Puppet programs are called manifests and are the core component of any Puppet module. A Puppet module can include many other components in addition to Puppet programs (*.pp). Static files, templates, tests, custom facts, and custom functions are usually included in modules found on the Puppet forge. The Puppet forge is a community module repository supervised by PuppetLabs. Many of the popular/most used modules were written and are fully supported by PuppetLabs themselves. If a module exists on the forge that meets your infrastructure needs, it's recommended to use it instead of reinventing the wheel. In practice, much of modules found on an organization's Puppet master will be from the forge. The recommended practice when deciding how to link modules together is to use the "Roles and Profiles" paradigm.
+                        </p>
+
+                        <li>
+                            A role in Puppet is a wrapper class that uses multiple profiles to build the node. Only one role can be assigned to a node.
+                        </li>
+
+                        <li>
+                            A profile in Puppet is a wrapper class that uses multiple modules to configure a layered technology stack.
+                        </li>
+
+                        <li>
+                            A module in Puppet manages one particular technology. Note that when writing modules yourself, there is no enforcement of this best practice. So even though you shouldn't, you can write modules that manage multiple technologies.
+                        </li>
+
+                        <p>
+                            As Puppet roles contain profiles and profiles contain modules, conceptually the stack can be visualized with legos. If we were to build a unique lego city set (role), it could include several city building subsets (profiles) like a fire station, police station, and library. Those city buildings will include parts (modules) that are composed of many bricks (resources) like a fire truck, or a police car. The profiles (buildings) and modules (vehicles) can be used/found outside the role (city), but there should be no other role that is exactly the same.
+                        </p>
+
+                    </ul>
+
+                    <h5>Key terms:</h5>
+                    <ul class="nested">
+                    </ul>
+
+                    <h5>Starting out:</h5>
+                    <ul class="nested">
+                    </ul>
+
+                    <h5>Writing infrastructure code:</h5>
+                    <ul class="nested">
+                    </ul>
+
+                    <h5>Add-ons:</h5>
+                    <ul class="nested">
+
+                        <li>
+                            Puppet Enterprise
+                        </li>
+
+                        <li>
+                            Continuous Delivery for Puppet Enterprise
+                        </li>
+                        
+                        <li>
+                            Puppet Discovery
+                        </li>
+                        
+                        <li>
+                            Puppet Pipelines
+                        </li>
+                        
+                        <li>
+                            Puppet Insights
+                        </li>
+
+                    </ul>
+
                     <p>
                     <a href="https://gcallah.github.io/DevOps/deployment/puppet.html"> More on puppet </a>
                     </p>
