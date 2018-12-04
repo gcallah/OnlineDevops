@@ -143,6 +143,23 @@
                         </li>
                     </ul>
 
+                    <h5>Overview:</h5>
+                    <ul class="nested">
+
+                        <p>
+                            Puppet is a popular configuration management tool that automates infrastructure management. It is available FOSS and the paid version Puppet Enterprise is free for up to 10 nodes.
+                        </p>
+
+                        <p>
+                            Puppet is configured in a client server architecture where the client has an agent installed which communicates with the puppetserver service running on the master server.
+                        </p>
+
+                        <p>
+                            Puppet provides a way to describe a machine's state within code and keeps a machine compliant with the defined state automatically. It is somewhat similar in to running a bunch of scripts. An important difference with Puppet versus scripts is that by default the Puppet agent checks the system's state for compliance every 30 minutes. Whereas unless it's scheduled, a script will need to be run again manually by the user. In addition to that, a script may not contain logic to prevent executing commands against things that are already compliant. In most cases, reconfiguring/reinstalling would disrupt operations. In contrast, Puppet is idempotent by default. When Puppet programs are run every 30 minutes, Puppet queries the system state and only executes commands on resources that do not match the state defined in code.
+                        </p>
+
+                    </ul>
+
                     <p>
                     <a href="https://gcallah.github.io/DevOps/deployment/puppet.html"> More on puppet </a>
                     </p>
