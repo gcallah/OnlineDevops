@@ -2,7 +2,7 @@
 {% block content %}
 <div class="module">
         <h1>
-            Software as Infrastructure
+            Infrastructure as Code
         </h1>
 
         <figure>
@@ -12,19 +12,247 @@
             </figcaption>
         </figure>
 
-        <p class="leadquote">
-        </p>
+        <figure>
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/OFGwZq0C-o4"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <figcaption>
+                Infrastructure as code and Docker
+            </figcaption>
+        </figure>
 
         <details>
             <summary class="sum1">
-                Lesson 1
+                Lesson 1: What Is Infrastructure as Code?
             </summary>
+
+            <figure>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/RO7VcUAsf-I"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+                <figcaption>
+                    Infrastructure as code: What is it? Why is it important?
+                    <br />
+                    (This is a fantastic <b>3 minute</b> explanation of the
+                    value of Infrastructure as Code.)
+                </figcaption>
+            </figure>
+
+            <p>
+                Infrastructure as code (IaC) as the idea that, rather than
+                manually provisioning servers, or setting up hardware through a
+                point-and-click GUI, the "server room" should itself be managed
+                by code. That code can then be put under version control,
+                tested, deployed with automated build tools, and so on.  The
+                code also serves as necessarily up-to-date documentation of
+                what the infrastructure is.
+            </p>
+
+            <p>
+                The advantages of IaC can be divided into three main
+                categories:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    <span class="hilight">Cost savings</span>:
+                    By automating hardware provisioning, the time of the people
+                    who would have been doing that by hand is freed up for
+                    other tasks.
+                </li>
+
+                <li>
+                    <span class="hilight">Speed of deployment</span>:
+                    It is much faster to configure infrastructure
+                    by running a script than by manually setting a bunch
+                    of parameters in a GUI interface.
+                </li>
+
+                <li>
+                    <span class="hilight">Lower error rates</span>:
+                    It is error-prone, because it is boring, too configure
+                    systems "by hand." A script can be debugged once, and
+                    then will run reliably again and again.
+                    Furthermore, as code, the infrastructure can be read and 
+                    reasoned about. It is very hard to do that with a bunch of
+                    check-boxes!
+                </li>
+            </ul>
+
+            <p>
+                (Source:
+                <a href="https://en.wikipedia.org/wiki/Infrastructure_as_Code">
+                    Wikipedia on Infrastructure as Code
+                </a>
+                )
+            </p>
+
+            <p>
+                <span class="hilight">A DevOps principle</span>:
+                Asking people to <i>behave like automatons</i> 
+                bores and dehumanizes
+                them. Asking them to devise clever ways
+                <i>to automate things</i>
+                interests them, and treats them as the rational 
+                beings that they are!
+                <br />
+                Aristotle: humans are
+                <a href="https://en.wikipedia.org/wiki/Rational_animal">
+                    rational animals</a>.
+            </p>
+
         </details>
 
         <details>
             <summary class="sum1">
-                Lesson 2
+                Lesson 2: Available Tools
             </summary>
+
+            <details>
+                <summary class="sum2">
+                    Puppet
+                </summary>
+                    <h5>Pros:</h5>
+                    <ul class="nested">
+                        <li>
+                            Easy installation
+                        </li>
+                        <li>
+                            Supports all majors operating systems
+                        </li>
+                        <li>
+                            GUI is user friendly
+                        </li>
+                        <li>
+                            Stable and mature solution
+                        </li>
+                    </ul>
+
+                    <h5>Cons:</h5>
+                    <ul class="nested">
+                        <li>
+                            New users must learn Puppet DSL (domain-specific
+                            language)
+                        </li>
+                        <li>
+                            Remote execution is challenging
+                        </li>
+                    </ul>
+
+                    <p>
+                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html"> More on puppet </a>
+                    </p>
+
+            </details>
+
+            <details>
+                <summary class="sum2">
+                  Chef
+                </summary>
+                <h5>Pros:</h5>
+                <ul class="nested">
+                    <li>
+                        Meant to be used by programmers
+                    </li>
+                    <li>
+                        Useful for large-scale development
+                    </li>
+                    <li>
+                        Stable and mature solution
+                    </li>
+                    <li>
+                        Good version control capabilities
+                    </li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul class="nested">
+                    <li>
+                        Complicated tool to use
+                    </li>
+                    <li>
+                        Familiarity with Ruby is required
+                    </li>
+                    <li>
+                        Documentation can be overwhelming
+                    </li>
+                </ul>
+                <p>
+                <a href="https://gcallah.github.io/DevOps/deployment/chef.html"> More on Chef </a>
+                </p>
+            </details>
+            <details>
+                <summary class="sum2">
+                  Ansible
+                </summary>
+                <h5>Pros:</h5>
+                <ul class="nested">
+                    <li>
+                        Easy and fast deployment
+                    </li>
+                    <li>
+                        Secure SSH connection
+                    </li>
+                    <li>
+                        Meant for environments that can scale rapidly
+                    </li>
+                    <li>
+                        Push and pull models are supported
+                    </li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul class="nested">
+                    <li>
+                        Basic support for Windows
+                    </li>
+                    <li>
+                        GUI is not very interactive
+                    </li>
+                    <li>
+                        Difficult to locate syntax errors with YAML
+                    </li>
+                </ul>
+                <p>
+                <a href="https://gcallah.github.io/DevOps/deployment/ansible.html"> More on Ansible </a>
+                </p>
+            </details>
+            <details>
+                <summary class="sum2">
+                  SaltStack
+               </summary>
+                <h5>Pros:</h5>
+                <ul class="nested">
+                    <li>
+                        Implemented in Python and controlled with YAML files
+                    which are simple to understand
+                    </li>
+                    <li>
+                        Fast communication between master and client
+                    </li>
+                    <li>
+                        Provides high scalability and resiliency
+                    </li>
+                    <li>
+                        Vibrant support community
+                    </li>
+                </ul>
+                <h5>Cons:</h5>
+                <ul class="nested">
+                    <li>
+                        Difficult to set up
+                    </li>
+                    <li>
+                        Salt GUI is under development
+                    </li>
+                    <li>
+                        Does not support a variety of Operating Systems
+                    </li>
+                </ul>
+            </details>
+
         </details>
 
         <details>
@@ -35,56 +263,210 @@
                 <p class="author">
                     by
                     <br />
-                    Prashantkumar Patel
+                    Prashantkumar Patel and Prof. Callahan
+                </p>
+
+
+                <p>
+                    <span class="hilight">First thing</span>:
+                    Make sure you have Docker installed! You
+                    won't get any further in following along on your laptop 
+                    if you do not.
                 </p>
 
                 <p>
-                    In this webpage we are going to try and host a
-                     simple static website in nginx using docker.
-                    I have already talked about what version of
-                    docker you should use. If you are using Windows
-                    then docker-toolbox otherwise just using
-                    docker native should be okay for the Mac and
-                    Linux users.
-                    This tutorial is written and performed in a MacBook
-                    computer. Windows users
-                    should not have any problem performing the same steps
-                    in Windows, but if you
-                    find yourself stuck somewhere please send me a slack
-                     message, I will try to help you out.
+                    <span class="hilight">Secondly</span>:
+                    Please clone (if you have not already) our online DevOps
+                    repo:
+                    <br />
+                    <code>
+                        git clone https://github.com/gcallah/OnlineDevops.git
+                    </code>
                 </p>
 
                 <p>
-                    First step is to download and install docker,
-                    which I am sure everyone in the class did.
-                    If not please visit <a href="http://www.docker.com">
-                     http://www.docker.com
-                     </a>.
-                    You should follow the installation instructions
-                     given in the website.
+                    Once you have cloned that repo, please open two shells: in
+                    one, we will look at your local environment, and in the
+                    other we will explore the container.
+                </p>
+
+                <p>
+                    In one of the two shells, in your OnlineDevops directory,
+                    please run:
+                    <br />
+                    <code>
+                        ./container.sh
+                    </code>
+                    <br />
+                    That should put you inside the OnlineDevops container: if
+                    that command worked, you should see your prompt change.
+                    <br />
+                    If it did, let's explore the shells you are in a little to
+                    try to understand better what a container is.
+                    <br />
+                    I am going to proceed by showing you the results of running
+                    the same command inside and outside the container on my
+                    machine: your results will be different, but similar, to
+                    mine.
+                </p>
+
+                <p>
+                    First of all, let's look at the root file system, inside
+                    and outside the container:
+                </p>
+
+                <p>
+                    Outside the container:
+                    <br />
+                    <code>ls / </code>
+                    <br />
+                    <pre>
+    Macintosh:OnlineDevops gcallah$ ls /
+    Applications            bin                net
+    Library                cores                opt
+    Network                debug.txt            private
+    Shockwave Log            debug.txt.1            sbin
+    System                dev                tmp
+    User Guides And Information    etc                usr
+    User Information        home                var
+    Users                installer.failurerequests
+    Volumes                logFile.xsl
+                    </pre>
+                    
+                </p>
+
+                <p>
+                    Inside the container:
+                    <br />
+                    <code>ls / </code>
+                    <br />
+                    <pre>
+    root@a5dd222a9812:/home/DevOps# ls /
+    bin   dev  home  lib64    mnt  proc           root  sbin  sys    usr
+    boot  etc  lib     media    opt  requirements.txt  run   srv   tmp    var
+                    </pre>
+                </p>
+
+                <p>
+                    What's of note here: From outside and from inside the
+                    container, we see completely different file systems!
+                    Inside the container, we are in a 
+                    <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a>
+                    file system.
+                </p>
+
+                <p>
+                    What about our view of what processes are running?
+                    <br />
+                    Outside the container we see:
+                    <br />
+                    <code>ps -ef | wc -l</code>
+                    <br />
+                    <pre>
+     Macintosh:OnlineDevops gcallah$ ps -ef | wc -l
+     667
+                    </pre>
+                </p>
+
+                <p>
+                   From outside the container, the OS lists 667 processes
+                   as running on my Mac. 
+                </p>
+
+
+                <p>
+                    Inside the container we see:
+                    <br />
+                    <code>ps -ef</code>
+                    <br />
+                    <pre>
+    root@a5dd222a9812:/home/DevOps# ps -ef
+    UID        PID  PPID  C STIME TTY          TIME CMD
+    root         1     0  0 Oct25 pts/0    00:00:00 bash
+    root       192     1  0 21:18 pts/0    00:00:00 ps -ef
+                    </pre>
+                </p>
+
+                <p>
+                   From inside the container, there are two processes running! 
+                   The container has process isolation from the host. It has
+                   its own
+                   <a href="https://en.wikipedia.org/wiki/Linux_namespaces">process 
+                    namespace</a> separate from its host's namespace and from
+                   the namespace of any other containers running on that host.
+                   The separate namespace also provides the container with its
+                   own hostname, its own user IDs, and its own inter-process
+                   communication names.
                 </p>
 
                 <h4>
-                    Download the nginx image
+                    Some Docker commands
                 </h4>
 
                 <p>
-                    Let's run the following command in terminal/quickstart-terminal.
+                    Now let's look at what some Docker commands are available,
+                    and what they do.
                 </p>
 
                 <p>
-                   <code> docker images </code>
+                    <code>docker ps</code>
                 </p>
+
+                <p>
+                    This will list your currently running Docker images. When 
+                    Prof. Callahan runs it while preparing this lecture, he
+                    sees:
+                    <br />
+                    <pre>
+    Macintosh:OnlineDevops gcallah$ docker ps
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+    429ff1a37d21        devops              "bash"              11 seconds ago
+    Up 6 seconds        0.0.0.0:32768-&gt;8000/tcp   stupefied_swanson
+                    </pre>
+                </p>
+                <p>
+                    (The 0.0.0.0 is the IP address to use for the container,
+                    and 32768 is the port it is using.)
+                </p>
+
+                <p>
+                    <code>docker ps -a</code> 
+                    <br />
+                    This will list <i>all</i> images that have been run
+                    on the system, not just those that are active:
+                    <br />
+                        
+                        <pre>
+    Macintosh:OnlineDevops gcallah$ docker ps -a
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS                    NAMES
+    c560c3729d7e        devops              "bash"              18 minutes ago
+    Up 18 minutes                    0.0.0.0:8000-&gt;8000/tcp   brave_kirch
+    429ff1a37d21        devops              "bash"              About an hour ago   Exited (130) 44 minutes ago                               stupefied_swanson
+    32b272487675        devops              "bash"              5 days ago          Created                                                   wonderful_heyrovsky
+    a5dd222a9812        devops              "bash"              10 days ago         Exited (130) About an hour ago                            naughty_beaver
+    e82e4fb65823        devops              "bash"              11 days ago         Exited (130) 11 days ago                                  youthful_noyce
+    0433f774c394        devops              "bash"              11 days ago         Created                                                   stupefied_hawking
+    1ba39e023554        devops              "bash"              11 days ago         Created                                                   practical_ptolemy
+    4a6bc8cf7ab0        devops              "bash"              11 days ago         Created                                                   vigilant_curie
+    47cb14ca5b1b        devops              "bash"              2 weeks ago
+    Exited (255) 11 days ago         0.0.0.0:8000-&gt;8000/tcp   determined_goldwasser
+    7af5f14f88d9        f418f33054e8        "bash"              2 weeks ago         Exited (130) 2 weeks ago                                  modest_hypatia
+    e3292cdc1449        indra               "bash"              2 weeks ago         Exited (130) 2 weeks ago                                  competent_hugle
+    3ad630752ebf        indra               "bash"              2 weeks ago         Exited (130) 2 weeks ago                                  amazing_meitner
+    fe439d8e15c2        indra               "bash"              2 weeks ago         Exited (130) 2 weeks a
+                        </pre>
+                </p>
+
+                <p>
+                   <code>docker images</code>
+                </p>
+
                 <p>
                     This command should give you the list of images
-                    that are available in the system. For example
-                    in my system it looks something like
-                    this. Yours might have a different than what I have.
-                </p>
-                
-
-                <p>
-                <code>
+                    that are available on the system. For example
+                    in Prashant's system it looks something like
+                    this:
+                <br />
                     <pre>
     ENG-EJC369-02:$ docker images
     REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
@@ -98,14 +480,13 @@
     bash                  latest              59507b30b48a        6 months ago        12.2MB
     alpine                latest              3fd9065eaf02        7 months ago        4.15MB
                     </pre>
-                </code>
                 </p>
 
-
                 <p>
-                    As you can see that I don't have the nginx image
-                    install. I will run the following command which will
-                    install the nginx image for me.
+                    In the above listing, the <code>nginx</code> image
+                    is not installed. Running the following command will
+                    pull the nginx image from DockerHub, which is like GitHub,
+                    but for docker images.
                 </p>
 
                 <p>
@@ -116,12 +497,8 @@
                 <p>
                     Now that you have installed the nginx image,
                     just run the docker images command again,
-                    in the list you should see ngnix image just like
-                    down below:
-                </p>
-
-                <p>
-                <code>
+                    in the list you should see ngnix image as below:
+                <br />
                     <pre>
     ENG-EJC369-02:$ docker images
     REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
@@ -136,7 +513,11 @@
     bash                  latest              59507b30b48a        6 months ago        12.2MB
     alpine                latest              3fd9065eaf02        7 months ago        4.15MB
                     </pre>
-                </code>
+                </p>
+
+                <p>
+                    (You can put an image <i>into</i> DockerHub using
+                    <code>docker push</code>.)
                 </p>
 
                 <h4>
@@ -148,20 +529,19 @@
                     let's download the static website that you
                     are going to host inside the docker container.
                     We are going to use the algorithms website for
-                    professor's other subject. You can find the
-                    code for the website to
+                    another course.
+                    You can find the code for the website 
                     <a href="http://gitub.com/gcallah/algorithms.git">
-                    algorithms
+                    here.
                     </a>
                 </p>
 
                 <p>
                     Please remember the location where you have
-                    cloned the repository. I have cloned it in
-                    <code> /Users/prashant/school/algorithms</code>
-                    you's will be different than this, please note
-                    the location. Below is the screenshot of algorithms
-                    directory.
+                    cloned the repository. Prashant has cloned it in
+                    <code> /Users/prashant/school/algorithms</code>.
+                    Your location will be different than this, please note
+                    the location.
                 </p>
 
                 <h4>
@@ -182,7 +562,8 @@
                 <p>
                     <code>
                         docker run --name algo_website -p 127.0.0.1:8080:80
-                        -v /Users/prashant/school/algorithms/:/usr/share/nginx/html
+                        -v
+                        /Users/prashant/school/algos/:/usr/share/nginx/html
                         -d nginx
                     </code>
                 </p>
@@ -191,16 +572,152 @@
                     Please don't forget to change the location of
                      algorithms directory in above command.
                      After you run the command open the browser
-                     and type http://localhost:8080 and you
-                     should be able to see the webpage.
+                     and type <code>http://localhost:8080</code>
+                     and you should be able to see the webpage.
                      Windows user should use the address
-                     http://192.168.99.100:8080 instead of localhost.
+                     <code>http://0.0.0.0:8080</code>
+                     instead of localhost.
                 </p>
 
-
-                <p class="copyright">
-                    &copy; 2018 Prashantkumar Patel
+                <p>
+                    After we leave the container, we can get rid of it using
+                    <code>docker rm algo_website</code>.
+                    If we need to remove a container that is still running,
+                    we will have to stop it first with
+                    <code>docker stop</code>.
                 </p>
+
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Our Docker Implementation
+            </summary>
+
+            <p>
+                We use Docker in our projects for two main reasons, with a
+                third to come:
+            </p>
+
+            <ol class="nested">
+                <li>
+                    To set up a local version of a web server that will be
+                    configured "just like" our production server. ("Just like"
+                    is in quotes because that is always the ideal, but it may
+                    not be fully achieved.)
+                </li>
+                <li>
+                    To provide our full suite of development tools, such as the
+                    correct Python version, make, flake8, various Python
+                    libraries, etc., in one simple to build package, so all
+                    developer's have a consistent environment.
+                </li>
+                <li>
+                    Ultimately, we should be deploying the container where we
+                    locally test our web servers right into production,
+                    guaranteeing that development and production are identical
+                    environments. Unfortunately, at the moment, the places we
+                    are hosting do not support that. We are exploring other
+                    options.
+                </li>
+
+            </ol>
+
+            <p>
+            So we need to know how to create the right container for 
+            each project. 
+            Each project we work on should have a 
+            <code>Dockerfile</code> consisting of instructions
+            on how to build the image for that project, a
+            <code>requirements.txt</code> listing what
+            external modules need to be included in the image,
+            and a line in the project's <code>makefile</code>
+            automating the build of the image.
+            This is <i>infrastructure as code</i>, since the infrastructure for 
+            the project is built from these files of code.
+            </p>
+
+            <p>
+                So, in the <code>makefile</code> we want something 
+                like:
+            </p>
+
+            <p>
+            <code>
+        container: $(DOCKER_DIR)/Dockerfile  $(DOCKER_DIR)/requirements.txt
+        <br />
+            &nbsp; &nbsp; &nbsp; &nbsp; docker build -t indra docker
+            </code>
+            </p>
+
+            <ul class="nested">
+                <li>
+                    <a href="https://github.com/gcallah/indras_net/blob/master/docker/Dockerfile">
+                        Here is a sample Dockerfile.
+                    </a>
+                    <br />
+                    The <code>FROM python:3.6.0</code> 
+                    command says what base image to build
+                    our image from.
+                    <br />
+                    The <code>COPY requirements.txt /requirements.txt</code>
+                    line brings the requirements file inside the container.
+                    <br />
+                    The line
+                    <code>RUN pip install -r requirements.txt</code> 
+                    installs everything from the requirements file in the
+                    container.
+                    <br />
+                    The line
+                    <code>ENV user_type TERMINAL</code> 
+                    sets an environment variable (<code>user_type</code>)
+                    that will be available inside the container.
+                    <br />
+                    <code>WORKDIR /home/IndrasNet/</code>
+                    sets the starting directory inside the container.
+                </li>
+
+                <li>
+                    <a href="https://github.com/gcallah/indras_net/blob/master/docker/requirements.txt">
+                        Here is the requirements file it uses.
+                    </a>
+                </li>
+            </ul>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Our More Advanced Docker Usage
+            </summary>
+
+            <p>
+                In the Online DevOps course project, we use a more advanced
+                Docker setup: we employ
+                <a href="https://docs.docker.com/compose/">Docker Compose</a>
+                to define and run an application composed of more than
+                one Docker container.
+            </p>
+
+            <p>
+                Docker Compose use a 
+                <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>
+                file to specify the configuration of a multi-container
+                Docker app.
+            </p>
+
+            <p>
+                In the Online DevOps course setup, we are running just two
+                containers: one to run the MySQL database, and the other
+                to run our Django web server. But other Docker Compose
+                setups might include a web server, a load balancer,
+                a database, an authentication server, and more!
+                <br />
+                <a
+                   href="https://github.com/gcallah/OnlineDevops/blob/master/docker-compose.yml">Here</a>
+                is the YAML file that specifies our two-container
+                application.
+            </p>
+
         </details>
 
         <details>
