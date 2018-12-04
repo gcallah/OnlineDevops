@@ -30,18 +30,29 @@
           border-left:3px solid #622;
           text-align:center;
         }
-    </style>
-
+        .header-button{
+             color: #622;
+            font-size:1.5rem;
+            background:none;
+            border:none;
+            padding:0;
+            transition:all 0.4s;
+        }
+        
+        .header-button:hover{
+            transform: scale(1.15);
+        }
+ </style>
 </head>
 
 <body class="dashboard">
     <div id="container-fluid">
-        <div id="header">
+        <div id="header" >
             <div id="user-tools">
+
                 <a href="/" class="header-title">{{ header }}</a>
-
-
-                <a href="/">Home</a>
+  <div id="navbar">
+                    <a href="/">Home</a>
                 &nbsp;&nbsp;
                 <a href="/devops/gloss">Glossary</a>
                 &nbsp;&nbsp;
@@ -59,21 +70,28 @@
                     <a href="{% url 'participant_login' %}">Log in</a>
                 {% endif %}
 
-
-                <input  type="text" id="search"  class="header-search-input"/>
-
-                 <button id="bt" class="header-button">Search</button>
-                <button id="back" class="header-button"> Back</button>
-                <button id="clear" class="header-button"> Clear</button>
+             &nbsp;&nbsp;
+                </div>
 
 
 
 
+
+
+              <form class="form-inline my-2 my-lg-0" action="{% url 'devops:parse_search' %}" id="search" style="position: absolute;top:0.75vh;right:6vw;display: none;" >
+
+
+                    <input class="mr-sm-2 header-search-input" name="query" type="search" aria-label="Search">
+                   <button class="header-button">
+                          search
+                      </button>
+                 </form>
+
+
+                 <button class="header-button" id='bt' style="position: absolute;top:1.2vh;right:3.5vw;">
+                          <i class="material-icons "  style="margin-bottom: 0.3vh;">search</i>
+                 </button>
             </div>
-
-        </div>
-
-        <div id="output" class="container-fluid search-output">
         </div>
 
 
@@ -84,12 +102,33 @@
         </div>
 
     </div>
-    <script src="/static/devops/js/search.js"></script>
+    <script>
+        var bt = document.getElementById("bt")
+        var navbar = document.getElementById("navbar")
+        var search = document.getElementById("search")
+       bt.onclick=function ()
+            {
+
+                if(navbar.style.display==="none"){
+                    navbar.style.display='block'
+                }else{
+                     navbar.style.display='none'
+                }
+
+                if(  search.style.display==="block"){
+                    search.style.display='none'
+                }
+                else{
+                     search.style.display='block'
+                }
+            }
+
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-     <script src="/static/devops/js/zoom.js"></script>
+
 </body>
 </html>

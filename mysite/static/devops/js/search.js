@@ -1,3 +1,5 @@
+
+
 var list = [
   {
     "info": {
@@ -59112,26 +59114,13 @@ var list = [
     "title": "longer"
   }
 ]
-           search = document.getElementById("search")
 
-            bt = document.getElementById("bt")
-            clear = document.getElementById("clear")
-            content = document.getElementById("content")
-            output = document.getElementById("output")
-            output.style.scroll="scroll"
-            output.style.height="85vh"
 
-            back=document.getElementById('back')
-            back.addEventListener("click",function(){
-                output.innerHTML=""
-                output.style.display="none"
-                content.style.display="block"
 
-            })
 
-            clear.addEventListener("click",function(){
-                search.value = ""
-            })
+           var output=document.getElementById("gan")
+
+
 
 
             //prepare for the data
@@ -59150,22 +59139,22 @@ var list = [
 };
 
 //load the data
+
 var fuse = new Fuse(list, options); // "list" is the item array
 
 
 
 
 
-            bt.addEventListener("click",function(){
-                output.innerHTML=" "
-                var result = fuse.search(search.value);
-
-                content.style.display="none"
-                output.style.display="block"
 
 
-                for(var i=0;i<result.length;i++){
-                       var component = `<div class="card" style="width:50%;left:25%;margin-top:3.5vh;">
+                var result = fuse.search("{{ path }}");
+
+
+
+
+                for(var i=0;i<result.length;i++) {
+                    var component = `<div class="card" style="width:50%;left:25%;margin-top:3.5vh;">
 
                       <div class="card-body">
                           <h5><a style="font-size:1.5rem;color:blue;font-weight:darkblue;"href="${result[i].info.url}" target="_blank">${result[i].info.page}</a></h5>
@@ -59175,11 +59164,14 @@ var fuse = new Fuse(list, options); // "list" is the item array
                     </div>`
 
 
-       var jb = component
-      output.innerHTML += jb
-   }
+
+                    output.innerHTML += component
+
+                }
 
 
-            })
-        
-   
+
+
+
+
+  

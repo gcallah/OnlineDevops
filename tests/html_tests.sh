@@ -10,6 +10,8 @@ export DATA_DIR="$CODE_DIR/data"
 
 for test_file in $TEST_DIR/*.html;
 do
+    echo 'URL-checking file:' $test_file
+    python3 $CODE_DIR/url_checker.py "$test_file"
     echo 'Html-checking file:' $test_file
     python3 $CODE_DIR/html_checker.py "$test_file"
     echo 'Spell-checking file:' $test_file
