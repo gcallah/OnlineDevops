@@ -155,7 +155,7 @@
                         </p>
 
                         <p>
-                            Puppet provides a way to describe a machine's state within code and keeps a machine compliant with the defined state automatically. It is somewhat similar in to running a bunch of scripts. An important difference with Puppet versus scripts is that by default the Puppet agent checks the system's state for compliance every 30 minutes. Whereas unless it's scheduled, a script will need to be run again manually by the user. In addition to that, a script may not contain logic to prevent executing commands against things that are already compliant. In most cases, reconfiguring/reinstalling would disrupt operations. In contrast, Puppet is idempotent by default. When Puppet programs are run every 30 minutes, Puppet queries the system state and only executes commands on resources that do not match the state defined in code.
+                            Puppet provides a way to describe a machine's state within code and keeps a machine compliant with the defined state automatically. It is somewhat similar to running a bunch of scripts. An important difference with Puppet versus scripts is that by default the Puppet agent checks the system's state for compliance every 30 minutes. Whereas unless it's scheduled, a script will need to be run again manually by the user. In addition to that, a script may not contain logic to prevent executing commands against things that are already compliant. In most cases, reconfiguring/reinstalling would disrupt operations. In contrast, Puppet is idempotent by default. When the Puppet agent runs, Puppet queries the system state and only executes commands on resources that do not match the state defined in code.
                         </p>
 
                     </ul>
@@ -164,15 +164,15 @@
                     <ul class="nested">
 
                         <p>
-                            The Puppet master is installed on a linux server and an agent is installed on member nodes of any OS (linux, unix, mac, windows). When the agent runs on the member node, it composes "facts" based on system information (operating system, IP address, etc). The agent then sends the facts to the Puppet master and requests a catalog. The master uses the facts received to determine what should be in the catalog (desired state of the member node) and then sends the catalog back to the agent. When the agent receives the catalog, it checks whether each resource in the catalog matches the system's current state. If it doesn't, Puppet will perform the necessary changes. At completetion of agent run, a report is generated and sent back to the master. The report is then stored within PuppetDB which is accessible on through the Puppet console through a browser.
+                            The Puppet master is installed on a linux server and an agent is installed on member nodes of most OS (linux, unix, mac, windows). When the agent runs on the member node, it composes "facts" based on system information (operating system, IP address, etc). The agent then sends the facts to the Puppet master and requests a catalog. The master uses the facts received to determine what should be in the catalog (desired state of the member node) and then sends the catalog back to the agent. When the agent receives the catalog, it checks whether each resource in the catalog matches the system's current state. If it doesn't, Puppet will perform the necessary changes. On agent run completetion, a report is generated and sent back to the master. The report is then stored within PuppetDB which is accessible on through the Puppet console through a browser.
                         </p>
 
                         <p>
-                            All of the code, modules, and plugins are located on the Puppet master. Besides, the Puppet agent, nothing resides on the member node. To ensure secure communication, agents request certificates from the master when the agent is installed so that all communication is done over HTTPS with SSL certificates. The master pulls code from whichever source control versioning system you use and keeps a cached copy of it on the local filesystem. The cached copy will be updated whenever an environment is deployed (development, test, production ,etc).
+                            All of the code, modules, and plugins are located on the Puppet master. Besides the Puppet agent, nothing resides on the member node. To ensure secure communication, agents request certificates from the master when the agent is installed so that all communication is done over HTTPS with SSL certificates. The master pulls code from whichever source control versioning system you use and keeps a cached copy of it on the local filesystem. The cached copy will be updated whenever an environment is deployed (development, test, production ,etc).
                         </p>
 
                         <p>
-                            The Puppet code stack is designed to be modular for ease of use and flexibile deployments. Puppet programs are called manifests and are the core component of any Puppet module. A Puppet module can include many other components in addition to Puppet programs (*.pp). Static files, templates, tests, custom facts, and custom functions are usually included in modules found on the Puppet forge. The Puppet forge is a community module repository supervised by PuppetLabs. Many of the popular/most used modules were written and are fully supported by PuppetLabs themselves. If a module exists on the forge that meets your infrastructure needs, it's recommended to use it instead of reinventing the wheel. In practice, much of modules found on an organization's Puppet master will be from the forge. The recommended practice when deciding how to link modules together is to use the "Roles and Profiles" paradigm.
+                            The Puppet code stack is designed to be modular for ease of use and flexibile deployments. Puppet programs are called manifests and are the core component of any Puppet module. A Puppet module can include many other components in addition to Puppet programs (*.pp). Static files, templates, tests, custom facts, and custom functions are usually included in modules found on the Puppet forge. The Puppet forge is a community module repository supervised by PuppetLabs. Many of the popular/most used modules were written and are fully supported by PuppetLabs themselves. If a module exists on the forge that meets your infrastructure needs, it's recommended to use it instead of reinventing the wheel. In practice, much of the modules found on an organization's Puppet master will be from the forge. The recommended practice when deciding how to use/stack various modules together is to use the "Roles and Profiles" paradigm.
                         </p>
 
                         <li>
@@ -188,17 +188,80 @@
                         </li>
 
                         <p>
-                            As Puppet roles contain profiles and profiles contain modules, conceptually the stack can be visualized with legos. If we were to build a unique lego city set (role), it could include several city building subsets (profiles) like a fire station, police station, and library. Those city buildings will include parts (modules) that are composed of many bricks (resources) like a fire truck, or a police car. The profiles (buildings) and modules (vehicles) can be used/found outside the role (city), but there should be no other role that is exactly the same.
+                            As Puppet roles contain profiles and profiles contain modules, conceptually the stack can be visualized with legos. If we were to build a unique lego city set (role), it could include several sets of city buildings (profiles) like a fire station, police station, and library. Those city buildings will include components (modules) that are composed of many bricks (resources) like a fire truck, or a police car. The profiles (buildings) and modules (vehicles) can be used/found outside this particular role (city), but there should be no other role that is exactly the same.
                         </p>
 
                     </ul>
 
                     <h5>Key terms:</h5>
                     <ul class="nested">
+
+
+                        <li>
+                            Agent - An executable installed on member nodes. The agent is responsible for communicating with the master to retrieve the catalog and perform any necessary changes on the system.
+                        </li>
+
+                        <li>
+                            Catalog - Compiled by the Master of Masters (MoM) and applied by the agent. The catalog describes resources and the state they should be in.
+                        </li>
+
+                        <li>
+                            Classes - A set of resources wrapped together to apply configurations.
+                        </li>
+
+                        <li>
+                            Facts - Pre-set variables about the system resolved at run time that are globally available within the manifests.
+                        </li>
+
+                        <li>
+                            Facter - Puppet's cross-platform system profiling library. It discovers and generates the systems "facts" which are exposed to manifests as variables.
+                        </li>
+
+                        <li>
+                            Forge - Puppet Community module repository
+                        </li>
+
+                        <li>
+                            Hiera - Puppet's builtin key/value lookup system which abstracts data from Puppet code.
+                        </li>
+
+                        <li>
+                            Manifests - Files that contain Puppet code ending with a *.pp extension (puppet program). It is convention to have the manifests named init.pp, install.pp, config.pp, service.pp. Where init is the main entrypoint of the module and will include the other classes. Install, config, and service by convention contains resources that would install packages, configure system settings, and manage services respectively.
+                        </li>
+
+                        <li>
+                            Master - A server where at least the puppetserver service is running. On a monolithic installation, all Puppet services reside on the same master (puppetserver, puppetDB, console, etc.). On a "split installation" the ancillary services are installed on other servers.
+                        </li>
+
+                        <li>
+                            Modules - A packaged collection of files and directories to manage a particular techonology.
+                        </li>
+
+                        <li>
+                            Resources - The core components of Puppet code. Resources have a type, name, and one or more attributes.
+                        </li>                    
+                        
                     </ul>
 
-                    <h5>Starting out:</h5>
+                    <h5>Installation:</h5>
                     <ul class="nested">
+
+                        <p>
+                            Puppet is a cross platform product that can be installed on most operating systems. The only requirement is that the Puppet master be installed on a linux machine. The agent can be installed on OS of choice. Note that when installing Puppet agents, it is most common to install them on servers, but the Puppet agent can also be installed on other systems such as Desktop PCs and network appliances.
+                        </p>
+
+                        <li>
+                            Installing Puppet Server
+                        </li>
+
+                        <li>
+                            Installing PuppetDB
+                        </li>
+
+                        <li>
+                            Installing Puppet agents
+                        </li>
+
                     </ul>
 
                     <h5>Writing infrastructure code:</h5>
@@ -208,24 +271,32 @@
                     <h5>Add-ons:</h5>
                     <ul class="nested">
 
-                        <li>
-                            Puppet Enterprise
-                        </li>
+                        <p>
+                            Puppet offers additional (paid) products to form a more complete DevOps ecosystem.
+                        </p>
 
                         <li>
-                            Continuous Delivery for Puppet Enterprise
+                            Puppet Enterprise - PE is fundamentaly the same as the FOSS version, but adds quality of life features useful in managing a large infrastructure. The Puppet Enterprise console is a web GUI which facilitates the management, organization, analytics, and monitoring of the Puppet infrastructure in an easy to pick up interface. Most of the functionality in PE can be replicated in FOSS, but without a graphical interface. Unlike the other paid additions, PE is free and doesn't expire for up to 10 nodes.
+                        </li>
+
+                        <p>
+                            The following add ons are free with a 30 day trial
+                        </p>
+
+                        <li>
+                            Continuous Delivery for Puppet Enterprise - Maintainers of Puppet code in an organization follow the same DevOps cycle as application developers. CD4PE is a product that provides a pipeline for Puppeteers to develop, test, and deploy their infrastructure code in an automated fashion; complete with bells and whistles.
                         </li>
                         
                         <li>
-                            Puppet Discovery
+                            Puppet Discovery - The Puppet master only knows about the nodes in the organization that have the Puppet agent installed on it. Puppet Discovery probes the organization over SSH/WinRM to "discover" and return information on nodes regardless of whether the Puppet agent is installed on it.
                         </li>
                         
                         <li>
-                            Puppet Pipelines
+                            Puppet Pipelines - CI/CD Pipeline for applications and containers. It can be used as a stand alone product to deploy a CI/CD platform, but more often than not will be used as the base platform that other standout products integrate with (Jira, Jenkins, etc.)
                         </li>
                         
                         <li>
-                            Puppet Insights
+                            Puppet Insights - Puppet's take on analytics. Insight measures and optimizes DevOps practices by aggregating, analyzing, and visualizing key metrics.
                         </li>
 
                     </ul>
