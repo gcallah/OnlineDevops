@@ -1,7 +1,7 @@
 from django.http \
     import request, \
     HttpRequest, HttpResponseServerError, HttpResponseBadRequest
-from django.shortcuts import render, get_object_or_404,redirect
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_http_methods
 from decimal import Decimal
 import random
@@ -170,8 +170,10 @@ def test(request: request) -> object:
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
-def work(request: request) -> object:
+
+def search(request: request) -> object:
     return get_quiz(request, 'search')
+
 
 @require_http_methods(["GET", "POST"])
 def parse_search(request) -> object:
@@ -198,7 +200,7 @@ def parse_search(request) -> object:
                 html = bs(html, "html.parser")
                 strings = html.body.strings
                 title = html.h1
-                if (title == None):
+                if title is None:
                     title = i.split("/")[-1]
                 else:
                     title = re.sub("[\n]", "", title.string).strip()
@@ -215,25 +217,21 @@ def parse_search(request) -> object:
 
     url = "http://www.thedevopscourse.com"
 
-
     try:
         header = "The DevOps Course"
         path = request.get_full_path()
         query = path.split("query=")[1]
         if("+") in query:
             query = " ".join(query.split("+")).lower()
-
-
         else:
             query = query.lower()
 
-        data = search_page(crawl_index(url),query)
+        data = search_page(crawl_index(url), query)
 
         return render(request,
-                          'search.html',dict(data = data,
-                                             header=header,
-                                             query = query
-                                             ))
+                      'search.html', dict(data=data,
+                                          header=header,
+                                          query=query))
     except Exception as e:
         return HttpResponseServerError(e.__cause__,
                                        e.__context__,
