@@ -266,6 +266,380 @@
 
                     <h5>Writing infrastructure code:</h5>
                     <ul class="nested">
+
+                        <p>
+                            Writing modules customized to your organizational needs is a key component to a successful Puppet deployment. Your Puppet module may contain many directories such as: manifests, files, templates, lib, facts.d, examples, spec, functions, types, tasks. Initially, focus should primarily be on manifests as these are the puppet programs that comprise most, if not all of the configurations.
+                        </p>
+
+                        <p>
+                            Puppet programs are written in Puppet's own DSL (Domain Specific Language) but the syntax of it isn't very different from other declarative languages. For example, PowerShell DSC (Desired State Configuration) is nearly one to one syntactically to Puppet DSL. Being a declarative language, code within the Puppet programs will not be executed top down unless specifically ordered to do so with resource meta parameters. The idea is that your code defines how a system should be and Puppet does the work of deciding what execution order is the most optimal for the system. As previously mentioned, this can and should be explicitly overwritten to ensure proper deployment. For example ensuring a package resource runs before a dependent service resource does.
+                        </p>
+
+                        <p>
+                            Let's go through writing a simple module that manages Docker (a great Docker module written by PuppetLabs already exists on the <a href="https://forge.puppet.com/puppetlabs/docker">forge</a>) as an example.
+                        </p>
+
+                        <p>
+                            The name of the module is mydocker and the main Puppet program within the manifest is init.pp.
+
+                            The empty init.pp will just have a class with the name of the module.
+
+                            <pre>
+                                <code>
+    # mydocker/manifests/init.pp
+    class mydocker {
+
+    }
+                                </code>
+                            </pre>
+                        </p>
+
+                        <p>
+                            Let's say we created 3 more Puppet programs within the module install.pp, config.pp, service.pp. The class namespace is &lt;module name&gt;:&lt;puppet program name&gt;.
+
+                            <pre>
+                                <code>
+    # mydocker/manifests/install.pp
+    class mydocker::install {
+
+    }
+
+    # mydocker/manifests/config.pp
+    class mydocker::config {
+
+    }
+
+    # mydocker/manifests/service.pp
+    class mydocker::service {
+
+    }                 
+                                </code>
+                            </pre>
+                        </p>
+
+                        <p>
+                            Now let's include these classes within our "main" class init.pp
+
+                            <pre>
+                                <code>
+    # mydocker/manifests/init.pp
+    class mydocker {
+      include mydocker::install
+      include mydocker::config
+      include mydocker::service
+
+      Class['mydocker::install'] -> Class['mydocker::config'] -> Class['mydocker::service']
+    }
+                                </code>
+                            </pre>
+                        </p>
+
+                        <p>
+                            The reserved keyword "include" declares a class, but in practice the reserved keyword "contain" is often used instead. While both include and contain declare classes, contain "contains" resources within it's class while include my not. When putting together a stack of modules, include declares all of the class' resources within the catalog. Remember that unless specifically stated, Puppet decides how the execution of those resources will be ordered in the catalog. So let's say you have modules to manage Docker and another to manage an application running inside a Docker container.
+
+                            <pre>
+                                <code>
+    # profiles/manifests/website.pp
+    class profile::website {
+      include mydocker
+      include djangoapp
+    }
+                                </code>
+                            </pre>
+                        </p>
+
+                        <p>
+                            Puppet is "usually" smart enough to know resources from the mydocker module need to be run before resource in the djangoapp module deploy the application within a Docker container. But, "usually" is not good enough. To ensure Docker resources execute first, declare the modules with "contain" and explicity order the classes.
+
+                            <pre>
+                                <code>
+    # profiles/manifests/website.pp
+    class profile::website {
+      contain mydocker
+      contain djangoapp
+
+      Class['mydocker'] -> Class['djangoapp']
+    }
+                                </code>
+                            </pre>
+                        </p>
+
+                        <p>
+                            This way resources in the djangoapp module will ALWAYS execute after resources in mydocker module.
+
+                            Going back to our mydocker module, we will need install some packages to have docker installed. Let's put the resources within the install.pp class to do exactly that.
+
+                            <pre>
+                                <code>
+    # mydocker/manifests/install.pp
+    class mydocker::install {
+      # Setup the repository
+
+      # update the apt package index
+      exec { 'update apt-get':
+        command => '/usr/bin/apt-get update',
+        onlyif  => "/bin/sh -c '[ ! -f /var/cache/apt/pkgcache.bin ] || /usr/bin/find /etc/apt/* -cnewer /var/cache/apt/pkgcache.bin | /bin/grep . > /dev/null'",
+      }
+
+      # install a single package to allow apt to use a repository over HTTPS
+      package { 'apt-transport-https':
+        ensure  => present,
+        require => Exec['update apt-get'],
+      }
+
+      # install a multiple packages passed as an array to a single resource to allow apt to use a repository over HTTPS
+      package { [
+        'ca-certificates',
+        'curl',
+        'software-properties-common',
+      ]:
+        ensure => present,
+        require => Exec['update apt-get'],
+      }
+
+      # add Docker's official GPG key
+      exec { 'add docker gpg key':
+        command => '/usr/bin/curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -',
+        unless  => '/usr/bin/apt-key fingerprint 0EBFCD88',
+        require => Exec['update apt-get'],
+      }
+
+      # Install Docker CE
+      
+      # Update the apt package index after repo setup
+      package { 'docker-ce':
+        ensure   => present,
+        provider => apt,
+        require  => Exec['add docker gpg key'],
+      }
+    }
+                                </code>
+                            </pre>
+                        </p>
+
+                            <p>
+                                Two resource types were used in mydocker::install, exec and package. Refer the Puppet's documentation/reference on <a href="https://puppet.com/docs/puppet/5.3/type.html">resource types </a>.
+
+                                The exec resource executes external commands and package manages packages. All Puppet resources follow the convention
+                                <pre>
+                                    <code>
+    &lt;resource type&gt; { '&lt;resource title&gt;':
+        &lt;attribute&gt; => &lt;value&gt;,
+    }                                        
+                                    </code>
+                                </pre>
+                            </p>
+
+                            <p>
+                                Every resource also sets the namevar attribute to the resource's title by default if namevar is not explicity stated.
+                                <pre>
+                                    <code>
+    # namevar explicitly stated
+    package { 'install docker':
+      name   => 'docker-ce',
+      ensure => 'present',
+    }
+
+    # namevar omitted and resolves to resource title
+    package { 'docker-ce':
+      ensure   => present,
+      provider => apt,
+    }
+                                    </code>
+                                </pre>
+                            </p>
+
+                            <p>
+                                The exec resource has an attribute "command" which is the fully scoped command to be run on a system. Exec's should be used with caution as these resources are not idempotent by default and require greater understanding of the commands being run. 
+                            </p>
+
+                            <p>
+                                To ensure that the exec command isn't run every single time the Puppet agent runs, two attributes which both take commands as values (onlyif and unless) are used to demonstrate 2 of several ways to preserve idempotency. 
+                            </p>
+
+                            <p>
+                                The onlyif attribute will only execute the "command" attribute's value in the shell if the "onlyif" attribute's value exits 0. The unless attribute will allow the "command" attribute to run except when the "unless" attribute's value exits 0. 
+                            </p>
+
+                            <p>
+                                When onlyif exits 1 or unless exits 0, neither of the commands in the exec resource are executed, ensuring agent runs on systems that match the desired state don't change anything or waste unecessary system resources.
+                            </p>
+
+                            <p>
+                                The package resource attributes used are: ensure, require, and provider. Of these 3, only the ensure attribute is required. Just like it sounds, the ensure attribute a package is &lt;something&gt; on the system. Valid ensure values are: present, installed, absent, purged, held, latest and can also be a specific version.
+                            </p>
+
+                            <p>
+                                The require attribute is a metaparameter which as the name implies, deals with resource ordering. For the most part, the require attribute is not needed in mydocker::install as Puppet is usually smart enough to order the resources properly. But, to ensure the catalog is composed how we expect it all the time and to demonstrate resource ordering, the require attribute was used. 
+                            </p>
+
+                            <p>
+                                There are 4 metaparameters that specify resource ordering: before, notify, require, subscribe. Before and notify ensure that the resource must run before something else. Notify also signals the dependent resource to refresh. This is used in such cases as a web application package resource that notifies a web service resource to refresh (restart) after the package is installed.
+                            </p>
+
+                            <p>
+                                The provider attribute tells the resource package resource what provider to use when installing packages. In practice, the provider attribute is used sparingly as Puppet is smart enough to automatically select the appropriate provider, but sometimes you may want Puppet to use the rpm provider instead of yum on RedHat.
+                            </p>
+
+                            <p>
+                                Now that the mydocker::install class installs docker, let's add some configurations (users, permissions, files, etc) to the mydocker::config class.
+
+                                <pre>
+                                    <code>
+    # mydocker/manifests/config.pp
+    class { 'mydocker::config':
+      # enable a non-root user to use Docker
+
+      # configure Docker group
+      group { 'docker':
+        ensure => present,
+        gid    => '502',
+      }
+
+      # ensure that the user account exists, is configured, and added to docker group
+      user { 'yourname':
+        ensure           => present,
+        gid              => '95555510',
+        home             => '/home/myname',
+        groups           => 'docker',
+        password         => 'mypasswd',
+        password_max_age => '9999',
+        password_min_age => '0',
+        shell            => '/bin/bash',
+        uid              => '95555510',
+      }
+
+      # allow users to view puppet agent folders/files on the system
+      file { '/opt/puppetlabs':
+        ensure  => directory,
+        mode    => '0755',
+        recurse => true,
+      }
+    }                                        
+                                    </code>
+                                </pre>
+                            </p>
+
+                            <p>
+                                The resources used within the mydocker::config class are: group, user, and file. The group resource ensures the presence of the docker group. Since mydocker::install is ordered to execute first and creates the docker group, this resource doesn't do anything. It is still within the module because we want to ensure the system state stays that way. If the docker group gid changes, or perhaps someone fat fingers a delete command and accidentally removes the docker group, Puppet will correct the change.
+                            </p>
+
+                            <p>
+                                The user resource ensures that a local account is created on the system and is a member of the docker group. Notice that the user's password is in plain text. This is done for simplicity, but can and should be encrypted. To use an ecrypted value, we could leverage Puppet's builtin key/value lookup system with eyaml. Eyaml is used to encrypt an input string of the user's password accessible from the manifest. The private key to decrypt the string resides on the Puppet master. The use hiera, a hiera.yaml file is created to decide which data source to use (like an index). The data sources (dictionaries) are also yaml files but only contain hashes of key value pairs. We will create a data folder at the root of our module and then put a data source within it called common.yaml. Hiera is "hierarchical" in that multiple data sources could be created with duplicate key/value pairs. The value that Puppet ultimately uses is dependent on the hiera hierarchy layer. A common implementation of hiera hierarchy layers in order is: node, os, environment. Thus, there can be data sources for a specific node (myserver.yaml), OS (RedHat.yaml), and environment (test.yaml). The key/value pairs within all of those data sources will be available to the manifest. What if a key exists in more than one data source? By default hiera tries the data source at the "top" of the hierarchy, and continues moving "down" the hierarchy until it finds a match. Merge behavior can be overridden, but this is the default implementation.
+
+                                <pre>
+                                    <code>
+    # mydocker/manifests/config.pp
+    class mydocker::config {
+      # ensure user exists and lookup the value (encrypted) of the password from hiera
+      user { 'yourname':
+        ensure           => present,
+        gid              => '95555510',
+        home             => '/home/myname',
+        groups           => 'docker',
+        password         => lookup('mypasswd'),
+        password_max_age => '9999',
+        password_min_age => '0',
+        shell            => '/bin/bash',
+        uid              => '95555510',
+      }
+    }
+
+    # mydocker/hiera.yaml
+    ---
+    version: 5
+
+    defaults:
+      datadir: data
+      data_hash: yaml_data
+
+    hierarchy: 
+
+     - name: "common"
+       "path: common.eyaml"
+
+    # mydocker/data/common.eyaml
+    ---
+    mydocker::mypasswd: ENC[PKCS7...]
+
+    # puppetmaster:/etc/puppetlabs/puppet/hiera.yaml
+    ---
+    version: 5
+
+    defaults:
+      datadir: "/etc/puppetlabs/code/environments/%{::environment}/hieradata"
+      data_hash: yaml_data
+
+    hierarchy:
+
+     - name: "Encrypted Per-node data"
+       path: "nodes/%{trusted.certname}.eyaml"
+       lookup_key: eyaml_lookup_key
+       options: pkcs7_private_key: /etc/puppetlabs/puppet/keys/private_key.pkcs7.pem
+            pkcs7_public_key: /etc/puppetlabs/puppet/keys/public_key.pkcs7.pem
+
+      - name: "Unencrypted Per-node data"
+        path: "nodes/%{trusted.certname}.yaml"
+
+      - name: "Encrypted OS data"
+        path: "os/%{::osfamily}.eyaml"
+        lookup_key: eyaml_lookup_key
+        options:
+          pkcs7_private_key: /etc/puppetlabs/puppet/keys/private_key.pkcs7.pem
+          pkcs7_public_key: /etc/puppetlabs/puppet/keys/public_key.pkcs7.pem
+
+      - name: "Unencrypted OS data"
+        path: "os/%{::osfamily}.yaml"
+
+      - name: "Encrypted environment data"
+        path: "environment/%{::environment}.eyaml"
+        lookup_key: eyaml_lookup_key
+        options:
+          pkcs7_private_key: /etc/puppetlabs/puppet/keys/private_key.pkcs7.pem
+          pkcs7_public_key: /etc/puppetlabs/puppet/keys/public_key.pkcs7.pem
+
+      - name: "Unencrypted environment data"
+        path: "environment/%{::environment}.yaml"
+
+      - name: "Encrypted common"
+        path: "common.eyaml"
+        lookup_key: eyaml_lookup_key
+        options:
+          pkcs7_private_key: /etc/puppetlabs/puppet/keys/private_key.pkcs7.pem
+          pkcs7_public_key: /etc/puppetlabs/puppet/keys/public_key.pkcs7.pem
+
+      - name: "Unencrypted common"
+        path: "common.yaml"
+
+                                    </code>
+                                </pre>
+                            </p>
+
+                            <p>
+                                The mydocker::install class changed only in that the password attribute's value calls the builtin lookup function to find a key in hiera named mypasswd. The hiera.yaml file at the root of the module specifies that there are data sources within the module itself that hiera should trying finding the mypasswd key first and how the data sources are ordered. In this case there is only one data source common.eyaml. The key exists and be decrypted by the master at catalog compilation time. If the key didn't exist, hiera will lookoutside the module and will check the other two scopes (environment and global). The hiera.yaml file that resides on the Puppet master for the global layer is shown within the example. Notice the hierarchy for encrypted eyaml and unencrypted yaml files.
+                            </p>
+
+                            <p>
+                                Finally let's add a service resource to service.pp to ensure the docker service is always running.
+
+                                <pre>
+                                    <code>
+    # mydocker/manifests/service.pp
+    class { 'mydocker::service':
+      service { 'docker':
+        ensure => running,
+        enable => true,
+      }
+    }
+                                    </code>
+                                </pre>
+                            </p>
+
+                            <p>
+                                The docker service resources ensures that docker is always running. So if someone stops the service, Puppet will start it again. It also makes sure that the docker service is enabled to start at boot.
+                            </p>
+
+                        </p>
                     </ul>
 
                     <h5>Add-ons:</h5>
