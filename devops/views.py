@@ -8,6 +8,9 @@ import random
 import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
+from bs4 import BeautifulSoup
+import requests
+import lxml
 
 from .models import Question, Grade, Quiz, CourseModule
 
@@ -58,6 +61,88 @@ def markingQuiz(user_answers, graded_answers):
     return num_correct
 
 
+class SliderSlide:
+    def __init__(self, img, link, index):
+        self.img = img
+        self.link = link
+        self.index = index
+
+
+def get_dynamicslideshow(request, site,site_hdr):
+    try:
+        # Set Feed Site and Headers
+        url = "https://devops.com/feed/"
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+
+        # Fetch feed
+        r = requests.get(url, headers=headers)
+
+        # Set text from fetch to data to query.
+        data = r.text
+
+        # Using BeautifulSoup to parse data.
+        soup = BeautifulSoup(data, 'lxml')
+
+        # Getting Slide Image Source elements
+        allImgTags = soup.find_all('img')
+
+        slidePicsSource = []
+
+        for img in allImgTags:
+            slidePicsSource.append(img.get('src'))
+
+        # Getting Slide Links
+        # Find all <a> tags and <dictionary> tags
+        allaTags = soup.find_all('a')
+        allDescriptionTags = soup.find_all('description')
+
+        descriptionWithImgTag = []
+        indexOfImgTagInDescriptionList = []
+        aTagList = []
+        slidePicsLinkList = []
+
+        slidePicsLink = []
+
+        # Fetches Description tags which contain img tag
+        for d in allDescriptionTags:
+            descriptionWithImgTag.append(d.contents[0])
+
+        # Fetch index to match links
+        for i, d in enumerate(descriptionWithImgTag):
+            if (d.name == 'img'):
+                indexOfImgTagInDescriptionList.append(i)
+
+        # Remove Devop home Links, seems to be one for every a Tag.
+        for i, a in enumerate(allaTags):
+            if (i % 2 == 0):
+                aTagList.append(a)
+
+        # Get <a> HREF Links based off dictionary index.
+        for i, a in enumerate(aTagList):
+            if (i + 1) in indexOfImgTagInDescriptionList:
+                slidePicsLinkList.append(a.get('href'))
+
+        # Assign links to active slide and sibling slides.
+        for l in slidePicsLinkList:
+                slidePicsLink.append(l)
+
+        # Create and set SlideShowObject List
+        SliderSlides = []
+
+        for x in range(0, len(indexOfImgTagInDescriptionList)):
+            SliderSlides.append(SliderSlide(slidePicsSource[x], slidePicsLink[x], x))
+
+        return render(request,
+                      site,
+                      dict(header=site_hdr,
+                           SliderSlides=SliderSlides
+                           ))
+    except Exception as e:
+        return HttpResponseServerError(e.__cause__,
+                                       e.__context__,
+                                       e.__traceback__)
+
+
 def get_quiz(request, mod_nm):
 
     #  Returns list of Randomized Questions
@@ -95,8 +180,11 @@ def get_quiz(request, mod_nm):
                                        e.__traceback__)
 
 
+# def index(request: request) -> object:
+#     return render(request, 'index.html', {'header': site_hdr})
+
 def index(request: request) -> object:
-    return render(request, 'index.html', {'header': site_hdr})
+    return get_dynamicslideshow(request, 'index.html', site_hdr)
 
 
 def about(request: request) -> object:
