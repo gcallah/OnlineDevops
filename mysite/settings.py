@@ -92,13 +92,13 @@ DATABASES = {
 }
 
 # This is how we switch to MySQL
-# by setting USE_MYSQL env. variables to YES or True...
+# by setting USE_MYSQL env variable to YES or True...
 # if you forgot something - we fallback to SQLite, again...
 if os.environ.get('USE_MYSQL') is not None:
     DATABASES = {
         'default': {
-            'ENGINE': os.environ.get('ENGINE', 'django.db.backends.sqlite3'),
-            'NAME': os.environ.get('NAME', 'db.sqlite3'),
+            'ENGINE': os.environ.get('ENGINE', 'django.db.backends.mysql'),
+            'NAME': os.environ.get('NAME', 'devops'),
             'USER': os.environ.get('USER'),
             'PASSWORD': os.environ.get('PASSWORD'),
             'HOST': os.environ.get('HOST')

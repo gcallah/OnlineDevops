@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <div style="height:85vh;overflow:scroll;">
+{% for item in data %}
+       <div class="card search-card" >
+
+                      <div class="card-body">
+                          <h5>
+                              <a class="search-link" href="{{ item.url }}" target="_blank">
+                              {{ item.page }}
+                              </a>
+                          </h5>
+                        <p class="search-info">
+                         {{ item.content }}
+                        </p>
+
+                      </div>
+       </div>
+{% endfor %}
+    </div>
+{% endblock content %}
