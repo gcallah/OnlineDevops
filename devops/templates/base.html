@@ -10,39 +10,13 @@
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/static/devops/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/devops/styles.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
     {% endblock stylesheets %}
    <script  src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js">
    </script>
 
-    <style>
-        .header-search-input{
-          background:none;
-          border:none;
-          font-size:1.5rem;
-          margin-right:1vh;
-          width:10vw;
-          color:#622;
-          padding:0;
-          border-top:3px solid #622;
-          border-left:3px solid #622;
-          text-align:center;
-        }
-        .header-button{
-             color: #622;
-            font-size:1.5rem;
-            background:none;
-            border:none;
-            padding:0;
-            transition:all 0.4s;
-        }
-
-        .header-button:hover{
-            transform: scale(1.15);
-        }
- </style>
 </head>
 
 <body class="dashboard">
@@ -105,27 +79,6 @@
     </script>
 
 </body>
- <script>
-        var bt = document.getElementById("bt")
-        var navbar = document.getElementById("navbar")
-        var search = document.getElementById("search")
-       bt.onclick=function ()
-            {
-
-                if(navbar.style.display==="none"){
-                    navbar.style.display='block'
-                }else{
-                     navbar.style.display='none'
-                }
-
-                if(  search.style.display==="block"){
-                    search.style.display='none'
-                }
-                else{
-                     search.style.display='block'
-                }
-            }
-
-    </script>
+<script src="/static/devops/js/show_searchbar.js"></script>
 </html>
 
