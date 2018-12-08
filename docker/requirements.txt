@@ -1,5 +1,5 @@
 setuptools==40.5.0
-Django==2.1
+Django==2.1.2
 django-extensions==2.1.2
 coverage==4.5.1
 django-autofixture==0.12.1

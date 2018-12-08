@@ -20,7 +20,7 @@ PYTHONFILES += $(shell ls $(DEVDIR)/$(TESTSDIR)/*.py)
 
 FORCE:
 
-validate_html: $(HTMLS)
+html_tests: $(HTMLS)
 	./test_html.sh
 
 container:
