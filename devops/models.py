@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from tinymce.models import HTMLField
 
 QUEST_LEN = 256
 ANS_LEN = 128
@@ -18,6 +19,7 @@ class CourseModule(models.Model):
     module = models.CharField(max_length=MODNM_LEN)
     title = models.TextField()
     next_module = models.CharField(max_length=MODNM_LEN)
+    content = HTMLField(default='Please transfer your content here!')
 
     def __str__(self):
         return self.title

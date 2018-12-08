@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'participants',
     'crispy_forms',
+    'tinymce'
 
 ]
 
@@ -148,6 +149,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "mysite", "static", ),
     )
+
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+    'width': '80%',
+    'height': 800,
+}
 
 LOGIN_REDIRECT_URL = 'devops:index'
 LOGIN_URL = 'participant_login'
