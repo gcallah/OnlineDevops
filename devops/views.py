@@ -21,7 +21,7 @@ def get_filenm(mod_nm):
     return mod_nm + '.html'
 
 
-def markingQuiz(user_answers, graded_answers):
+def mark_quiz(user_answers, graded_answers):
     num_correct = 0
 
     for answered_question in user_answers:
@@ -238,11 +238,25 @@ def parse_search(request) -> object:
                                        e.__traceback__)
 
 
+def get_nav_links(curr_module, correct_pct, curr_quiz, mod_nm):
+    nav_links = {}
+    # show link to next module if it exists
+    if curr_module is not None:
+        nav_links = {
+            'next': 'devops:'
+            + curr_module.next_module
+            if curr_module.next_module else False
+        }
+        # If user fails, show link to previous module
+        if correct_pct < curr_quiz.minpass:
+            nav_links['previous'] = 'devops:' + mod_nm
+    return nav_links
+
+
 def grade_quiz(request: HttpRequest()) -> list:
     """
-    Returns list of Questions user answered as right / wrong
     :param request: request as HttpRequest()
-    :return: list() of dict() containing question, right/wrong, correct answer
+    Returns an html page containing results of quiz.
     """
     try:
         num_rand_qs = DEF_NUM_RAND_QS
@@ -255,61 +269,44 @@ def grade_quiz(request: HttpRequest()) -> list:
 
             # get only post fields containing user answers...
             for key, value in form_data.items():
+                # what is going on here is completely obscure to me: GC
                 if key.startswith('_'):
                     proper_id = str(key).strip('_')
                     user_answers.append({proper_id: value})
 
             # forces user to answer all quiz questions,
             # redirects to module page if not completed
-            # TODO: keep previously selected radio buttons
-            # checked instead of clearing form
             mod_nm = form_data['submit']
 
             questions = Question.objects.filter(module=mod_nm)
-            questions_count = questions.count()
 
             quizzes = Quiz.objects.filter(module=mod_nm)
             # we should log if we get count > 1 here!
             for quiz in quizzes:
                 num_rand_qs = quiz.numq
                 show_answers = quiz.show_answers
+                curr_quiz = quiz
                 break
 
-            num_ques_of_quiz = min(questions_count, num_rand_qs)
-
-            # Number of randomized questions from get_quiz.
-            num_qs_to_check = num_ques_of_quiz
+            num_qs_to_check = min(questions.count(), num_rand_qs)
 
             # Function to mark quiz
-            num_correct = markingQuiz(user_answers, graded_answers)
+            num_correct = mark_quiz(user_answers, graded_answers)
 
             # Calculating quiz score
             correct_pct = Decimal((num_correct / num_qs_to_check) * 100)
-            curr_quiz = Quiz.objects.get(module=mod_nm)
 
             curr_module = None
             quiz_name = 'Quiz'
-            navigate_links = {}
             modules = CourseModule.objects.filter(module=mod_nm)
             # we should log if we get count > 1 here!
             for this_module in modules:
                 curr_module = this_module
+                quiz_name = curr_module.title
                 break
 
-            # No matter if user passes or fails,
-            # show link to next module if it exists
-            if curr_module is not None:
-                quiz_name = curr_module.title
-                navigate_links = {
-                    'next': 'devops:'
-                    + curr_module.next_module
-                    if curr_module.next_module
-                    else
-                    False
-                }
-                # If user fails, show link to previous module
-                if (correct_pct < curr_quiz.minpass):
-                    navigate_links['previous'] = 'devops:' + mod_nm
+            nav_links = get_nav_links(curr_module, correct_pct,
+                                      curr_quiz, mod_nm)
 
             # now we are ready to record quiz results...
             if request.user.username != '':
@@ -327,7 +324,7 @@ def grade_quiz(request: HttpRequest()) -> list:
                                correct_pct=int(correct_pct),
                                quiz_name=quiz_name,
                                show_answers=show_answers,
-                               navigate_links=navigate_links,
+                               navigate_links=nav_links,
                                header=site_hdr))
 
         # If it is PUT, DELETE etc. we say we dont do that...
