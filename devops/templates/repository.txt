@@ -1,4 +1,0 @@
-repository found in: 
-    devops/templates/gloss.html
-    devops/templates/incr.html
-    devops/templates/infra.html

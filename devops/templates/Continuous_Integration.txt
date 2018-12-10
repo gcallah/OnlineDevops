@@ -1,4 +1,0 @@
-Continuous Integration found in: 
-    devops/templates/build.html
-    devops/templates/gloss.html
-    devops/templates/test.html

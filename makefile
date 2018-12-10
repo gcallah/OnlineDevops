@@ -44,8 +44,9 @@ $(GLOSS): $(GLOSS_SRC)
 	$(UDIR)/create_gloss.py $(GLOSS_SRC) > $(GLOSS)
 	$(UDIR)/gloss_links.py $(GLOSS_SRC) $(DJANGO_TEMPLDIR) --lf $(HTMLS)
 	git add $(GLOSS)
-	git add $(DJANGO_TEMPLDIR)/*.txt
 	git commit $(GLOSS) -m "Building new glossary template."
+	git add $(DJANGO_TEMPLDIR)/*.txt
+	git commit $(DJANGO_TEMPLDIR)/*.txt -m "Building new glossary includes."
 
 datadump:
 	python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > datadump.json

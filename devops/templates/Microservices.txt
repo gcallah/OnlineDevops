@@ -1,5 +1,0 @@
-Microservices found in: 
-    devops/templates/gloss.html
-    devops/templates/index.html
-    devops/templates/micro.html
-    devops/templates/suite.html

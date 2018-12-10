@@ -1,2 +1,0 @@
-Test-Driven Development found in: 
-    devops/templates/gloss.html

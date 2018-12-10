@@ -1,7 +1,0 @@
-Slack found in: 
-    devops/templates/comm.html
-    devops/templates/flow.html
-    devops/templates/gloss.html
-    devops/templates/index.html
-    devops/templates/monit.html
-    devops/templates/test.html

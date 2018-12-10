@@ -1,2 +1,0 @@
-Toyota Production Systems found in: 
-    devops/templates/gloss.html

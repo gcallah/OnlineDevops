@@ -1,7 +1,0 @@
-Automated Testing found in: 
-    devops/templates/build.html
-    devops/templates/gloss.html
-    devops/templates/index.html
-    devops/templates/suite.html
-    devops/templates/test.html
-    devops/templates/work.html
