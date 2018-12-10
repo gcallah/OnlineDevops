@@ -1,0 +1,4 @@
+Kanban found in: 
+    devops/templates/flow.html
+    devops/templates/gloss.html
+    devops/templates/index.html
