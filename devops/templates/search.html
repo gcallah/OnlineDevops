@@ -2,15 +2,15 @@
 {% block content %}
     <div style="height:85vh;overflow:scroll;">
 {% for item in data %}
-       <div class="card" style="width:50%;left:25%;margin-top:3.5vh;">
+       <div class="card search-card" >
 
                       <div class="card-body">
                           <h5>
-                              <a style="font-size:1.5rem;color:blue;font-weight:darkblue;"href="{{ item.url }}" target="_blank">
+                              <a class="search-link" href="{{ item.url }}" target="_blank">
                               {{ item.page }}
                               </a>
                           </h5>
-                        <p style="color:black;font-weight:bold;">
+                        <p class="search-info">
                          {{ item.content }}
                         </p>
 
