@@ -8,8 +8,8 @@ TEST_DIR = tests
 MDL = $(DEVDIR)/models.py
 SRCS = $(MDL)
 DJANGO_TEMPLDIR = $(DEVDIR)/templates
-GLOSS = $(DJANGO_TEMPLDIR)/gloss.html
 OUR_TEMPLDIR = templates
+GLOSS = $(DJANGO_TEMPLDIR)/gloss.html
 GLOSS_SRC = $(OUR_TEMPLDIR)/gloss_terms.txt
 HTMLS = $(shell ls $(DJANGO_TEMPLDIR)/*.html)
 PYLINT = flake8
@@ -42,7 +42,9 @@ gloss: $(GLOSS)
 $(GLOSS): $(GLOSS_SRC)
 # Monjur run your program here; write output to $(OUR_TEMPLDIR)
 	$(UDIR)/create_gloss.py $(GLOSS_SRC) > $(GLOSS)
+	$(UDIR)/gloss_links.py $(GLOSS_SRC) $(DJANGO_TEMPLDIR) --lf $(HTMLS)
 	git add $(GLOSS)
+	git add $(DJANGO_TEMPLDIR)/*.txt
 	git commit $(GLOSS) -m "Building new glossary template."
 
 datadump:
@@ -70,11 +72,11 @@ final_test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
 
 # tests are not quite ready to include here yet!
-prod: $(SRCS) html_tests lint db
+prod: $(SRCS) html_tests lint db django_tests
 	-git commit -a
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
 
-staging: html_tests lint db
+staging: html_tests lint db django_tests
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
 	git push -u staging master
