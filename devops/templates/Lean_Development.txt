@@ -1,0 +1,3 @@
+Lean Development found in: 
+    devops/templates/gloss.html
+    devops/templates/work.html
