@@ -1,6 +1,7 @@
 UDIR = utils
 TDIR = tests
 DEVDIR = devops
+MIGRDIR = $(DEVDIR)/migrations
 SITEDIR = mysite
 PARTSDIR = participants
 TEST_DIR = tests
@@ -31,8 +32,8 @@ submods:
 db: $(MDL)
 	python3 manage.py makemigrations
 	python3 manage.py migrate
-	git add $(DEVDIR)/migrations/*.py
-	-git commit $(DEVDIR)/migrations/*.py
+	git add $(MIGRDIR)/*.py
+	-git commit $(MIGRDIR)/*.py
 	git push origin master
 
 # build our glossary
