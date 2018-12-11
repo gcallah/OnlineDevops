@@ -49,35 +49,41 @@
             </p>
 
             <p>
-                We've configured StatusCake to send emails to the project owners,
-                as well as Slack messages to appropriate, project-specific channels.
+                We've configured StatusCake to send emails
+                to the project owners, as well as Slack messages
+                to appropriate, project-specific channels.
             </p>
 
             <p>
                 There's definitely room for improvement here,
-                but StatusCake is a good starting place.  Here are some things that
-                we might consider when improving on this foundation:
+                but StatusCake is a good starting place.
+                Here are some things that we might consider
+                when improving on this foundation:
             </p>
 
             <ul class="nested">
                 <li>
-                    StatusCake is a black box solution -- it doesn't have any
-                    visibility of the internals of our program, it provides
-                    us with data on how our website looks to users.  It would be
-                    nice to have a monitoring solution that combines  black-box reporting with
-                    logs and stack traces.
+                    StatusCake is a black box solution --
+                    it doesn't have any visibility of the
+                    internals of our program, it provides
+                    us with data on how our website looks
+                    to users.  It would be nice to have a
+                    monitoring solution that combines 
+                    black-box reporting with logs and stack
+                    traces.
                 </li>
                 <li>
-                    StatusCake, as it's configured right now, only checks
-                    for HTTP status codes. However, it's possible that our web
-                    server could be ACKing with empty pages.  Ideally, we would
-                    want to test for content, in addition to headers, to mitigate
+                    StatusCake, as it's configured right now,
+                    only checks for HTTP status codes. However,
+                    it's possible for our web server to ACK
+                    with empty or incorrect pages.  Ideally, we would
+                    test for content, in addition to headers, to mitigate
                     this scenario.
                 </li>
                 <li>
                     We're not collecting our logs or runtime metrics in any
-                    meaningful way. That should be a crucial next step in aiding
-                    disaster response.
+                    meaningful way. That should be a crucial next
+                    step in aiding disaster response.
                 </li>
             </ul>
             
