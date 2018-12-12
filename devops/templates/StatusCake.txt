@@ -1,0 +1,4 @@
+StatusCake found in: 
+    devops/templates/gloss.html
+    devops/templates/index.html
+    devops/templates/monit.html

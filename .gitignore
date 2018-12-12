@@ -1,6 +1,9 @@
 *~
 *.pyc
+*.swp
+.ropeproject
 /.idea
+/quizzes/*.txt
 /venv
 /video
 .DS_Store

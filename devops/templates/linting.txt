@@ -1,0 +1,3 @@
+linting found in: 
+    devops/templates/build.html
+    devops/templates/gloss.html

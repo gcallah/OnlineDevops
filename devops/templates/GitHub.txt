@@ -1,0 +1,11 @@
+GitHub found in: 
+    devops/templates/about.html
+    devops/templates/build.html
+    devops/templates/flow.html
+    devops/templates/gloss.html
+    devops/templates/incr.html
+    devops/templates/infra.html
+    devops/templates/secur.html
+    devops/templates/teams.html
+    devops/templates/test.html
+    devops/templates/work.html
