@@ -1,14 +1,15 @@
 UDIR = utils
 TDIR = tests
 DEVDIR = devops
+MIGRDIR = $(DEVDIR)/migrations
 SITEDIR = mysite
 PARTSDIR = participants
 TEST_DIR = tests
 MDL = $(DEVDIR)/models.py
 SRCS = $(MDL)
 DJANGO_TEMPLDIR = $(DEVDIR)/templates
-GLOSS = $(DJANGO_TEMPLDIR)/gloss.html
 OUR_TEMPLDIR = templates
+GLOSS = $(DJANGO_TEMPLDIR)/gloss.html
 GLOSS_SRC = $(OUR_TEMPLDIR)/gloss_terms.txt
 HTMLS = $(shell ls $(DJANGO_TEMPLDIR)/*.html)
 PYLINT = flake8
@@ -31,18 +32,22 @@ submods:
 db: $(MDL)
 	python3 manage.py makemigrations
 	python3 manage.py migrate
-	git add $(DEVDIR)/migrations/*.py
-	-git commit $(DEVDIR)/migrations/*.py
+	git add $(MIGRDIR)/*.py
+	-git commit $(MIGRDIR)/*.py
 	git push origin master
 
 # build our glossary
 gloss: $(GLOSS)
 
 $(GLOSS): $(GLOSS_SRC)
-# Monjur run your program here; write output to $(OUR_TEMPLDIR)
+	# first create glossary:
 	$(UDIR)/create_gloss.py $(GLOSS_SRC) > $(GLOSS)
 	git add $(GLOSS)
-	git commit $(GLOSS) -m "Building new glossary template."
+	-git commit $(GLOSS) -m "Building new glossary template."
+	# now make include files:
+	$(UDIR)/gloss_links.py $(GLOSS_SRC) $(DJANGO_TEMPLDIR) --lf $(HTMLS)
+	git add $(DJANGO_TEMPLDIR)/*.txt
+	-git commit $(DJANGO_TEMPLDIR)/*.txt -m "Building new glossary includes."
 
 datadump:
 	python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > datadump.json
@@ -69,11 +74,11 @@ final_test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
 
 # tests are not quite ready to include here yet!
-prod: $(SRCS) html_tests lint 
+prod: $(SRCS) html_tests lint db django_tests
 	-git commit -a
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
 
-staging: html_tests lint
+staging: html_tests lint db django_tests
 	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
 	git push -u staging master

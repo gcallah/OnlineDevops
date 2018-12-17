@@ -1,0 +1,5 @@
+Pattern found in: 
+    devops/templates/gloss.html
+    devops/templates/incr.html
+    devops/templates/test.html
+    devops/templates/work.html

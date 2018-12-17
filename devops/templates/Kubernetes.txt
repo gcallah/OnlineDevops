@@ -1,0 +1,4 @@
+Kubernetes found in: 
+    devops/templates/cloud.html
+    devops/templates/gloss.html
+    devops/templates/index.html

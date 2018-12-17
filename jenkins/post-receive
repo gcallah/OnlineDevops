@@ -1,0 +1,26 @@
+# This is the post-receive hook which updates the environment and starts the app
+# As soon as you performed 'make staging'. It should be placed into the 'hooks'
+# folder of your bare-bones repo used for deployments.
+# File: /home/nyustaging/bare-repos/devops-staging.git/hooks/post-receive
+
+#!/bin/bash
+# exit if anything fails...
+set -e
+
+# run unit tests in a temp folder...
+mkdir -p /tmp/testcheckout
+GIT_WORK_TREE=/tmp/testcheckout git checkout -f
+python3 /tmp/testcheckout/manage.py test
+rm -rf /tmp/testcheckout
+
+# checkout new code
+mkdir -p /var/www/sites/devops-staging
+GIT_WORK_TREE=/var/www/sites/devops-staging git checkout -f
+pip install -r  /var/www/sites/devops-staging/docker/requirements.txt
+
+# update static files and database
+python3 /var/www/sites/devops-staging/manage.py collectstatic -y
+python3 /var/www/sites/devops-staging/manage.py migrate -y
+
+# bounce web app
+touch /var/www/nyustaging_pythonanywhere_com_wsgi.py

@@ -20,5 +20,6 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'', include('devops.urls')),
-    url('participants/', include('participants.urls'))
+    url('participants/', include('participants.urls')),
+    url(r'^tinymce/', include('tinymce.urls'))
 ]
