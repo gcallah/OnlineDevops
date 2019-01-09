@@ -58,7 +58,7 @@ def mark_quiz(user_answers, graded_answers):
     return num_correct
 
 
-def get_quiz(request, mod_nm):
+def get_pg_w_quiz(request, mod_nm):
 
     #  Returns list of Randomized Questions
     # :param: mod_nm
@@ -112,71 +112,71 @@ def teams(request: request) -> object:
 
 
 def basics(request: request) -> object:
-    return get_quiz(request, 'basics')
+    return get_pg_w_quiz(request, 'basics')
 
 
 def build(request: request) -> object:
-    return get_quiz(request, 'build')
-
-
-def cloud(request: request) -> object:
-    return get_quiz(request, 'cloud')
-
-
-def comm(request: request) -> object:
-    return get_quiz(request, 'comm')
-
-
-def flow(request: request) -> object:
-    return get_quiz(request, 'flow')
-
-
-def incr(request: request) -> object:
-    return get_quiz(request, 'incr')
-
-
-def infra(request: request) -> object:
-    return get_quiz(request, 'infra')
-
-
-def micro(request: request) -> object:
-    return get_quiz(request, 'micro')
-
-
-def monit(request: request) -> object:
-    return get_quiz(request, 'monit')
-
-
-def no_quiz(request: request) -> object:
-    return get_quiz(request, 'no_quiz')
-
-
-def secur(request: request) -> object:
-    return get_quiz(request, 'secur')
-
-
-def suite(request: request) -> object:
-    return get_quiz(request, 'suite')
-
-
-def sum(request: request) -> object:
-    return get_quiz(request, 'sum')
-
-
-def test(request: request) -> object:
-    return get_quiz(request, 'test')
+    return get_pg_w_quiz(request, 'build')
 
 
 def cicd(request: request) -> object:
-    return get_quiz(request, 'cicd')
+    return get_pg_w_quiz(request, 'cicd')
+
+
+def cloud(request: request) -> object:
+    return get_pg_w_quiz(request, 'cloud')
+
+
+def comm(request: request) -> object:
+    return get_pg_w_quiz(request, 'comm')
+
+
+def flow(request: request) -> object:
+    return get_pg_w_quiz(request, 'flow')
+
+
+def incr(request: request) -> object:
+    return get_pg_w_quiz(request, 'incr')
+
+
+def infra(request: request) -> object:
+    return get_pg_w_quiz(request, 'infra')
+
+
+def micro(request: request) -> object:
+    return get_pg_w_quiz(request, 'micro')
+
+
+def monit(request: request) -> object:
+    return get_pg_w_quiz(request, 'monit')
+
+
+def no_quiz(request: request) -> object:
+    return get_pg_w_quiz(request, 'no_quiz')
+
+
+def secur(request: request) -> object:
+    return get_pg_w_quiz(request, 'secur')
+
+
+def suite(request: request) -> object:
+    return get_pg_w_quiz(request, 'suite')
+
+
+def sum(request: request) -> object:
+    return get_pg_w_quiz(request, 'sum')
+
+
+def test(request: request) -> object:
+    return get_pg_w_quiz(request, 'test')
 
 
 def work(request: request) -> object:
-    return get_quiz(request, 'work')
+    return get_pg_w_quiz(request, 'work')
 
 
 def search(request: request) -> object:
-    return get_quiz(request, 'search')
+    return get_pg_w_quiz(request, 'search')
 
 
 @require_http_methods(["GET", "POST"])
