@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^devops/suite/*$', views.suite, name='suite'),
     url(r'^devops/sum/*$', views.sum, name='sum'),
     url(r'^devops/test/*$', views.test, name='test'),
+    url(r'^devops/cicd/*$', views.cicd, name='cicd'),
     url(r'^devops/work/*$', views.work, name='work'),
     url(r'^devops/search/*$', views.search, name='search'),
     url(r'^devops/teams/*$', views.teams, name='teams'),

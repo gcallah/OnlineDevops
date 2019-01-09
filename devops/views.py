@@ -167,6 +167,10 @@ def test(request: request) -> object:
     return get_quiz(request, 'test')
 
 
+def cicd(request: request) -> object:
+    return get_quiz(request, 'cicd')
+
+
 def work(request: request) -> object:
     return get_quiz(request, 'work')
 
