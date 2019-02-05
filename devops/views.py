@@ -78,11 +78,9 @@ def get_pg_w_quiz(request, mod_nm):
                 num_qs_to_randomize = quiz.numq
                 break
             if num_questions >= num_qs_to_randomize:
-                    rand_qs = random.sample(list(questions),
-                                            num_qs_to_randomize)
+                rand_qs = random.sample(list(questions), num_qs_to_randomize)
             else:
-                    rand_qs = random.sample(list(questions),
-                                            num_questions)
+                rand_qs = random.sample(list(questions), num_questions)
 
         return render(request, get_filenm(mod_nm),
                       {'header': site_hdr, 'questions': rand_qs,
