@@ -11,10 +11,11 @@ export DATA_DIR="$CODE_DIR/data"
 for test_file in $TEST_DIR/*.html;
 do
     echo 'URL-checking file:' $test_file
-    python3 $CODE_DIR/url_checker.py "$test_file" "https://http://www.thedevopscourse.com"
+    python3 $CODE_DIR/url_checker.py "$test_file" "http://www.thedevopscourse.com"
     echo 'Html-checking file:' $test_file
     python3 $CODE_DIR/html_checker.py "$test_file"
     echo 'Spell-checking file:' $test_file
+    echo ''
 #    if [ -z $PS1 ]
 #    then
 #        python3 $CODE_DIR/html_spell.py -i $test_file $DATA_DIR/main-dict.txt $DATA_DIR/custom-dict.txt
