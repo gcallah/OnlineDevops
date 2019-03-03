@@ -73,6 +73,11 @@ quiz:
 final_test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
 
+# Staging to test changes before deployment to Production
+staging: html_tests lint db django_tests
+	-git remote add staging nyustaging@ssh.pythonanywhere.com:/home/nyustaging/bare-repos/devops-staging.git
+	git push -u staging master
+
 # tests are not quite ready to include here yet!
 prod: $(SRCS) html_tests lint db django_tests
 	-git commit -a
