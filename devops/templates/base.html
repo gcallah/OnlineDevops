@@ -89,5 +89,121 @@
 
 </body>
 <script src="/static/devops/js/show_searchbar.js"></script>
-</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+<script>
+    $.support.cors = true;
+</script>
+    <script>
+        window.onload = getlink;
+        function getlink()
+        {
+            $.ajax({
+                type: "GET",
+                crossDomain: true,
 
+                headers:
+                {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                async :false,
+                url: "https://cors.io/?http://devops.com/feed/",
+                dataType: "xml",
+                success: function(xml) {
+                var links= [];
+                var descriptions = [];
+                var linkt = [];
+                var cnt= 0;
+                $(xml).find('item').each(function()
+                {
+                    var content = $(this).find('description').text();
+                    var linktitle = $(this).find('title').text();
+                    if (content.includes("src"))
+                    {
+                        var a = content.split(" ")[3];
+                        var b = "<img " +a+"/>";
+                        var link1 = a.split("=")[1];
+                        links.push(link1);
+                        //console.log(link)
+                        //var src = title.match("\"(.*)\"")[1]
+                        //description.append(title.match("\"(.*)\"")[1])
+                        var des =  content.match("<p>(.*)</p>")[1];
+                        var link = content.match("<a(.*)</a>");
+                        var des= des +"<br>" +"<a " +link[0];
+                        descriptions.push(des);
+                        linkt.push(linktitle);
+                        var cnt =0 ;
+                        slider1(links,descriptions,linkt,cnt)
+                    }
+                    //$('#footerText').append($("<img src=\"" +image+"\"/>"));
+                });
+                // for (var i=0;i<links.length;i++){
+                //   setTimeout(slider1(links,descriptions,linkt,i),3000)
+                //   slider1(links,descriptions,linkt,i)
+                // }
+                var cnt = 0;
+                setTimeout(slider1(links,descriptions,linkt,cnt),3000)
+            },
+            error: function(errorThrown)
+            {
+                alert(JSON.stringify(errorThrown));
+            },
+            });
+        }
+
+        function slider1(links,descriptions,linkt,cnt)
+        {
+          if(cnt >= links.length) {
+                cnt = 0;
+            }
+
+            document.getElementById('image1').src= links[cnt].split("\"")[1];
+            document.getElementById('sliderHeader').innerHTML= linkt[cnt];  //or append?
+            document.getElementById('sliderPara').innerHTML= descriptions[cnt];
+            cnt++;
+            console.log(cnt)
+            //setInterval(slider1(links,descriptions,linkt,cnt), 1000);
+            //console.log(links)
+            // var cnt= 0;
+            // var timer;
+            // cnt++;
+            // if(cnt == links.length)
+            //     cnt= 0;
+            // var slider= document.getElementById('slider');
+            // var val = "url(\'"+links[cnt]+"\')";
+            // //slider.style.backgroundImage= "url("+links[cnt]+")";
+            // document.getElementById('image1').src= links[cnt].split("\"")[1];
+            // document.getElementById('sliderHeader').innerHTML= linkt[cnt];  //or append?
+            // document.getElementById('sliderPara').innerHTML= descriptions[cnt];
+
+        }
+
+        function next(links,descriptions,linkt,cnt)
+        {
+            cnt++;
+            if(cnt == links.length)
+                cnt= 0;
+
+            console.log(links)
+            var slider= document.getElementById('slider');
+            slider.style.backgroundImage= "url("+links[cnt]+")";
+            document.getElementById('sliderHeader').innerHTML= linkt[cnt];
+            document.getElementById('sliderPara').innerHTML= descriptions[cnt];
+        }
+
+        function prev(links,descriptions,linkt,cnt)
+        {
+            cnt--;
+            if(cnt == -1)
+                cnt= links.length-1;
+
+            var slider= document.getElementById('slider');
+            slider.style.backgroundImage= "url("+links[cnt]+")";
+            document.getElementById('sliderHeader').innerHTML= linkt[cnt];
+            document.getElementById('sliderPara').innerHTML= descriptions[cnt];
+        }
+        //setInterval(getlink, 10000)
+        //setInterval(getlink, 30000)
+    </script>
+</html>
