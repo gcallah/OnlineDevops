@@ -114,6 +114,7 @@
                 var links= [];
                 var descriptions = [];
                 var linkt = [];
+                var imageLins = [];
                 var cnt= 0;
                 $(xml).find('item').each(function()
                 {
@@ -125,25 +126,17 @@
                         var b = "<img " +a+"/>";
                         var link1 = a.split("=")[1];
                         links.push(link1);
-                        //console.log(link)
-                        //var src = title.match("\"(.*)\"")[1]
-                        //description.append(title.match("\"(.*)\"")[1])
                         var des =  content.match("<p>(.*)</p>")[1];
                         var link = content.match("<a(.*)</a>");
                         var des= des +"<br>" +"<a " +link[0];
                         descriptions.push(des);
                         linkt.push(linktitle);
                         var cnt =0 ;
-                        slider1(links,descriptions,linkt,cnt)
+                        var imagel = ((link[0].match("href=(.*)/\"")[0]).split("=")[1]).split("\"")[1];
+                        imageLins.push(imagel);
+                        slider1(links,descriptions,linkt,cnt,imageLins)
                     }
-                    //$('#footerText').append($("<img src=\"" +image+"\"/>"));
                 });
-                // for (var i=0;i<links.length;i++){
-                //   setTimeout(slider1(links,descriptions,linkt,i),3000)
-                //   slider1(links,descriptions,linkt,i)
-                // }
-                var cnt = 0;
-                setTimeout(slider1(links,descriptions,linkt,cnt),3000)
             },
             error: function(errorThrown)
             {
@@ -152,58 +145,22 @@
             });
         }
 
-        function slider1(links,descriptions,linkt,cnt)
+        function slider1(links,descriptions,linkt,cnt,imageLins)
         {
-          if(cnt >= links.length) {
-                cnt = 0;
-            }
 
-            document.getElementById('image1').src= links[cnt].split("\"")[1];
-            document.getElementById('sliderHeader').innerHTML= linkt[cnt];  //or append?
-            document.getElementById('sliderPara').innerHTML= descriptions[cnt];
-            cnt++;
-            console.log(cnt)
-            //setInterval(slider1(links,descriptions,linkt,cnt), 1000);
-            //console.log(links)
-            // var cnt= 0;
-            // var timer;
-            // cnt++;
-            // if(cnt == links.length)
-            //     cnt= 0;
-            // var slider= document.getElementById('slider');
-            // var val = "url(\'"+links[cnt]+"\')";
-            // //slider.style.backgroundImage= "url("+links[cnt]+")";
-            // document.getElementById('image1').src= links[cnt].split("\"")[1];
-            // document.getElementById('sliderHeader').innerHTML= linkt[cnt];  //or append?
-            // document.getElementById('sliderPara').innerHTML= descriptions[cnt];
-
+            let timerId = setTimeout(function tick() {
+              if(cnt >= links.length) {
+                    cnt = 0;
+                }
+              document.getElementById('image1').src= links[cnt].split("\"")[1];
+              document.getElementById('sliderHeader').innerHTML= linkt[cnt];  //or append?
+              document.getElementById('sliderPara').innerHTML= descriptions[cnt];
+              document.getElementById('imageLink').href= imageLins[cnt];
+              cnt++;
+              timerId = setTimeout(tick, 5000);
+            }, 1000);
         }
 
-        function next(links,descriptions,linkt,cnt)
-        {
-            cnt++;
-            if(cnt == links.length)
-                cnt= 0;
-
-            console.log(links)
-            var slider= document.getElementById('slider');
-            slider.style.backgroundImage= "url("+links[cnt]+")";
-            document.getElementById('sliderHeader').innerHTML= linkt[cnt];
-            document.getElementById('sliderPara').innerHTML= descriptions[cnt];
         }
-
-        function prev(links,descriptions,linkt,cnt)
-        {
-            cnt--;
-            if(cnt == -1)
-                cnt= links.length-1;
-
-            var slider= document.getElementById('slider');
-            slider.style.backgroundImage= "url("+links[cnt]+")";
-            document.getElementById('sliderHeader').innerHTML= linkt[cnt];
-            document.getElementById('sliderPara').innerHTML= descriptions[cnt];
-        }
-        //setInterval(getlink, 10000)
-        //setInterval(getlink, 30000)
     </script>
 </html>
