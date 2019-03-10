@@ -255,6 +255,31 @@
                     storage utilization. Native integration with existing
                     CI/CD pipelines enables quick integration in existing
                     projects and production code.
+                    <br/>
+                    <br/>
+                    Steps to use Azure Artifacts with YAML (Python - PyPi)
+                    <ol class="inner_nested">
+                        <li>
+                            Install twine<br/>
+                            <code style="background-color:black;color:white;margin-left:inherit;">- script: 'pip install twine'</code>
+                        </li>
+                        <li>
+                            Authenticate Azure Artifacts with Twine<br/>
+                            To authenticate twine, we must add the following snippet to our <i>azure-pipelines.yml</i> file<br/>
+                            <code style="background-color:black;color:white;margin-left:inherit;">
+                                - task: TwineAuthenticate@0
+                                  inputs:
+                                    artifactFeeds: 'feed_name1, feed_name2'
+                                    externalFeeds: 'feed_name1, feed_name2'
+                            </code>
+                            Note: <i>artifactFeeds</i> should contain the name of Azure Artifacts feeds within your organization and <i>externalFeeds</i> should contain one or more connection endpoints including PyPi or other feeds in the organization where the latest package is required to be pushed
+                        </li>
+                        <li>
+                            
+                        </li>
+                    </ol>
+
+
                 </li>
 
                 <li>
