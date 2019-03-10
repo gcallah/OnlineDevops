@@ -24,14 +24,19 @@
                 <br>
 
             </p>
+            <h4>What is Software supply chain?</h4>
+            <p> 
+                A software supply chain extends the notion of a supply chain to software and system delivery. There are several steps from the point a developer commits a piece of code to a software actually shipped to end user. These steps usually includes <br>
+            </p>
+                <h5><center>Code commit—> Test—> Build —> Package—> Ship</center></h5><br>
             <p>
-                A tool which does the job of securing the DevOps Toolchain : <B>In-Toto</B>
-                <br>
-
-                Please watch the following video:
+                At each steps several tools are used to mange the tasks. For example Git is used for version control, Gradle / maven are used as build tools etc.
             </p>
 
-            <figure>
+            <p>
+                Please watch the following video:
+
+                <figure>
                 <iframe width="560" height="315"
                     src="https://www.youtube.com/embed/kk940TesxNY"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
@@ -47,6 +52,43 @@
                 Details on Santiago's project
                 <a href="https://in-toto.github.io">
                     are here</a>.
+            </p>
+            </p>
+
+
+            <h4>Why do we need to secure software supply chain?</h4>
+            <p> 
+                Each step in the supply chain is a point of vulnerability which could be exploited by the hackers to infect the software. For example <br>
+            </p>
+            <p>
+                <li>Version control: there could be commits in the version control by unauthorized entity.</li>
+                <li>Test cases: certain test cases my be exploited to refrain the system from ensuring the security of software</li>
+                <li>Package: An unauthorized entity could package the older version of code. This could refrain millions of users from getting the latest patch of security update that was actually committed by the developer.</li>
+            </p>
+
+
+            <h4>How to protect software supply chain?</h4>
+            <p> 
+                There are several mechanism available to protect each aspect of software supply chain. For example:<br>
+            </p>
+            <p>
+                <li>We can enable signed commits for version control. By doing so so other people can verify that your work comes from a trusted source.</li>
+                <li>Packages should also be signed, should have expiration dates etc to maintain the authenticity of the package</li>
+            </p>
+            <p>
+              
+              Below are some good articles on securing the software supply chain.<br><br>
+
+              
+              <a href="https://techbeacon.com/devops/how-secure-your-software-supply-chain"> How to secure your software supply chain.</a><br><br>
+              
+              <a href="https://help.github.com/en/articles/about-commit-signature-verification"> Commit signature verification on Github.</a><br><br>
+              
+              Although parts of the supply chain pipeline could be secured but to completely eliminate the threat we need to secure the complete software supply chain.<br><br>
+
+              As one rightly said “The chain is as strongest as its' weakest link." <br><br>
+
+              This is where In-Toto help us.<br>
             </p>
 
         </details>
