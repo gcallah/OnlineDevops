@@ -261,21 +261,17 @@
                     <ol class="inner_nested">
                         <li>
                             Install twine<br/>
-                            <code style="background-color:black;color:white;margin-left:inherit;">- script: 'pip install twine'</code>
+                            <script src="https://gist.github.com/shaivaldalal/be1245b268d15c9f2c4794bd83839298.js"></script>
                         </li>
                         <li>
                             Authenticate Azure Artifacts with Twine<br/>
                             To authenticate twine, we must add the following snippet to our <i>azure-pipelines.yml</i> file<br/>
-                            <code style="background-color:black;color:white;margin-left:inherit;">
-                                - task: TwineAuthenticate@0
-                                  inputs:
-                                    artifactFeeds: 'feed_name1, feed_name2'
-                                    externalFeeds: 'feed_name1, feed_name2'
-                            </code>
+                            <script src="https://gist.github.com/shaivaldalal/f32577bd710d24c860b278ad33d19469.js"></script>
                             Note: <i>artifactFeeds</i> should contain the name of Azure Artifacts feeds within your organization and <i>externalFeeds</i> should contain one or more connection endpoints including PyPi or other feeds in the organization where the latest package is required to be pushed
                         </li>
                         <li>
-                            
+                            Use custom twine tasks to publish
+                            <script src="https://gist.github.com/shaivaldalal/7029ab441b55b2f607388caa92ce71e0.js"></script>
                         </li>
                     </ol>
 
