@@ -272,6 +272,37 @@
             <summary class="sum1">
                 Lesson 3: Getting started with In-Toto
             </summary>
+                <h4>What is In-Toto ?</h4>
+              <p> 
+                A software supply chain is the series of steps performed when writing, testing, packaging, and distributing software. A typical software supply chain is composed of multiple steps "chained" together that transform (e.g., compilation) or verify the state (e.g., linting) of the project in order to drive it to a final product.<br>
+              </p>
+              <p>
+                in-Toto is designed to ensure the integrity of a software product from initiation to end-user installation. It does so by making it transparent to the user what steps were performed, by whom and in what order. As a result, with some guidance from the group creating the software, in-toto allows the user to verify if a step in the supply chain was intended to be performed, and if the step was performed by the right actor.
+              </p>
+
+              <h4>Setting up in-Toto</h4>
+            <p> 
+                <a href="https://github.com/in-toto/demo">Here</a> is the link to in-Toto demo page. The documentation is a step by step guide to show how a software supply chain could be secured using in-Toto plugin. Here is a brief description of what in-Toto does.<br><br>
+
+                Consider there are 3 people, Alice (Project owner), Bob (developer), Carl (Packages the product).<br><br>
+
+                In this software supply chain layout, we have Alice, who is the project owner that creates the layout using her private Key, Bob, who clones the project's repo and performs some pre-packaging editing (update version number), and Carl, who uses tar to package the project sources into a tarball, which together with the in-toto metadata composes the final product that will eventually be installed and verified by the end user. All of them have their own RSA Keys.
+                <br><br>
+
+                Every time anyone makes a change it gets stored in metadata and user signs it with their respective keys. In the end when product is ready to be shipped in-Toto checks for the authenticity of the product. It considers the following parameters:<br>
+            </p>
+            <p>
+                <li>the layout has not expired</li>
+                <li>was signed with Alice’s private key,and that according to the definitions in the layout.</li>
+                <li>each step was performed and signed by the authorized functionary</li>
+                <li>the recorded materials and products follow the artifact rules</li>
+                <li>the inspection untar finds what it expects.</li>
+            </p>
+            <p>
+              <br>
+              Now consider carl makes some change to the source code before packaging the software. In this case the verification check will fail as carl was not authorized to change any file but was only authorized to package the software defined in project layout.              
+            </p>
+
 
         </details>
 
