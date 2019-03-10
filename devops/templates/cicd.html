@@ -121,14 +121,17 @@
                                     Install JAVA if you don't already have it !
                                 </li>
                                 <li>
-                                    Install Git if you dont already have it!
+                                    Install Git if you don't already have it!
+                                </li>
+                                <li>
+                                    Install Docker (optional)
                                 </li>
                                 <li>
                                     Create a git repo to test the demo. It should consist of:
-                                    <ul class = "nested">
-                                        <li>Readme.md</li>
-                                        <li>Jenkinsfile</li>
-                                    </ul>        
+                                    <ul class="nested">
+                                        <p>Readme.md</p>
+                                        <p>Jenkinsfile</p>
+                                    </ul>
                                 </li>
                         </ul>
                 </details>
@@ -136,6 +139,49 @@
                         <summary class="sum2">
                             Install and initialize Jenkins
                         </summary>
+                        <p>
+                            Jenkins can be installed on various platforms and operating systems. For this demonstration we are using
+                            Docker to install Jenkins.
+                        </p>
+                        <p>
+                            There are several Docker images of Jenkins available. The recommended Docker image to use is the jenkinsci/blueocean
+                            image (from the Docker Hub repository). This image contains the current Long-Term Support (LTS) release of Jenkins
+                            (which is production-ready) bundled with all Blue Ocean plugins and features.
+                        </p>
+
+                        <p>
+                            After downloading the jenkins image you can use below docker command to install and run jenkins on docker.
+                        </p>
+                        <p>
+                            <B>For macOS/Linux : </B> Open terminal and run the image as container in Docker using below command
+                            </br>
+                            <pre><code data-lang="bash">
+                                docker run \
+                                -u root \
+                                --rm \
+                                -d \
+                                -p 8080:8080 \
+                                -p 50000:50000 \
+                                -v jenkins-data:/var/jenkins_home \
+                                -v /var/run/docker.sock:/var/run/docker.sock \
+                                jenkinsci/blueocean
+                            </code></pre>
+                            </br>
+                        </p>
+                        <p>
+                            <B>For Windows : </B> Open command prompt and run below command
+                            <pre><code data-lang="bash">
+                                docker run ^
+                                -u root ^
+                                --rm ^
+                                -d ^
+                                -p 8080:8080 ^
+                                -p 50000:50000 ^
+                                -v jenkins-data:/var/jenkins_home ^
+                                -v /var/run/docker.sock:/var/run/docker.sock ^
+                                jenkinsci/blueocean
+                            </code></pre>
+                        </p>
                 </details> 
                 <details>
                         <summary class="sum2">
