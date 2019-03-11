@@ -264,18 +264,41 @@
                             <script src="https://gist.github.com/shaivaldalal/be1245b268d15c9f2c4794bd83839298.js"></script>
                         </li>
                         <li>
-                            Authenticate Azure Artifacts with Twine<br/>
-                            To authenticate twine, we must add the following snippet to our <i>azure-pipelines.yml</i> file<br/>
+                            Authenticate Azure Artifacts with Twine<br/> To
+                            authenticate twine, we must add the following
+                            snippet to our <i>azure-pipelines.yml</i>
+                            file<br/>
                             <script src="https://gist.github.com/shaivaldalal/f32577bd710d24c860b278ad33d19469.js"></script>
-                            Note: <i>artifactFeeds</i> should contain the name of Azure Artifacts feeds within your organization and <i>externalFeeds</i> should contain one or more connection endpoints including PyPi or other feeds in the organization where the latest package is required to be pushed
+                            Note: <i>artifactFeeds</i> should contain the name
+                            of Azure Artifacts feeds within your organization
+                            and <i>externalFeeds</i> should contain one or
+                            more connection endpoints including PyPi or other
+                            feeds in the organization where the latest package
+                            is required to be pushed
+                        
                         </li>
                         <li>
                             Use custom twine tasks to publish
                             <script src="https://gist.github.com/shaivaldalal/7029ab441b55b2f607388caa92ce71e0.js"></script>
                         </li>
                     </ol>
-
-
+                    <br/>
+                    Steps to use Azure Artifacts with YAML (NPM)
+                    <ol class="inner_nested">
+                        <li>
+                            Setting up the connection To publish to an
+                            external npm registry, a service connection must
+                            be created first. To do this, go to <i>Project
+                            Settings</i>-><i>Services</i>-><i>New Service
+                            Connection</i>. <br/> Select npm from the option
+                            and fill the registry URL and enter the
+                            credentials to connect.
+                        </li>
+                        <li>
+                            Publishing to NPM
+                            <script src="https://gist.github.com/shaivaldalal/ced1fa36bb004dd9429dcd7e0c6f36fb.js"></script>
+                        </li>
+                    </ol>
                 </li>
 
                 <li>
