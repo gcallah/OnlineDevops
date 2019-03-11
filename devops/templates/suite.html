@@ -460,6 +460,38 @@
                     architectures, tutorials, documentation, examples,
                     templates, partners, and other resources.
                 </li>
+
+                <li>
+                    <span class="hilight">
+                        Launching an Azure Web App for Containers
+                    </span>
+                    <br />
+                    Using Azure Piplelines it is possible to set up continuous
+                    deployment of a Docker enabled Azure Web Apps. Make the
+                    changes to your code, commit and push them, and it should
+                    automatically be built and deployed.
+                    <br>
+                    <br>
+                    To get started, first create an Azure Conatainer Registry(ACR).
+                    The ACR will be used for storing your images including
+                    authentication, encryption and tagging. 
+                    <br>
+                    You will need to provide the regitry name, subsription,
+                    resource group, location of where the registry will be
+                    located in Azure, and the SKU.
+                    <br>
+                    <br>
+                    Build and Push the images
+                    <br>
+
+                    <ol class="inner_nested">
+                      <li>Get the access keys for the container registry created in the previous step</li>
+                      <li>Using the access key, login to the ACR</li>
+                      <li>Navigate to the directory with the code repository and create the Docker image</li>
+                      <li>Push the image to ACR</li>
+                    </ol>
+                 
+                </li>
             </ol>
 
         </details>
