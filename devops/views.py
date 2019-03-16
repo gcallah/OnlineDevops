@@ -64,9 +64,10 @@ def get_pg_w_quiz(request, mod_nm):
     # :param: mod_nm
     # :return: header, list() containing randomized questions, mod_nm
     try:
+        rand_qs = []
         questions = Question.objects.filter(module=mod_nm)
         num_questions = questions.count()
-        rand_qs = []
+
         num_qs_to_randomize = DEF_NUM_RAND_QS
 
         if num_questions > 0:
@@ -88,9 +89,14 @@ def get_pg_w_quiz(request, mod_nm):
 
         # And if we crashed along the way - we crash gracefully...
     except Exception as e:
-        return HttpResponseServerError(e.__cause__,
-                                       e.__context__,
-                                       e.__traceback__)
+        #
+        # return HttpResponseServerError(e.__cause__,
+        #                                e.__context__,
+        #                                e.__traceback__)
+        # commented exception, so that site does not crash when db connection is not working
+        return render(request, get_filenm(mod_nm),
+                      {'header': site_hdr, 'questions': rand_qs,
+                       'mod_nm': mod_nm})
 
 
 def index(request: request) -> object:
