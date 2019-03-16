@@ -255,9 +255,20 @@
                             The user can select repositories where the user is
                             an administrator
                         </li>
-                        Once a connection is made, Azure will link GitHub pull
-                        and push requests with work orders on the platform
                     </ol>
+                    <i>Note</i>
+                    <br/>
+                    Once a connection is made, Azure will link GitHub pull
+                    and push requests with work orders on the platform.
+                    <br/>
+                    Subsequent commit messages can include <i>AB#</i>
+                    followed by the work item ID. E.g.: AB#125 will record
+                    updates to work item with ID 125. Azure recognizes
+                    <i>fix, fixes, and fixed</i> as keywords to close an
+                    issue which are subsequently moved to the "Done"
+                    section of the Board.<br/> Additional examples can be
+                    found <a href="https://docs.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github?view=azure-devops#use-ab-mention-to-link-from-github-commits-and-pull-requests"
+                    target="_blank" style="text-decoration: underline">here</a>
                 </li>
 
                 <li>
