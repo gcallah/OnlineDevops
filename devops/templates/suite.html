@@ -236,8 +236,8 @@
                     product backlog. This feature, when coupled with Scrum and
                     Kanban boards, can dramatically improve productivity and
                     ease the workflow.
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     Steps to integrate Azure Boards with GitHub
                     <ol class="inner_nested">
                         <li>
@@ -257,16 +257,16 @@
                         </li>
                     </ol>
                     <i>Note</i>
-                    <br/>
+                    <br />
                     Once a connection is made, Azure will link GitHub pull
                     and push requests with work orders on the platform.
-                    <br/>
+                    <br />
                     Subsequent commit messages can include <i>AB#</i>
                     followed by the work item ID. E.g.: AB#125 will record
                     updates to work item with ID 125. Azure recognizes
                     <i>fix, fixes, and fixed</i> as keywords to close an
                     issue which are subsequently moved to the "Done"
-                    section of the Board.<br/> Additional examples can be
+                    section of the Board.<br /> Additional examples can be
                     found <a href="https://docs.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github?view=azure-devops#use-ab-mention-to-link-from-github-commits-and-pull-requests"
                     target="_blank" style="text-decoration: underline">here</a>
                 </li>
@@ -288,12 +288,12 @@
                     storage utilization. Native integration with existing
                     CI/CD pipelines enables quick integration in existing
                     projects and production code.
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     Steps to use Azure Artifacts with YAML (Python - PyPi)
                     <ol class="inner_nested">
                         <li>
-                            Install twine<br/>
+                            Install twine<br />
                             <script src="https://gist.github.com/shaivaldalal/be1245b268d15c9f2c4794bd83839298.js"></script>
                             <!--
                             <code style="background-color:black;color:white;margin-left:inherit;">- script: 'pip install twine'</code>
@@ -301,10 +301,10 @@
 
                         </li>
                         <li>
-                            Authenticate Azure Artifacts with Twine<br/> To
+                            Authenticate Azure Artifacts with Twine<br /> To
                             authenticate twine, we must add the following
                             snippet to our <i>azure-pipelines.yml</i>
-                            file<br/>
+                            file<br />
                             <script src="https://gist.github.com/shaivaldalal/f32577bd710d24c860b278ad33d19469.js"></script>
                             <!--
                             <code style="background-color:black;color:white;margin-left:inherit;">
@@ -332,7 +332,7 @@
                             -->
                         </li>
                     </ol>
-                    <br/>
+                    <br />
                     Steps to use Azure Artifacts with YAML (NPM)
                     <ol class="inner_nested">
                         <li>
@@ -340,7 +340,7 @@
                             external npm registry, a service connection must
                             be created first. To do this, go to <i>Project
                             Settings</i>-><i>Services</i>-><i>New Service
-                            Connection</i>. <br/> Select npm from the option
+                            Connection</i>. <br /> Select npm from the option
                             and fill the registry URL and enter the
                             credentials to connect.
                         </li>
@@ -393,10 +393,10 @@
                     artifacts. You also define a release pipeline to consume
                     and deploy those artifacts to deployment targets.
 
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     Steps to Use Azure Pipelines with YAML
-                    <br>
+                    <br />
                     You can configure your pipelines in a YAML file that
                     exists alongside your code.
                     <ol class="inner_nested">
@@ -409,16 +409,36 @@
                       <li>Your code is now updated, built, tested, and packaged.
                       It can be deployed to any target.</li>
                     </ol>
-                    <br>
+                    <br />
                     Use Azure Pipelines in the visual designer
-                    <br>
-                    You can create and configure your build and release pipelines in the Azure DevOps Services web portal with the visual designer.
-                    <ol class="inner_nested">
-                      <li>Configure Azure Pipelines to use your Git repo.</li>
-                      <li>Use the Azure Pipelines visual designer to create and configure your build and release pipelines.</li>
-                      <li>Push your code to your version control repository. This action triggers your pipeline and runs tasks such as building or testing code.</li>
-                      <li>The build creates an artifact that's used by the rest of your pipeline to run tasks such as deploying to staging or production.</li>
-                      <li>Your code is now updated, built, tested, and packaged. It can be deployed to any target.</li>
+                    <br />
+                    You can create and configure your build and release
+                    pipelines in the Azure DevOps Services web portal with the
+                    visual designer.
+
+                    <ol class="inner_nested">                    
+                    	<li>
+                    		Configure Azure Pipelines to use your Git
+                    		repo.
+                    	</li>
+                    	<li>
+                    		Use the Azure Pipelines visual designer to create
+                    		and configure your build and release pipelines.
+                    	</li>
+                    	<li>
+                    		Push your code to your version control repository.
+                    		This action triggers your pipeline and runs tasks such
+                    		as  building or testing code.
+                    	</li>
+                    	<li>
+                    		The build creates an artifact that's used by the
+                    		rest of your pipeline to run tasks such as deploying to
+                    		staging or production.
+                    	</li>
+                    	<li>
+                    		Your code is now updated, built, tested, and
+                    		packaged. It can be deployed to any target.
+                    	</li>                  
                     </ol>
                 </li>
 
@@ -435,8 +455,8 @@
                     the means of  variables, and classes. CI/CD pipelines can
                     be set to build on code changes and using branch policies,
                     builds can be checked for quality automatically.
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     Azure Repos offers cloud-hosted private and public Git repos.
                     It offers collaborative code reviews to improve the quality
                     of the code and increase the knowledge of the code base
@@ -458,8 +478,8 @@
                     web and desktop apps. Through the testing process, it
                     collects rich scenario data to enable easier diagnosis of
                     issues.
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     Azure Test Plans provide browser-based planned manual and
                     exploratory testing solutions. Kanban boards are used to
                     add, view, interact with test cases and progressively
@@ -503,42 +523,46 @@
                     deployment of a Docker enabled Azure Web Apps. Make the
                     changes to your code, commit and push them, and it should
                     automatically be built and deployed.
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     To get started, first create an Azure Conatainer Registry(ACR).
                     The ACR will be used for storing your images including
                     authentication, encryption and tagging.
-                    <br>
+                    <br />
                     You will need to provide the regitry name, subsription,
                     resource group, location of where the registry will be
                     located in Azure, and the SKU.
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     Build and Push the images
-                    <br>
+                    <br />
 
                     <ol class="inner_nested">
                       <li>Get the access keys for the container registry created in the previous step</li>
                       <li>Using the access key, login to the ACR
-                      <br> <br>
+                      <br /> 
+                      <br />
                       <img src="../static/devops/docker_login.png" style="width:50%;"></li>
                       <li>Navigate to the directory with the code repository and create the Docker image
-                      <br> <br>
+                      <br /> 
+                      <br />
                       <img src="../static/devops/docker_build.png" style="width:50%;"></li>
                       <li>Push the image to ACR
-                      <br> <br>
+                      <br /> 
+                      <br />
                       <img src="../static/devops/docker_push.png" style="width:50%;"></li>
                     </ol>
 
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     Create Web App for Container Service
-                    <br>
-                    Create the resource Web App for Conatiners. You will need to provide App name,
-                    Subscription, Resource Group, the OS, and the Container.When you click “Create”,
-                    the process of deploying the application begins. The Azure Web App Service will
-                    deploy all of the requirements like the hostname, ssl and firewall.
-
+                    <br />
+                    Create the resource Web App for Conatiners. You will need
+                    to provide App name, Subscription, Resource Group, the OS,
+                    and the Container.When you click “Create”, the process of
+                    deploying the application begins. The Azure Web App
+                    Service will deploy all of the requirements like the
+                    hostname, ssl and firewall
                 </li>
             </ol>
 
@@ -559,13 +583,24 @@
                         Azure Container Registry
                     </span>
                     <br />
-                    An Azure container registry is a private Docker registry in Azure where you
-                    can store and manage your private Docker container images.
-                    <br/>
-                    <br/>
-                    <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal">
-                    Steps to create Azure Container Registry
-                    </a>
+                    An Azure container registry is a private Docker registry
+                    in Azure where you can store and manage your private
+                    Docker container images.
+                    <br />
+                    <ul>
+                    	<li>
+                    		<a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal" target="_blank" style="text-decoration: underline">
+                    			Steps to create Azure Container Registry using Portal
+                    		</a>
+                    	</li>
+                    	<li>
+                    		<a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli" target="_blank" style="text-decoration: underline">
+                    			Steps to create Azure Container Registry using CLI
+                    		</a>
+                    		<br />
+                    		Instructions to install the CLI binary can be found <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest" target="_blank" style="text-decoration: underline">here</a>
+                    	</li>
+                    </ul>
                 </li>
 
                 <li>
@@ -573,9 +608,10 @@
                         Connecting Dockerhub with external service
                     </span>
                     <br />
-                    A docker hub repository can be configured via webhooks to make it an event driven service. As soon as any chnges is made to the repository the URL will be called.
-
-                    <br/>
+                    A docker hub repository can be configured via webhooks to
+                    make it an event driven service. As soon as any chnges is
+                    made to the repository the URL will be called.
+                    <br />
                     <img src="../static/devops/dockerhubwebhook.png" style="width:60%;">
                 </li>
             </ol>
