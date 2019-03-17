@@ -445,6 +445,58 @@
 
         </details>
 
+        <details>
+            <summary class="sum1">
+                Lesson 4: Securing passwords and secrets in Git (or any other shared repository)
+            </summary>
+            <p>
+                <B>Overview</B>
+                <br>
+                What happens when only few members of a team sharing a Git repo require passwords or keys to access sensitive files or services?
+                It becomes inefficient to share these passwords personally or individually. Storing them openly in Git is not feasible as well, as every member sharing their repo will then gain access to these items. <br>
+                To deal with this issue several libraries are available that encrypt these passowrds when pushing them onto git and only authorized people will be able to decrypt it. One of these libraries are git-crypt.
+
+            </p>
+            <h4>Setting up and Using Git-crypt</h4>
+            <p> 
+                Setup git-crypt from this link:
+                <a href="https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.6.0.tar.gz">https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.6.0.tar.gz</a>
+             </p>   
+             <p>
+               Then run the following: <br>
+               <code><i>cd git-crypt-0.6.0</i></code><br>
+               <code><i>make</i></code><br>
+               <code><i>make install</i></code><br>
+             </p>
+             <p>
+              Running git-crypt in a git repo<br>
+              <code><i>cd repo</i></code><br>
+              <code><i>git-crypt init</i></code><br><br>
+           
+              Specify files to encrypt by creating a .gitattributes file in the repository, with content like this:<br>
+
+              <code><i>secretFileName filter=git-crypt diff=git-crypt</i></code><br>
+              <code><i>*.key filter=git-crypt diff=git-crypt</i></code><br>
+            </p>
+            <p>
+              To encrypt a repo with your own key<br>
+              <code><i>git-crypt export-key /path/to/keyfile</i></code><br>
+
+              After cloning a repository with encrypted files, unlock with<br>
+              <code><i>git-crypt unlock /path/to/keyfile</i></code><br><br>
+  
+              For more detailed information:
+              <a href=" https://www.agwa.name/projects/git-crypt/"> https://www.agwa.name/projects/git-crypt/</a>
+             
+            </p>
+
+            
+            <p>
+              
+            </p>
+
+        </details>
+
         {% include 'quiz.html' %}
 
 
