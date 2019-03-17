@@ -109,7 +109,7 @@
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 async :false,
-                url: "https://cors.io/?https://bit.ly/2tPgzE5",
+                url: "https://cors.io/?https://bit.ly/2TJTW3e",
                 // url : https://cors.io/?http://devops.com/feed
                 dataType: "xml",
                 success: function(xml) {
@@ -142,7 +142,7 @@
             },
             error: function(errorThrown)
             {
-                alert(JSON.stringify(errorThrown));
+                document.getElementById('sliderHeader').innerHTML= "Refresh page to load the RSS feed";
             },
             });
         }
