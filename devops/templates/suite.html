@@ -527,42 +527,55 @@
                     <br />
                     To get started, first create an Azure Container Registry(ACR).
                     The ACR will be used for storing your images including
-                    authentication, encryption and tagging.
-                    <br />
-                    You will need to provide the registry name, subscription,
-                    resource group, location of where the registry will be
-                    located in Azure, and the SKU.
+                    authentication, encryption and tagging.You will need to provide
+                    the registry name, subscription, resource group, location of where
+                    the registry will be located in Azure, and the SKU.
                     <br />
                     <br />
-                    Build and Push the images
+                    <span class = "hilight">
+                        Build and Push the images
+                    </span>
                     <br />
 
                     <ol class="inner_nested">
-                      <li>Get the access keys for the container registry created in the previous step</li>
-                      <li>Using the access key, login to the ACR
-                      <br />
-                      <br />
-                      <img src="../static/devops/docker_login.png" style="width:50%;"></li>
-                      <li>Navigate to the directory with the code repository and create the Docker image
-                      <br />
-                      <br />
-                      <img src="../static/devops/docker_build.png" style="width:50%;"></li>
-                      <li>Push the image to ACR
-                      <br />
-                      <br />
-                      <img src="../static/devops/docker_push.png" style="width:50%;"></li>
+                        <li>Get the access keys for the container registry created in the previous step</li>
+                        <li>Using the access key, login to the ACR
+                        <br />
+                        <br />
+                        <img src="../static/devops/docker_login.png" style="width:50%;"></li>
+                        <li>Navigate to the directory with the code repository and create the Docker image
+                        <br />
+                        <br />
+                        <img src="../static/devops/docker_build.png" style="width:50%;"></li>
+                        <li>Push the image to ACR
+                        <br />
+                        <br />
+                        <img src="../static/devops/docker_push.png" style="width:50%;">
+                        <br />
+                        <br />
+                        The container should be added to the registry. To confirm use the <code>docker images</code>
+                        command.
+                        <br />
+                        <br />
+                        <img src="../static/devops/docker_images.png" style="width:50%;"></li>
                     </ol>
 
                     <br />
                     <br />
-                    Create Web App for Container Service
+                    <span class="hilight">
+                        Create Web App for Container Service
+                    </span>
                     <br />
-                    Create the resource Web App for Containers. You will need
-                    to provide App name, Subscription, Resource Group, the OS,
-                    and the Container.When you click “Create”, the process of
-                    deploying the application begins. The Azure Web App
-                    Service will deploy all of the requirements like the
-                    host name, SSL and firewall
+                    Create the resource <code> Web App for Containers</code>. It 
+                    allows you to deploy the container to production. You will need
+                    to provide the App name, Subscription, Resource Group, the OS,
+                    and the Container. It will take the container and provide the
+                    necessities like the Domain Name and SSL/TLS Encryption. 
+                    <br/>
+                    <br/>
+                    When you click <code> Create</code>, the process of deploying the application
+                    begins. The Azure Web App Service will deploy all of the requirements
+                    like the hostname, SSL and firewall.
                 </li>
             </ol>
 
@@ -632,8 +645,8 @@
                     </span>
                     <br />
                     A docker hub repository can be configured via webhooks to
-                    make it an event driven service. As soon as any changes is
-                    made to the repository the URL will be called.
+                    make it an event driven service. As soon as any changes are
+                    made to the repository, the URL will be called.
                     <br />
                     <img src="../static/devops/dockerhubwebhook.png" style="width:60%;">
                 </li>
