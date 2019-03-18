@@ -1,0 +1,174 @@
+1.  Lean and agile development displaced the ____ model of development?
+
+a. unicorn
+b. silo
+c. all-at-once
+d. waterfall
+
+2.  We develop incrementally because it....?
+
+a. increases programmer satisfaction
+b. produces less buggy software
+c. delivers value to the customers faster
+d. all of the above
+
+3.  Version control is an important part of incremental development because...?
+
+a. it allows us to roll back changes easily
+b. it permits auditors to see how much work has been done
+c. "if you don't know your past you won't know your future."
+d. all of the above
+
+4.  We want to automate our builds because...?
+
+a. it reduces errors
+b. it documents the build process
+c. it allows engineers to do more interesting work
+d. all of the above
+
+5.  An advantage of documenting a process by automating it versus writing a document about how it is done is that...?
+
+a. scripts are easier to read than prose
+b. it gives programmers an edge over tech writers in producing the documentation
+c. the script can't be out of date with the process, while a text description can be
+d. all of the above
+
+6.  We want to regard our infrastructure as software because...?
+
+a. that is what Bill Gates would do
+b. that allows us to automate that provisioning of infrastructure
+c. software is cool, while hardware is not
+d. all of the above
+
+7.  Containers can best be conceived as...?
+
+a. a new sort of thread
+b. a different way to test software
+c. lightweight virtual machines
+d. all of the above
+
+8.  The division of labor is cited by Adam Smith as...?
+
+a. increasing productivity
+b. decreasing productivity
+c. make workers smarter
+d. making jobs more enjoyable
+
+9.  One of the reasons the Waterfall Model often fails is...?
+
+a. not enough advanced planning
+b. the stages are not separated clearly enough in the model
+c. we often only realize what software we need to build in the process of building it
+d. none of the above
+
+10.  The DevOps idea of incremental development can be seen as an extension of...?
+
+a. monolithic mainframe applications
+b. the UNIX style of development
+c. an all-at-once development style
+d. all of the above
+
+11.  When we set out to develop software, we...?
+
+a. usually know all we need to know at the start
+b. can easily plan everything in advance
+c. should lock down all requirements right away
+d. rarely know all we need to know at the start
+
+12.  In software engineering, "MVP" stands for...?
+
+a. minimum viable product
+b. maximum value produced
+c. major vehicle production
+d. none of the above
+
+13.  In the Lean paradigm of development, decisions about the product should be made...?
+
+a. right at the start
+b. as soon as possible
+c. as late as possible
+d. none of the above
+
+14.  The term "DevOps" was created by combining the terms...?
+
+a. development and operations
+b. deviance and opacity
+c. devilish and operatic
+d. none of the above
+
+15.  DevOps can be understood as the need for _____ to keep up with ______ development practices.
+
+a. Lean and Agile, operations
+b. development, Lean and Agile
+c. development, operations
+d. operations, Lean and Agile
+
+16.  The advantages of incremental development include...?
+
+a. value is delivered to customers more rapidly
+b. testing becomes easier
+c. programmer job satisfaction increases
+d. all of the above
+
+17.  Automated testing is an important part of DevOps because...?
+
+a. It enables rapid deployment of new software
+b. "Automated" has a nice sound to it
+c. It saves money in hiring testers.
+d. none of the above
+
+18.  Testing should be done on...?
+
+a. only the most crucial code in the application
+b. all of the application code
+c. all of the application code AND all of the infrastructure code
+d. none of the above
+
+19.  In DevOps, "silos" refers to the fact that...?
+
+a. departments in organizations often seemed sealed off from each other
+b. good software should be divided into "silos"
+c. granaries are major users of software
+d. all of the above
+
+20.  We want to script our environment so that...?
+
+a. environments are always in a known state
+b. we lessen the chance that knowledge is locked in team members' heads
+c. deployments are more predictable and repeatable
+d. all of the above
+
+21.  "Chaos Monkey" is...?
+
+a. a tool Netflix developed to intentionally crash their servers
+b. a description of who is in charge of most software projects
+c. the state of infrastructure before DevOps
+d. none of the above
+
+22.  The right artifacts of a project to put under version control are...?
+
+a. project source code
+b. scripts to build the project infrastructure
+c. project documentation
+d. all of the above
+
+23.  If we version control everything about our project, we...?
+
+a. create a big mess no one could understand
+b. waste a lot of time
+c. establish a single source of truth for the system
+d. clog our version control system with trivial stuff
+
+24.  Who should have "ownership" (be able to change) parts of a product in an agile team?
+
+a. only the creator of that part
+b. anyone on the team
+c. only the project supervisor
+d. only the system administrator
+
+25.  A poly-skilled engineer
+
+a. graduated from NYU Poly
+b. knows several languages
+c. knows all parts of the technology their team uses
+d. all of the above
