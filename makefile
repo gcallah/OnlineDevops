@@ -30,7 +30,7 @@ dev_container: $(DOCKER_DIR)/Dockerfile $(DOCKER_DIR)/requirements.txt $(DOCKER_
 	docker push $(DH_ACCOUNT)/$(LOWER_REPO)-dev:latest
 
 prod_container: $(DOCKER_DIR)/Deployable $(DOCKER_DIR)/requirements.txt
-	docker build -t $(DH_ACCOUNT)/$(REPO) $(DOCKER_DIR) --no-cache --build-arg repo=$(REPO) -f $(DOCKER_DIR)/requirements.txt
+	docker build -t $(DH_ACCOUNT)/$(REPO) $(DOCKER_DIR) --no-cache --build-arg repo=$(REPO) -f $(DOCKER_DIR)/Deployable
 
 # update our submodules:
 submods:
@@ -72,6 +72,8 @@ lint: $(patsubst %.py,%.pylint,$(PYTHONFILES))
 %.pylint:
 	$(PYLINT) $(PYLINTFLAGS) $*.py
 
+tests: html_tests django_tests lint
+
 # ways to extract questions from db for use in LMS:
 # to make a quiz for 'mod' set MOD=mod on the command line:
 quiz:
@@ -81,7 +83,7 @@ quiz:
 final_test:
 	$(UDIR)/qexport.py > quizzes/new_test.txt
 
-prod: $(SRCS) html_tests lint db django_tests
+prod: $(SRCS) tests db
 	-git commit -a
 	git push origin master
 	ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/$(REPO); /home/devopscourse/$(REPO)/rebuild.sh'

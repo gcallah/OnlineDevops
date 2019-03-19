@@ -1,0 +1,19 @@
+# Our YAML file for running Travis CI.
+language: python
+python:
+    - "3.6"
+
+services:
+    - docker
+
+install:
+    - pip install -r docker/requirements-dev.txt
+
+env:
+    - PYTHONPATH=/home/travis/build/gcallah/OnlineDevops
+
+script:
+    - make tests
+
+notifications:
+  slack: devopsnyu:vAFcJBgAP2f73SqhWgb40Gjf
