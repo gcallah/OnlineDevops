@@ -88,12 +88,13 @@ def get_pg_w_quiz(request, mod_nm):
                        'mod_nm': mod_nm})
 
         # And if we crashed along the way - we crash gracefully...
-    except Exception as e:
+    except Exception:
         #
         # return HttpResponseServerError(e.__cause__,
         #                                e.__context__,
         #                                e.__traceback__)
-        # commented exception, so that site does not crash when db connection is not working
+        # commented exception, so that site does not crash when
+        # db connection is not working
         return render(request, get_filenm(mod_nm),
                       {'header': site_hdr, 'questions': rand_qs,
                        'mod_nm': mod_nm})
