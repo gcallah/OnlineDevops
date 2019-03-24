@@ -527,7 +527,7 @@
                     it also provides direct integration with services like
                     Azure Virtual Machines, Azure SQL, Azure Container Service
                     and Kubernetes, and Azure Fabric. Tutorials for various
-                    programming languages are available 
+                    programming languages are available
                     <a href="https://docs.microsoft.com/en-us/azure/devops-project/" target="_blank" style="text-decoration: underline">here</a>
                 </li>
 
@@ -550,7 +550,7 @@
                     the registry will be located in Azure, and the SKU.
                     <br />
                     <br />
-                    
+
                     <strong><u>Build and Push the images</u>: </strong>
                     <br />
                     <ol class="inner_nested">
@@ -664,18 +664,18 @@
         					installation. Think <code>docker build</code>, <code>docker
         					push</code> in the cloud. Build from local source code or a
         					Git repository.
-        				</li> 
+        				</li>
         				<li>
         					<a >Build on source code commit</a>:
         					Trigger a container image build automatically when code is
         					committed to a Git repository.
-        				</li> 
+        				</li>
 
         				<li>
         					<a >Build on base
         					image update</a>: Trigger a container image build  when that
         					image's base image has been updated.
-        				</li> 
+        				</li>
         				<li><a >Multi-step
         				tasks</a> (preview): Define multi-step tasks that build
         				images, run containers as commands, and push images to a
@@ -696,6 +696,39 @@
         		repository, the URL will be called.
         		<br />
         		<img src="../static/devops/dockerhubwebhook.png" style="width:60%;">
+            <br/>
+            <br/>
+            Connecting dockerhub to AWS
+            <ul class="inner_nested">
+              <li>
+                Create a lambda function
+                <br/>
+                <img src="../static/devops/lambda.png" style="width:80%;">
+              </li>
+              <li>
+                Create an API Gateway.Make a post method in the API Gateway
+              </li>
+              <li>
+                Link the post method to the lambda functions
+                <br/>
+                <img src="../static/devops/apiGateway.png" style="width:80%;">
+              </li>
+              <li>
+                Deploy the API gateway and save the generated URL
+                <br/>
+                <img src="../static/devops/apiGatewayURL.png" style="width:80%;">
+              </li>
+              <li>
+                Now open Dockerhub repository and paste the URL in the webhook section.
+                <br/>
+                <img src="../static/devops/dockerhubAWSwebhook.png" style="width:80%;">
+              </li>
+              <li>
+                Any changes to the dockerhub repo will now be reported to the AWS Lambda function.Below is the log that gets generated in AWS when a push was made to the dockerhub repo
+                <br/>
+                <img src="../static/devops/awsLogs.png" style="width:80%;">
+              </li>
+          </ul>
         	</li>
         </ol>
     </details>
