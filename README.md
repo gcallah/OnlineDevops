@@ -1,4 +1,5 @@
-# OnlineDevops
-*Online DevOps course at NYU.*
+[![Build Status](https://travis-ci.com/gcallah/OnlineDevops.svg?branch=master)](https://travis-ci.com/gcallah/OnlineDevops)
 
-Go to https://devopscoursework.atlassian.net/ for the project backlog.
+# OnlineDevops
+Online DevOps course at NYU.
+
