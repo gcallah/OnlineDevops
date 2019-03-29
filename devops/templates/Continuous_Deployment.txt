@@ -1,3 +1,4 @@
-Continuous Deployment found in: 
-    devops/templates/gloss.html
-    devops/templates/work.html
+Continuous Deployment found in: <br>    devops/templates/cicd.html
+<br>    devops/templates/gloss.html
+<br>    devops/templates/work.html
+<br>

@@ -1,4 +1,7 @@
-repository found in: 
-    devops/templates/gloss.html
-    devops/templates/incr.html
-    devops/templates/infra.html
+repository found in: <br>    devops/templates/cicd.html
+<br>    devops/templates/gloss.html
+<br>    devops/templates/incr.html
+<br>    devops/templates/infra.html
+<br>    devops/templates/secur.html
+<br>    devops/templates/suite.html
+<br>

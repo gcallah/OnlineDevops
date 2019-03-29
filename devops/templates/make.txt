@@ -1,13 +1,15 @@
-make found in: 
-    devops/templates/basics.html
-    devops/templates/build.html
-    devops/templates/flow.html
-    devops/templates/gloss.html
-    devops/templates/incr.html
-    devops/templates/index.html
-    devops/templates/infra.html
-    devops/templates/no_quiz.html
-    devops/templates/secur.html
-    devops/templates/suite.html
-    devops/templates/test.html
-    devops/templates/work.html
+make found in: <br>    devops/templates/about.html
+<br>    devops/templates/basics.html
+<br>    devops/templates/build.html
+<br>    devops/templates/cicd.html
+<br>    devops/templates/flow.html
+<br>    devops/templates/gloss.html
+<br>    devops/templates/incr.html
+<br>    devops/templates/index.html
+<br>    devops/templates/infra.html
+<br>    devops/templates/no_quiz.html
+<br>    devops/templates/secur.html
+<br>    devops/templates/suite.html
+<br>    devops/templates/test.html
+<br>    devops/templates/work.html
+<br>
