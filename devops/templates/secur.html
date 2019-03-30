@@ -26,10 +26,12 @@
             </p>
             <h4>What is Software supply chain?</h4>
             <p> 
-                A software supply chain extends the notion of a supply chain to
-                software and system delivery. There are several steps from the
-                point a developer commits a piece of code to a software
-                actually shipped to end user. These steps usually includes:
+                A software supply chain extends the notion 
+                of a supply chain to software and system 
+                delivery. There are several steps from the
+                point a developer commits a piece of code 
+                to a software actually shipped to end user. 
+                These steps usually includes:
             </p>
 
             <p>
@@ -72,7 +74,7 @@
                 could be exploited by the hackers to infect the software. For
                 example:
             </p>
-            <ul class="nested">
+            <p>
                 <li>Version control: there could be commits in the version
                     control by unauthorized entity.</li>
                 <li>Test cases: certain test cases my be exploited to refrain
@@ -81,29 +83,39 @@
                     version of code. This could refrain millions of users from
                     getting the latest patch of security update that was
                 actually committed by the developer.</li>
-            </ul>
+            </p>
 
 
             <h4>How to protect software supply chain?</h4>
             <p> 
-                There are several mechanism available to protect each aspect of software supply chain. For example:<br>
+                There are several mechanism available to protect 
+                each aspect of software supply chain. For example:
             </p>
             <p>
-                <li>We can enable signed commits for version control. By doing so so other people can verify that your work comes from a trusted source.</li>
-                <li>Packages should also be signed, should have expiration dates etc to maintain the authenticity of the package</li>
+                <li>We can enable signed commits for version control. By doing 
+                so so other people can verify that your work comes from a 
+                trusted source.</li>
+                <li>Packages should also be signed, should have expiration dates etc 
+                to maintain the authenticity of the package</li>
             </p>
             <p>
               
-              Below are some good articles on securing the software supply chain.<br><br>
+              Below are some good articles on securing the
+              software supply chain.<br><br>
 
               
-              <a href="https://techbeacon.com/devops/how-secure-your-software-supply-chain"> How to secure your software supply chain.</a><br><br>
+              <a href="https://techbeacon.com/devops/how-secure-your-software-supply-chain"> 
+              How to secure your software supply chain.</a><br><br>
               
-              <a href="https://help.github.com/en/articles/about-commit-signature-verification"> Commit signature verification on Github.</a><br><br>
+              <a href="https://help.github.com/en/articles/about-commit-signature-verification"> 
+              Commit signature verification on Github.</a><br><br>
               
-              Although parts of the supply chain pipeline could be secured but to completely eliminate the threat we need to secure the complete software supply chain.<br><br>
+              Although parts of the supply chain pipeline could be 
+              secured but to completely eliminate the threat we need 
+              to secure the complete software supply chain.<br><br>
 
-              As one rightly said “The chain is as strongest as its' weakest link." <br><br>
+              As one rightly said “The chain is as strongest as 
+              its' weakest link." <br><br>
 
               This is where In-Toto help us.<br>
             </p>
@@ -291,33 +303,67 @@
             </summary>
                 <h4>What is In-Toto ?</h4>
               <p> 
-                A software supply chain is the series of steps performed when writing, testing, packaging, and distributing software. A typical software supply chain is composed of multiple steps "chained" together that transform (e.g., compilation) or verify the state (e.g., linting) of the project in order to drive it to a final product.<br>
+                A software supply chain is the series of steps performed 
+                when writing, testing, packaging, and distributing software. 
+                A typical software supply chain is composed of multiple steps
+                "chained" together that transform (e.g., compilation) or 
+                verify the state(e.g., linting) of the project in order to 
+                drive it to a final product.
               </p>
               <p>
-                in-Toto is designed to ensure the integrity of a software product from initiation to end-user installation. It does so by making it transparent to the user what steps were performed, by whom and in what order. As a result, with some guidance from the group creating the software, in-toto allows the user to verify if a step in the supply chain was intended to be performed, and if the step was performed by the right actor.
+                in-Toto is designed to ensure the integrity of a software 
+                product from initiation to end-user installation. It does 
+                so by making it transparent to the user what steps were 
+                performed, by whom and in what order. As a result, with 
+                some guidance from the group creating the software, 
+                in-toto allows the user to verify if a step in the supply 
+                chain was intended to be performed, and if the step was 
+                performed by the right actor.
               </p>
 
               <h4>Setting up in-Toto</h4>
             <p> 
-                <a href="https://github.com/in-toto/demo">Here</a> is the link to in-Toto demo page. The documentation is a step by step guide to show how a software supply chain could be secured using in-Toto plugin. Here is a brief description of what in-Toto does.<br><br>
+                <a href="https://github.com/in-toto/demo">Here</a> 
+                is the link to in-Toto demo page. 
 
-                Consider there are 3 people, Alice (Project owner), Bob (developer), Carl (Packages the product).<br><br>
+                The documentation is a step by step guide to show how 
+                a software supply chain could be secured using in-Toto plugin. 
+                Here is a brief description of what in-Toto does.
 
-                In this software supply chain layout, we have Alice, who is the project owner that creates the layout using her private Key, Bob, who clones the project's repo and performs some pre-packaging editing (update version number), and Carl, who uses tar to package the project sources into a tarball, which together with the in-toto metadata composes the final product that will eventually be installed and verified by the end user. All of them have their own RSA Keys.
-                <br><br>
+                Consider there are 3 people, Alice (Project owner), 
+                Bob (developer), Carl (Packages the product).
 
-                Every time anyone makes a change it gets stored in metadata and user signs it with their respective keys. In the end when product is ready to be shipped in-Toto checks for the authenticity of the product. It considers the following parameters:<br>
+                In this software supply chain layout, we have Alice, 
+                who is the project owner that creates the layout using 
+                her private Key, Bob, who clones the project's repo and 
+                performs some pre-packaging editing (update version number), 
+                and Carl, who uses tar to package the project sources into a 
+                tarball, which together with the in-toto metadata composes the 
+                final product that will eventually be installed and 
+                verified by the end user. All of them have their own RSA Keys.
+
+                Every time anyone makes a change it gets stored in 
+                metadata and user signs it with their respective keys. 
+                In the end when product is ready to be shipped in-Toto 
+                checks for the authenticity of the product. It considers 
+                the following parameters:
             </p>
             <p>
                 <li>the layout has not expired</li>
-                <li>was signed with Alice’s private key,and that according to the definitions in the layout.</li>
-                <li>each step was performed and signed by the authorized functionary</li>
-                <li>the recorded materials and products follow the artifact rules</li>
+                <li>was signed with Alice’s private key,and that according 
+                to the definitions in the layout.</li>
+                <li>each step was performed and signed by the authorized 
+                functionary</li>
+                <li>the recorded materials and products follow the 
+                artifact rules</li>
                 <li>the inspection untar finds what it expects.</li>
             </p>
             <p>
-              <br>
-              Now consider carl makes some change to the source code before packaging the software. In this case the verification check will fail as carl was not authorized to change any file but was only authorized to package the software defined in project layout.              
+              Now consider carl makes some change to the source code 
+              before packaging the software. In this case the 
+              verification check will fail as carl was not authorized 
+              to change any file but was only authorized to package 
+              the software defined in project layout.              
             </p>
 
 
@@ -464,14 +510,22 @@
 
         <details>
             <summary class="sum1">
-                Lesson 4: Securing passwords and secrets in Git (or any other shared repository)
+                Lesson 4: Securing passwords and secrets in Git
+                (or any other shared repository)
             </summary>
             <p>
                 <B>Overview</B>
                 <br>
-                What happens when only few members of a team sharing a Git repo require passwords or keys to access sensitive files or services?
-                It becomes inefficient to share these passwords personally or individually. Storing them openly in Git is not feasible as well, as every member sharing their repo will then gain access to these items. <br>
-                To deal with this issue several libraries are available that encrypt these passowrds when pushing them onto git and only authorized people will be able to decrypt it. One of these libraries are git-crypt.
+                What happens when only few members of a team sharing a 
+                Git repo require passwords or keys to access sensitive 
+                files or services? It becomes inefficient to share these 
+                passwords personally or individually. Storing them openly 
+                in Git is not feasible as well, as every member sharing 
+                their repo will then gain access to these items. <br>
+                To deal with this issue several libraries are available 
+                that encrypt these passowrds when pushing them onto git 
+                and only authorized people will be able to decrypt it. 
+                One of these libraries are git-crypt.
 
             </p>
             <h4>Setting up and Using Git-crypt</h4>
@@ -490,7 +544,8 @@
               <code><i>cd repo</i></code><br>
               <code><i>git-crypt init</i></code><br><br>
            
-              Specify files to encrypt by creating a .gitattributes file in the repository, with content like this:<br>
+              Specify files to encrypt by creating a .gitattributes file 
+              in the repository, with content like this:<br>
 
               <code><i>secretFileName filter=git-crypt diff=git-crypt</i></code><br>
               <code><i>*.key filter=git-crypt diff=git-crypt</i></code><br>
