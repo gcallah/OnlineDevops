@@ -514,7 +514,25 @@
           <a href="https://docs.microsoft.com/en-us/azure/devops-project/"
           target="_blank" style="text-decoration: underline">here</a>
       </li>
-
+      
+      <li>
+          <span class="hilight">
+              Azure Monitoring Service
+          </span>
+          <br />
+          Monitoring Service lies outside the Devops platform but provides
+          useful insights about the project by collecting, analyzing and
+          acting on the telemetry collected from cloud and on-premise
+          environments. It helps users better understand the health of the
+          environments and the dependencies their projects contain. <br /> The
+          service collects metrics in real-time and logs from Azure platform,
+          Guest OS and also from the application.
+          <br />
+          More information about the full suite of Azure Monitor service  can
+          be found <a
+          href="https://docs.microsoft.com/en-us/azure/azure-monitor/overview"
+          target="_blank" style="text-decoration: underline">here</a>
+      </li>
 
     <li>
         <span class="hilight">
@@ -597,24 +615,26 @@
         hostname, SSL and firewall.
     </li>
 
-      <li>
-          <span class="hilight">
-              Azure Monitoring Service
-          </span>
-          <br />
-          Monitoring Service lies outside the Devops platform but provides
-          useful insights about the project by collecting, analyzing and
-          acting on the telemetry collected from cloud and on-premise
-          environments. It helps users better understand the health of the
-          environments and the dependencies their projects contain. <br /> The
-          service collects metrics in real-time and logs from Azure platform,
-          Guest OS and also from the application.
-          <br />
-          More information about the full suite of Azure Monitor service  can
-          be found <a
-          href="https://docs.microsoft.com/en-us/azure/azure-monitor/overview"
-          target="_blank" style="text-decoration: underline">here</a>
-      </li>
+    <li>
+        <span class="hilight">
+            CI/CD with Azure Pipelines
+        </span>
+        <ol class="inner_nested">
+            <li>
+                Select Pipelines -> New -> New build pipeline on the Azure
+                 Devops page. 
+            </li>
+            <li>
+                Select the location of source code and the desired repository. 
+            </li>
+            <li>
+                If the repository has a contains the <code>azure-pipelines.yml
+                </code> file, then you'll see a Run button. If not, you'll be
+                 asked to pick a starter template. Select Save and Run, then
+                 select commit directly to the master branch, and then select 
+                 Save and Run again.
+            </li>
+    </li>
 </ol>
 
 </details>
