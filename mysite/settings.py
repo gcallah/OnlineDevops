@@ -153,7 +153,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'theme': "advanced",
     'width': '80%',
     'height': 800,
-     'valid_elements' : '*[*]',
+    'valid_elements': '*[*]',
 }
 
 LOGIN_REDIRECT_URL = 'devops:index'

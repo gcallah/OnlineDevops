@@ -99,7 +99,6 @@ def get_pg_w_quiz(request, mod_nm):
                        'mod_nm': mod_nm})
 
 
-
 def index(request: request) -> object:
     return render(request, 'index.html', {'header': site_hdr})
 
@@ -134,14 +133,11 @@ def lesson(request, lesson='work'):
             'questions': rand_qs,
             'content': contents.content,
             'mod_nm': lesson
-
         })
     except Exception:
         return render(request, 'dynamicpage.html', {
             'header': site_hdr,
             'content': "Error! Please try again"})
-
-
 
 
 def gloss(request: request) -> object:
