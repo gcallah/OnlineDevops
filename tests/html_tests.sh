@@ -10,7 +10,7 @@ export DATA_DIR="$CODE_DIR/data"
 
 for test_file in $TEST_DIR/*.html;
 do
-    if [ $test_file == "devops/templates/work.html" ]
+    if [ $test_file = "devops/templates/work.html" ];
     then
         continue;
     fi
