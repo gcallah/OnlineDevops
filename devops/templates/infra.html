@@ -144,7 +144,9 @@
                     </ul>
 
                     <p>
-                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html"> More on puppet </a>
+                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html">
+                        More on puppet
+                    </a>
                     </p>
 
             </details>
@@ -174,14 +176,41 @@
                         Complicated tool to use
                     </li>
                     <li>
-                        Familiarity with Ruby is required
+                        Familiarity with Ruby is desirable.
                     </li>
                     <li>
                         Documentation can be overwhelming
                     </li>
                 </ul>
                 <p>
-                <a href="https://gcallah.github.io/DevOps/deployment/chef.html"> More on Chef </a>
+                A sample Chef script that provisions a MySql server:
+                </p>
+
+                <p>
+                <pre>
+                <code>
+    service "mysql" do
+      supports :restart =&gt; true
+      action :enable
+    end
+    
+    if ['solo', 'db_master', 'db_slave'].include? node[:instance_role]
+      template "/etc/mysql.d/custom.cnf" do
+        owner 'root'
+        group 'root'
+        source 'custom.cnf.erb'
+        notifies :restart, resources(:service =&gt; 'mysql')
+      end
+    end
+
+                </code>
+                </pre>
+                </p>
+
+                <p>
+                <a href="https://gcallah.github.io/DevOps/deployment/chef.html">
+                    More on Chef
+                </a>
                 </p>
             </details>
             <details>
@@ -354,6 +383,18 @@
                 <li>
                     <span class="hilight">Union File System</span>
                     <br />
+                    UNIX and Linux filesystems are themselves files. 
+                    To access them, they must be <i>mounted</i> at
+                    some point under the root directory. If we mount two
+                    directories at the same mount point, one after another,
+                    we will only find the contents of the second there.
+                    But if we <i>union</i> mount them, we will have the union
+                    of the two.
+                    <br />
+                    Union mounting is how Docker builds up your image
+                    from multiple layers of docker images. That means you don't
+                    have to start from scratch every time you want to make an
+                    image.
                 </li>
 
                 <li>
@@ -372,7 +413,7 @@
                 <br />
                 <a href="https://www.codementor.io/blog/docker-technology-5x1kilcbow">
                     Docker: What's Under the Hood?
-                </a>)
+                </a>
                 <br />
                 <a href="https://en.wikipedia.org/wiki/Linux_namespaces">
                     Linux Namespaces
@@ -380,6 +421,10 @@
                 <br />
                 <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/ch01">
                     Introduction to Control Groups
+                </a>
+                <br />
+                <a href="https://medium.com/@paccattam/drooling-over-docker-2-understanding-union-file-systems-2e9bf204177c">
+                    Docker and Union File System
                 </a>
             </p>
 
