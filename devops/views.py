@@ -284,8 +284,8 @@ def get_nav_links(curr_module, correct_pct, curr_quiz, mod_nm):
     # show link to next module if it exists
     if curr_module is not None:
         nav_links = {
-            'next': 'devops:'
-            + curr_module.next_module
+            'next': 'devops:' +
+            curr_module.next_module
             if curr_module.next_module else False
         }
         # If user fails, show link to previous module
