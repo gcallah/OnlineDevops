@@ -245,6 +245,33 @@
                     </li>
                 </ul>
                 <p>
+                    Sample Ansible playbook:
+                </p>
+
+                <p>
+                <pre>
+                <code>
+    - name: Install WordPress, MySQL, Nginx, and PHP-FPM
+  hosts: all
+  remote_user: root
+  # remote_user: user
+  # become: yes
+  # become_method: sudo
+
+  roles:
+    - common
+    - mysql
+    - nginx
+    - php-fpm
+    - wordpress
+                </code>
+                </pre>
+                <br />
+                Source:
+                https://github.com/ansible/ansible-examples/blob/master/wordpress-nginx/site.yml
+                </p>
+
+                <p>
                 <a href="https://gcallah.github.io/DevOps/deployment/ansible.html"> More on Ansible </a>
                 </p>
             </details>
