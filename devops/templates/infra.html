@@ -144,7 +144,9 @@
                     </ul>
 
                     <p>
-                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html"> More on puppet </a>
+                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html">
+                        More on puppet
+                    </a>
                     </p>
 
             </details>
@@ -174,14 +176,41 @@
                         Complicated tool to use
                     </li>
                     <li>
-                        Familiarity with Ruby is required
+                        Familiarity with Ruby is desirable.
                     </li>
                     <li>
                         Documentation can be overwhelming
                     </li>
                 </ul>
                 <p>
-                <a href="https://gcallah.github.io/DevOps/deployment/chef.html"> More on Chef </a>
+                A sample Chef script that provisions a MySql server:
+                </p>
+
+                <p>
+                <pre>
+                <code>
+    service "mysql" do
+      supports :restart =&gt; true
+      action :enable
+    end
+    
+    if ['solo', 'db_master', 'db_slave'].include? node[:instance_role]
+      template "/etc/mysql.d/custom.cnf" do
+        owner 'root'
+        group 'root'
+        source 'custom.cnf.erb'
+        notifies :restart, resources(:service =&gt; 'mysql')
+      end
+    end
+
+                </code>
+                </pre>
+                </p>
+
+                <p>
+                <a href="https://gcallah.github.io/DevOps/deployment/chef.html">
+                    More on Chef
+                </a>
                 </p>
             </details>
             <details>
@@ -215,6 +244,33 @@
                         Difficult to locate syntax errors with YAML
                     </li>
                 </ul>
+                <p>
+                    Sample Ansible playbook:
+                </p>
+
+                <p>
+                <pre>
+                <code>
+    - name: Install WordPress, MySQL, Nginx, and PHP-FPM
+  hosts: all
+  remote_user: root
+  # remote_user: user
+  # become: yes
+  # become_method: sudo
+
+  roles:
+    - common
+    - mysql
+    - nginx
+    - php-fpm
+    - wordpress
+                </code>
+                </pre>
+                <br />
+                Source:
+                https://github.com/ansible/ansible-examples/blob/master/wordpress-nginx/site.yml
+                </p>
+
                 <p>
                 <a href="https://gcallah.github.io/DevOps/deployment/ansible.html"> More on Ansible </a>
                 </p>
@@ -252,12 +308,158 @@
                     </li>
                 </ul>
             </details>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Lesson 3: What Is Docker?
+            </summary>
+
+            <figure>
+                <img src="https://process.filestackapi.com/cache=expiry:max/iP10SKJZQOKeZbtMqTWR">
+                <figcaption>
+                    Docker structure
+                </figcaption>
+            </figure>
+
+            <p>
+                Before we look at how to run Docker, let's examine of few
+                aspects of what Docker is. A very simple way to describe it,
+                for those who know virtual machine, is that it is a
+                light-weighter, somewhat-less-walled-off, virtual machine.
+                But this is only a way to give you a rough idea of how to think
+                about Docker: let's go deeper into the details and see what it
+                <i>really</i> is.
+            </p>
+
+            <p>
+                The most important feature of Docker is its extremely fast load
+                time: a container can start in under a second, while a virtual
+                machine may take minutes to boot. Docker is achieving the speed
+                increase by building on top of virtualization aspects of the
+                Linux kernel. And that is why it is not as fast, and more
+                difficult to work with, on Mac or Windows boxes: it is actually
+                running a Linux virtual machine, that then runs Docker.
+                Ironically, this may mean that your container actually starts
+                up much faster on a busy cloud service than it does on your
+                otherwise idle laptop.
+            </p>
+
+            <figure>
+                <img
+                src="https://process.filestackapi.com/cache=expiry:max/FwM7EuF2Rty7RPzynumg"
+                width="25%">
+                <figcaption>
+                    How Docker rests on Linux kernel services
+                </figcaption>
+            </figure>
+
+            <p>
+                Here are the major technical capabilities upon which Docker
+                relies:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    <span class="hilight">cgroups</span>
+                    <br />
+                    <a
+                        href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/ch01">cgroups</a>,
+                    short for "control groups," limit a process, and
+                    all of its children, to certain amounts of CPU, memory,
+                    and network bandwith, and particular namespaces and devices
+                    on the system. When we kick off a Docker container, it runs
+                    within a <span class="code">cgroup</span> that limits what
+                    it can do.
+                </li>
+
+                <li>
+                    <span class="hilight">namespaces</span>
+                    <br />
+                    Here, the <i>Wikipedia</i> article on Linux namespaces
+                    describes these as well as I could wish to, so:
+                    <br />
+                    "Namespaces are a feature of the Linux kernel that
+                    partitions kernel resources such that one set of processes
+                    sees one set of resources while another set of processes
+                    sees a different set of resources. The feature works by
+                    having the same name space for these resources in the
+                    various sets of processes, but those names referring to
+                    distinct resources. Examples of resource names that can
+                    exist in multiple spaces, so that the named resources are
+                    partitioned, are process IDs, hostnames, user IDs, file
+                    names, and some names associated with network access, and
+                    interprocess communication."
+                    <br />
+                    "Namespaces are a fundamental aspect of containers on
+                    Linux." (See source below.)
+                    <br />
+                    It is worth noting that Google Chrome uses namespaces as a
+                    security, not a virtualization, technique.
+                </li>
+
+                <li>
+                    <span class="hilight">libnetwork</span>
+                    <br />
+                    This library enables separate network connections and IP
+                    addresses for processes running on the same machine, so
+                    that with <span class="code">docker compose</span> we can
+                    run an entire distributed application on our laptops.
+                </li>
+
+                <li>
+                    <span class="hilight">Union File System</span>
+                    <br />
+                    UNIX and Linux filesystems are themselves files. 
+                    To access them, they must be <i>mounted</i> at
+                    some point under the root directory. If we mount two
+                    directories at the same mount point, one after another,
+                    we will only find the contents of the second there.
+                    But if we <i>union</i> mount them, we will have the union
+                    of the two.
+                    <br />
+                    Union mounting is how Docker builds up your image
+                    from multiple layers of docker images. That means you don't
+                    have to start from scratch every time you want to make an
+                    image.
+                </li>
+
+                <li>
+                    <span class="hilight">libcontainer / runC</span>
+                    <br />
+                    This C library (which appears under either name) executes
+                    programs in a <span class="code">chroot jail</span>
+                    environment. This means that a program is "jailed" within
+                    the directory tree rooted in the directory in which the
+                    program was started.
+                </li>
+            </ul>
+
+            <p>
+                Sources:
+                <br />
+                <a href="https://www.codementor.io/blog/docker-technology-5x1kilcbow">
+                    Docker: What's Under the Hood?
+                </a>
+                <br />
+                <a href="https://en.wikipedia.org/wiki/Linux_namespaces">
+                    Linux Namespaces
+                </a>
+                <br />
+                <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/ch01">
+                    Introduction to Control Groups
+                </a>
+                <br />
+                <a href="https://medium.com/@paccattam/drooling-over-docker-2-understanding-union-file-systems-2e9bf204177c">
+                    Docker and Union File System
+                </a>
+            </p>
 
         </details>
 
         <details>
             <summary class="sum1">
-                Lesson 3: Running Docker
+                Lesson 4: Running Docker
             </summary>
 
                 <p class="author">

@@ -160,9 +160,9 @@
         Monkey</a>
         tool, part of its
         <a
-        href="https://en.wikipedia.org/wiki/Chaos_Monkey#Different_variants_of_the_Simian_Army">Simian
-    Army</a>
-    toolkit.
+        href="https://en.wikipedia.org/wiki/Chaos_Monkey#Different_variants
+        _of_the_Simian_Army">Simian
+    Army</a> toolkit.
 </li>
 
 <li>
@@ -298,7 +298,7 @@
                 </li>
                 <li>
                     Authenticate Azure Artifacts with Twine
-                    <br /> 
+                    <br />
                     To authenticate twine, we must add the following
                     snippet to our <i>azure-pipelines.yml</i>
                     file
@@ -348,7 +348,7 @@
             artifacts. Easily integrate your deployment pipeline with
             DevTest Labs to provision on-demand environments. Scale up
             your load testing by provisioning multiple test agents, and
-            create pre-provisioned environments for training and demos.
+            create pre-provisioned environments for training and demos.[1]
         </li>
 
         <li>
@@ -367,10 +367,10 @@
             When you use the visual designer, you define a build
             pipeline to build and test your code, and then to publish
             artifacts. You also define a release pipeline to consume
-            and deploy those artifacts to deployment targets.
+            and deploy those artifacts to deployment targets.[3]
             <br />
             <br />
-            Steps to Use Azure Pipelines with YAML
+            Steps to Use Azure Pipelines with YAML[3]
             <br />
             You can configure your pipelines in a YAML file that
             exists alongside your code.
@@ -393,7 +393,7 @@
                 </li>
             </ol>
               <br />
-              Use Azure Pipelines in the visual designer
+              Use Azure Pipelines in the visual designer[3]
               <br />
               You can create and configure your build and release
               pipelines in the Azure DevOps Services web portal with the
@@ -495,7 +495,7 @@
           needs and scenarios—including yours. Get started quickly
           with Azure DevOps solutions that give you access to
           architectures, tutorials, documentation, examples,
-          templates, partners, and other resources.
+          templates, partners, and other resources.[2]
       </li>
 
       <li>
@@ -511,9 +511,28 @@
           Virtual Machines, Azure SQL, Azure Container Service and
           Kubernetes, and Azure Fabric. Tutorials for various
           programming languages are available
-          <a href="https://docs.microsoft.com/en-us/azure/devops-project/" target="_blank" style="text-decoration: underline">here</a>
+          <a href="https://docs.microsoft.com/en-us/azure/devops-project/"
+          target="_blank" style="text-decoration: underline">here</a>
       </li>
 
+      <li>
+          <span class="hilight">
+              Azure Monitoring Service
+          </span>
+          <br />
+          Monitoring Service lies outside the Devops platform but provides
+          useful insights about the project by collecting, analyzing and
+          acting on the telemetry collected from cloud and on-premise
+          environments. It helps users better understand the health of the
+          environments and the dependencies their projects contain. <br /> The
+          service collects metrics in real-time and logs from Azure platform,
+          Guest OS and also from the application.
+          <br />
+          More information about the full suite of Azure Monitor service  can
+          be found <a
+          href="https://docs.microsoft.com/en-us/azure/azure-monitor/overview"
+          target="_blank" style="text-decoration: underline">here</a>
+      </li>
 
     <li>
         <span class="hilight">
@@ -595,8 +614,82 @@
         Service will deploy all of the requirements like the
         hostname, SSL and firewall.
     </li>
-</ol>
 
+    <li>
+        <span class="hilight">
+            CI/CD with Azure Pipelines
+        </span>
+        <ol class="inner_nested">
+            <li>
+                Select Pipelines -&gt New -&gt New build pipeline on the Azure
+                 Devops page.
+            </li>
+            <li>
+                Select the location of source code and the desired repository.
+            </li>
+            <li>
+                If the repository has a contains the <code>azure-pipelines.yml
+                </code> file, then you'll see a Run button. If not, you'll be
+                 asked to pick a starter template. Select Save and Run, then
+                 select commit directly to the master branch, and then select
+                 Save and Run again.
+            </li>
+            <li>
+                Wait until the build finishes.
+            </li>
+            <br />
+        </ol>
+            Now that the build is finished, the next step is to configure and
+            run some tests, create the container image and push it to Azure 
+            Container Registry.
+            <br />
+            <a
+            href="https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops"
+            target="_blank" style="text-decoration: underline"> Steps to
+            build, test, and push Docker container apps</a>
+            <br />
+            Now its time to create a release pipeline and Deploy it to Azure 
+            Web App for Containers.
+            <br />
+            <a
+            href="https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=azure-devops"
+            target="_blank" style="text-decoration: underline"> Steps to
+            create a Release pipeline and deploy the App</a>
+            <br />
+            <br />
+    </li>
+  </ol>
+
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;References</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;[1]
+    <a href="https://docs.microsoft.com/en-us/rest/api/dtl/"
+    target="_blank" style="text-decoration: underline">
+    https://docs.microsoft.com/en-us/rest/api/dtl/</a>
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;[2]
+    <a href="https://azure.microsoft.com/en-us/products/devops-tool-integrations/"
+    target="_blank" style="text-decoration: underline">
+    https://azure.microsoft.com/en-us/products/devops-tool-integrations/</a>
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;[3]
+    <a
+    href="https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops/"
+    target="_blank" style="text-decoration: underline">
+    https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/
+    pipelines-get-started?view=azure-devops/</a>
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;[4]
+    <a
+    href="https://medium.com/microsoftazure/how-to-launch-a-dockerized-node-js-app-using-the-azure-web-app-for-containers-service-c3722ce370ab"
+    target="_blank" style="text-decoration: underline">
+    https://medium.com/microsoftazure/how-to-launch-a-dockerized-node-js-
+    app-using-the-azure-web-app-for-containers-service-c3722ce370ab</a>
+  </p>  
 </details>
 
 <details>
@@ -626,7 +719,8 @@
             target="_blank" style="text-decoration: underline">
                 Steps to create Azure Container Registry using CLI
             </a>
-            &nbsp;&nbsp;(Instructions to install the CLI binary can be found <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest" target="_blank" style="text-decoration: underline">here</a>)
+            &nbsp;&nbsp;(Instructions to install the CLI binary can be found
+             <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest" target="_blank" style="text-decoration: underline">here</a>)
             <br />
             <br />
             You can configure webhooks for your container registry that
@@ -639,11 +733,13 @@
             The following links detail the schema of webhook requests
             generated by supported events and how to use the webhooks.
             <br />
-            <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook-reference" target="_blank" style="text-decoration: underline">
+            <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook-reference"
+            target="_blank" style="text-decoration: underline">
                 Webhook Request Schema
             </a>
             <br />
-            <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook" target="_blank" style="text-decoration: underline">
+            <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook"
+            target="_blank" style="text-decoration: underline">
                 Using Webhooks
             </a>
             <br/>
@@ -656,8 +752,14 @@
             container image push and delete events and view the event payload
             in the sample application.
             <br/>
-            <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-event-grid-quickstart" target="_blank" style="text-decoration: underline">
-                More Information on Azure Event Grid
+            <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-event-grid-quickstart"
+            target="_blank" style="text-decoration: underline">
+               More Information on Azure Event Grid
+            </a>
+            <br/>
+            <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema-container-registry"
+            target="_blank" style="text-decoration: underline">
+              Azure Event Grid event schema
             </a>
             <br/>
             <br/>
@@ -690,6 +792,11 @@
                 push operations.
             </li>
         </ul>
+        <br/>
+        <a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task"
+        target="_blank" style="text-decoration: underline">
+          Creating ACR Task to Build and Deploy containers using CLI
+        </a>
     </li>
 
     <li>
@@ -745,7 +852,18 @@
             </li>
 
             <li>
-                Connecting dockerhub to Microsoft Azure
+                Connecting lamda to ECS
+                <ul class="inner_nested">
+                    <li>
+                      write code to access the cluster and specific Tasks
+                      <br/>
+                      <img src="../static/devops/lamdaECSConect.png" style="width:80%;">
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                Connecting dockerhub to Microsoft Azure (one-time)
                 <ul class="inner_nested">
                     <li>
                         Create a new container instance <br/> Container
@@ -761,17 +879,17 @@
                         <br />
                         (Basics) We define properties like 'Container Name',
                         'Container Image' containing the Docker Tag or URI,
-                        'Resource Group' for resource and policy management 
+                        'Resource Group' for resource and policy management
                         and 'Location' for the server.
-                        <br /> 
+                        <br />
                         <br />
                         (Configuration) Attributes
-                        like 'OS Type', cores, memory  and other 
+                        like 'OS Type', cores, memory  and other
                         infrastructure details can be defined at this step
-                        <br /> 
+                        <br />
                         <br />
                         (Summary) The configuration will be
-                        printed once for the user to review and Azure will 
+                        printed once for the user to review and Azure will
                         begin provisioning infrastructure
 
                     </li>
@@ -817,8 +935,72 @@
                     </li>
                 </ul>
             </li>
-
-
+            <li>
+              Deploying via Web App for Containers using Dockerhub (Continuous
+              Deployment)
+              <ul class="inner_nested">
+                  <li>
+                    Creating a web app
+                    <ol class="inner_nested">
+                        <li>
+                            Go to <a href="https://portal.azure.com" target="_blank"
+                            style="text-decoration:
+                            underline">portal.azure.com</a>
+                        </li>
+                        <li>
+                            Click on "Create a resource"
+                        </li>
+                        <li>
+                            Search the Marketplace for "Web App for
+                            Containers"
+                        </li>
+                        <li>
+                            Click on "Create" button when Azure displays the
+                            page for this service
+                        </li>
+                        <li>
+                            Provide details like "App Name", "Subscription"
+                            (billing), "Resource Group" (create a new group if
+                            one doesn't exist), "OS" and "App
+                            Service/Location"
+                        </li>
+                        <li>
+                            Click the option of "Configure Container" for
+                            defining the image source. Select "Docker Hub" to
+                            be the source and provide repository details like
+                            access type, image and tag information, and <a
+                            href="https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#built-in-images"
+                            style="text-decoration: underline">"Startup
+                            File"</a>
+                        </li>
+                        <li>
+                            Click on "Apply" and then "Create" on the web app
+                            settings menu. Azure will run validation tests and
+                            begin deployment. Deployments can be monitored
+                            from the notification button in the top.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Turning on Continuous Deployment
+                    <ol class="inner_nested">
+                        <li>
+                            Go to "App Service" from the Azure Portal
+                        </li>
+                        <li>
+                            Select the application for which you wish to turn
+                            on Continuous Deployment
+                        </li>
+                        <li>
+                            Click on "Container Settings" and in the next
+                            window, turn on "Continuous Deployment"<br /> <img
+                            src="../static/devops/cont_deployment_webapp.png"
+                            style="width:80%;">
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+          </li>
         </ul>
     </li>
 </ol>
@@ -863,6 +1045,12 @@
         <li>
             <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=azure-devops">
                 Deploy to an Azure Web App for Containers
+            </a>
+        </li>
+
+        <li>
+            <a href="https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-multi-container">
+                Multi-Container app using Docker Compose
             </a>
         </li>
 

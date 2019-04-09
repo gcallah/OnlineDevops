@@ -41,10 +41,10 @@
                 <a href="/devops/about">About</a>
 
                 &nbsp;&nbsp;
-                {% if user.is_authenticated %}
-                    <a href="{% url 'participant_logout' %}">Log out</a>
-                {% else %}
+                {% if user.is_authenticated is False %}
                     <a href="{% url 'participant_login' %}">Login</a>
+                {% else %}
+                    <a href="{% url 'participant_logout' %}">Log out</a>
                 {% endif %}
 
                 &nbsp;&nbsp;
@@ -159,7 +159,7 @@
               document.getElementById('sliderPara').innerHTML= descriptions[cnt];
               document.getElementById('imageLink').href= imageLins[cnt];
               cnt++;
-              timerId = setTimeout(tick, 5000);
+              timerId = setTimeout(tick, 15000);
             }, 1000);
         }
 

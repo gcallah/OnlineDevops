@@ -15,5 +15,8 @@ env:
 script:
     - make tests
 
+# after success, we should build our containers and push to 
+# docker hub
+
 notifications:
   slack: devopsnyu:vAFcJBgAP2f73SqhWgb40Gjf

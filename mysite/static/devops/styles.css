@@ -283,7 +283,7 @@ figure {
 }
 
 figure.lead-figure {
-    margin: 0em 1em 1em 1em;
+    margin: 1em 1em 1em 1em;
 }
 
 figcaption {
@@ -310,7 +310,12 @@ span.frac > span {display: none;}
 
 
 span.hilight {
-    color: #fc2;
+    color: #fc6;
+}
+
+span.code {
+    color: #2cf;
+    font: monospace;
 }
 
 .over { text-decoration: overline; }

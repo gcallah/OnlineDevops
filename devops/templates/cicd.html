@@ -15,65 +15,93 @@
         <p class="leadquote">
         </p>
         <details>
-        <p>
             <summary class="sum1">
                 Lesson 1: What Is CI/CD?
             </summary>
             <p>
-                CI and CD are two acronyms that are often mentioned when people
-                talk about modern development practices.Continuous integration
-                (CI) and continuous delivery (CD) embody a culture, set of
-                operating principles, and collection of practices that enable
-                application development teams to deliver code changes more
-                frequently and reliably. The implementation is also known as
-                the CI/CD pipeline and is one of the best practices for devops
-                teams to implement.
+                Continuous integration (CI) and continuous delivery (CD) 
+                are a pair of practices that, when done properly, greatly aid
+                an organization's ability to deliver software frequently and
+                reliably to its customers.
+                We often hear the combination of these practices referred to 
+                as "the CI/CD pipeline," and they are among the most important
+                practices a DevOps team can implement.
+                So what do these practices consist of?
             </p>
+
             <h5>CI : Continuous Integration</h5>
+
             <p>
-                Continuous Integration can be explained as: you want all parts
-                of what goes into making your application go to the same place
-                and run through the same processes with results published to an
-                easy to access place.
+                Continuous Integration means that every developer should be
+                pushing code to the master branch regularly, at the minimum
+                once per day, and that then that code should be tested to
+                ensure that it <i>integrates</i> with all the other code
+                currently in the master branch. The practice of continuous
+                integration eliminates the huge "integration" phase that
+                tyoically took place in waterfall model projects, where
+                developers would work on isolated pockets of code for months
+                or even a year or more, and only try to join their code to
+                other teams' code at the very end of the project.
             </p>
+                
             <p>
-                Once all the code and changes start going to the same place, you can run some processes on that
-                repository every time something changes. These processes can include:
+                On a push to the master branch, various processes can be
+                launched, such as:
+            </p>
+
+            <ul class="nested">
                 <li>
                     Running automatic code quality tests.
                 </li>
                 <li>
-                    Building the code and running automated tests.
+                    Building an executable from the code.
                 </li>
-            </p>
+                <li>
+                    Reporting on code testing coverage.
+                </li>
+
+                <li>
+                    Building a docker container that can be used
+                    to deploy the code.
+                </li>
+
+            </ul>
+
             <p>
                 These simple additions allows the developer to focus on writing
                 the code. The central repository of code is there to receive
                 your changes while automated processes can build, test, and
                 scan the code while providing reports.
             </p>
+
             <h5>CD : Continuous Delivery</h5>
+
             <p>
-                Continuous delivery picks up where continuous integration ends.
-                CD automates the delivery of applications to selected
-                infrastructure environments. Most teams work with multiple
-                environments other than the production, such as development and
-                testing environments, and CD ensures there is an automated way
-                to push code changes to them.  CD automation then performs any
-                necessary service calls to web servers, databases, and other
-                services that may need to be restarted or follow other
-                procedures when applications are deployed.
+                Continuous delivery means taking the result of the continuous
+                integration process and delivering it to a "place" in which it
+                can be run. That "place" my be a test server, a staging server,
+                or even production. If the continuous delivery phase is
+                actually putting the new software right into production, then
+                it also qualifies as "continuous deployment." It almost goes
+                without saying that only teams experienced with CI/CD should
+                extend that practice to continuous deployment.
             </p>
+
             <p>
-                There are many free tools available that let you employ CI/CD
-                easily, such as Travis CI and Jenkins.
+                There are many free tools to aid in CI/CD, such as Travis CI
+                and Jenkins, both of which we will discuss below.
             </p>
-            </br>
-            <p><B>References :</B></p>
-            <li>https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html</li>
-            <li>https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment</li>
+
+            <p><B>References :</B>
+            </p>
+
+            <ul class="nested">
+            <li>https://www.infoworld.com/article/3271126/what-is-cicd-
+              continuous-integration-and-continuous-delivery-explained.html</li>
+            <li>https://www.atlassian.com/continuous-delivery/principles
+              /continuous-integration-vs-delivery-vs-deployment</li>
             <li>https://www.mabl.com/blog/what-is-cicd</li>
-            </p>
+            </ul>
         </details>
 
         <details>
@@ -81,37 +109,26 @@
                 Lesson 2: Jenkins
             </summary>
             <p>
-                Jenkins is an open source automation tool written in Java with
-                plugins built for Continuous Integration purpose. Jenkins is
-                used to build and test your software projects continuously
-                making it easier for developers to integrate changes to the
-                project, and making it easier for users to obtain a fresh
-                build. It also allows you to continuously deliver your software
-                by integrating with a large number of testing and deployment
-                technologies.
+                Jenkins is an open source automation tool written in Java.
+                It aids the adoption of CI/CD because through WebHooks, Jenkins
+                can be triggered by, for instance, a push to GitHub. Upon being
+                triggered, Jenkins can directly, or through plugins, run a wide
+                variety of processes that can test, package, document, analyze
+                and deploy your application.
             </p>
-            <p>    
-                With Jenkins, organizations can accelerate the software
-                development process through automation. Jenkins integrates
-                development life-cycle processes of all kinds, including build,
-                document, test, package, stage, deploy, static analysis and
-                much more.    
-            </p>
-            <p>    
-                Jenkins achieves Continuous Integration with the help of
-                plugins. Plugins allows the integration of Various DevOps
-                stages. If you want to integrate a particular tool, you need to
-                install the plugins for that tool. For example: Git, Maven 2
-                project, Amazon EC2, HTML publisher etc.    
-            </p>
+
             <h5>Advantages of Jenkins</h5>
-                <li>It is an open source tool with great community support.</li>
-                <li>It is easy to install.</li>
+                <ul class="nested">
+                <li>It is an open source tool with great community support.
+                </li>
                 <li>
                     It has 1000+ plugins to ease your work. If a plugin does
-                not exist, you can code it and share with the community.</li>
-                <li>It is free of cost.</li>
-                <li>It is built with Java and hence, it is portable to all the major platforms.</li>
+                not exist, you can code it and share with the community.
+                </li>
+                <li>It is free.</li>
+                <li>It is built with Java and hence, it is portable to all
+                    major platforms.</li>
+                </ul>
 
             <figure>
                 <iframe width="560"
@@ -132,8 +149,13 @@
                 on Wikipedia.
             </p>
             <p><B>References :</B></p>
-            <li>https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html</li>
-            <li>https://www.edureka.co/blog/what-is-jenkins/</li>
+            <ul>
+            <li>
+                <a href="https://www.edureka.co/blog/what-is-jenkins/">
+                    What Is Jenkins?
+                </a>
+            </li>
+            </ul>
         </details>
 
         <details>
@@ -152,7 +174,10 @@
             <summary class = "sum1">
                 Running Jenkins
             </summary>
-            <p><span class="hilight">Note: Below information is about making jenkins build on Github changes.</span></p>
+            <p>
+                <span class="hilight">Note: Below information is about making
+                    jenkins build on Github changes.</span>
+            </p>
                 <details>
                         <summary class="sum2">
                             Install the prerequisites
@@ -168,7 +193,8 @@
                                     Install Docker (optional)
                                 </li>
                                 <li>
-                                    Create a git repo to test the demo. It should consist of:
+                                    Create a git repo to test the demo. It
+                                    should consist of:
                                     <ul class="nested">
                                         <p>Readme.md</p>
                                         <p>Jenkinsfile</p>
@@ -231,23 +257,21 @@
                                 jenkinsci/blueocean
                             </code></pre>
                         </p>
-                </details> 
+                </details>
                 <details>
                         <summary class="sum2">
                             Connect Jenkins to Github
                         </summary>
-                </details> 
+                </details>
                 <details>
                         <summary class="sum2">
                             Create a project to build your application
                         </summary>
-                </details>         
-
-
-
+                </details>
             </br>
             <p><B>References :</B></p>
-            <li>https://www.mirantis.com/blog/intro-to-cicd-how-to-make-jenkins-build-on-github-changes/</li>
+            <li>https://www.mirantis.com/blog/intro-to-cicd-how-
+              to-make-jenkins-build-on-github-changes/</li>
         </details>
         <details>
             <summary class="sum1">
@@ -256,7 +280,7 @@
 
             <figure>
                 <iframe width="560" height="315"
-                    src="https://www.youtube.com/embed/V568cAbz2ls" 
+                    src="https://www.youtube.com/embed/V568cAbz2ls"
                     frameborder="0" allow="autoplay; encrypted-media"
                     allowfullscreen>
                 </iframe>
@@ -315,11 +339,6 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="https://techblog.covermymeds.com/databases/jenkins-test-files-changed-git-commit/">
-                        Testing only recently changed git files in jenkins
-                    </a>
-                </li>
             </ul>
 
         </details>

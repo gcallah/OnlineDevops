@@ -16,13 +16,30 @@ QTYPES = (
 
 
 class CourseModule(models.Model):
+    """
+    This table holds the modules (chapters) of our course.
+    The content field should only have the intro material:
+        the section contents go in the ModuleSection table.
+    """
     module = models.CharField(max_length=MODNM_LEN, unique=True)
     title = models.TextField()
     next_module = models.CharField(max_length=MODNM_LEN)
-    content = HTMLField(default='Please transfer your content here!')
+    content = HTMLField(default='Please enter your contents here!')
 
     def __str__(self):
         return self.title
+
+
+class ModuleSection(models.Model):
+    """
+    This table holds the section content for each module (chapter)
+    in our material.
+    """
+    module = models.ForeignKey(CourseModule,
+                               models.SET_NULL, blank=True, null=True)
+    title = models.TextField()
+    order = models.IntegerField(blank=False, null=False, unique=True)
+    content = HTMLField(default='Please enter your contents here!')
 
 
 class Quiz(models.Model):
