@@ -1,16 +1,25 @@
 language: python
 python:
-- '3.6'
+    - '3.6'
+
 services:
-- docker
+    - docker
+
 install:
-- pip install -r docker/requirements-dev.txt
+    - pip install -r docker/requirements-dev.txt
+
 env:
-- PYTHONPATH=/home/travis/build/gcallah/OnlineDevops
+    - PYTHONPATH=/home/travis/build/gcallah/OnlineDevops
+
 script:
-- make tests
+    - make tests
+
+after_success:
+    - ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
+
 notifications:
   slack: devopsnyu:vAFcJBgAP2f73SqhWgb40Gjf
+
 before_install:
-- openssl aes-256-cbc -K $encrypted_4cefc8a5b2ff_key -iv $encrypted_4cefc8a5b2ff_iv
+    - openssl aes-256-cbc -K $encrypted_4cefc8a5b2ff_key -iv $encrypted_4cefc8a5b2ff_iv
   -in id_rsa.enc -out ~\/.ssh/id_rsa -d
