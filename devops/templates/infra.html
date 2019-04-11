@@ -144,7 +144,9 @@
                     </ul>
 
                     <p>
-                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html"> More on puppet </a>
+                    <a href="https://gcallah.github.io/DevOps/deployment/puppet.html">
+                        More on puppet
+                    </a>
                     </p>
 
             </details>
@@ -174,14 +176,41 @@
                         Complicated tool to use
                     </li>
                     <li>
-                        Familiarity with Ruby is required
+                        Familiarity with Ruby is desirable.
                     </li>
                     <li>
                         Documentation can be overwhelming
                     </li>
                 </ul>
                 <p>
-                <a href="https://gcallah.github.io/DevOps/deployment/chef.html"> More on Chef </a>
+                A sample Chef script that provisions a MySql server:
+                </p>
+
+                <p>
+                <pre>
+                <code>
+    service "mysql" do
+      supports :restart =&gt; true
+      action :enable
+    end
+    
+    if ['solo', 'db_master', 'db_slave'].include? node[:instance_role]
+      template "/etc/mysql.d/custom.cnf" do
+        owner 'root'
+        group 'root'
+        source 'custom.cnf.erb'
+        notifies :restart, resources(:service =&gt; 'mysql')
+      end
+    end
+
+                </code>
+                </pre>
+                </p>
+
+                <p>
+                <a href="https://gcallah.github.io/DevOps/deployment/chef.html">
+                    More on Chef
+                </a>
                 </p>
             </details>
             <details>
@@ -215,6 +244,33 @@
                         Difficult to locate syntax errors with YAML
                     </li>
                 </ul>
+                <p>
+                    Sample Ansible playbook:
+                </p>
+
+                <p>
+                <pre>
+                <code>
+    - name: Install WordPress, MySQL, Nginx, and PHP-FPM
+  hosts: all
+  remote_user: root
+  # remote_user: user
+  # become: yes
+  # become_method: sudo
+
+  roles:
+    - common
+    - mysql
+    - nginx
+    - php-fpm
+    - wordpress
+                </code>
+                </pre>
+                <br />
+                Source:
+                https://github.com/ansible/ansible-examples/blob/master/wordpress-nginx/site.yml
+                </p>
+
                 <p>
                 <a href="https://gcallah.github.io/DevOps/deployment/ansible.html"> More on Ansible </a>
                 </p>
@@ -358,13 +414,21 @@
                     mounting is a way of combining multiple directories into
                     one that appears to contain their combined contents."
                     <br />
-                    This capability is how Docker manages to layer image upon
-                    image to create a final image that can be instantiated as a
-                    container. So, for instance, a container we build might be
-                    built from Ubuntu x.y, unioned with Python 3.6, unioned
-                    with Django a.b, and so on. In this fashion, a more
-                    specific image can be created as a series of layers on top
-                    of a more basic image.
+                    UNIX and Linux filesystems are themselves files. 
+                    To access them, they must be <i>mounted</i> at
+                    some point under the root directory. If we mount two
+                    directories at the same mount point, one after another,
+                    we will only find the contents of the second there.
+                    But if we <i>union</i> mount them, we will have the union
+                    of the two.
+                    <br />
+                    Union mounting is how Docker builds up your image
+                    from multiple layers of docker images. That means you don't
+                    have to start from scratch every time you want to make an
+                    image. And containers can share files until one of them
+                    writes to one, at which point that file will be moved from 
+                    the read-only shared area to the read-write layer specific
+                    to that container.
                 </li>
 
                 <li>
@@ -383,7 +447,7 @@
                 <br />
                 <a href="https://www.codementor.io/blog/docker-technology-5x1kilcbow">
                     Docker: What's Under the Hood?
-                </a>)
+                </a>
                 <br />
                 <a href="https://en.wikipedia.org/wiki/Linux_namespaces">
                     Linux Namespaces
@@ -395,6 +459,9 @@
                 <br />
                 <a href="https://en.wikipedia.org/wiki/Union_mount">
                     Union mount from Wikipedia
+                </a>
+                <a href="https://medium.com/@paccattam/drooling-over-docker-2-understanding-union-file-systems-2e9bf204177c">
+                    Docker and Union File System
                 </a>
             </p>
 

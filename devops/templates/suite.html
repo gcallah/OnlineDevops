@@ -634,29 +634,7 @@
                  select commit directly to the master branch, and then select
                  Save and Run again.
             </li>
-            <li>
-                Wait until the build finishes.
-            </li>
-            <br />
         </ol>
-            Now that the build is finished, the next step is to configure and
-            run some tests, create the container image and push it to Azure 
-            Container Registry.
-            <br />
-            <a
-            href="https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops"
-            target="_blank" style="text-decoration: underline"> Steps to
-            build, test, and push Docker container apps</a>
-            <br />
-            Now its time to create a release pipeline and Deploy it to Azure 
-            Web App for Containers.
-            <br />
-            <a
-            href="https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=azure-devops"
-            target="_blank" style="text-decoration: underline"> Steps to
-            create a Release pipeline and deploy the App</a>
-            <br />
-            <br />
     </li>
   </ol>
 
@@ -668,6 +646,7 @@
     target="_blank" style="text-decoration: underline">
     https://docs.microsoft.com/en-us/rest/api/dtl/</a>
   </p>
+  <br/>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;[2]
     <a href="https://azure.microsoft.com/en-us/products/devops-tool-integrations/"
@@ -682,14 +661,7 @@
     https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/
     pipelines-get-started?view=azure-devops/</a>
   </p>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;[4]
-    <a
-    href="https://medium.com/microsoftazure/how-to-launch-a-dockerized-node-js-app-using-the-azure-web-app-for-containers-service-c3722ce370ab"
-    target="_blank" style="text-decoration: underline">
-    https://medium.com/microsoftazure/how-to-launch-a-dockerized-node-js-
-    app-using-the-azure-web-app-for-containers-service-c3722ce370ab</a>
-  </p>  
+
 </details>
 
 <details>
@@ -847,6 +819,36 @@
                         repo
                         <br/>
                         <img src="../static/devops/awsLogs.png" style="width:80%;">
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                Creating ECS (Elatic conatainer service)
+                <ul class="inner_nested">
+                    <li>
+                      Go to ECS from menu and click on create Cluster
+                      <br/>
+                      <img src="../static/devops/createCluster.png" style="width:80%;">
+                    </li>
+                    <li>
+                      select EC2 with networking
+                      <br/>
+                      <img src="../static/devops/ec2Networking.png" style="width:80%;">
+                    </li>
+                    <li>
+                      Make sure you select a completely new VPC, Security group and IAM role and create.
+                      <br/>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                Creating Taks to run ECS
+                <ul class="inner_nested">
+                    <li>
+                      Click on task definition and create tasks with specific docker and settings.
+                      <br/>
                     </li>
                 </ul>
             </li>

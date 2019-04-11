@@ -89,10 +89,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-# This is how we switch to MySQL
-# by setting USE_MYSQL env variable to YES or True...
-# if you forgot something - we fallback to SQLite, again...
+#
+# # This is how we switch to MySQL
+# # by setting USE_MYSQL env variable to YES or True...
+# # if you forgot something - we fallback to SQLite, again...
 if os.environ.get('USE_MYSQL') is not None:
     DATABASES = {
         'default': {
@@ -153,6 +153,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'theme': "advanced",
     'width': '80%',
     'height': 800,
+    'valid_elements': '*[*]',
 }
 
 LOGIN_REDIRECT_URL = 'devops:index'

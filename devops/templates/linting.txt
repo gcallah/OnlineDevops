@@ -1,3 +1,4 @@
-linting found in: 
-    devops/templates/build.html
-    devops/templates/gloss.html
+linting found in: <br>    devops/templates/build.html
+<br>    devops/templates/gloss.html
+<br>    devops/templates/secur.html
+<br>

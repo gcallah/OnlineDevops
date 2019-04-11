@@ -10,10 +10,6 @@ export DATA_DIR="$CODE_DIR/data"
 
 for test_file in $TEST_DIR/*.html;
 do
-    if [ $test_file == "devops/templates/work.html" ]
-    then
-        continue;
-    fi
     echo 'URL-checking file:' $test_file
     python3 $CODE_DIR/url_checker.py "$test_file" "http://www.thedevopscourse.com"
     echo 'Html-checking file:' $test_file
