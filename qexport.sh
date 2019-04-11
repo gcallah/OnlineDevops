@@ -6,7 +6,6 @@ export NAME='devopscourse$devopscourse'
 export USER='devopscourse'
 export PASSWORD='releaseit!'
 export HOST='devopscourse.mysql.pythonanywhere-services.com'
-export TEST_NAME="'nyustaging$test_devops_staging'"
 
 echo "dollar 1 is $1"
 
