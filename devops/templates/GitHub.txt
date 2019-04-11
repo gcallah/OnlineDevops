@@ -1,11 +1,12 @@
-GitHub found in: 
-    devops/templates/about.html
-    devops/templates/build.html
-    devops/templates/flow.html
-    devops/templates/gloss.html
-    devops/templates/incr.html
-    devops/templates/infra.html
-    devops/templates/secur.html
-    devops/templates/teams.html
-    devops/templates/test.html
-    devops/templates/work.html
+GitHub found in: <br>    devops/templates/about.html
+<br>    devops/templates/build.html
+<br>    devops/templates/cicd.html
+<br>    devops/templates/flow.html
+<br>    devops/templates/gloss.html
+<br>    devops/templates/incr.html
+<br>    devops/templates/infra.html
+<br>    devops/templates/secur.html
+<br>    devops/templates/suite.html
+<br>    devops/templates/teams.html
+<br>    devops/templates/work.html
+<br>

@@ -1,3 +1,5 @@
-image found in: 
-    devops/templates/gloss.html
-    devops/templates/infra.html
+image found in: <br>    devops/templates/cicd.html
+<br>    devops/templates/gloss.html
+<br>    devops/templates/infra.html
+<br>    devops/templates/suite.html
+<br>

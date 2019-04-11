@@ -410,6 +410,10 @@
                 <li>
                     <span class="hilight">Union File System</span>
                     <br />
+                    As Wikipedia has it, "In computer operating systems, union
+                    mounting is a way of combining multiple directories into
+                    one that appears to contain their combined contents."
+                    <br />
                     UNIX and Linux filesystems are themselves files. 
                     To access them, they must be <i>mounted</i> at
                     some point under the root directory. If we mount two
@@ -421,7 +425,10 @@
                     Union mounting is how Docker builds up your image
                     from multiple layers of docker images. That means you don't
                     have to start from scratch every time you want to make an
-                    image.
+                    image. And containers can share files until one of them
+                    writes to one, at which point that file will be moved from 
+                    the read-only shared area to the read-write layer specific
+                    to that container.
                 </li>
 
                 <li>
@@ -450,6 +457,9 @@
                     Introduction to Control Groups
                 </a>
                 <br />
+                <a href="https://en.wikipedia.org/wiki/Union_mount">
+                    Union mount from Wikipedia
+                </a>
                 <a href="https://medium.com/@paccattam/drooling-over-docker-2-understanding-union-file-systems-2e9bf204177c">
                     Docker and Union File System
                 </a>

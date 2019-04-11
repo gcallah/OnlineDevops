@@ -1,4 +1,6 @@
-Continuous Integration found in: 
-    devops/templates/build.html
-    devops/templates/gloss.html
-    devops/templates/test.html
+Continuous Integration found in: <br>    devops/templates/build.html
+<br>    devops/templates/cicd.html
+<br>    devops/templates/gloss.html
+<br>    devops/templates/suite.html
+<br>    devops/templates/test.html
+<br>
