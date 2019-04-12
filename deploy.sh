@@ -4,6 +4,7 @@
 eval "$(ssh-agent -s)" # Start ssh-agent cache
 chmod 600 ~/.ssh/id_rsa # Allow read access to the private key
 ssh-add ~/.ssh/id_rsa # Add the private key to SSH
+echo "ssh.pythonanywhere.com" > ~/.ssh/known_hosts
 
 echo "SSHing to PythonAnywhere."
 ssh devopscourse@ssh.pythonanywhere.com << EOF
