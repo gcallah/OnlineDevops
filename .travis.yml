@@ -20,7 +20,7 @@ env:
 script:
     - make tests
 
-after_script:
+after_success:
     - ./deploy.sh
 
 notifications:
