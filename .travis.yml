@@ -1,7 +1,6 @@
-# Our YAML file for running Travis CI.
 language: python
 python:
-    - "3.6"
+    - '3.6'
 
 services:
     - docker
@@ -15,8 +14,12 @@ env:
 script:
     - make tests
 
-# after success, we should build our containers and push to 
-# docker hub
+after_success:
+    - ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
 
 notifications:
   slack: devopsnyu:vAFcJBgAP2f73SqhWgb40Gjf
+
+before_install:
+    - openssl aes-256-cbc -K $encrypted_4cefc8a5b2ff_key -iv $encrypted_4cefc8a5b2ff_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
