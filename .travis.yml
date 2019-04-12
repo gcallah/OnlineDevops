@@ -15,7 +15,7 @@ script:
     - make tests
 
 after_success:
-    - ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh'
+    - deploy.sh
 
 notifications:
   slack: devopsnyu:vAFcJBgAP2f73SqhWgb40Gjf
