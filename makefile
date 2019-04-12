@@ -86,5 +86,4 @@ final_test:
 prod: $(SRCS) tests db
 	-git commit -a
 	git push origin master
-	# we are trying to do this from Travis:
-	# ssh devopscourse@ssh.pythonanywhere.com 'cd /home/devopscourse/$(REPO); /home/devopscourse/$(REPO)/rebuild.sh'
+	# The deploy to the prod server is handled by Travis.
