@@ -5,6 +5,9 @@ python:
 services:
     - docker
 
+addons:
+    ssh_known_hosts: ssh.pythonanywhere.com
+
 before_install:
     openssl aes-256-cbc -K $encrypted_4cefc8a5b2ff_key -iv $encrypted_4cefc8a5b2ff_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
 
