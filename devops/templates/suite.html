@@ -671,10 +671,10 @@
 
     <li>
         <span class="hilight">
-            Connecting Dockerhub with external service
+            Connecting Docker Hub with external service
         </span>
         <br />
-        A docker hub repository can be configured via webhooks to make it an
+        A Docker Hub repository can be configured via webhooks to make it an
         event driven service. As soon as any changes are made to the
         repository, the URL will be called.
         <br />
@@ -683,7 +683,7 @@
         <br/>
         <ul class="inner_nested">
             <li>
-                Connecting dockerhub to AWS
+                Connecting Docker Hub to AWS
                 <ul class="inner_nested">
                     <li>
                         Create a lambda function
@@ -705,15 +705,15 @@
                         <img src="../static/devops/apiGatewayURL.png" style="width:80%;">
                     </li>
                     <li>
-                        Now open Dockerhub repository and paste the URL in the
+                        Now open Docker Hub repository and paste the URL in the
                         webhook section.
                         <br/>
                         <img src="../static/devops/dockerhubAWSwebhook.png" style="width:80%;">
                     </li>
                     <li>
-                        Any changes to the dockerhub repo will now be reported
+                        Any changes to the Docker Hub repo will now be reported
                         to the AWS Lambda function.Below is the log that gets
-                        generated in AWS when a push was made to the dockerhub
+                        generated in AWS when a push was made to the Docker Hub
                         repo
                         <br/>
                         <img src="../static/devops/awsLogs.png" style="width:80%;">
@@ -765,7 +765,7 @@
             </li>
 
             <li>
-                Connecting dockerhub to Microsoft Azure (one-time)
+                Connecting Docker Hub to Microsoft Azure (one-time)
                 <ul class="inner_nested">
                     <li>
                         Create a new container instance <br/> Container
@@ -798,7 +798,7 @@
                 </ul>
             </li>
             <li>
-                Connecting dockerhub to Azure functions
+                Connecting Docker Hub to Azure functions
                 <ul class="inner_nested">
                     <li>
                         Create a Azure function
@@ -822,15 +822,15 @@
                         <img src="../static/devops/azureFunctionURL2.png" style="width:80%;">
                     </li>
                     <li>
-                        Now open Dockerhub repository and paste the URL in the
+                        Now open Docker hub repository and paste the URL in the
                         webhook section.
                         <br/>
                         <img src="../static/devops/dockerhubAzurewebhook.png" style="width:80%;">
                     </li>
                     <li>
-                        Any changes to the dockerhub repo will now be reported
+                        Any changes to the Docker Hub repo will now be reported
                         to the Azure.Below is the log that gets generated in
-                        Azure functions when a push was made to the dockerhub
+                        Azure functions when a push was made to the Docker Hub
                         repo
                         <br/>
                         <img src="../static/devops/azureLogs.png" style="width:80%;">
@@ -903,9 +903,67 @@
                 </li>
                 <li>
                     (Example) Deploying a Class Scheduling application
-                    <figure>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/rL6pkSoSIJc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </figure>
+                    <ul class="inner_nested">
+                        <li>Deployment HOW-TO Video
+                            <figure>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/rL6pkSoSIJc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </figure>
+                        </li>
+                        <li>
+                            Deployment HOW-TO Steps
+                            <ol class="inner_nested">
+                                <li>
+                                    Click on "Create A New Resource" from the
+                                    <a href="https://portal.azure.com"
+                                    style="text-decoration: underline">Azure
+                                    Portal</a>  and search for "Web App for
+                                    Containers".
+                                </li>
+                                <li>
+                                    Click on the "Create" button on the
+                                    application description screen that
+                                    follows.
+                                </li>
+                                <li>
+                                    Configure elements of your application
+                                    like "App Name" (Must be present in  the
+                                    ALLOWED_HOSTS section of your website's
+                                    settings.py file), "Subscription",
+                                    "Resource Group", and "App Service Plan".
+                                </li>
+                                <li>
+                                    Click on "Container Settings" and select
+                                    Docker Hub (Container source) and enter
+                                    the image and tag details
+                                    (shaival/testnyuscheduler) in this case.
+                                    Default tag selected by Azure is "latest".
+                                    Enter the startup file details depending
+                                    on container's settings. It is a good idea
+                                    to enter absolute paths to prevent
+                                    confusion.<br /> Click on "Create".
+                                </li>
+                                <li>
+                                    Access the resource from the Dashboard and
+                                    click on "Container Settings".
+                                </li>
+                                <li>
+                                    Turn on "Continuous Deployment" and copy
+                                    the Webhook URL.
+                                </li>
+                                <li>
+                                    Paste the URL in Docker Hub's "Manage
+                                    Repository" settings page and assign a
+                                    name to the webhook. Click on the "+"
+                                    symbol to add it to Docker Hub.
+                                </li>
+                                <li>
+                                    Allow Azure to pull and deploy the image.
+                                    The application is accessible from the URL
+                                    as mentioned in the "Overview" page.
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
                 </li>
             </ul>
           </li>
@@ -941,8 +999,8 @@
             <br />
             <ol class="inner_nested">
                 <li>
-                    Get the access keys for the container registry created in the
-                    previous step
+                    Get the access keys for the container registry created in
+                    the previous step
                     <br />
                     <img src="../static/devops/azure-access-key.jpg" style="width:50%;">
                 </li>
@@ -963,8 +1021,8 @@
                     <img src="../static/devops/docker_push.png" style="width:50%;">
                     <br />
                     <br />
-                    The container should be added to the registry. To confirm use
-                    the <code>docker images</code> command.
+                    The container should be added to the registry. To confirm
+                    use the <code>docker images</code> command.
                     <br />
                     <br />
                     <img src="../static/devops/docker_images.png" style="width:50%;">
