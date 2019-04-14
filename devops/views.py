@@ -9,7 +9,7 @@ import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
 
-from .models import Question, Grade, Quiz, CourseModule
+from .models import Question, Grade, Quiz, CourseModule,ModuleSection
 
 site_hdr = "The DevOps Course"
 
@@ -139,6 +139,46 @@ def lesson(request, lesson='work'):
             'header': site_hdr,
             'content': "Error! Please try again"})
 
+def chapter(request, chapter='basics'):
+    try:
+        print("hiii")
+        contents = CourseModule.objects.get(module=chapter)
+        print(contents)
+        print("yoyooyoooy")
+        sections=ModuleSection.objects.filter(module=contents)
+        print(sections)
+
+
+        rand_qs = []
+        questions = Question.objects.filter(module=chapter)
+        num_questions = questions.count()
+        num_qs_to_randomize = DEF_NUM_RAND_QS
+
+        if num_questions > 0:
+            # we have to fetch numq from here:
+            quizzes = Quiz.objects.filter(module=chapter)
+            # we should log if we get count > 1 here!
+            for quiz in quizzes:
+                # we should have only 1 if any!
+                num_qs_to_randomize = quiz.numq
+                break
+            if num_questions >= num_qs_to_randomize:
+                rand_qs = random.sample(list(questions), num_qs_to_randomize)
+            else:
+                rand_qs = random.sample(list(questions), num_questions)
+
+        return render(request, 'chapter.html', {
+            'module_title': contents.title,
+            'sections': sections,
+            'header': site_hdr,
+            'questions': rand_qs,
+            'content': contents.content,
+            'mod_nm': lesson
+        })
+    except Exception:
+        return render(request, 'chapter.html', {
+            'header': site_hdr,
+            'content': "Error! Please try again"})
 
 def gloss(request: request) -> object:
     return render(request, 'glossary.html', {'header': site_hdr})
