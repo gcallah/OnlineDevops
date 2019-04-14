@@ -41,6 +41,9 @@ class ModuleSection(models.Model):
     order = models.IntegerField(blank=False, null=False, unique=True)
     content = HTMLField(default='Please enter your contents here!')
 
+    def __str__(self):
+        return self.title
+
 
 class Quiz(models.Model):
     module = models.CharField(max_length=MODNM_LEN, unique=True)

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="module">
+        <h1>
+            {{ module_title }}
+        </h1>
+    {% autoescape off %}{{ content }}{% endautoescape %}
+
+ {% for section in sections %}
+     <details>
+        <summary class="sum1">
+            {% autoescape off %}{{ section.title }}{% endautoescape %}
+        </summary>
+         {% autoescape off %}{{ section.content }}{% endautoescape %}
+     </details>
+{% endfor %}
+
+
+
+    </div>
+
+      {% include 'quiz.html' %}
+{% endblock content %}
