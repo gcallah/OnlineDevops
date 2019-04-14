@@ -9,7 +9,7 @@ import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
 
-from .models import Question, Grade, Quiz, CourseModule,ModuleSection
+from .models import Question, Grade, Quiz, CourseModule, ModuleSection
 
 site_hdr = "The DevOps Course"
 
@@ -139,16 +139,12 @@ def lesson(request, lesson='work'):
             'header': site_hdr,
             'content': "Error! Please try again"})
 
+
 def chapter(request, chapter='basics'):
+
     try:
-        print("hiii")
         contents = CourseModule.objects.get(module=chapter)
-        print(contents)
-        print("yoyooyoooy")
-        sections=ModuleSection.objects.filter(module=contents)
-        print(sections)
-
-
+        sections = ModuleSection.objects.filter(module=contents)
         rand_qs = []
         questions = Question.objects.filter(module=chapter)
         num_questions = questions.count()
@@ -179,6 +175,7 @@ def chapter(request, chapter='basics'):
         return render(request, 'chapter.html', {
             'header': site_hdr,
             'content': "Error! Please try again"})
+
 
 def gloss(request: request) -> object:
     return render(request, 'glossary.html', {'header': site_hdr})
