@@ -533,7 +533,7 @@
           href="https://docs.microsoft.com/en-us/azure/azure-monitor/overview"
           target="_blank" style="text-decoration: underline">here</a>
       </li>
-
+      <br />
   </ol>
 
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -544,7 +544,6 @@
     target="_blank" style="text-decoration: underline">
     https://docs.microsoft.com/en-us/rest/api/dtl/</a>
   </p>
-  <br/>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;[2]
     <a href="https://azure.microsoft.com/en-us/products/devops-tool-integrations/"
@@ -1008,13 +1007,35 @@
                 Select the location of source code and the desired repository.
             </li>
             <li>
-                If the repository has a contains the <code>azure-pipelines.yml
+                If the repository contains the <code>azure-pipelines.yml
                 </code> file, then you'll see a Run button. If not, you'll be
                  asked to pick a starter template. Select Save and Run, then
                  select commit directly to the master branch, and then select
                  Save and Run again.
             </li>
+            <li>
+                Wait until the build finishes.
+            </li>
+            <br />
         </ol>
+        Now that the build is finished, the next step is to configure and
+        run some tests, create the container image and push it to Azure 
+        Container Registry.
+        <br />
+        <a
+        href="https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops"
+        target="_blank" style="text-decoration: underline"> Steps to
+        build, test, and push Docker container apps</a>
+        <br />
+        Now its time to create a release pipeline and Deploy it to Azure 
+        Web App for Containers.
+        <br />
+        <a
+        href="https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=azure-devops"
+        target="_blank" style="text-decoration: underline"> Steps to
+        create a Release pipeline and deploy the App</a>
+        <br />
+        <br />
     </li>
 </ol>
 </details>
