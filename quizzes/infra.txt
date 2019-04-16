@@ -1,0 +1,152 @@
+1. (1 point)
+We want to regard our infrastructure as software because...?
+
+a. that is what Bill Gates would do
+*b. that allows us to automate that provisioning of infrastructure
+c. software is cool, while hardware is not
+d. all of the above
+
+2. (1 point)
+Containers can best be conceived as...?
+
+a. a new sort of thread
+b. a different way to test software
+*c. lightweight virtual machines
+d. all of the above
+
+3. (1 point)
+Infrastructure as code can reduce costs, since...?
+
+a. code is lighter in weight than hardware
+b. executing in software is faster than doing so in hardware
+*c. it relieves operations people of the time they would spend setting up infrastructure by hand
+d. all of the above
+
+4. (1 point)
+Infrastructure as code speeds up deployment because...?
+
+a. there is no testing involved
+*b. running a script is faster than clicking through a GUI interface
+c. it eliminates the need for version control
+d. none of the above
+
+5. (1 point)
+Infrastructure as code is less error-prone than manual deployment because...?
+
+a. it can be debugged once and that's that
+b. manual deployment is boring, and humans will make errors
+c. we can look over the code and reason about it
+*d. all of the above
+
+6. (1 point)
+A core DevOps principle is that automation is good because...?
+
+*a. it gives machines the boring, repetitive work, and humans the interesting stuff
+b. it helps eliminate lots of jobs
+c. otherwise, lower-wage countries will have an advantage
+d. all of the above
+
+7. (1 point)
+Which of the following are popular infrastructure-as-code tools?
+
+*a. Puppet, Chef, and Ansible
+b. Git, Jenkins, and Travis
+c. AWS, Google Cloud, and Azure
+d. Python, C++, and Java
+
+8. (1 point)
+Among the reasons infrastructure as code (IAC) is desirable is/are...?
+
+a. IAC can be put under version control
+b. IAC can be be automatically deployed
+c. IAC can be put through automated testing
+*d. all of the above
+
+9. (1 point)
+A disadvantage of Chef is...?
+
+a. it can't be used for large-scale deployment
+b. it is not designed for programmers
+*c. using it requires knowledge of Ruby
+d. it can't be put under version control
+
+10. (1 point)
+A disadvantage of Puppet is that users must...?
+
+a. only run on Linux
+*b. learn the Puppet DSL
+c. commit to running Windows
+d. deal with a terrible GUI
+
+11. (1 point)
+One reason we use Docker in our projects is...?
+
+a. it cuts down on memory usage
+b. it makes our unit testing simpler
+c. it provides automatic documentation for the source code
+*d. it allows us to specify a local server that will be just like production
+
+12. (1 point)
+When a Dockerfile says 'FROM Alpine-2.3' that means...?
+
+a. this will be a mountainous docker image
+*b. the image being built will be based on the 'Alpine-2.3' image
+c. we will be running the 'Alpine-2.3' image
+d. none of the above
+
+13. (1 point)
+A line in a Dockerfile that says 'RUN pip install -r requirements.txt' means...?
+
+a. once the container is launched, it will run that command
+b. if pip install is True, the container should RUN, or exit
+*c. that command should be run to build the container
+d. nothing: that is an invalid command
+
+14. (1 point)
+The command 'docker ps' will list...?
+
+a. all containers named 'ps'
+b. all containers
+c. all images currently installed on the system
+*d. all images currently running on the system
+
+15. (1 point)
+If we run the 'ps' command to list running processes both inside and outside a container, we will likely see more processes...?
+
+a. inside the container
+*b. outside the container
+c. no telling
+d. you can't run it inside a container
+
+16. (1 point)
+Infrastructure as code is important in the cloud (compared to old machine rooms) because...?
+
+a. we are likely to have more servers
+b. the servers life-span is shorter
+c. we often need to scale deployment up and down in a matter of minutes
+*d. all of the above
+
+17. (1 point)
+"cgroups" stands for...?
+
+a. Groups for running C code
+*b. Control groups
+c. Chaos monkey groups
+d. Continuous integration groups
+
+18. (1 point)
+The Linux feature that allows different processes to see different sets of resources is called...?
+
+*a. namespaces
+b. libnetwork
+c. libcontainer
+d. union file system
+
+19. (1 point)
+A union file system...?
+
+a. unites the best features of NFS and HFS
+b. keeps all files unied on one disk
+*c. allows multiple mounts at a single mount point resulting in a union of all of their contents
+d. none of the above.
+

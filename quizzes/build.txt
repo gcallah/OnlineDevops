@@ -1,0 +1,64 @@
+1. (1 point)
+Which of the following is an automated build tool?
+
+a. git
+b. slack
+*c. make
+d. Docker
+
+2. (1 point)
+We want to automate our builds because...?
+
+a. it reduces errors
+b. it documents the build process
+c. it allows engineers to do more interesting work
+*d. all of the above
+
+3. (1 point)
+An advantage of documenting a process by automating it versus writing a document about how it is done is that...?
+
+a. scripts are easier to read than prose
+b. it gives programmers an edge over tech writers in producing the documentation
+*c. the script can't be out of date with the process, while a text description can be
+d. all of the above
+
+4. (1 point)
+A manual process that is boring is... ?
+
+a. good for the programmer
+b. highly paid
+c. suitable for junior programmers
+*d. error prone
+
+5. (1 point)
+If we automate our builds, we can include... ?
+
+a. monitoring
+*b. tests
+c. kanban boards
+d. none of the above
+
+6. (1 point)
+Popular build tools include...?
+
+*a. make, Ant, and Maven
+b. grep, awk, and sed
+c. git, StatusCake, and Slack
+d. all of the above
+
+7. (1 point)
+A makefile includes... ?
+
+a. servers, ports, and inodes
+b. documentation, a version control system, and monitoring
+*c. target, dependencies and commands
+d. none of the above
+
+8. (1 point)
+A line in a makefile like `prod: test docker` means...?
+
+*a. There is a target named `prod` that depends on `test` and `docker`.
+b. There is a command named `prod` that gets the arguments `test` and `docker`.
+c. There is a server named `prod` that lives on the `test docker` subnet.
+d. None of the above.
+
