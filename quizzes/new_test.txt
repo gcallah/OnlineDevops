@@ -1,0 +1,726 @@
+1. (1 point)
+Which of the following is an automated build tool?
+
+a. git
+b. slack
+*c. make
+d. Docker
+
+2. (1 point)
+Which of the following is a cloud service provider?
+
+a. AWS
+b. Azure
+c. Google Cloud Services
+*d. All of the above
+
+3. (1 point)
+What is our main tool for communication in our course?
+
+a. git
+b. Docker
+c. Kubernetes
+*d. Slack
+
+4. (1 point)
+Lean and agile development displaced the ____ model of development?
+
+a. unicorn
+b. silo
+c. all-at-once
+*d. waterfall
+
+5. (1 point)
+We develop incrementally because it....?
+
+a. increases programmer satisfaction
+b. produces less buggy software
+c. delivers value to the customers faster
+*d. all of the above
+
+6. (1 point)
+Version control is an important part of incremental development because...?
+
+*a. it allows us to roll back changes easily
+b. it permits auditors to see how much work has been done
+c. "if you don't know your past you won't know your future."
+d. all of the above
+
+7. (1 point)
+We want to automate our builds because...?
+
+a. it reduces errors
+b. it documents the build process
+c. it allows engineers to do more interesting work
+*d. all of the above
+
+8. (1 point)
+An advantage of documenting a process by automating it versus writing a document about how it is done is that...?
+
+a. scripts are easier to read than prose
+b. it gives programmers an edge over tech writers in producing the documentation
+*c. the script can't be out of date with the process, while a text description can be
+d. all of the above
+
+9. (1 point)
+We want to regard our infrastructure as software because...?
+
+a. that is what Bill Gates would do
+*b. that allows us to automate that provisioning of infrastructure
+c. software is cool, while hardware is not
+d. all of the above
+
+10. (1 point)
+Containers can best be conceived as...?
+
+a. a new sort of thread
+b. a different way to test software
+*c. lightweight virtual machines
+d. all of the above
+
+11. (1 point)
+The division of labor is cited by Adam Smith as...?
+
+*a. increasing productivity
+b. decreasing productivity
+c. make workers smarter
+d. making jobs more enjoyable
+
+12. (1 point)
+One of the reasons the Waterfall Model often fails is...?
+
+a. not enough advanced planning
+b. the stages are not separated clearly enough in the model
+*c. we often only realize what software we need to build in the process of building it
+d. none of the above
+
+13. (1 point)
+The DevOps idea of incremental development can be seen as an extension of...?
+
+a. monolithic mainframe applications
+*b. the UNIX style of development
+c. an all-at-once development style
+d. all of the above
+
+14. (1 point)
+When we set out to develop software, we...?
+
+a. usually know all we need to know at the start
+b. can easily plan everything in advance
+c. should lock down all requirements right away
+*d. rarely know all we need to know at the start
+
+15. (1 point)
+In software engineering, "MVP" stands for...?
+
+*a. minimum viable product
+b. maximum value produced
+c. major vehicle production
+d. none of the above
+
+16. (1 point)
+In the Lean paradigm of development, decisions about the product should be made...?
+
+a. right at the start
+b. as soon as possible
+*c. as late as possible
+d. none of the above
+
+17. (1 point)
+The term "DevOps" was created by combining the terms...?
+
+*a. development and operations
+b. deviance and opacity
+c. devilish and operatic
+d. none of the above
+
+18. (1 point)
+DevOps can be understood as the need for _____ to keep up with ______ development practices.
+
+a. Lean and Agile, operations
+b. development, Lean and Agile
+c. development, operations
+*d. operations, Lean and Agile
+
+19. (1 point)
+The advantages of incremental development include...?
+
+a. value is delivered to customers more rapidly
+b. testing becomes easier
+c. programmer job satisfaction increases
+*d. all of the above
+
+20. (1 point)
+Automated testing is an important part of DevOps because...?
+
+*a. It enables rapid deployment of new software
+b. "Automated" has a nice sound to it
+c. It saves money in hiring testers.
+d. none of the above
+
+21. (1 point)
+Testing should be done on...?
+
+a. only the most crucial code in the application
+b. all of the application code
+*c. all of the application code AND all of the infrastructure code
+d. none of the above
+
+22. (1 point)
+In DevOps, "silos" refers to the fact that...?
+
+*a. departments in organizations often seemed sealed off from each other
+b. good software should be divided into "silos"
+c. granaries are major users of software
+d. all of the above
+
+23. (1 point)
+We want to script our environment so that...?
+
+a. environments are always in a known state
+b. we lessen the chance that knowledge is locked in team members' heads
+c. deployments are more predictable and repeatable
+*d. all of the above
+
+24. (1 point)
+"Chaos Monkey" is...?
+
+*a. a tool Netflix developed to intentionally crash their servers
+b. a description of who is in charge of most software projects
+c. the state of infrastructure before DevOps
+d. none of the above
+
+25. (1 point)
+The right artifacts of a project to put under version control are...?
+
+a. project source code
+b. scripts to build the project infrastructure
+c. project documentation
+*d. all of the above
+
+26. (1 point)
+If we version control everything about our project, we...?
+
+a. create a big mess no one could understand
+b. waste a lot of time
+*c. establish a single source of truth for the system
+d. clog our version control system with trivial stuff
+
+27. (1 point)
+Who should have "ownership" (be able to change) parts of a product in an agile team?
+
+a. only the creator of that part
+*b. anyone on the team
+c. only the project supervisor
+d. only the system administrator
+
+28. (1 point)
+A poly-skilled engineer
+
+a. graduated from NYU Poly
+b. knows several languages
+*c. knows all parts of the technology their team uses
+d. all of the above
+
+29. (1 point)
+An advantage Slack has over email threads is
+
+a. people can join and leave threads as they need to
+b. people won't forget to include someone who needs to see a message
+c. it is easy to bring in a new person and have them pick up on the whole conversation
+*d. all of the above
+
+30. (1 point)
+git and GitHub are...?
+
+a. just different names for the same software
+*b. very different: git is the basic version control software, while GitHub is a place to store git repos
+c. entirely unrelated
+d. none of the above
+
+31. (1 point)
+Commit messages in git are...?
+
+*a. important to communicate to team members what you are up to
+b. unimportant and should be ignored
+c. can be the same for every commit
+d. generated automatically
+
+32. (1 point)
+We use "git clone" to...?
+
+a. add a clone of a file to a repo
+b. turn one repo into two repos
+*c. make a local copy of a repo
+d. all of the above
+
+33. (1 point)
+If we see text like "<<<<< HEAD:file.txt" inserted into a file, that is...?
+
+a. the header for the file
+b. a UNIX command accidentally inserted in the file
+*c. git showing us where a conflict is in file.txt
+d. none of the above
+
+34. (1 point)
+If you type 'git pull origin master' then master is...?
+
+*a. the branch you are pulling
+b. the level of difficulty of the pull
+c. the repo you are pulling from
+d. how much git should try to force the pull
+
+35. (1 point)
+Incremental and iterative development were a response to failures in...?
+
+a. functional programming
+*b. the waterfall model
+c. test-driven development
+d. resume-driven development
+
+36. (1 point)
+The problem with describing a server setup in a detailed document is...?
+
+a. an engineer has to manually do the setup
+b. the document will get out of date
+c. the document is likely to miss some "obvious" step
+*d. all of the above
+
+37. (1 point)
+Automated deployment should be coupled with...?
+
+*a. automated tests
+b. manual steps to make sure the sys admin is on their toes
+c. manual configuration
+d. none of the above
+
+38. (1 point)
+Kanban is a method of managing work that...?
+
+a. makes work visible
+b. limits work-in-progress
+c. implements a pull system for taking on new work
+*d. all of the above
+
+39. (1 point)
+Over-production is a waste because...?
+
+a. Toyota said it was
+*b. we are producing something the customer may never need
+c. we can make more profit from under-production
+d. none of the above
+
+40. (1 point)
+Working in small batches means...?
+
+a. faster feedback
+b. problems are localized
+c. risk is reduced
+*d. all of the above
+
+41. (1 point)
+Small batches enabled Toyota to...?
+
+*a. respond more quickly to customer demand
+b. fit the batches into their small factory
+c. fire workers more easily
+d. all of the above
+
+42. (1 point)
+You should measure your productivity by...?
+
+a. the amount of tasks you are working on
+b. how busy you are
+*c. the amount of tasks you finish
+d. how many hours per day you work
+
+43. (1 point)
+By limiting work-in-progress, kanban helps to eliminate the  waste of...?
+
+a. nonsense
+*b. inventory
+c. rework
+d. transportation
+
+44. (1 point)
+Which of the following is not a benefit of kanban?
+
+*a. allowing greater re-use of software components
+b. limiting work-in-progress
+c. visualizing work
+d. detecting bottlenecks
+
+45. (1 point)
+Is every card system a kanban system?
+
+a. yes
+*b. no
+
+46. (1 point)
+Working in small batches, per our article, means releasing work...?
+
+a. every few years
+*b. every few hours
+c. every few months
+d. every few weeks
+
+47. (1 point)
+The term 'scrum' comes from the sport of _____, where all members must unite to advance the ball.
+
+a. football
+b. volleyball
+c. golf
+*d. rugby
+
+48. (1 point)
+A key principle of scrum is that...?
+
+*a. customers can and will change their minds
+b. requirements must be locked down months in advance
+c. the analysis phase of software development must be completely separated from coding
+d. all of the above
+
+49. (1 point)
+In scrum, the product owner has what role?
+
+a. making all technical decisions
+*b. being the voice of the customer
+c. garnering the profits from the release of the product
+d. being the only one allowed to speak at daily scrums
+
+50. (1 point)
+The small batch principle of faster feedback would recommend what practice?
+
+a. only show your work to the customer once you are sure it is completely correct
+b. show early work stages to your team members, but never outside the team
+*c. make your work visible as early and as often as possible
+d. none of the above
+
+51. (1 point)
+Small batches help debugging because...?
+
+a. bugs come in batches
+b. we will never have bugs if we work in small batches
+c. debuggers are small programs
+*d. we know right away what area of the program caused a new problem
+
+52. (1 point)
+As opposed to Toyota, American car manufacturers often used a _____ system of production.
+
+a. scrum
+*b. push
+c. pull
+d. waterfall
+
+53. (1 point)
+To eliminate the waste of over-production, we should...?
+
+a. build all things we think the customer might want in advance
+b. stop have meetings
+*c. only build an MVP at first, and then see what more is needed
+d. avoid having any inventory
+
+54. (1 point)
+In scrum, an epic is...?
+
+a. a poem like the Aeneid or the Illiad
+b. part of a story
+c. someone going on and on in a scrum
+*d. a large body of work that can be broken down into smaller stories
+
+55. (1 point)
+"No magic constants" means you should not...?
+
+*a. scatter constants like 7, 12, or 3.14 through your program
+b. define constants to have values like "Harry Potter"
+c. use integer values in your code
+d. use an irrational number in your code
+
+56. (1 point)
+Our functions should...?
+
+a. precisely embody the mathematical notion of a function
+b. do as many tasks as possible, since functions calls take time
+*c. do one clearly definable task
+d. none of the above
+
+57. (1 point)
+PEP 8 recommends that when indenting, we should use..?
+
+a. tabs
+*b. spaces
+c. underscores
+d. asterisks
+
+58. (1 point)
+When it comes to naming variables, we should...?
+
+a. always use camel case
+b. always employ underscores
+c. keep everything in ALL Caps
+*d. use the convention most widespread in our coding language
+
+59. (1 point)
+Comments should be...?
+
+*a. employed only when necessary
+b. scattered through the code as widely as possible
+c. used for every line of code
+d. never used at all
+
+60. (1 point)
+The best way to make your code understandable is...?
+
+a. to use as many comments as possible
+b. to use the longest variable names possible
+*c. to write clear code
+d. none of the above
+
+61. (1 point)
+The most important reason to use consistent indentation is...?
+
+*a. it makes it easy for readers to see the control blocks
+b. to pass the tests of code-style tools
+c. it looks prettier that way
+d. all of the above
+
+62. (1 point)
+According to PEP 8, constants should...?
+
+*a. BE_IN_ALL_CAPS
+b. beInCamelCase
+c. be_defined_with_underscores
+d. be defined on a per project basis
+
+63. (1 point)
+If our program employs a database, we should define the data tables...?
+
+a. in our code
+b. in the database
+c. in both the code and database
+*d. in one place used by both our code and the database
+
+64. (1 point)
+Function and variable names should be...?
+
+a. as short as possible
+b. as long as possible
+*c. hitting the mean between very short and very long
+d. in all upper case
+
+65. (1 point)
+DRY means your code should ...?
+
+a. not be all wet
+b. Delete Random Years
+c. Dally Really Youthfully
+*d. not repeat itself
+
+66. (1 point)
+PEP 8 recommends using blank lines in functions...?
+
+a. whenever the heck you want to
+*b. sparingly, to indicate logical sections
+c. never
+d. as much as possible
+
+67. (1 point)
+According to PEP 8, if we need a line break near a binary operator, it should come...?
+
+a. after the operator
+*b. before the operator
+c. wherever looks good
+d. nowhere: rewrite the code so you don't need it
+
+68. (1 point)
+Infrastructure as code can reduce costs, since...?
+
+a. code is lighter in weight than hardware
+b. executing in software is faster than doing so in hardware
+*c. it relieves operations people of the time they would spend setting up infrastructure by hand
+d. all of the above
+
+69. (1 point)
+Infrastructure as code speeds up deployment because...?
+
+a. there is no testing involved
+*b. running a script is faster than clicking through a GUI interface
+c. it eliminates the need for version control
+d. none of the above
+
+70. (1 point)
+Infrastructure as code is less error-prone than manual deployment because...?
+
+a. it can be debugged once and that's that
+b. manual deployment is boring, and humans will make errors
+c. we can look over the code and reason about it
+*d. all of the above
+
+71. (1 point)
+A core DevOps principle is that automation is good because...?
+
+*a. it gives machines the boring, repetitive work, and humans the interesting stuff
+b. it helps eliminate lots of jobs
+c. otherwise, lower-wage countries will have an advantage
+d. all of the above
+
+72. (1 point)
+Which of the following are popular infrastructure-as-code tools?
+
+*a. Puppet, Chef, and Ansible
+b. Git, Jenkins, and Travis
+c. AWS, Google Cloud, and Azure
+d. Python, C++, and Java
+
+73. (1 point)
+Among the reasons infrastructure as code (IAC) is desirable is/are...?
+
+a. IAC can be put under version control
+b. IAC can be be automatically deployed
+c. IAC can be put through automated testing
+*d. all of the above
+
+74. (1 point)
+A disadvantage of Chef is...?
+
+a. it can't be used for large-scale deployment
+b. it is not designed for programmers
+*c. using it requires knowledge of Ruby
+d. it can't be put under version control
+
+75. (1 point)
+A disadvantage of Puppet is that users must...?
+
+a. only run on Linux
+*b. learn the Puppet DSL
+c. commit to running Windows
+d. deal with a terrible GUI
+
+76. (1 point)
+One reason we use Docker in our projects is...?
+
+a. it cuts down on memory usage
+b. it makes our unit testing simpler
+c. it provides automatic documentation for the source code
+*d. it allows us to specify a local server that will be just like production
+
+77. (1 point)
+When a Dockerfile says 'FROM Alpine-2.3' that means...?
+
+a. this will be a mountainous docker image
+*b. the image being built will be based on the 'Alpine-2.3' image
+c. we will be running the 'Alpine-2.3' image
+d. none of the above
+
+78. (1 point)
+A line in a Dockerfile that says 'RUN pip install -r requirements.txt' means...?
+
+a. once the container is launched, it will run that command
+b. if pip install is True, the container should RUN, or exit
+*c. that command should be run to build the container
+d. nothing: that is an invalid command
+
+79. (1 point)
+The command 'docker ps' will list...?
+
+a. all containers named 'ps'
+b. all containers
+c. all images currently installed on the system
+*d. all images currently running on the system
+
+80. (1 point)
+If we run the 'ps' command to list running processes both inside and outside a container, we will likely see more processes...?
+
+a. inside the container
+*b. outside the container
+c. no telling
+d. you can't run it inside a container
+
+81. (1 point)
+Infrastructure as code is important in the cloud (compared to old machine rooms) because...?
+
+a. we are likely to have more servers
+b. the servers life-span is shorter
+c. we often need to scale deployment up and down in a matter of minutes
+*d. all of the above
+
+82. (1 point)
+What is regression testing?
+
+a. a very regressive form of testing
+b. a way to make tests more primitive each go-round
+*c. a way to see if the program has regressed after a change
+d. none of the above
+
+83. (1 point)
+The "zero-bug mindset" means that...?
+
+a. no developers should be bugging out
+*b. no bug backlog should ever build up
+c. no one should ever make a coding mistake
+d. we should ridicule anyone who introduces a bug
+
+84. (1 point)
+Unit tests work primarily at the level of...?
+
+*a. individual classes and methods
+b. user-level interactions
+c. checking the integration of the various modules of the software
+d. all of the above
+
+85. (1 point)
+Acceptance testing tests features as...?
+
+a. the computer sees them
+b. the tester sees them
+*c. the user sees them
+d. the regulator sees them
+
+86. (1 point)
+Testing Python code is aided by a package called...?
+
+a. pylib
+b. numpy
+c. scipy
+*d. pytest
+
+87. (1 point)
+'zero-length feedback' means...?
+
+*a. developers can test and fix bugs immediately
+b. the length of a CI/CD pipeline should be 0
+c. all tests should take 0 time
+d. all of the above
+
+88. (1 point)
+The scripting language for Jenkins is called...?
+
+*a. Groovy
+b. Movie
+c. Groupie
+d. Snoopy
+
+89. (1 point)
+Jenkins uses a __________ architecture?
+
+a. master-master
+*b. master-agent
+c. peer-to-peer
+d. monolithic
+
+90. (1 point)
+One common way to trigger a Jenkins build is....?
+
+a. type some new code in an IDE
+b. run make
+c. run Docker
+*d. push a commit in a version control system
+
+91. (1 point)
+In pytest, assert statements are a way to...?
+
+a. practice getting what you really want from life
+b. push some code into production
+*c. assert what code should be run
+d. state what condition should be true at the end of a unit of test code
+

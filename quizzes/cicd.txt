@@ -1,0 +1,40 @@
+1. (1 point)
+The scripting language for Jenkins is called...?
+
+*a. Groovy
+b. Movie
+c. Groupie
+d. Snoopy
+
+2. (1 point)
+Jenkins uses a __________ architecture?
+
+a. master-master
+*b. master-agent
+c. peer-to-peer
+d. monolithic
+
+3. (1 point)
+One common way to trigger a Jenkins build is....?
+
+a. type some new code in an IDE
+b. run make
+c. run Docker
+*d. push a commit in a version control system
+
+4. (1 point)
+Configuration languages are often examples of...?
+
+a. functional programming
+b. object-oriented programming
+c. procedural programming
+*d. declarative programming
+
+5. (1 point)
+A declarative language focuses on...?
+
+*a. saying what needs to be done rather than how it needs to be done
+b. the exact steps necessary to carry out an installation
+c. pure mathematical functions
+d. all of the above
+

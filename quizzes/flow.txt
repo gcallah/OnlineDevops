@@ -1,0 +1,134 @@
+1. (1 point)
+Kanban is a method of managing work that...?
+
+a. makes work visible
+b. limits work-in-progress
+c. implements a pull system for taking on new work
+*d. all of the above
+
+2. (1 point)
+Over-production is a waste because...?
+
+a. Toyota said it was
+*b. we are producing something the customer may never need
+c. we can make more profit from under-production
+d. none of the above
+
+3. (1 point)
+Working in small batches means...?
+
+a. faster feedback
+b. problems are localized
+c. risk is reduced
+*d. all of the above
+
+4. (1 point)
+Small batches enabled Toyota to...?
+
+*a. respond more quickly to customer demand
+b. fit the batches into their small factory
+c. fire workers more easily
+d. all of the above
+
+5. (1 point)
+You should measure your productivity by...?
+
+a. the amount of tasks you are working on
+b. how busy you are
+*c. the amount of tasks you finish
+d. how many hours per day you work
+
+6. (1 point)
+By limiting work-in-progress, kanban helps to eliminate the  waste of...?
+
+a. nonsense
+*b. inventory
+c. rework
+d. transportation
+
+7. (1 point)
+Which of the following is not a benefit of kanban?
+
+*a. allowing greater re-use of software components
+b. limiting work-in-progress
+c. visualizing work
+d. detecting bottlenecks
+
+8. (1 point)
+Is every card system a kanban system?
+
+a. yes
+*b. no
+
+9. (1 point)
+Working in small batches, per our article, means releasing work...?
+
+a. every few years
+*b. every few hours
+c. every few months
+d. every few weeks
+
+10. (1 point)
+The term 'scrum' comes from the sport of _____, where all members must unite to advance the ball.
+
+a. football
+b. volleyball
+c. golf
+*d. rugby
+
+11. (1 point)
+A key principle of scrum is that...?
+
+*a. customers can and will change their minds
+b. requirements must be locked down months in advance
+c. the analysis phase of software development must be completely separated from coding
+d. all of the above
+
+12. (1 point)
+In scrum, the product owner has what role?
+
+a. making all technical decisions
+*b. being the voice of the customer
+c. garnering the profits from the release of the product
+d. being the only one allowed to speak at daily scrums
+
+13. (1 point)
+The small batch principle of faster feedback would recommend what practice?
+
+a. only show your work to the customer once you are sure it is completely correct
+b. show early work stages to your team members, but never outside the team
+*c. make your work visible as early and as often as possible
+d. none of the above
+
+14. (1 point)
+Small batches help debugging because...?
+
+a. bugs come in batches
+b. we will never have bugs if we work in small batches
+c. debuggers are small programs
+*d. we know right away what area of the program caused a new problem
+
+15. (1 point)
+As opposed to Toyota, American car manufacturers often used a _____ system of production.
+
+a. scrum
+*b. push
+c. pull
+d. waterfall
+
+16. (1 point)
+To eliminate the waste of over-production, we should...?
+
+a. build all things we think the customer might want in advance
+b. stop have meetings
+*c. only build an MVP at first, and then see what more is needed
+d. avoid having any inventory
+
+17. (1 point)
+In scrum, an epic is...?
+
+a. a poem like the Aeneid or the Illiad
+b. part of a story
+c. someone going on and on in a scrum
+*d. a large body of work that can be broken down into smaller stories
+
