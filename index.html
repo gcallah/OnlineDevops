@@ -2,32 +2,64 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <!-- link href="style.css" rel="stylesheet" type="text/css"/ -->
+		<!-- Reveal.js required css files -->
+		<link rel="stylesheet" type="text/css" href="https://rawgit.com/hakimel/reveal.js/master/css/reset.css">
+        <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/reveal.css">
+        <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/theme/black.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/lib/css/monokai.css">
         <title>
             What Is DevOps?
         </title>
     </head>
 
     <body>
-        <h1>
-            What Is DevOps?
-        </h1>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>
+						What Is DevOps?
+					</h1>
+				</section>
+				<section>
+					<h2>
+						Some History
+					</h2>
+				</section>
+				<section>
+					<h2>
+						An Accidental Name
+					</h2>
+				</section>
+				
+					<h2>
+						
+					</h2>
 
-        <h2>
-            Some History
-        </h2>
+					<h2>
 
-        <h2>
-            An Accidental Name
-        </h2>
-
-        <h2>
+					</h2>
+			</div>
+		</div>
+	<!-- Reveal.js required js files -->
+	<script type="text/javascript" src="https://www.rawgit.com/hakimel/reveal.js/master/js/reveal.js"></script>
+	<script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+				// Transition style
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Transition speed
+				transitionSpeed: 'default', // default/fast/slow
+                dependencies: [
+                    { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/notes/notes.js', async: true },
+                    { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/highlight/highlight.js', async: true }
+                ]
+            });
             
-        </h2>
-
-        <h2>
-
-        </h2>
-
+    </script>
     </body>
 </html>
