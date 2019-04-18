@@ -1,5 +1,6 @@
 #!/bin/bash
 # Backs up our database.
+export USE_MYSQL=1
 export backup_dir=backups
 export backup_file=$backup_dir/dbbackup.json
 
