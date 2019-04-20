@@ -1,0 +1,80 @@
+1. (1 point)
+We develop incrementally because it....?
+
+a. increases programmer satisfaction
+b. produces less buggy software
+c. delivers value to the customers faster
+*d. all of the above
+
+2. (1 point)
+Version control is an important part of incremental development because...?
+
+*a. it allows us to roll back changes easily
+b. it permits auditors to see how much work has been done
+c. "if you don't know your past you won't know your future."
+d. all of the above
+
+3. (1 point)
+git and GitHub are...?
+
+a. just different names for the same software
+*b. very different: git is the basic version control software, while GitHub is a place to store git repos
+c. entirely unrelated
+d. none of the above
+
+4. (1 point)
+Commit messages in git are...?
+
+*a. important to communicate to team members what you are up to
+b. unimportant and should be ignored
+c. can be the same for every commit
+d. generated automatically
+
+5. (1 point)
+We use "git clone" to...?
+
+a. add a clone of a file to a repo
+b. turn one repo into two repos
+*c. make a local copy of a repo
+d. all of the above
+
+6. (1 point)
+If we see text like "<<<<< HEAD:file.txt" inserted into a file, that is...?
+
+a. the header for the file
+b. a UNIX command accidentally inserted in the file
+*c. git showing us where a conflict is in file.txt
+d. none of the above
+
+7. (1 point)
+If you type 'git pull origin master' then master is...?
+
+*a. the branch you are pulling
+b. the level of difficulty of the pull
+c. the repo you are pulling from
+d. how much git should try to force the pull
+
+8. (1 point)
+Incremental and iterative development were a response to failures in...?
+
+a. functional programming
+*b. the waterfall model
+c. test-driven development
+d. resume-driven development
+
+9. (1 point)
+The problem with describing a server setup in a detailed document is...?
+
+a. an engineer has to manually do the setup
+b. the document will get out of date
+c. the document is likely to miss some "obvious" step
+*d. all of the above
+
+10. (1 point)
+Automated deployment should be coupled with...?
+
+*a. automated tests
+b. manual steps to make sure the sys admin is on their toes
+c. manual configuration
+d. none of the above
+

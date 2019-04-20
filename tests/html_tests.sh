@@ -10,8 +10,13 @@ export DATA_DIR="$CODE_DIR/data"
 
 for test_file in $TEST_DIR/*.html;
 do
-    echo 'URL-checking file:' $test_file
-    python3 $CODE_DIR/url_checker.py "$test_file" "http://www.thedevopscourse.com"
+    if [ -z $TRAVIS ]
+    then
+        echo "Skipping URL check for local tests."
+    else
+        echo 'URL-checking file:' $test_file
+        python3 $CODE_DIR/url_checker.py "$test_file" "http://www.thedevopscourse.com"
+    fi
     echo 'Html-checking file:' $test_file
     python3 $CODE_DIR/html_checker.py "$test_file"
     echo 'Spell-checking file:' $test_file
