@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container-fluid">
+     <div class="row">
+
+
+        <div class="col-sm-5">
+
+          <figure style="margin-top:20%;">
+              <img
+              src="/static/devops/devops_inter.jpg" style="width:60%;">
+              <figcaption>
+                  <h3>The DevOp toolchain</h3>
+              </figcaption>
+          </figure>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+
+          <div id="slider">
+              <a target="_blank"id="imageLink"><img id="image1"  style="width:80%;border-radius: 25px;border: 2px solid #FFFFFF; margin-left:10%; margin-right: 10%"/>
+                </a>
+              <!-- <div class="icon" id="left"><i class="fa fa-angle-left" onclick="prev()"></i></div>
+              <div class="icon" id="right"><i class="fa fa-angle-right" onclick="next()"></i></div> -->
+          </div>
+          <div>
+              <h2 id="sliderHeader" style="text-align:center;font-size:20px"></h2>
+              <p id="sliderPara"style="text-align:center;font-size:15px"></p>
+          </div>
+        </div>
+
+
+         <div class="col-sm-7">
+              <h1 class="toc_head">
+              Course Modules
+              </h1>
+         <ol>
+              {% for module in modules %}
+                      <li>
+                        <a href="/devops/chapter/{% autoescape off %}{{ module.module }}{% endautoescape %}">
+                          {% autoescape off %}{{ module.title }}{% endautoescape %}
+                        </a>
+                     </li>
+              {% endfor %}
+        </ol>
+       </div>
+      </div>
+
+    </div>
+
+{% endblock content %}
