@@ -77,7 +77,7 @@
                     It is error-prone, because it is boring, too configure
                     systems "by hand." A script can be debugged once, and
                     then will run reliably again and again.
-                    Furthermore, as code, the infrastructure can be read and 
+                    Furthermore, as code, the infrastructure can be read and
                     reasoned about. It is very hard to do that with a bunch of
                     check-boxes!
                 </li>
@@ -93,11 +93,11 @@
 
             <p>
                 <span class="hilight">A DevOps principle</span>:
-                Asking people to <i>behave like automatons</i> 
+                Asking people to <i>behave like automatons</i>
                 bores and dehumanizes
                 them. Asking them to devise clever ways
                 <i>to automate things</i>
-                interests them, and treats them as the rational 
+                interests them, and treats them as the rational
                 beings that they are!
                 <br />
                 Aristotle: humans are
@@ -193,7 +193,7 @@
       supports :restart =&gt; true
       action :enable
     end
-    
+
     if ['solo', 'db_master', 'db_slave'].include? node[:instance_role]
       template "/etc/mysql.d/custom.cnf" do
         owner 'root'
@@ -268,7 +268,8 @@
                 </pre>
                 <br />
                 Source:
-                https://github.com/ansible/ansible-examples/blob/master/wordpress-nginx/site.yml
+                https://github.com/ansible/ansible-examples/
+                blob/master/wordpress-nginx/site.yml
                 </p>
 
                 <p>
@@ -414,7 +415,7 @@
                     mounting is a way of combining multiple directories into
                     one that appears to contain their combined contents."
                     <br />
-                    UNIX and Linux filesystems are themselves files. 
+                    UNIX and Linux filesystems are themselves files.
                     To access them, they must be <i>mounted</i> at
                     some point under the root directory. If we mount two
                     directories at the same mount point, one after another,
@@ -426,7 +427,7 @@
                     from multiple layers of docker images. That means you don't
                     have to start from scratch every time you want to make an
                     image. And containers can share files until one of them
-                    writes to one, at which point that file will be moved from 
+                    writes to one, at which point that file will be moved from
                     the read-only shared area to the read-write layer specific
                     to that container.
                 </li>
@@ -482,7 +483,7 @@
                 <p>
                     <span class="hilight">First thing</span>:
                     Make sure you have Docker installed! You
-                    won't get any further in following along on your laptop 
+                    won't get any further in following along on your laptop
                     if you do not.
                 </p>
 
@@ -544,7 +545,7 @@
     Users                installer.failurerequests
     Volumes                logFile.xsl
                     </pre>
-                    
+
                 </p>
 
                 <p>
@@ -562,7 +563,7 @@
                 <p>
                     What's of note here: From outside and from inside the
                     container, we see completely different file systems!
-                    Inside the container, we are in a 
+                    Inside the container, we are in a
                     <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a>
                     file system.
                 </p>
@@ -582,7 +583,7 @@
 
                 <p>
                    From outside the container, the OS lists 667 processes
-                   as running on my Mac. 
+                   as running on my Mac.
                 </p>
 
 
@@ -600,10 +601,10 @@
                 </p>
 
                 <p>
-                   From inside the container, there are two processes running! 
+                   From inside the container, there are two processes running!
                    The container has process isolation from the host. It has
                    its own
-                   <a href="https://en.wikipedia.org/wiki/Linux_namespaces">process 
+                   <a href="https://en.wikipedia.org/wiki/Linux_namespaces">process
                     namespace</a> separate from its host's namespace and from
                    the namespace of any other containers running on that host.
                    The separate namespace also provides the container with its
@@ -625,7 +626,7 @@
                 </p>
 
                 <p>
-                    This will list your currently running Docker images. When 
+                    This will list your currently running Docker images. When
                     Prof. Callahan runs it while preparing this lecture, he
                     sees:
                     <br />
@@ -642,12 +643,12 @@
                 </p>
 
                 <p>
-                    <code>docker ps -a</code> 
+                    <code>docker ps -a</code>
                     <br />
                     This will list <i>all</i> images that have been run
                     on the system, not just those that are active:
                     <br />
-                        
+
                         <pre>
     Macintosh:OnlineDevops gcallah$ docker ps -a
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS                    NAMES
@@ -742,7 +743,7 @@
                     are going to host inside the docker container.
                     We are going to use the algorithms website for
                     another course.
-                    You can find the code for the website 
+                    You can find the code for the website
                     <a href="http://gitub.com/gcallah/algorithms.git">
                     here.
                     </a>
@@ -836,21 +837,21 @@
             </ol>
 
             <p>
-            So we need to know how to create the right container for 
-            each project. 
-            Each project we work on should have a 
+            So we need to know how to create the right container for
+            each project.
+            Each project we work on should have a
             <code>Dockerfile</code> consisting of instructions
             on how to build the image for that project, a
             <code>requirements.txt</code> listing what
             external modules need to be included in the image,
             and a line in the project's <code>makefile</code>
             automating the build of the image.
-            This is <i>infrastructure as code</i>, since the infrastructure for 
+            This is <i>infrastructure as code</i>, since the infrastructure for
             the project is built from these files of code.
             </p>
 
             <p>
-                So, in the <code>makefile</code> we want something 
+                So, in the <code>makefile</code> we want something
                 like:
             </p>
 
@@ -868,7 +869,7 @@
                         Here is a sample Dockerfile.
                     </a>
                     <br />
-                    The <code>FROM python:3.6.0</code> 
+                    The <code>FROM python:3.6.0</code>
                     command says what base image to build
                     our image from.
                     <br />
@@ -876,12 +877,12 @@
                     line brings the requirements file inside the container.
                     <br />
                     The line
-                    <code>RUN pip install -r requirements.txt</code> 
+                    <code>RUN pip install -r requirements.txt</code>
                     installs everything from the requirements file in the
                     container.
                     <br />
                     The line
-                    <code>ENV user_type TERMINAL</code> 
+                    <code>ENV user_type TERMINAL</code>
                     sets an environment variable (<code>user_type</code>)
                     that will be available inside the container.
                     <br />
@@ -911,7 +912,7 @@
             </p>
 
             <p>
-                Docker Compose use a 
+                Docker Compose use a
                 <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>
                 file to specify the configuration of a multi-container
                 Docker app.

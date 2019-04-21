@@ -5,9 +5,11 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_http_methods
 from decimal import Decimal
 import random
+import operator
 import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
+from operator import attrgetter
 
 from .models import Question, Grade, Quiz, CourseModule, ModuleSection
 
@@ -103,6 +105,15 @@ def index(request: request) -> object:
     return render(request, 'index.html', {'header': site_hdr})
 
 
+def landing_page(request: request) -> object:
+    modules = CourseModule.objects.all()
+    print(modules)
+    return render(request, 'landing_page.html', {
+        'data': modules,
+        'header': site_hdr
+    })
+
+
 def about(request: request) -> object:
     return render(request, 'about.html', {'header': site_hdr})
 
@@ -144,7 +155,7 @@ def chapter(request, chapter='basics'):
 
     try:
         contents = CourseModule.objects.get(module=chapter)
-        sections = ModuleSection.objects.filter(module=contents)
+        sections = ModuleSection.objects.filter(module=contents).order_by('lesson_order')
         rand_qs = []
         questions = Question.objects.filter(module=chapter)
         num_questions = questions.count()
