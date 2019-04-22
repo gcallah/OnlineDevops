@@ -40,7 +40,7 @@ class ModuleSection(models.Model):
                                models.SET_NULL, blank=True, null=True)
     title = models.TextField()
     order = models.IntegerField(blank=False, null=False, unique=True)
-    lesson_order = models.IntegerField(blank=True, null=True)
+    # lesson_order = models.IntegerField(blank=True, null=True)
     content = HTMLField(default='Please enter your contents here!')
 
     def __str__(self):
