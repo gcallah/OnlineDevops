@@ -102,13 +102,13 @@ def index(request: request) -> object:
     return render(request, 'index.html', {'header': site_hdr})
 
 
-def landing_page(request: request) -> object:
-    modules = CourseModule.objects.all().order_by('course_order')
-    print(modules)
-    return render(request, 'landing_page.html', {
-        'modules': modules,
-        'header': site_hdr
-    })
+# def landing_page(request: request) -> object:
+#     modules = CourseModule.objects.all().order_by('course_order')
+#     print(modules)
+#     return render(request, 'landing_page.html', {
+#         'modules': modules,
+#         'header': site_hdr
+#     })
 
 
 def about(request: request) -> object:
@@ -119,8 +119,7 @@ def chapter(request, chapter='basics'):
 
     try:
         contents = CourseModule.objects.get(module=chapter)
-        sections = ModuleSection.objects.filter(module=contents).\
-            order_by('lesson_order')
+        sections = ModuleSection.objects.filter(module=contents)
         rand_qs = []
         questions = Question.objects.filter(module=chapter)
         num_questions = questions.count()
