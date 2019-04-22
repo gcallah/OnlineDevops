@@ -21,7 +21,7 @@ class CourseModule(models.Model):
     The content field should only have the intro material:
         the section contents go in the ModuleSection table.
     """
-    course_order = models.IntegerField(blank=True, null=True)
+#     course_order = models.IntegerField(blank=True, null=True)
     module = models.CharField(max_length=MODNM_LEN, unique=True)
     title = models.TextField()
     next_module = models.CharField(max_length=MODNM_LEN)
