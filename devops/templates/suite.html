@@ -156,13 +156,11 @@
         <a href="https://en.wikipedia.org/wiki/Antifragility">anti-fragility.
         </a>
         An application of that idea is Netflix's
-        <a href="https://en.wikipedia.org/wiki/Chaos_Monkey">Chaos
-        Monkey</a>
+        <a href="https://en.wikipedia.org/wiki/Chaos_Monkey"> Chaos Monkey</a>
         tool, part of its
         <a
-        href="https://en.wikipedia.org/wiki/Chaos_Monkey#Different_variants
-        _of_the_Simian_Army">Simian
-    Army</a> toolkit.
+        href="https://en.wikipedia.org/wiki/Chaos_engineering#Perturbation_models">
+        Simian Army</a> toolkit.
 </li>
 
 <li>
@@ -376,7 +374,7 @@
             exists alongside your code.
             <ol class="inner_nested">
                 <li>
-                      Configure Azure Pipelines to use your Git repo.
+                    Configure Azure Pipelines to use your Git repo.
                 </li>
                 <li>
                     Edit your azure-pipelines.yml file to define your
@@ -736,7 +734,6 @@
                     </li>
                 </ul>
             </li>
-
             <li>
                 Creating ECS (Elastic container service)
                 <ul class="inner_nested">
@@ -757,7 +754,6 @@
                     </li>
                 </ul>
             </li>
-
             <li>
                 Creating Tasks to run on ECS
                 <ul class="inner_nested">
@@ -768,7 +764,6 @@
                     </li>
                 </ul>
             </li>
-
             <li>
                 Connecting lambda to ECS
                 <ul class="inner_nested">
@@ -779,7 +774,6 @@
                     </li>
                 </ul>
             </li>
-
             <li>
                 Connecting Docker Hub to Microsoft Azure (one-time)
                 <ul class="inner_nested">
@@ -792,7 +786,6 @@
                         'Create'
                     </li>
                     <li>
-
                         Define container properties
                         <br />
                         (Basics) We define properties like 'Container Name',
@@ -809,7 +802,6 @@
                         (Summary) The configuration will be
                         printed once for the user to review and Azure will
                         begin provisioning infrastructure
-
                     </li>
                 </ul>
             </li>
@@ -922,7 +914,7 @@
                     <ul class="inner_nested">
                         <li>Deployment HOW-TO Video
                             <figure>
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/rL6pkSoSIJc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/oGVf8lInkvY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </figure>
                         </li>
                         <li>
@@ -1026,8 +1018,8 @@
                     <br />
                     <img src="../static/devops/docker_login.png" style="width:50%;">
                 </li>
-                <li>Navigate to the directory with the code repository and create
-                    the Docker image <br />
+                <li>Navigate to the directory with the code repository and
+                    create the Docker image <br />
                     <br />
                     <img src="../static/devops/docker_build.png" style="width:50%;">
                 </li>
@@ -1076,7 +1068,7 @@
         <ol class="inner_nested">
             <li>
                 Select Pipelines -&gt New -&gt New build pipeline on the Azure
-                 Devops page.
+                Devops page.
             </li>
             <li>
                 Select the location of source code and the desired repository.
@@ -1094,7 +1086,7 @@
             <br />
         </ol>
         Now that the build is finished, the next step is to configure and
-        run some tests, create the container image and push it to Azure 
+        run some tests, create the container image and push it to Azure
         Container Registry.
         <br />
         <a
@@ -1102,13 +1094,13 @@
         target="_blank" style="text-decoration: underline"> Steps to
         build, test, and push Docker container apps</a>
         <br />
-        Now its time to create a release pipeline and Deploy it to Azure 
+        Now its time to create a release pipeline and Deploy it to Azure
         Web App for Containers.
         <br />
         <a
-        href="https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=azure-devops"
-        target="_blank" style="text-decoration: underline"> Steps to
-        create a Release pipeline and deploy the App</a>
+        href="https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=azure-devops#create-a-release-pipeline"
+        target="_blank" style="text-decoration: underline"> Steps to create a
+        Release pipeline and deploy the App</a>
         <br />
         <br />
     </li>
@@ -1165,7 +1157,20 @@
 
         <li>
             <a href="https://azure.microsoft.com/en-us/blog/monitoring-azure-services-and-external-systems-with-azure-automation/">
-                Monitoring Azure Services and External Systems with Azure Automation
+                Monitoring Azure Services and External Systems with Azure
+                Automation
+            </a>
+        </li>
+
+        <li>
+            <a href="https://mountainss.wordpress.com/2017/11/24/monitoring-microsoft-azure-cloud-services-and-on-premisses-datacenters-azure-msoms-cloud/">
+                Monitoring Tools for Azure Services
+            </a>
+        </li>
+
+        <li>
+            <a href="https://azure.microsoft.com/en-us/blog/app-insights-microservices/">
+                Application Insights support for Microservices and Containers
             </a>
         </li>
     </ul>

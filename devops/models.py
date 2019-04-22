@@ -21,6 +21,7 @@ class CourseModule(models.Model):
     The content field should only have the intro material:
         the section contents go in the ModuleSection table.
     """
+    course_order = models.IntegerField(blank=True, null=True)
     module = models.CharField(max_length=MODNM_LEN, unique=True)
     title = models.TextField()
     next_module = models.CharField(max_length=MODNM_LEN)
@@ -39,6 +40,7 @@ class ModuleSection(models.Model):
                                models.SET_NULL, blank=True, null=True)
     title = models.TextField()
     order = models.IntegerField(blank=False, null=False, unique=True)
+    lesson_order = models.IntegerField(blank=True, null=True)
     content = HTMLField(default='Please enter your contents here!')
 
     def __str__(self):

@@ -12,10 +12,9 @@ def view_templ(vname):
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^devops/landing_page/', views.landing_page, name='landing_page'),
     url(r'^devops/chapter/(?P<chapter>\D+)/$', views.chapter, name='chapter'),
     url(r'^devops/about/*$', views.about, name='about'),
-    url(r'^devops/lesson/(?P<lesson>\D+)/$', views.lesson, name='lesson'),
-    url(r'^devops/lesson/', views.index, name='lesson'),
     url(r'^devops/basics/*$', views.basics, name='basics'),
     url(r'^devops/gloss/*$', views.gloss, name='gloss'),
     url(r'^devops/build/*$', views.build, name='build'),

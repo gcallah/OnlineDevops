@@ -8,7 +8,6 @@ import random
 import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
-
 from .models import Question, Grade, Quiz, CourseModule, ModuleSection
 
 site_hdr = "The DevOps Course"
@@ -103,48 +102,25 @@ def index(request: request) -> object:
     return render(request, 'index.html', {'header': site_hdr})
 
 
+def landing_page(request: request) -> object:
+    modules = CourseModule.objects.all().order_by('course_order')
+    print(modules)
+    return render(request, 'landing_page.html', {
+        'modules': modules,
+        'header': site_hdr
+    })
+
+
 def about(request: request) -> object:
     return render(request, 'about.html', {'header': site_hdr})
-
-
-def lesson(request, lesson='work'):
-    try:
-        contents = CourseModule.objects.get(module=lesson)
-        rand_qs = []
-        questions = Question.objects.filter(module=lesson)
-        num_questions = questions.count()
-        num_qs_to_randomize = DEF_NUM_RAND_QS
-
-        if num_questions > 0:
-            # we have to fetch numq from here:
-            quizzes = Quiz.objects.filter(module=lesson)
-            # we should log if we get count > 1 here!
-            for quiz in quizzes:
-                # we should have only 1 if any!
-                num_qs_to_randomize = quiz.numq
-                break
-            if num_questions >= num_qs_to_randomize:
-                rand_qs = random.sample(list(questions), num_qs_to_randomize)
-            else:
-                rand_qs = random.sample(list(questions), num_questions)
-
-        return render(request, 'dynamicpage.html', {
-            'header': site_hdr,
-            'questions': rand_qs,
-            'content': contents.content,
-            'mod_nm': lesson
-        })
-    except Exception:
-        return render(request, 'dynamicpage.html', {
-            'header': site_hdr,
-            'content': "Error! Please try again"})
 
 
 def chapter(request, chapter='basics'):
 
     try:
         contents = CourseModule.objects.get(module=chapter)
-        sections = ModuleSection.objects.filter(module=contents)
+        sections = ModuleSection.objects.filter(module=contents)\
+            .order_by('lesson_order')
         rand_qs = []
         questions = Question.objects.filter(module=chapter)
         num_questions = questions.count()
@@ -169,7 +145,7 @@ def chapter(request, chapter='basics'):
             'header': site_hdr,
             'questions': rand_qs,
             'content': contents.content,
-            'mod_nm': lesson
+            'mod_nm': chapter
         })
     except Exception:
         return render(request, 'chapter.html', {

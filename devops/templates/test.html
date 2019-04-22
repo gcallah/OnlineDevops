@@ -252,6 +252,24 @@
                 Lesson 2: Testing Frameworks
             </summary>
 
+            <p>
+                The typical way a test framework works, in pseudo-code:
+            </p>
+
+            <p>
+            <code>
+                 <pre>
+                    for every test in test_class:
+                        test_class.setUp()
+                        success = run test
+                        if not success:
+                            exit with error message
+                        test_class.tearDown()
+                    exit with success message
+                 </pre>
+            </code>
+            </p>
+
             <figure>
                 <iframe width="560" height="315"
                     src="https://www.youtube.com/embed/KV5Mz5WJhY8" 
