@@ -1,0 +1,168 @@
+<html>
+{% load staticfiles %}
+<head>
+    <title>
+        {% block title %}
+        {{ header }}
+        {% endblock title %}
+    </title>
+    {% block stylesheets %}
+        <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/devops/styles.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <!--Tinymce Text-Editor (Must be in Head Tag) -->
+        <script src="{% static 'devops/js/tinymce/tinymce.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'devops/js/tinymce/custom.js' %}" ></script>
+    {% endblock stylesheets %}
+   <script  src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js">
+   </script>
+
+</head>
+
+<body class="dashboard">
+    <div id="container-fluid">
+        <div id="header" >
+            <div id="user-tools">
+
+                <a href="/" class="header-title">{{ header }}</a>
+                <div id="navbar">
+                    <a href="/devops/landing_page/">Home</a>
+                &nbsp;&nbsp;
+                <a href="/devops/dynamic_gloss">Glossary</a>
+
+                &nbsp;&nbsp;
+                <a href="https://gcallah.pythonanywhere.com/berkeley/">Biblio.</a>
+
+                &nbsp;&nbsp;
+                <a href="/devops/dynamic_about/">About</a>
+
+                &nbsp;&nbsp;
+                {% if user.is_authenticated is False %}
+                    <a href="{% url 'participant_login' %}">Login</a>
+                {% else %}
+                    <a href="{% url 'participant_logout' %}">Log out</a>
+                {% endif %}
+
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                </div>
+
+              <form class="form-inline my-2 my-lg-0"
+                  action="{% url 'devops:parse_search' %}"
+                  id="search"
+                  style="position: absolute;top:0.75vh;right:6vw;display: none;" >
+
+                  <input class="mr-sm-2 header-search-input"
+                  name="query" type="search" aria-label="Search">
+                   <button class="header-button">
+                          search
+                      </button>
+                 </form>
+
+                 <button class="header-button" id='bt'
+                     style="position: absolute;top:1.2vh;right:3.5vw;">
+                          <i class="material-icons "
+                              style="margin-bottom: 0.3vh;">search</i>
+                 </button>
+            </div>
+        </div>
+
+        <div id="content" class="container-fluid">
+                {% block content %}
+                {% endblock content %}
+        </div>
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+
+    </script>
+
+</body>
+<script src="/static/devops/js/show_searchbar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+<script>
+    $.support.cors = true;
+</script>
+    <script>
+        window.onload = getlink;
+        function getlink()
+        {
+            $.ajax({
+                type: "GET",
+                crossDomain: true,
+
+                headers:
+                {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                async :false,
+                url: "https://cors.io/?https://bit.ly/2TJTW3e",
+                // url : https://cors.io/?http://devops.com/feed
+                dataType: "xml",
+                success: function(xml) {
+                var links= [];
+                var descriptions = [];
+                var linkt = [];
+                var imageLins = [];
+                var cnt= 0;
+                $(xml).find('item').each(function()
+                {
+                    var content = $(this).find('description').text();
+                    var linktitle = $(this).find('title').text();
+                    if (content.includes("src"))
+                    {
+                        var a = content.split(" ")[3];
+                        var b = "<img " +a+"/>";
+                        var link1 = a.split("=")[1];
+                        links.push(link1);
+                        var des =  content.match("<p>(.*)</p>")[1];
+                        var link = content.match("<a(.*)</a>");
+                        var des= des +"<br>" +"<a " +link[0];
+                        descriptions.push(des);
+                        linkt.push(linktitle);
+                        var cnt =0 ;
+                        var imagel = ((link[0].match("href=(.*)/\"")[0]).split("=")[1]).split("\"")[1];
+                        imageLins.push(imagel);
+                        slider1(links,descriptions,linkt,cnt,imageLins)
+                    }
+                });
+            },
+            error: function(errorThrown)
+            {
+                document.getElementById('sliderHeader').innerHTML= "Refresh page to load the RSS feed";
+            },
+            });
+        }
+
+        function slider1(links,descriptions,linkt,cnt,imageLins)
+        {
+
+            let timerId = setTimeout(function tick() {
+              if(cnt >= links.length) {
+                    cnt = 0;
+                }
+              document.getElementById('image1').src= links[cnt].split("\"")[1];
+              document.getElementById('sliderHeader').innerHTML= linkt[cnt];  //or append?
+              document.getElementById('sliderPara').innerHTML= descriptions[cnt];
+              document.getElementById('imageLink').href= imageLins[cnt];
+              cnt++;
+              timerId = setTimeout(tick, 15000);
+            }, 1000);
+        }
+
+
+    </script>
+</html>

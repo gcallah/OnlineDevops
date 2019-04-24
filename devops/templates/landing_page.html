@@ -1,5 +1,10 @@
-{% extends "base.html" %}
+{% extends "dynamic_base.html" %}
 {% block content %}
+    <script>
+    var x = '{% autoescape off %}{{ slider }}){% endautoescape %}'
+    x=x.substring(3,x.length-5);
+    eval(x);
+    </script>
 
     <div class="container-fluid">
      <div class="row">
@@ -7,13 +12,8 @@
 
         <div class="col-sm-5">
 
-          <figure style="margin-top:20%;">
-              <img
-              src="/static/devops/devops_inter.jpg" style="width:60%;">
-              <figcaption>
-                  <h3>The DevOp toolchain</h3>
-              </figcaption>
-          </figure>
+        {% autoescape off %}{{ devopslogo }}{% endautoescape %}
+
           <br />
           <br />
           <br />

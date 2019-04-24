@@ -73,6 +73,14 @@ class Question(models.Model):
         return self.text
 
 
+class Extra(models.Model):
+    title = models.TextField()
+    content = HTMLField(default='Please enter your contents here!')
+
+    def __str__(self):
+        return self.title
+
+
 class Grade(models.Model):
     quiz = models.ForeignKey(Quiz, related_name='quiz',
                              on_delete=models.DO_NOTHING)

@@ -8,7 +8,7 @@ import random
 import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
-from .models import Question, Grade, Quiz, CourseModule, ModuleSection
+from .models import Question, Grade, Quiz, CourseModule, ModuleSection, Extra
 
 site_hdr = "The DevOps Course"
 
@@ -104,15 +104,27 @@ def index(request: request) -> object:
 
 def landing_page(request: request) -> object:
     modules = CourseModule.objects.all().order_by('course_order')
-    print(modules)
+    slider = Extra.objects.get(title='Slider')
+    devopslogo = Extra.objects.get(title='DevOpsLogo')
+
     return render(request, 'landing_page.html', {
         'modules': modules,
-        'header': site_hdr
+        'header': site_hdr,
+        'slider': slider.content,
+        'devopslogo': devopslogo.content
     })
 
 
 def about(request: request) -> object:
     return render(request, 'about.html', {'header': site_hdr})
+
+
+def dynamic_about(request: request) -> object:
+    about = Extra.objects.get(title='About')
+    return render(request, 'dynamic_about.html', {
+        'header': site_hdr,
+        'about': about.content
+    })
 
 
 def chapter(request, chapter='basics'):
@@ -155,6 +167,14 @@ def chapter(request, chapter='basics'):
 
 def gloss(request: request) -> object:
     return render(request, 'glossary.html', {'header': site_hdr})
+
+
+def dynamic_gloss(request: request) -> object:
+    gloss = Extra.objects.get(title='Gloss')
+    return render(request, 'dynamic_gloss.html', {
+        'header': site_hdr,
+        'gloss': gloss.content
+    })
 
 
 def teams(request: request) -> object:
