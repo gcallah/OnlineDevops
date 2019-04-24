@@ -131,8 +131,8 @@ def chapter(request, chapter='basics'):
 
     try:
         contents = CourseModule.objects.get(module=chapter)
-        sections = ModuleSection.objects.filter(module=contents).\
-            order_by('lesson_order')
+        sections = ModuleSection.objects.filter(module=contents)\
+            .order_by('lesson_order')
         rand_qs = []
         questions = Question.objects.filter(module=chapter)
         num_questions = questions.count()
