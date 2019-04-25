@@ -10,6 +10,9 @@
 
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/lib/css/monokai.css">
+		<style>
+		p    {text-align: justify !important;}
+		</style>
         <title>
             What Is DevOps?
         </title>
@@ -32,6 +35,11 @@
 					<h2>
 						An Accidental Name
 					</h2>
+					<p>As development teams adopted Lean and Agile methods, they often became capable of producing production-ready software on a daily basis, or even more frequently. But managing software in production environments was traditionally the job of operations, not of the developers. And operations viewed its job as slowing the pace of releases, because releases meant bugs, crashes, and other problems operations had to handle.</p>
+				</section>
+				<section>
+					<p>How could this gulf between development and operations be narrowed? Operations itself had to become Lean and Agile! In particular, rather than hand-provisioning operations infrastructure, operations team members had to themselves become coders, and apply the full toolkit of Lean and Agile methods to operations: incremental changes, automated testing, source code control, automated builds, and so on. One of those operations people, Patrick Debois, named a conference DevOpsDays, and from that seed, the term "DevOps" spread.</p>
+
 				</section>
 				<section>
 					<h2>
@@ -47,7 +55,7 @@
 						
 				</section>
 				<section>
-				Completing and delivering small batches of work at a time is such an important part of DevOps that we could almost say that every other part of DevOps exists to enable frequent, reliable delivery of small improvements to a piece of software.
+				<p>Completing and delivering small batches of work at a time is such an important part of DevOps that we could almost say that every other part of DevOps exists to enable frequent, reliable delivery of small improvements to a piece of software.</p>
 				</section
 					<h2>
 
@@ -62,7 +70,7 @@
             // - https://github.com/hakimel/reveal.js#dependencies
             Reveal.initialize({
 				// Transition style
-				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
 				// Transition speed
 				transitionSpeed: 'default', // default/fast/slow
                 dependencies: [
