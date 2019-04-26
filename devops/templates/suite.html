@@ -684,115 +684,25 @@
             </a></p>
         </details>
 
-    <details>
-        <summary class="sum2">
-            Connecting Docker Hub with external service
-        </summary>
-        <br />
-        <p>
-        A Docker Hub repository can be configured via webhooks to make it an
-        event driven service. As soon as any changes are made to the
-        repository, the URL will be called.
-        </p>
-        <br />
-        <img src="../static/devops/dockerhubwebhook.png" style="width:60%;">
-        <br/>
-        <br/>
         <details>
-            <summary class="sum3">
-                Connecting Docker Hub to AWS
+            <summary class="sum2">
+                Docker Hub
             </summary>
-                <ul class="nested">
-                    <li>
-                        Create a lambda function
-                        <br/>
-                        <img src="../static/devops/lambda.png" style="width:80%;">
-                    </li>
-                    <li>
-                        Create an API Gateway.Make a post method in the API
-                        Gateway
-                    </li>
-                    <li>
-                        Link the post method to the lambda functions
-                        <br/>
-                        <img src="../static/devops/apiGateway.png" style="width:80%;">
-                    </li>
-                    <li>
-                        Deploy the API gateway and save the generated URL
-                        <br/>
-                        <img src="../static/devops/apiGatewayURL.png" style="width:80%;">
-                    </li>
-                    <li>
-                        Now open Docker Hub repository and paste the URL in the
-                        webhook section.
-                        <br/>
-                        <img src="../static/devops/dockerhubAWSwebhook.png" style="width:80%;">
-                    </li>
-                    <li>
-                        Any changes to the Docker Hub repo will now be reported
-                        to the AWS Lambda function.Below is the log that gets
-                        generated in AWS when a push was made to the Docker Hub
-                        repo
-                        <br/>
-                        <img src="../static/devops/awsLogs.png" style="width:80%;">
-                    </li>
-                </ul>
-        </details>
+            <br />
+            <p>
+                A Docker Hub repository can be configured via webhooks to
+                make it an event driven service. As soon as any changes are
+                made to the repository, the URL will be called.
+            </p>
+            <br />
+            <img src="../static/devops/dockerhubwebhook.png" style="width:60%;">
+            <br/>
+            <br/>
 
-        <details>
-        <summary class="sum3">
-            Creating ECS (Elastic container service)
-        </summary>
-            <ul class="nested">
-                <li>
-                  Go to ECS from menu and click on create Cluster
-                  <br/>
-                  <img src="../static/devops/createCluster.png" style="width:80%;">
-                </li>
-                <li>
-                  Select EC2 with networking
-                  <br/>
-                  <img src="../static/devops/ec2Networking.png" style="width:80%;">
-                </li>
-                <li>
-                  Make sure you select a completely new VPC, Security
-                  group and IAM role and create.
-                  <br/>
-                </li>
-            </ul>
-        </details>
-
-        <details>
-        <summary class="sum3">
-            Creating Tasks to run on ECS
-        </summary>
-
-            <ul class="nested">
-                <li>
-                  Click on task definition and create tasks with specific
-                  docker and settings.
-                  <br/>
-                </li>
-            </ul>
-        </details>
-
-        <details>
-            <summary class="sum3">
-                Connecting lambda to ECS
-            </summary>
-            <ul class="nested">
-                <li>
-                  write code to access the cluster and specific Tasks
-                  <br/>
-                  <img src="../static/devops/lamdaECSConect.png" style="width:80%;">
-                </li>
-            </ul>
-        </details>
-
-        <details>
-            <summary class="sum3">
-                Connecting Docker Hub to Microsoft Azure (one-time)
-            </summary>
+            <details>
+                <summary class="sum3">
+                    Deploying via Azure Container Instance (one-time)
+                </summary>
                 <ul class="nested">
                     <li>
                         Create a new container instance <br/> Container
@@ -822,198 +732,270 @@
                     </li>
                 </ul>
             </details>
-            
+
             <details>
                 <summary class="sum3">
-                    Connecting Docker Hub to Azure functions
-                </summary>
-                <ul class="nested">
-                    <li>
-                        Create a Azure function
-                        <br/>
-                        <img src="../static/devops/azureFunctions.png" style="width:80%;">
+                  Deploying via Azure 'Web App for Containers' (Continuous
+                  Deployment)
+              </summary>
+              <ul class="nested">
+                <li>
+                    Creating a web app
+                    <ol class="inner_nested">
+                        <li>
+                            Go to <a href="https://portal.azure.com" target="_blank"
+                            style="text-decoration:
+                            underline">portal.azure.com</a>
+                        </li>
+                        <li>
+                            Click on "Create a resource"
+                        </li>
+                        <li>
+                            Search the Marketplace for "Web App for
+                            Containers"
+                        </li>
+                        <li>
+                            Click on "Create" button when Azure displays the
+                            page for this service
+                        </li>
+                        <li>
+                            Provide details like "App Name", "Subscription"
+                            (billing), "Resource Group" (create a new group
+                            if one doesn't exist), "OS" and "App
+                            Service/Location"
+                        </li>
+                        <li>
+                            Click the option of "Configure Container" for
+                            defining the image source. Select "Docker Hub" to
+                            be the source and provide repository details like
+                            access type, image and tag information, and  <a
+                            href="https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#built-in-images"
+                            style="text-decoration: underline">"Startup
+                            File"</a>
                     </li>
                     <li>
-                        Create an HTTP interface to access the function
-                        <br/>
-                        <img src="../static/devops/azureAPI.png" style="width:80%;">
+                        Click on "Apply" and then "Create" on the web app
+                        settings menu. Azure will run validation tests and
+                        begin deployment. Deployments can be monitored from
+                        the notification button in the top.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Turning on Continuous Deployment
+                <ol class="inner_nested">
+                    <li>
+                        Go to "App Service" from the Azure Portal
                     </li>
                     <li>
-                        Enable POST method on the function
+                        Select the application for which you wish to turn on
+                        Continuous Deployment
                     </li>
                     <li>
-                        Get the function URL
-                        <br/>
-                        <img src="../static/devops/azureFunctionURL1.png" style="width:80%;">
-                        <br/>
-                        <br/>
-                        <img src="../static/devops/azureFunctionURL2.png" style="width:80%;">
+                        Click on "Container Settings" and in the next window,
+                        turn on "Continuous Deployment"<br />  <img
+                        src="../static/devops/cont_deployment_webapp.png"
+                        style="width:80%;">
+                    </li>
+                </ol>
+            </li>
+            <li>
+                (Example) Deploying a Class Scheduling
+                (application
+                <ul class="inner_nested">
+                    <li>Deployment HOW-TO Video
+                        <figure>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/oGVf8lInkvY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </figure>
                     </li>
                     <li>
-                        Now open Docker hub repository and paste the URL in the
-                        webhook section.
-                        <br/>
-                        <img src="../static/devops/dockerhubAzurewebhook.png" style="width:80%;">
-                    </li>
-                    <li>
-                        Any changes to the Docker Hub repo will now be reported
-                        to the Azure.Below is the log that gets generated in
-                        Azure functions when a push was made to the Docker Hub
-                        repo
-                        <br/>
-                        <img src="../static/devops/azureLogs.png" style="width:80%;">
+                        Deployment HOW-TO Steps
+                        <ol class="inner_nested">
+                            <li>
+                                Click on "Create A New Resource" from the <a
+                                href="https://portal.azure.com"
+                                style="text-decoration:underline"> Azure
+                                Portal</a> and search for "Web App for
+                                Containers".
+                            </li>
+                            <li>
+                                Click on the "Create" button on the
+                                application description screen that follows.
+                            </li>
+                            <li>
+                                Configure elements of your application like
+                                "App Name" (Must be present in  the
+                                ALLOWED_HOSTS section of your website's
+                                settings.py file), "Subscription", "Resource
+                                Group", and "App Service Plan".
+                            </li>
+                            <li>
+                                Click on "Container Settings" and select
+                                Docker Hub (Container source) and enter the
+                                image and tag details
+                                (shaival/testnyuscheduler) in this case.
+                                Default tag selected by Azure is "latest".
+                                Enter the startup file details depending on
+                                container's settings. It is a good idea to
+                                enter absolute paths to prevent confusion.<br
+                                /> Click on "Create".
+                            </li>
+                            <li>
+                                Access the resource from the Dashboard and
+                                click on "Container Settings".
+                            </li>
+                            <li>
+                                Turn on "Continuous Deployment" and copy the
+                                Webhook URL.
+                            </li>
+                            <li>
+                                Paste the URL in Docker Hub's "Manage
+                                Repository" settings page and assign  a name
+                                to the webhook. Click on the "+" symbol to
+                                add it to Docker Hub.
+                            </li>
+                            <li>
+                                Allow Azure to pull and deploy the image. The
+                                application is accessible from the URL as
+                                mentioned in the "Overview" page.
+                            </li>
+                        </ol>
                     </li>
                 </ul>
-            </details>
-
-                <details>
-                    <summary class="sum3">
-                      Deploying via Web App for Containers using Dockerhub
-                      (Continuous Deployment)
-                  </summary>
-                  <ul class="nested">
-                        <li>
-                            Creating a web app
-                            <ol class="inner_nested">
-                                <li>
-                                    Go to <a href="https://portal.azure.com" target="_blank"
-                                    style="text-decoration:
-                                    underline">portal.azure.com</a>
-                                </li>
-                                <li>
-                                    Click on "Create a resource"
-                                </li>
-                                <li>
-                                    Search the Marketplace for "Web App for
-                                    Containers"
-                                </li>
-                                <li>
-                                    Click on "Create" button when Azure
-                                    displays the page for this service
-                                </li>
-                                <li>
-                                    Provide details like "App Name",
-                                    "Subscription" (billing), "Resource Group"
-                                    (create a new group if one doesn't exist),
-                                    "OS" and "App Service/Location"
-                                </li>
-                                <li>
-                                    Click the option of "Configure Container"
-                                    for defining the image source. Select
-                                    "Docker Hub" to be the source and provide
-                                    repository details like access type, image
-                                    and tag information, and <a
-                                    href="https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#built-in-images"
-                                    style="text-decoration: underline">"
-                                    Startup File"</a>
-                                </li>
-                                <li>
-                                    Click on "Apply" and then "Create" on the
-                                    web app settings menu. Azure will run
-                                    validation tests and begin deployment.
-                                    Deployments can be monitored from the
-                                    notification button in the top.
-                                </li>
-                            </ol>
-                        </li>
-                        <li>
-                            Turning on Continuous Deployment
-                            <ol class="inner_nested">
-                                <li>
-                                    Go to "App Service" from the Azure Portal
-                                </li>
-                                <li>
-                                    Select the application for which you wish
-                                    to turn on Continuous Deployment
-                                </li>
-                                <li>
-                                    Click on "Container Settings" and in the
-                                    next window, turn on "Continuous
-                                    Deployment"<br />  <img
-                                    src="../static/devops/cont_deployment_webapp.png"
-                                    style="width:80%;">
-                                </li>
-                            </ol>
-                        </li>
-                        <li>
-                            (Example) Deploying a Class Scheduling
-                            (application
-                            <ul class="inner_nested">
-                                <li>Deployment HOW-TO Video
-                                    <figure>
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/oGVf8lInkvY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </figure>
-                                </li>
-                                <li>
-                                    Deployment HOW-TO Steps
-                                    <ol class="inner_nested">
-                                        <li>
-                                            Click on "Create A New Resource"
-                                            from the <a
-                                            href="https://portal.azure.com"
-                                            style="text-decoration:underline">
-                                            Azure Portal</a> and search for 
-                                            "Web App for Containers".
-                                        </li>
-                                        <li>
-                                            Click on the "Create" button on
-                                            the application description screen
-                                            that follows.
-                                        </li>
-                                        <li>
-                                            Configure elements of your
-                                            application like "App Name" (Must
-                                            be present in  the ALLOWED_HOSTS
-                                            section of your website's
-                                            settings.py file), "Subscription",
-                                            "Resource Group", and "App Service
-                                            Plan".
-                                        </li>
-                                        <li>
-                                            Click on "Container Settings" and
-                                            select Docker Hub (Container
-                                            source) and enter the image and
-                                            tag details
-                                            (shaival/testnyuscheduler) in this
-                                            case. Default tag selected by
-                                            Azure is "latest". Enter the
-                                            startup file details depending on
-                                            container's settings. It is a good
-                                            idea to enter absolute paths to
-                                            prevent confusion.<br /> Click on
-                                            "Create".
-                                        </li>
-                                        <li>
-                                            Access the resource from the
-                                            Dashboard and click on "Container
-                                            Settings".
-                                        </li>
-                                        <li>
-                                            Turn on "Continuous Deployment"
-                                            and copy the Webhook URL.
-                                        </li>
-                                        <li>
-                                            Paste the URL in Docker Hub's
-                                            "Manage Repository" settings page
-                                            and assign  a name to the webhook.
-                                            Click on the "+" symbol to add it
-                                            to Docker Hub.
-                                        </li>
-                                        <li>
-                                            Allow Azure to pull and deploy the
-                                            image. The application is
-                                            accessible from the URL as
-                                            mentioned in the "Overview" page.
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </details>
-<!--     </li>
-    </ul> -->
+            </li>
+        </ul>
     </details>
+
+    <details>
+        <summary class="sum3">
+            Azure functions
+        </summary>
+        <ul class="nested">
+            <li>
+                Create a Azure function
+                <br/>
+                <img src="../static/devops/azureFunctions.png" style="width:80%;">
+            </li>
+            <li>
+                Create an HTTP interface to access the function
+                <br/>
+                <img src="../static/devops/azureAPI.png" style="width:80%;">
+            </li>
+            <li>
+                Enable POST method on the function
+            </li>
+            <li>
+                Get the function URL
+                <br/>
+                <img src="../static/devops/azureFunctionURL1.png" style="width:80%;">
+                <br/>
+                <br/>
+                <img src="../static/devops/azureFunctionURL2.png" style="width:80%;">
+            </li>
+            <li>
+                Now open Docker hub repository and paste the URL in
+                the webhook section.
+                <br/>
+                <img src="../static/devops/dockerhubAzurewebhook.png" style="width:80%;">
+            </li>
+            <li>
+                Any changes to the Docker Hub repo will now be
+                reported to the Azure.Below is the log that gets
+                generated in Azure functions when a push was made to
+                the Docker Hub repo
+                <br/>
+                <img src="../static/devops/azureLogs.png" style="width:80%;">
+            </li>
+        </ul>
+    </details>
+
+    <details>
+        <summary class="sum3">
+            AWS Lambda and ECS
+        </summary>
+        <ol class="nested">
+            <li>
+                Connecting AWS and Docker Hub using webhooks
+                <ul class="inner_nested">
+                    <li>
+                        Create a lambda function
+                        <br/>
+                        <img src="../static/devops/lambda.png" style="width:80%;">
+                    </li>
+                    <li>
+                        Create an API Gateway. Make a post method in the API
+                        Gateway
+                    </li>
+                    <li>
+                        Link the post method to the lambda functions
+                        <br/>
+                        <img src="../static/devops/apiGateway.png" style="width:80%;">
+                    </li>
+                    <li>
+                        Deploy the API gateway and save the generated URL
+                        <br/>
+                        <img src="../static/devops/apiGatewayURL.png" style="width:80%;">
+                    </li>
+                    <li>
+                        Now open Docker Hub repository and paste the URL in
+                        the webhook section.
+                        <br/>
+                        <img src="../static/devops/dockerhubAWSwebhook.png" style="width:80%;">
+                    </li>
+                    <li>
+                        Any changes to the Docker Hub repo will now be
+                        reported to the AWS Lambda function.Below is the log
+                        that gets generated in AWS when a push was made to
+                        the Docker Hub repo
+                        <br/>
+                        <img src="../static/devops/awsLogs.png" style="width:80%;">
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                Create EC2 Cluster
+                <ul class="inner_nested">
+                    <li>
+                      Go to ECS from menu and click on create Cluster
+                      <br/>
+                      <img src="../static/devops/createCluster.png" style="width:80%;">
+                  </li>
+                  <li>
+                      Select EC2 with networking
+                      <br/>
+                      <img src="../static/devops/ec2Networking.png" style="width:80%;">
+                  </li>
+                  <li>
+                      Make sure you select a completely new VPC, Security
+                      group and IAM role and create.
+                      <br/>
+                  </li>
+              </ul>
+          </li>
+          <li>Create Tasks on ECS
+            <ul class="inner_nested">
+                <li>
+                  Click on task definition and create tasks with specific
+                  docker and settings.
+                  <br/>
+                </li>
+              </ul>
+          </li>
+
+          <li>Connect Lambda to ECS
+            <ul class="inner_nested">
+                <li>
+                  Write code to access the cluster and specific
+                  Tasks
+                  <br/>
+                  <img src="../static/devops/lamdaECSConect.png" style="width:80%;">
+                </li>
+            </ul>
+          </li>
+        </ol>
+    </details>
+</details>
 
     <!-- <details>
         <summary class="sum2">
