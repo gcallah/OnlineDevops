@@ -79,7 +79,7 @@ class Extra(models.Model):
 
     def __str__(self):
         return self.title
-        
+
 
 class Extras(models.Model):
     title = models.TextField()
