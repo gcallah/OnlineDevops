@@ -73,14 +73,6 @@ class Question(models.Model):
         return self.text
 
 
-class Extra(models.Model):
-    title = models.TextField()
-    content = HTMLField(default='Please enter your contents here!')
-
-    def __str__(self):
-        return self.title
-
-
 class Extras(models.Model):
     title = models.TextField()
     content = HTMLField(default='Please enter your contents here!')

@@ -8,7 +8,7 @@ import random
 import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
-from .models import Question, Grade, Quiz, CourseModule, ModuleSection, Extra
+from .models import Question, Grade, Quiz, CourseModule, ModuleSection, Extras
 
 site_hdr = "The DevOps Course"
 
@@ -104,13 +104,11 @@ def index(request: request) -> object:
 
 def landing_page(request: request) -> object:
     modules = CourseModule.objects.all().order_by('course_order')
-    slider = Extra.objects.get(title='Slider')
-    devopslogo = Extra.objects.get(title='DevOpsLogo')
+    devopslogo = Extras.objects.get(title='DevOpsLogo')
 
     return render(request, 'landing_page.html', {
         'modules': modules,
         'header': site_hdr,
-        'slider': slider.content,
         'devopslogo': devopslogo.content
     })
 
@@ -120,7 +118,7 @@ def about(request: request) -> object:
 
 
 def dynamic_about(request: request) -> object:
-    about = Extra.objects.get(title='About')
+    about = Extras.objects.get(title='About')
     return render(request, 'dynamic_about.html', {
         'header': site_hdr,
         'about': about.content
@@ -170,7 +168,7 @@ def gloss(request: request) -> object:
 
 
 def dynamic_gloss(request: request) -> object:
-    gloss = Extra.objects.get(title='Gloss')
+    gloss = Extras.objects.get(title='Gloss')
     return render(request, 'dynamic_gloss.html', {
         'header': site_hdr,
         'gloss': gloss.content
