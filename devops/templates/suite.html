@@ -675,6 +675,7 @@
             target="_blank" style="text-decoration: underline">
               Creating ACR Task to Build and Deploy containers using CLI
             </a></p>
+            <hr>
         </details>
 
         <details>
@@ -793,8 +794,7 @@
                 </ol>
             </li>
             <li>
-                (Example) Deploying a Class Scheduling
-                (application
+                (Example) Deploying a Class Scheduling application
                 <ul class="inner_nested">
                     <li>Deployment HOW-TO Video
                         <figure>
@@ -818,9 +818,9 @@
                             <li>
                                 Configure elements of your application like
                                 "App Name" (Must be present in  the
-                                ALLOWED_HOSTS section of your website's
-                                settings.py file), "Subscription", "Resource
-                                Group", and "App Service Plan".
+                                <i>ALLOWED_HOSTS</i> section of your
+                                website's settings.py file), "Subscription",
+                                "Resource Group", and "App Service Plan".
                             </li>
                             <li>
                                 Click on "Container Settings" and select
@@ -857,6 +857,58 @@
                 </ul>
             </li>
         </ul>
+        <hr>
+    </details>
+
+    <details>
+        <summary class="sum3">
+            Azure Template Deployment (one-time)
+        </summary>
+        <p>
+            Resource deployment can be automated using Azure Template
+            Deployment. A template can either be created in the online editor
+            or imported from GitHub. Microsoft also provides some common
+            templates which can be configured by the user.
+            <br/>
+            The link <a
+            href="https://gist.github.com/shaivaldalal/198e7363c3574893792fb15f773258a5"
+            target="_blank" style="text-decoration: underline">here</a>
+            contains a reference template to deploy the class scheduler
+            application to Azure
+         </p>
+        <br />
+        <p> Steps to deploy the script to Azure</p>
+        <ol class="nested">
+            <li>
+                Go to <a href="https://portal.azure.com" target="_blank"
+                style="text-decoration:underline">portal.azure.com</a> and
+                click on "Create a Resource"
+            </li>
+            <li>
+                Search the marketplace for "Template deployment" and click
+                "Create" on the product page
+            </li>
+            <li>
+                Use the online editor by selecting "Build your own template
+                in the editor"
+            </li>
+            <li>
+                Paste the above embedded JSON script in the editor and click
+                "Save"
+            </li>
+            <li>
+                Review the deployment and select the resource group.
+                <i>Note:</i> Application name can be customized but one must
+                make the necessary changes in the container to ensure that
+                the application name is in the "ALLOWED_HOST" section of the
+                settings file
+            </li>
+            <li>
+                Click on "Purchase" after reviewing and confirming to Azure's
+                terms and conditions
+            </li>
+        </ol>
+        <hr>
     </details>
 
     <details>
@@ -892,14 +944,14 @@
                 <img src="../static/devops/dockerhubAzurewebhook.png" style="width:80%;">
             </li>
             <li>
-                Any changes to the Docker Hub repo will now be
-                reported to the Azure.Below is the log that gets
-                generated in Azure functions when a push was made to
-                the Docker Hub repo
+                Any changes to the Docker Hub repo will now be reported to
+                the Azure. Below is the log that gets generated in Azure
+                functions when a push was made to the Docker Hub repo
                 <br/>
                 <img src="../static/devops/azureLogs.png" style="width:80%;">
             </li>
         </ul>
+        <hr>
     </details>
 
     <details>
@@ -987,6 +1039,7 @@
             </ul>
           </li>
         </ol>
+        <hr>
     </details>
 </details>
 
@@ -1094,7 +1147,7 @@
                 select commit directly to the master branch, and then select
                 Save and Run again.
             </li>
-            <li>    
+            <li>
                 Wait until the build finishes.
             </li>
             <br />
@@ -1121,6 +1174,7 @@
         <br />
         <br />
         </p>
+        <hr>
     </details>
 </details>
 
@@ -1188,6 +1242,18 @@
         <li>
             <a href="https://azure.microsoft.com/en-us/blog/app-insights-microservices/">
                 Application Insights support for Microservices and Containers
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.petri.com/azure-monitor-creating-alerts">
+                Azure Monitor: Creating Alerts
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.petri.com/azure-monitor-creating-metrics">
+                Azure Monitor: Creating Metrics
             </a>
         </li>
     </ul>
