@@ -10,12 +10,14 @@ then
     echo "Usage restore.sh <filetoload> <optional:use_mysql>"
     exit 1
 fi
+echo "USE_MYSQL = $USE_MYSQL"
+# exit 0
 
 restore_file="$1"
 
 if [[ -z "$2" ]]
 then
-    # use mysql turned on here
+    echo "Second parameter is for controlling which db to use."
 fi
 
 restore_file="$1"
