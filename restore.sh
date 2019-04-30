@@ -4,13 +4,13 @@
 #The Dated backups of data is in OnlineDevops/backups folder
 #To run this script ./restore.sh backups/filename.json
 
-export USE_MYSQL=""
+export USE_MYSQL= false
 if [[ -z "$1" ]]
 then
     echo "Usage restore.sh <filetoload> <optional:use_mysql>"
     exit 1
 fi
-echo "USE_MYSQL = $USE_MYSQL"
+echo "USE_MYSQL =$USE_MYSQL"
 # exit 0
 
 restore_file="$1"
@@ -22,7 +22,8 @@ fi
 
 restore_file="$1"
 
-python manage.py loaddata $restore_file
+python3 manage.py loaddata $restore_file
 
-git commit db.sqlite3
+git commit -m 'Testing Git Commit' restore.sh
+git commit -m 'Backedup Database' db.sqlite3
 git push origin master
