@@ -65,6 +65,7 @@ html_tests: $(HTMLS)
 	$(TEST_DIR)/html_tests.sh
 
 django_tests: FORCE
+	# ./pytests/sh
 	coverage run manage.py test
 
 lint: $(patsubst %.py,%.pylint,$(PYTHONFILES))

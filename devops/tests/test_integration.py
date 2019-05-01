@@ -25,18 +25,18 @@ class GradeQuizTestCase(TestCase):
         """
         # TODO: use Module.objects instead
         quiz_name = {
-            'work': 'MOD1: The DevOps Way of Work',
-            'comm': 'MOD2: Cooperation and Communication (Tool: Slack)',
-            'incr': 'MOD3: Incremental Development (Tool: git)',
-            'build': 'MOD4: Automating Builds (Tool: make)',
-            'flow': 'MOD5: Workflow (Tool: kanban boards)',
-            'test': 'MOD6: Automating Testing (Tool: Jenkins)',
-            'infra': 'MOD7: Software as Infrastructure (Tool: Docker)',
-            'cloud': 'MOD8: Cloud Deployment (Tool: Kubernetes)',
-            'micro': 'MOD9: Microservices and Serverless Computing',
-            'monit': 'MOD10: Monitoring (Tool: StatusCake)',
-            'secur': 'MOD11: Security',
-            'sum': 'MOD12: Summing Up',
+            'work': 'The DevOps Way of Work',
+            'comm': 'Cooperation and Communication (Tool: Slack)',
+            'incr': 'Incremental Development (Tool: git)',
+            'build': 'Automating Builds (Tool: make)',
+            'flow': 'Workflow (Tool: kanban boards)',
+            'test': 'Automating Testing (Tool: Jenkins)',
+            'infra': 'Software as Infrastructure (Tool: Docker)',
+            'cloud': 'Cloud Deployment (Tool: Kubernetes)',
+            'micro': 'Microservices and Serverless Computing',
+            'monit': 'Monitoring (Tool: StatusCake)',
+            'secur': 'Security',
+            'sum': 'Summing Up',
         }
 
         # How many questions you want for each module?
@@ -130,10 +130,10 @@ class GradeQuizTestCase(TestCase):
 
             self.assertInHTML(expected_message, str(results.content))
 
-    def test_grade_quiz_displays_right_wrong_answers(self):
+    def test_quiz_displays_answers(self):
         # get all Quizzes...
         """
-        Integration test for  for DC-5 Display correct answers.
+        Integration test for DC-5 Display correct answers.
         Check is returned graded_answers
         done right work evaluating right & wrong.
         """
