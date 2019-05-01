@@ -320,16 +320,6 @@
                 and actually thrived on change.
             </p>
 
-            <figure>
-                <iframe width="560" height="315"
-                   src="https://www.youtube.com/embed/k4MhC5tcEv0" frameborder="0"
-                   allowfullscreen>
-                </iframe>
-                <figcaption>
-                    Nassim Taleb talks antifragility
-                </figcaption>
-            </figure>
-
             <p>
                 Thus, when I returned to software engineering
                 and came across the DevOps movement, my experience was
@@ -1042,6 +1032,139 @@
                 2010.
             </p>
         </details>
+
+        <details>
+            <summary class="sum1">
+                Lesson 5: Anti-Fragile Chaos Monkeys
+            </summary>
+
+            <p>
+                On April 21, 2011, "A rare and major outage of Amazon's
+                cloud-based Web service... took down a plethora of
+                other online sites, including Reddit, HootSuite, Foursquare and
+                Quora"
+                (<a href="https://money.cnn.com/2011/04/21/technology/amazon_server_outage/index.htm">
+                    CNN Money</a>).  
+                Nevertheless, Netflix, one of Amazon's largest cloud customers, 
+                did not crash. This led to suspicions that Amazon had somehow
+                favored Netflix at the expense of smaller customers
+                (source: <i>The DevOps Handbook</i>?). In response to those 
+                suspicions, Netflix engineers published a paper on their
+                "<a href="https://en.wikipedia.org/wiki/Chaos_engineering#Chaos_Monkey">
+                    Chaos Monkey</a>," a program Netflix developed that would
+                be like the entry into their data center of a monkey that
+                "randomly rips cables, destroys devices and returns everything
+                that passes by the hand [i.e. flings excrement]. The challenge
+                for IT managers is to design the information system they are
+                responsible for so that it can work despite these monkeys,
+                which no one ever knows when they arrive and what they will
+                destroy" (<a href="https://en.wikipedia.org/wiki/Chaos_Monkeys">
+                    <i>Chaos Monkeys</i></a>).
+            </p>
+
+            <p>
+                By deliberately creating a program that would wreak havoc in
+                their <i>production</i> environment, Netflix engineers made
+                their system <a href="https://en.wikipedia.org/wiki/Antifragility">
+                    antifragile</a>: rather than resisting the idea that their
+                systems might be subject to extreme events, they <i>assumed</i>
+                their systems would be... in fact, they deliberately created
+                such extreme events, and demanded that application developers
+                engineer their systems to "learn" from such stressors and
+                become stronger as a result of facing them.
+            </p>
+
+            <p>
+                So what does it take for a system to become "antifragile"?
+                Well, for one thing, it must exhibit "optionality": a system
+                that totally commits itself to a single way of proceeding
+                (like the Waterfall Model in its analysis phase) cannot respond
+                to <a href="https://en.wikipedia.org/wiki/Black_swan_theory">
+                    Black Swan</a> events, since they are by definition
+                unexpected. Instead of trying to precisely predict (where
+                "precisely" may include precise probabalistic estimates) what
+                will occur, we construct our system to "learn" from Black Swans
+                and grow stronger from their occurence. (Within limits, of
+                course: if a meteor hits our data center and also destroys all
+                data centers within our hemisphere, we probaly cannot become
+                stronger in response to that event.)
+            </p>
+
+            <p>
+                One aspect of "antifragility" is "optionality." That means
+                keeping as many options for action open as long as possible. 
+                This clearly connects to the Lean principle of
+                <a
+                    href="https://www.101ways.com/2010/11/01/lean-principles-4-defer-commitment/">deferring
+                    commitment</a>. By delaying our choices as to a course of
+                action, a technology, a design pattern, etc., as long as
+                possible, we leave ourselves open to respond to new
+                circumstances and new knowledge. We can even see the
+                application of this principle in agriculture:
+            </p>
+
+            <figure>
+                <img src="../static/devops/Potatoes.png"
+                    width="25%">
+                <figcaption>
+                    Why Professor Callahan is in Amerikay
+                    <br />
+                    (Source: Nassim Nicholas Taleb,
+                    <i>Antifragile</i>)
+                </figcaption>
+            </figure>
+
+            <p>
+                In Ireland, the English forced the conquered natives to
+                specialize in a single crop, potatoes. Even worse, the forced
+                their tenant farmers to focus on a single variety that the
+                landlords thought especially suitable to the climate. This
+                tactic produced great yields... until a blight hit the potato
+                crop, and since the potatoes were all one variety, it wiped out
+                most of the whole crop, for several years in a row. As
+                Wikipedia has it:
+            </p>
+
+            <p>
+                "The widespread dependency on this single crop, and the lack of
+                genetic variability among the potato plants in Ireland and
+                Europe (a monoculture), were two of the reasons why the
+                emergence of Phytophthora infestans had such devastating
+                effects in Ireland and in similar areas of Europe."
+                (<a
+                     href="https://en.wikipedia.org/wiki/Great_Famine_(Ireland)#Potato_dependency">Wikipedia</a>. 
+            </p>
+
+            <p>
+                Or, to put it in our terms, because the English has forced on
+                Ireland this monoculture, the Irish lacked
+                <span class="hilight">optionality</span>: the ability to fall
+                back on other options should one's primary strategy be blocked
+                or fail.
+            </p>
+
+            <figure>
+                <img src="../static/devops/TopDownBottomUp.jpg"
+                    width="36%">
+                <figcaption>
+                    Top Down vs. Bottom Up Success
+                    <br />
+                    (Source: Nassim Nicholas Taleb,
+                    <i>Antifragile</i>)
+                </figcaption>
+            </figure>
+
+            <figure>
+                <iframe width="560" height="315"
+                   src="https://www.youtube.com/embed/k4MhC5tcEv0" frameborder="0"
+                   allowfullscreen>
+                </iframe>
+                <figcaption>
+                    Nassim Taleb talks antifragility
+                </figcaption>
+            </figure>
+        </details>
+
 
         <details>
             <summary class="sum1">
