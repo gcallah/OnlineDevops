@@ -1,6 +1,7 @@
 #!/bin/sh
 export DJANGO_SETTINGS_MODULE=mysite.settings
-export test_dir="devops/tests"
+# must use python notation for path!
+export test_dir="devops.tests"
 
 # in case we need to not capture output:
 if [ -z $1 ]
@@ -10,4 +11,4 @@ else
     export capture="--nocapture"
 fi
 
-nosetests $test_dir/test_integration.py
+python3 manage.py test $test_dir.test_integration.py
