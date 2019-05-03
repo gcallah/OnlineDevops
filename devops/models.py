@@ -39,7 +39,7 @@ class ModuleSection(models.Model):
     module = models.ForeignKey(CourseModule,
                                models.SET_NULL, blank=True, null=True)
     title = models.TextField()
-    order = models.IntegerField(blank=False, null=False, unique=True)
+    order = models.IntegerField(blank=False, null=False)
     lesson_order = models.IntegerField(blank=True, null=True)
     content = HTMLField(default='Please enter your contents here!')
 
