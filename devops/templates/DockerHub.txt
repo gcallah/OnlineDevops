@@ -1,4 +1,3 @@
 DockerHub found in: <br>    devops/templates/gloss.html
 <br>    devops/templates/infra.html
-<br>    devops/templates/suite.html
 <br>

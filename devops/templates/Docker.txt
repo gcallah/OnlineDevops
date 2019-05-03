@@ -1,6 +1,7 @@
 Docker found in: <br>    devops/templates/about.html
 <br>    devops/templates/build.html
 <br>    devops/templates/cicd.html
+<br>    devops/templates/cloud.html
 <br>    devops/templates/gloss.html
 <br>    devops/templates/index.html
 <br>    devops/templates/infra.html
