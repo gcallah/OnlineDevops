@@ -1,5 +1,8 @@
 {% include "dynamic_base.html" %}
 {% include "image_slider.html" %}
+<script>
+{% comment %} alert('{{message}}') {% endcomment %}
+</script>
 {% block content %}
     <div class="container-fluid">
      <div class="row">
@@ -28,8 +31,9 @@
 
          <div class="col-sm-7">
               <h1 class="toc_head">
-              Course Modules
+              {{message}}
               </h1>
+              
          <ol>
               {% for module in modules %}
                       <li>

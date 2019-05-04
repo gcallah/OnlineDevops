@@ -103,14 +103,22 @@ def index(request: request) -> object:
 
 
 def landing_page(request: request) -> object:
-    modules = CourseModule.objects.all().order_by('course_order')
-    devopslogo = Extras.objects.get(title='DevOpsLogo')
-
-    return render(request, 'landing_page.html', {
+    try:
+        modules = CourseModule.objects.all().order_by('course_order')
+        devopslogo = Extras.objects.get(title='DevOpsLogo')
+        return render(request, 'landing_page.html', {
         'modules': modules,
         'header': site_hdr,
-        'devopslogo': devopslogo.content
+        'devopslogo': devopslogo.content,
+        'message': "Course Modules" 
     })
+    except Exception as e:
+        return render(request, 'landing_page.html', {
+        'header': site_hdr,
+        'message': "Database Not Connected" 
+        
+    })
+    
 
 
 def about(request: request) -> object:
