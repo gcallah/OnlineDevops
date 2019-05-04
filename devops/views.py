@@ -106,19 +106,19 @@ def landing_page(request: request) -> object:
     try:
         modules = CourseModule.objects.all().order_by('course_order')
         devopslogo = Extras.objects.get(title='DevOpsLogo')
+        messageContent = "Course Modules"
         return render(request, 'landing_page.html', {
-        'modules': modules,
-        'header': site_hdr,
-        'devopslogo': devopslogo.content,
-        'message': "Course Modules" 
-    })
-    except Exception as e:
+            'modules': modules,
+            'header': site_hdr,
+            'devopslogo': devopslogo.content,
+            'message': messageContent
+        })
+    except Exception:
+        messageContent = "Database Not Connected"
         return render(request, 'landing_page.html', {
-        'header': site_hdr,
-        'message': "Database Not Connected" 
-        
-    })
-    
+            'header': site_hdr,
+            'message': messageContent
+        })
 
 
 def about(request: request) -> object:
@@ -126,11 +126,18 @@ def about(request: request) -> object:
 
 
 def dynamic_about(request: request) -> object:
-    about = Extras.objects.get(title='About')
-    return render(request, 'dynamic_about.html', {
-        'header': site_hdr,
-        'about': about.content
-    })
+    try:
+        about = Extras.objects.get(title='About')
+        return render(request, 'dynamic_about.html', {
+            'header': site_hdr,
+            'about': about.content
+        })
+
+    except Exception:
+        return render(request, 'dynamic_about.html', {
+            'header': site_hdr,
+            'message': "Database Not Connected"
+        })
 
 
 def chapter(request, chapter='basics'):
@@ -176,11 +183,17 @@ def gloss(request: request) -> object:
 
 
 def dynamic_gloss(request: request) -> object:
-    gloss = Extras.objects.get(title='Gloss')
-    return render(request, 'dynamic_gloss.html', {
-        'header': site_hdr,
-        'gloss': gloss.content
-    })
+    try:
+        gloss = Extras.objects.get(title='Gloss')
+        return render(request, 'dynamic_gloss.html', {
+            'header': site_hdr,
+            'gloss': gloss.content
+        })
+    except Exception:
+        return render(request, 'dynamic_gloss.html', {
+            'header': site_hdr,
+            'message': "Database Not Connected"
+        })
 
 
 def teams(request: request) -> object:

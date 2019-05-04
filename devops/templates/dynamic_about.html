@@ -1,4 +1,5 @@
 {% extends "dynamic_base.html" %}
 {% block content %}
+    {{message}}
     {% autoescape off %}{{ about }}{% endautoescape %}
 {% endblock content %}
