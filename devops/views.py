@@ -175,7 +175,7 @@ def chapter(request, chapter='basics'):
     except Exception:
         return render(request, 'chapter.html', {
             'header': site_hdr,
-            'content': "Error! Please try again"})
+            'content': "Database Not Connected"})
 
 
 def gloss(request: request) -> object:
