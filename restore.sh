@@ -5,6 +5,9 @@
 #To run this script ./restore.sh backups/filename.json
 
 export USE_MYSQL= false
+export NAME='db.sqlite3'
+export ENGINE='django.db.backends.sqlite3'
+
 if [[ -z "$1" ]]
 then
     echo "Usage restore.sh <filetoload> <optional:use_mysql>"
@@ -24,6 +27,5 @@ restore_file="$1"
 
 python3 manage.py loaddata $restore_file
 
-git commit -m 'Testing Git Commit' restore.sh
-git commit -m 'Backedup Database' db.sqlite3
+git commit -m 'Daily Database BackUp' db.sqlite3
 git push origin master
