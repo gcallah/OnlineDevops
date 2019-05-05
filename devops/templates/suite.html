@@ -879,7 +879,7 @@
             application to Azure
          </p>
         <br />
-        <p> Steps to deploy the script to Azure</p>
+        <p> Steps to deploy the script to Azure (Web Portal)</p>
         <ol class="nested">
             <li>
                 Go to <a href="https://portal.azure.com" target="_blank"
@@ -908,6 +908,35 @@
             <li>
                 Click on "Purchase" after reviewing and confirming to Azure's
                 terms and conditions
+            </li>
+        </ol>
+
+        <br />
+
+        <p> Steps to deploy the script to Azure (Shell Script)</p>
+        <ol class="nested">
+            <li>
+                The shell script is accessible  <a
+                href="https://gist.github.com/shaivaldalal/151c4b20722d63f579771d599f8710ab"
+                target="_blank" style="text-decoration:underline">here</a>
+            </li>
+            <li>
+                Download the shell script and the template file. Make sure to
+                rename the template file to <code>template.json</code>
+            </li>
+            <li>
+                Mark the shell script executable using <code>chmod +x
+                azure_infrastructure_deploy.sh</code> and place the
+                <code>template.json</code> in the same directory as the 
+                script
+            </li>            
+            <li>
+                Execute the shell script and pass parameters like your 
+                <code>subscriptionID (-i)</code>, <code>resourceGroupName
+                (-g)</code>, <code>deploymentName (-n)</code> and
+                <code>resourceGroupLocation (l-)</code> <br /> 
+                <i>Example:</i> <code>deploy.sh -i lorem -g ipsum -n lorem -l
+                ipsum</code>
             </li>
         </ol>
         <hr>
