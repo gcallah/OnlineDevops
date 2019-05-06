@@ -12,7 +12,17 @@
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/lib/css/monokai.css">
 		<style>
-		p    {text-align: justify !important;}
+            p {text-align: justify !important;
+                font-size: 38px}
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+              text-transform: capitalize !important;
+            }
+            
 		</style>
         <title>
             What Is DevOps?
@@ -62,9 +72,9 @@
 
 				</section>
 				<section>
-					<h2>
+					<h3>
 						Why Incremental Development?
-					</h2>
+					</h3>
 						<ul>
 							<li class="fragment">
                                 Small batches of work make testing easier.</li>
@@ -72,8 +82,10 @@
                                 Easier to find a bug when you have one.</li>
 							<li class="fragment">
                                 Enables rapid feedback from the users on whether the software is delivering what they want.</li>
-							<li class="fragment">Allows us to deliver value to the user more rapidly.</li>
-							<li class="fragment">Small batches are more satisfying to the developers, because their software gets used soon after they write it.</li>
+							<li class="fragment">
+                                Allows us to deliver value to the user more rapidly.</li>
+							<li class="fragment">
+                                Small batches are more satisfying to the developers, their software gets used soon after they write it.</li>
 						</ul>
 						
 				</section>
@@ -109,7 +121,7 @@
 				</section>
 				<section>
 					<h2>
-						Continuous Integration / Continuous Deployment
+						CI / CD
 					</h2>
 					<p>
 						Continuous integration (CI) and continuous delivery (CD) are a pair of practices that, when done properly, greatly aid an organization's ability to deliver software frequently and reliably to its customers. We often hear the combination of these practices referred to as "the CI/CD pipeline," and they are among the most important practices a DevOps team can implement.
