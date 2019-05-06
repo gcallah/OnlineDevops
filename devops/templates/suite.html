@@ -1082,12 +1082,12 @@
             <li>
                 Select New Pipelines (Pipelines -&gt New -&gt New build pipeline) on the Azure
                 Devops page.
-                <br/>
-                <img src="../static/devops/new_pipeline.png" style="width:80%;">
+                <br />
+                <img src="../static/devops/build_pipeline.png" style="width:80%;">
             </li>
             <li>
                 Select the location of source code and the desired repository.
-                <br/>
+                <br />
                 <img src="../static/devops/pipeline_source.png" style="width:80%;">
             </li>
             <li>
@@ -1096,6 +1096,11 @@
                 asked to pick a starter template. Select Save and Run, then
                 select commit directly to the master branch, and then select
                 Save and Run again.
+                <br />
+                <img src="../static/devops/pipeline-yaml-template.png" style="width:80%;">
+                <br />
+                Update the YAML file appropriately depending on whether you are
+                using Docker Hub or Azure Container registry.
             </li>
             <li>
                 Wait until the build finishes.
