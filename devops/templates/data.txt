@@ -1,0 +1,1731 @@
+var data = 
+[
+    {
+        "model": "devops.question",
+        "pk": 1,
+        "fields": {
+            "module": "build",
+            "text": "Which of the following is an automated build tool?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "C",
+            "answerA": "git",
+            "answerB": "slack",
+            "answerC": "make",
+            "answerD": "Docker",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 2,
+        "fields": {
+            "module": "cloud",
+            "text": "Which of the following is a cloud service provider?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "AWS",
+            "answerB": "Azure",
+            "answerC": "Google Cloud Services",
+            "answerD": "All of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 3,
+        "fields": {
+            "module": "comm",
+            "text": "What is our main tool for communication in our course?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "git",
+            "answerB": "Docker",
+            "answerC": "Kubernetes",
+            "answerD": "Slack",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 4,
+        "fields": {
+            "module": "work",
+            "text": "Lean and agile development displaced the ____ model of development?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "unicorn",
+            "answerB": "silo",
+            "answerC": "all-at-once",
+            "answerD": "waterfall",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 5,
+        "fields": {
+            "module": "incr",
+            "text": "We develop incrementally because it....?",
+            "difficulty": 2,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "increases programmer satisfaction",
+            "answerB": "produces less buggy software",
+            "answerC": "delivers value to the customers faster",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 6,
+        "fields": {
+            "module": "incr",
+            "text": "Version control is an important part of incremental development because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "it allows us to roll back changes easily",
+            "answerB": "it permits auditors to see how much work has been done",
+            "answerC": "\"if you don't know your past you won't know your future.\"",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 7,
+        "fields": {
+            "module": "build",
+            "text": "We want to automate our builds because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "it reduces errors",
+            "answerB": "it documents the build process",
+            "answerC": "it allows engineers to do more interesting work",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 8,
+        "fields": {
+            "module": "build",
+            "text": "An advantage of documenting a process by automating it versus writing a document about how it is done is that...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "scripts are easier to read than prose",
+            "answerB": "it gives programmers an edge over tech writers in producing the documentation",
+            "answerC": "the script can't be out of date with the process, while a text description can be",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 9,
+        "fields": {
+            "module": "infra",
+            "text": "We want to regard our infrastructure as software because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "that is what Bill Gates would do",
+            "answerB": "that allows us to automate that provisioning of infrastructure",
+            "answerC": "software is cool, while hardware is not",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 10,
+        "fields": {
+            "module": "infra",
+            "text": "Containers can best be conceived as...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "a new sort of thread",
+            "answerB": "a different way to test software",
+            "answerC": "lightweight virtual machines",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 11,
+        "fields": {
+            "module": "work",
+            "text": "The division of labor is cited by Adam Smith as...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "increasing productivity",
+            "answerB": "decreasing productivity",
+            "answerC": "make workers smarter",
+            "answerD": "making jobs more enjoyable",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 12,
+        "fields": {
+            "module": "work",
+            "text": "One of the reasons the Waterfall Model often fails is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "not enough advanced planning",
+            "answerB": "the stages are not separated clearly enough in the model",
+            "answerC": "we often only realize what software we need to build in the process of building it",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 13,
+        "fields": {
+            "module": "work",
+            "text": "The DevOps idea of incremental development can be seen as an extension of...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "monolithic mainframe applications",
+            "answerB": "the UNIX style of development",
+            "answerC": "an all-at-once development style",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 14,
+        "fields": {
+            "module": "work",
+            "text": "When we set out to develop software, we...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "usually know all we need to know at the start",
+            "answerB": "can easily plan everything in advance",
+            "answerC": "should lock down all requirements right away",
+            "answerD": "rarely know all we need to know at the start",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 15,
+        "fields": {
+            "module": "work",
+            "text": "In software engineering, \"MVP\" stands for...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "minimum viable product",
+            "answerB": "maximum value produced",
+            "answerC": "major vehicle production",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 16,
+        "fields": {
+            "module": "work",
+            "text": "In the Lean paradigm of development, decisions about the product should be made...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "right at the start",
+            "answerB": "as soon as possible",
+            "answerC": "as late as possible",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 17,
+        "fields": {
+            "module": "work",
+            "text": "The term \"DevOps\" was created by combining the terms...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "development and operations",
+            "answerB": "deviance and opacity",
+            "answerC": "devilish and operatic",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 18,
+        "fields": {
+            "module": "work",
+            "text": "DevOps can be understood as the need for _____ to keep up with ______ development practices.",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "Lean and Agile, operations",
+            "answerB": "development, Lean and Agile",
+            "answerC": "development, operations",
+            "answerD": "operations, Lean and Agile",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 19,
+        "fields": {
+            "module": "work",
+            "text": "The advantages of incremental development include...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "value is delivered to customers more rapidly",
+            "answerB": "testing becomes easier",
+            "answerC": "programmer job satisfaction increases",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 20,
+        "fields": {
+            "module": "work",
+            "text": "Automated testing is an important part of DevOps because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "It enables rapid deployment of new software",
+            "answerB": "\"Automated\" has a nice sound to it",
+            "answerC": "It saves money in hiring testers.",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 21,
+        "fields": {
+            "module": "comm",
+            "text": "Testing should be done on...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "only the most crucial code in the application",
+            "answerB": "all of the application code",
+            "answerC": "all of the application code AND all of the infrastructure code",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 22,
+        "fields": {
+            "module": "comm",
+            "text": "In DevOps, \"silos\" refers to the fact that...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "departments in organizations often seemed sealed off from each other",
+            "answerB": "good software should be divided into \"silos\"",
+            "answerC": "granaries are major users of software",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 23,
+        "fields": {
+            "module": "comm",
+            "text": "We want to script our environment so that...?",
+            "difficulty": 2,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "environments are always in a known state",
+            "answerB": "we lessen the chance that knowledge is locked in team members' heads",
+            "answerC": "deployments are more predictable and repeatable",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 24,
+        "fields": {
+            "module": "comm",
+            "text": "\"Chaos Monkey\" is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "a tool Netflix developed to intentionally crash their servers",
+            "answerB": "a description of who is in charge of most software projects",
+            "answerC": "the state of infrastructure before DevOps",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 25,
+        "fields": {
+            "module": "comm",
+            "text": "The right artifacts of a project to put under version control are...?",
+            "difficulty": 2,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "project source code",
+            "answerB": "scripts to build the project infrastructure",
+            "answerC": "project documentation",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 26,
+        "fields": {
+            "module": "comm",
+            "text": "If we version control everything about our project, we...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "create a big mess no one could understand",
+            "answerB": "waste a lot of time",
+            "answerC": "establish a single source of truth for the system",
+            "answerD": "clog our version control system with trivial stuff",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 27,
+        "fields": {
+            "module": "comm",
+            "text": "Who should have \"ownership\" (be able to change) parts of a product in an agile team?",
+            "difficulty": 2,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "only the creator of that part",
+            "answerB": "anyone on the team",
+            "answerC": "only the project supervisor",
+            "answerD": "only the system administrator",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 28,
+        "fields": {
+            "module": "comm",
+            "text": "A poly-skilled engineer",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "graduated from NYU Poly",
+            "answerB": "knows several languages",
+            "answerC": "knows all parts of the technology their team uses",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 29,
+        "fields": {
+            "module": "comm",
+            "text": "An advantage Slack has over email threads is",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "people can join and leave threads as they need to",
+            "answerB": "people won't forget to include someone who needs to see a message",
+            "answerC": "it is easy to bring in a new person and have them pick up on the whole conversation",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 30,
+        "fields": {
+            "module": "incr",
+            "text": "git and GitHub are...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "just different names for the same software",
+            "answerB": "very different: git is the basic version control software, while GitHub is a place to store git repos",
+            "answerC": "entirely unrelated",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 31,
+        "fields": {
+            "module": "incr",
+            "text": "Commit messages in git are...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "important to communicate to team members what you are up to",
+            "answerB": "unimportant and should be ignored",
+            "answerC": "can be the same for every commit",
+            "answerD": "generated automatically",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 32,
+        "fields": {
+            "module": "incr",
+            "text": "We use \"git clone\" to...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "add a clone of a file to a repo",
+            "answerB": "turn one repo into two repos",
+            "answerC": "make a local copy of a repo",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 33,
+        "fields": {
+            "module": "incr",
+            "text": "If we see text like \"<<<<< HEAD:file.txt\" inserted into a file, that is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "the header for the file",
+            "answerB": "a UNIX command accidentally inserted in the file",
+            "answerC": "git showing us where a conflict is in file.txt",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 34,
+        "fields": {
+            "module": "incr",
+            "text": "If you type 'git pull origin master' then master is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "the branch you are pulling",
+            "answerB": "the level of difficulty of the pull",
+            "answerC": "the repo you are pulling from",
+            "answerD": "how much git should try to force the pull",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 35,
+        "fields": {
+            "module": "incr",
+            "text": "Incremental and iterative development were a response to failures in...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "functional programming",
+            "answerB": "the waterfall model",
+            "answerC": "test-driven development",
+            "answerD": "resume-driven development",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 36,
+        "fields": {
+            "module": "incr",
+            "text": "The problem with describing a server setup in a detailed document is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "an engineer has to manually do the setup",
+            "answerB": "the document will get out of date",
+            "answerC": "the document is likely to miss some \"obvious\" step",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 37,
+        "fields": {
+            "module": "incr",
+            "text": "Automated deployment should be coupled with...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "automated tests",
+            "answerB": "manual steps to make sure the sys admin is on their toes",
+            "answerC": "manual configuration",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 38,
+        "fields": {
+            "module": "flow",
+            "text": "Kanban is a method of managing work that...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "makes work visible",
+            "answerB": "limits work-in-progress",
+            "answerC": "implements a pull system for taking on new work",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 39,
+        "fields": {
+            "module": "flow",
+            "text": "Over-production is a waste because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "Toyota said it was",
+            "answerB": "we are producing something the customer may never need",
+            "answerC": "we can make more profit from under-production",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 40,
+        "fields": {
+            "module": "flow",
+            "text": "Working in small batches means...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "faster feedback",
+            "answerB": "problems are localized",
+            "answerC": "risk is reduced",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 41,
+        "fields": {
+            "module": "flow",
+            "text": "Small batches enabled Toyota to...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "respond more quickly to customer demand",
+            "answerB": "fit the batches into their small factory",
+            "answerC": "fire workers more easily",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 42,
+        "fields": {
+            "module": "flow",
+            "text": "You should measure your productivity by...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "the amount of tasks you are working on",
+            "answerB": "how busy you are",
+            "answerC": "the amount of tasks you finish",
+            "answerD": "how many hours per day you work",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 43,
+        "fields": {
+            "module": "flow",
+            "text": "By limiting work-in-progress, kanban helps to eliminate the  waste of...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "nonsense",
+            "answerB": "inventory",
+            "answerC": "rework",
+            "answerD": "transportation",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 44,
+        "fields": {
+            "module": "flow",
+            "text": "Which of the following is not a benefit of kanban?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "allowing greater re-use of software components",
+            "answerB": "limiting work-in-progress",
+            "answerC": "visualizing work",
+            "answerD": "detecting bottlenecks",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 45,
+        "fields": {
+            "module": "flow",
+            "text": "Is every card system a kanban system?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "yes",
+            "answerB": "no",
+            "answerC": null,
+            "answerD": null,
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 46,
+        "fields": {
+            "module": "flow",
+            "text": "Working in small batches, per our article, means releasing work...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "every few years",
+            "answerB": "every few hours",
+            "answerC": "every few months",
+            "answerD": "every few weeks",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 47,
+        "fields": {
+            "module": "flow",
+            "text": "The term 'scrum' comes from the sport of _____, where all members must unite to advance the ball.",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "football",
+            "answerB": "volleyball",
+            "answerC": "golf",
+            "answerD": "rugby",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 48,
+        "fields": {
+            "module": "flow",
+            "text": "A key principle of scrum is that...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "customers can and will change their minds",
+            "answerB": "requirements must be locked down months in advance",
+            "answerC": "the analysis phase of software development must be completely separated from coding",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 49,
+        "fields": {
+            "module": "flow",
+            "text": "In scrum, the product owner has what role?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "making all technical decisions",
+            "answerB": "being the voice of the customer",
+            "answerC": "garnering the profits from the release of the product",
+            "answerD": "being the only one allowed to speak at daily scrums",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 50,
+        "fields": {
+            "module": "flow",
+            "text": "The small batch principle of faster feedback would recommend what practice?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "only show your work to the customer once you are sure it is completely correct",
+            "answerB": "show early work stages to your team members, but never outside the team",
+            "answerC": "make your work visible as early and as often as possible",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 51,
+        "fields": {
+            "module": "flow",
+            "text": "Small batches help debugging because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "bugs come in batches",
+            "answerB": "we will never have bugs if we work in small batches",
+            "answerC": "debuggers are small programs",
+            "answerD": "we know right away what area of the program caused a new problem",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 52,
+        "fields": {
+            "module": "flow",
+            "text": "As opposed to Toyota, American car manufacturers often used a _____ system of production.",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "scrum",
+            "answerB": "push",
+            "answerC": "pull",
+            "answerD": "waterfall",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 53,
+        "fields": {
+            "module": "flow",
+            "text": "To eliminate the waste of over-production, we should...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "build all things we think the customer might want in advance",
+            "answerB": "stop have meetings",
+            "answerC": "only build an MVP at first, and then see what more is needed",
+            "answerD": "avoid having any inventory",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 54,
+        "fields": {
+            "module": "flow",
+            "text": "In scrum, an epic is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "a poem like the Aeneid or the Illiad",
+            "answerB": "part of a story",
+            "answerC": "someone going on and on in a scrum",
+            "answerD": "a large body of work that can be broken down into smaller stories",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 55,
+        "fields": {
+            "module": "basics",
+            "text": "\"No magic constants\" means you should not...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "scatter constants like 7, 12, or 3.14 through your program",
+            "answerB": "define constants to have values like \"Harry Potter\"",
+            "answerC": "use integer values in your code",
+            "answerD": "use an irrational number in your code",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 56,
+        "fields": {
+            "module": "basics",
+            "text": "Our functions should...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "precisely embody the mathematical notion of a function",
+            "answerB": "do as many tasks as possible, since functions calls take time",
+            "answerC": "do one clearly definable task",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 57,
+        "fields": {
+            "module": "basics",
+            "text": "PEP 8 recommends that when indenting, we should use..?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "tabs",
+            "answerB": "spaces",
+            "answerC": "underscores",
+            "answerD": "asterisks",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 58,
+        "fields": {
+            "module": "basics",
+            "text": "When it comes to naming variables, we should...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "always use camel case",
+            "answerB": "always employ underscores",
+            "answerC": "keep everything in ALL Caps",
+            "answerD": "use the convention most widespread in our coding language",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 59,
+        "fields": {
+            "module": "basics",
+            "text": "Comments should be...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "employed only when necessary",
+            "answerB": "scattered through the code as widely as possible",
+            "answerC": "used for every line of code",
+            "answerD": "never used at all",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 60,
+        "fields": {
+            "module": "basics",
+            "text": "The best way to make your code understandable is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "to use as many comments as possible",
+            "answerB": "to use the longest variable names possible",
+            "answerC": "to write clear code",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 61,
+        "fields": {
+            "module": "basics",
+            "text": "The most important reason to use consistent indentation is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "it makes it easy for readers to see the control blocks",
+            "answerB": "to pass the tests of code-style tools",
+            "answerC": "it looks prettier that way",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 62,
+        "fields": {
+            "module": "basics",
+            "text": "According to PEP 8, constants should...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "BE_IN_ALL_CAPS",
+            "answerB": "beInCamelCase",
+            "answerC": "be_defined_with_underscores",
+            "answerD": "be defined on a per project basis",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 63,
+        "fields": {
+            "module": "basics",
+            "text": "If our program employs a database, we should define the data tables...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "in our code",
+            "answerB": "in the database",
+            "answerC": "in both the code and database",
+            "answerD": "in one place used by both our code and the database",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 64,
+        "fields": {
+            "module": "basics",
+            "text": "Function and variable names should be...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "as short as possible",
+            "answerB": "as long as possible",
+            "answerC": "hitting the mean between very short and very long",
+            "answerD": "in all upper case",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 65,
+        "fields": {
+            "module": "basics",
+            "text": "DRY means your code should ...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "not be all wet",
+            "answerB": "Delete Random Years",
+            "answerC": "Dally Really Youthfully",
+            "answerD": "not repeat itself",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 66,
+        "fields": {
+            "module": "basics",
+            "text": "PEP 8 recommends using blank lines in functions...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "whenever the heck you want to",
+            "answerB": "sparingly, to indicate logical sections",
+            "answerC": "never",
+            "answerD": "as much as possible",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 67,
+        "fields": {
+            "module": "basics",
+            "text": "According to PEP 8, if we need a line break near a binary operator, it should come...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "after the operator",
+            "answerB": "before the operator",
+            "answerC": "wherever looks good",
+            "answerD": "nowhere: rewrite the code so you don't need it",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 68,
+        "fields": {
+            "module": "infra",
+            "text": "Infrastructure as code can reduce costs, since...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "code is lighter in weight than hardware",
+            "answerB": "executing in software is faster than doing so in hardware",
+            "answerC": "it relieves operations people of the time they would spend setting up infrastructure by hand",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 69,
+        "fields": {
+            "module": "infra",
+            "text": "Infrastructure as code speeds up deployment because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "there is no testing involved",
+            "answerB": "running a script is faster than clicking through a GUI interface",
+            "answerC": "it eliminates the need for version control",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 70,
+        "fields": {
+            "module": "infra",
+            "text": "Infrastructure as code is less error-prone than manual deployment because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "it can be debugged once and that's that",
+            "answerB": "manual deployment is boring, and humans will make errors",
+            "answerC": "we can look over the code and reason about it",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 71,
+        "fields": {
+            "module": "infra",
+            "text": "A core DevOps principle is that automation is good because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "it gives machines the boring, repetitive work, and humans the interesting stuff",
+            "answerB": "it helps eliminate lots of jobs",
+            "answerC": "otherwise, lower-wage countries will have an advantage",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 72,
+        "fields": {
+            "module": "infra",
+            "text": "Which of the following are popular infrastructure-as-code tools?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "Puppet, Chef, and Ansible",
+            "answerB": "Git, Jenkins, and Travis",
+            "answerC": "AWS, Google Cloud, and Azure",
+            "answerD": "Python, C++, and Java",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 73,
+        "fields": {
+            "module": "infra",
+            "text": "Among the reasons infrastructure as code (IAC) is desirable is/are...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "IAC can be put under version control",
+            "answerB": "IAC can be be automatically deployed",
+            "answerC": "IAC can be put through automated testing",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 74,
+        "fields": {
+            "module": "infra",
+            "text": "A disadvantage of Chef is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "it can't be used for large-scale deployment",
+            "answerB": "it is not designed for programmers",
+            "answerC": "using it requires knowledge of Ruby",
+            "answerD": "it can't be put under version control",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 75,
+        "fields": {
+            "module": "infra",
+            "text": "A disadvantage of Puppet is that users must...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "only run on Linux",
+            "answerB": "learn the Puppet DSL",
+            "answerC": "commit to running Windows",
+            "answerD": "deal with a terrible GUI",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 76,
+        "fields": {
+            "module": "infra",
+            "text": "One reason we use Docker in our projects is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "it cuts down on memory usage",
+            "answerB": "it makes our unit testing simpler",
+            "answerC": "it provides automatic documentation for the source code",
+            "answerD": "it allows us to specify a local server that will be just like production",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 77,
+        "fields": {
+            "module": "infra",
+            "text": "When a Dockerfile says 'FROM Alpine-2.3' that means...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "this will be a mountainous docker image",
+            "answerB": "the image being built will be based on the 'Alpine-2.3' image",
+            "answerC": "we will be running the 'Alpine-2.3' image",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 78,
+        "fields": {
+            "module": "infra",
+            "text": "A line in a Dockerfile that says 'RUN pip install -r requirements.txt' means...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "once the container is launched, it will run that command",
+            "answerB": "if pip install is True, the container should RUN, or exit",
+            "answerC": "that command should be run to build the container",
+            "answerD": "nothing: that is an invalid command",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 79,
+        "fields": {
+            "module": "infra",
+            "text": "The command 'docker ps' will list...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "all containers named 'ps'",
+            "answerB": "all containers",
+            "answerC": "all images currently installed on the system",
+            "answerD": "all images currently running on the system",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 80,
+        "fields": {
+            "module": "infra",
+            "text": "If we run the 'ps' command to list running processes both inside and outside a container, we will likely see more processes...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "inside the container",
+            "answerB": "outside the container",
+            "answerC": "no telling",
+            "answerD": "you can't run it inside a container",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 81,
+        "fields": {
+            "module": "infra",
+            "text": "Infrastructure as code is important in the cloud (compared to old machine rooms) because...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "we are likely to have more servers",
+            "answerB": "the servers life-span is shorter",
+            "answerC": "we often need to scale deployment up and down in a matter of minutes",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 82,
+        "fields": {
+            "module": "test",
+            "text": "What is regression testing?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "a very regressive form of testing",
+            "answerB": "a way to make tests more primitive each go-round",
+            "answerC": "a way to see if the program has regressed after a change",
+            "answerD": "none of the above",
+            "answerE": "Test"
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 83,
+        "fields": {
+            "module": "test",
+            "text": "The \"zero-bug mindset\" means that...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "no developers should be bugging out",
+            "answerB": "no bug backlog should ever build up",
+            "answerC": "no one should ever make a coding mistake",
+            "answerD": "we should ridicule anyone who introduces a bug",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 84,
+        "fields": {
+            "module": "test",
+            "text": "Unit tests work primarily at the level of...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "individual classes and methods",
+            "answerB": "user-level interactions",
+            "answerC": "checking the integration of the various modules of the software",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 85,
+        "fields": {
+            "module": "test",
+            "text": "Acceptance testing tests features as...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "the computer sees them",
+            "answerB": "the tester sees them",
+            "answerC": "the user sees them",
+            "answerD": "the regulator sees them",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 86,
+        "fields": {
+            "module": "test",
+            "text": "Testing Python code is aided by a package called...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "pylib",
+            "answerB": "numpy",
+            "answerC": "scipy",
+            "answerD": "pytest",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 87,
+        "fields": {
+            "module": "test",
+            "text": "'zero-length feedback' means...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "developers can test and fix bugs immediately",
+            "answerB": "the length of a CI/CD pipeline should be 0",
+            "answerC": "all tests should take 0 time",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 88,
+        "fields": {
+            "module": "cicd",
+            "text": "The scripting language for Jenkins is called...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "Groovy",
+            "answerB": "Movie",
+            "answerC": "Groupie",
+            "answerD": "Snoopy",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 89,
+        "fields": {
+            "module": "cicd",
+            "text": "Jenkins uses a __________ architecture?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "master-master",
+            "answerB": "master-agent",
+            "answerC": "peer-to-peer",
+            "answerD": "monolithic",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 90,
+        "fields": {
+            "module": "cicd",
+            "text": "One common way to trigger a Jenkins build is....?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "type some new code in an IDE",
+            "answerB": "run make",
+            "answerC": "run Docker",
+            "answerD": "push a commit in a version control system",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 91,
+        "fields": {
+            "module": "test",
+            "text": "In pytest, assert statements are a way to...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "practice getting what you really want from life",
+            "answerB": "push some code into production",
+            "answerC": "assert what code should be run",
+            "answerD": "state what condition should be true at the end of a unit of test code",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 92,
+        "fields": {
+            "module": "test",
+            "text": "One of Bob Martin's rules of TDD is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "Always code for a day before writing a test",
+            "answerB": "Write a test that passes before you write one that fails",
+            "answerC": "Before you write any production code, write a failing test for that (planned) code.",
+            "answerD": "All of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 93,
+        "fields": {
+            "module": "build",
+            "text": "A manual process that is boring is... ?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "good for the programmer",
+            "answerB": "highly paid",
+            "answerC": "suitable for junior programmers",
+            "answerD": "error prone",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 94,
+        "fields": {
+            "module": "build",
+            "text": "If we automate our builds, we can include... ?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "monitoring",
+            "answerB": "tests",
+            "answerC": "kanban boards",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 95,
+        "fields": {
+            "module": "build",
+            "text": "Popular build tools include...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "make, Ant, and Maven",
+            "answerB": "grep, awk, and sed",
+            "answerC": "git, StatusCake, and Slack",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 96,
+        "fields": {
+            "module": "build",
+            "text": "A makefile includes... ?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "servers, ports, and inodes",
+            "answerB": "documentation, a version control system, and monitoring",
+            "answerC": "target, dependencies and commands",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 97,
+        "fields": {
+            "module": "build",
+            "text": "A line in a makefile like `prod: test docker` means...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "There is a target named `prod` that depends on `test` and `docker`.",
+            "answerB": "There is a command named `prod` that gets the arguments `test` and `docker`.",
+            "answerC": "There is a server named `prod` that lives on the `test docker` subnet.",
+            "answerD": "None of the above.",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 98,
+        "fields": {
+            "module": "test",
+            "text": "When we test how modules work together, that is called...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "unit testing",
+            "answerB": "acceptance testing",
+            "answerC": "integration testing",
+            "answerD": "none of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 99,
+        "fields": {
+            "module": "test",
+            "text": "In testing, a \"mock\" is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "a simulation of some resource",
+            "answerB": "someone who makes fun of the tests",
+            "answerC": "the white garment usually worn by lab technicians",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 100,
+        "fields": {
+            "module": "test",
+            "text": "In testing, a \"stub\" is...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "a real object that takes up very few bytes",
+            "answerB": "a crude imitation of a real object, returning hard-coded values",
+            "answerC": "a very short test",
+            "answerD": "a test that got cut off early",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 101,
+        "fields": {
+            "module": "test",
+            "text": "The \"setup\" portion of a test...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "sets up the data our tests will use",
+            "answerB": "sets up the logical assertions the test will use",
+            "answerC": "sets up the test suite for failure",
+            "answerD": "sets up the user for a big surprise",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 102,
+        "fields": {
+            "module": "test",
+            "text": "The teardown section of a test suite...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "tears down code that didn't work",
+            "answerB": "tears down the user's confidence",
+            "answerC": "tears down the CI/CD tool",
+            "answerD": "tears down the setup data so each new test has fresh data",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 103,
+        "fields": {
+            "module": "infra",
+            "text": "\"cgroups\" stands for...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "b",
+            "answerA": "Groups for running C code",
+            "answerB": "Control groups",
+            "answerC": "Chaos monkey groups",
+            "answerD": "Continuous integration groups",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 104,
+        "fields": {
+            "module": "infra",
+            "text": "The Linux feature that allows different processes to see different sets of resources is called...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "namespaces",
+            "answerB": "libnetwork",
+            "answerC": "libcontainer",
+            "answerD": "union file system",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 105,
+        "fields": {
+            "module": "infra",
+            "text": "A union file system...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "c",
+            "answerA": "unites the best features of NFS and HFS",
+            "answerB": "keeps all files unied on one disk",
+            "answerC": "allows multiple mounts at a single mount point resulting in a union of all of their contents",
+            "answerD": "none of the above.",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 106,
+        "fields": {
+            "module": "cicd",
+            "text": "Configuration languages are often examples of...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "functional programming",
+            "answerB": "object-oriented programming",
+            "answerC": "procedural programming",
+            "answerD": "declarative programming",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 107,
+        "fields": {
+            "module": "cicd",
+            "text": "A declarative language focuses on...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "a",
+            "answerA": "saying what needs to be done rather than how it needs to be done",
+            "answerB": "the exact steps necessary to carry out an installation",
+            "answerC": "pure mathematical functions",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    },
+    {
+        "model": "devops.question",
+        "pk": 108,
+        "fields": {
+            "module": "cicd",
+            "text": "Travis CI can...?",
+            "difficulty": 1,
+            "qtype": "MCHOICE",
+            "correct": "d",
+            "answerA": "hook to GitHub and watch your repo",
+            "answerB": "connect to Slack",
+            "answerC": "build your test environment and run your tests",
+            "answerD": "all of the above",
+            "answerE": null
+        }
+    }
+]
