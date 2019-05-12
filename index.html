@@ -2,29 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <!-- link href="style.css" rel="stylesheet" type="text/css"/ -->
-		<!-- Reveal.js required css files -->
-<!--
-		<link id="revealCss" rel="stylesheet" type="text/css" href="https://rawgit.com/hakimel/reveal.js/master/css/reset.css">
-        <link id="revealCss" rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/reveal.css">
--->
-        <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/theme/sky.css">
-
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/lib/css/monokai.css">
-		<style>
-            p {text-align: justify !important;
-                font-size: 38px}
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-              text-transform: capitalize !important;
-            }
-            
-		</style>
         <title>
             What Is DevOps?
         </title>
@@ -150,34 +129,26 @@
     <script>
             var mode = "html"
             var convertBtn = document.createElement("BUTTON");
-            convertBtn.innerHTML = "CLICK ME";
-            convertBtn.style = "position: absolute; bottom: 20px; left: 10px;"
-            convertBtn.addEventListener ("click", convertDoc)
+            convertBtn.innerHTML = "PPT View";
+            convertBtn.id = "convertBtn"
+            convertBtn.style = "position: fixed; bottom: 60px; right: 10px; padding: 10px 14px; font-size: 14px; border-radius: 5px; background-color: #555555; color: white;"
+            convertBtn.addEventListener ("click", switchToPPTView)
             document.body.appendChild(convertBtn);
 
         
-            function convertDoc(){
-                if (mode == "ppt"){
-                    mode="html"
-                    var revealCss = document.getElementsByClassName("revealCss")
-                    var i = revealCss.length;
-                    console.log(i)
-                    while (i--) {
-                     revealCss[i].parentNode.removeChild(revealCss[i])   
-                    }
-                    var revealDiv = document.getElementById("revealDiv");
-                    revealDiv.classList.remove("reveal");
-                }
-                else if (mode == "html"){
-                        var revealCss = 'revealCss';  // you could encode the css path itself to generate id..
+            function switchToPPTView(){
+                        var revealCss = 'revealCss';
                         var script = document.createElement('script');
                         script.type = 'text/javascript';
                         script.classList.add(revealCss)
                         script.onload = loadScript
                         script.setAttribute('src', 'https://www.rawgit.com/hakimel/reveal.js/master/js/reveal.js');
                         document.body.appendChild(script);
-                    
-                    function loadScript(){
+                        var btn = document.getElementById('convertBtn')
+                        btn.parentNode.removeChild(btn)
+                    }
+        
+            function loadScript(){
                         var revealCss = 'revealCss';
                         var revealDiv = document.getElementById("revealDiv");
                         revealDiv.classList.add("reveal");
@@ -185,25 +156,35 @@
                         script_tag.classList.add(revealCss)
                         script_tag.text = "Reveal.initialize({ transition: 'slide', transitionSpeed: 'default', dependencies: [ { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/notes/notes.js', async: true }, { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/highlight/highlight.js', async: true }]});";
                         document.body.appendChild(script_tag);
-                        mode="ppt"
                         var revealDiv = document.getElementById("revealDiv");
                         revealDiv.classList.add("reveal");
-                            var head  = document.getElementsByTagName('head')[0];
-                            var link1  = document.createElement('link');
-                            link1.classList.add(revealCss)
-                            link1.rel  = 'stylesheet';
-                            link1.type = 'text/css';
-                            link1.href = 'https://rawgit.com/hakimel/reveal.js/master/css/reset.css';
-                            head.appendChild(link1);
-                            var link2  = document.createElement('link');
-                            link2.classList.add(revealCss)
-                            link2.rel  = 'stylesheet';
-                            link2.type = 'text/css';
-                            link2.href = 'https://rawgit.com/hakimel/reveal.js/master/css/reveal.css';
-                            head.appendChild(link2);
-                        }
-                    }
-            }
+                        var head  = document.getElementsByTagName('head')[0];
+                        
+                        var link1  = document.createElement('link');
+                        link1.classList.add(revealCss)
+                        link1.rel  = 'stylesheet';
+                        link1.type = 'text/css';
+                        link1.href = 'https://rawgit.com/hakimel/reveal.js/master/css/reset.css';
+                        head.appendChild(link1);
+                       
+                        var link2  = document.createElement('link');
+                        link2.classList.add(revealCss)
+                        link2.rel  = 'stylesheet';
+                        link2.type = 'text/css';
+                        link2.href = 'https://rawgit.com/hakimel/reveal.js/master/css/reveal.css';
+                        head.appendChild(link2);
+                        
+                        var link3  = document.createElement('link');
+                        link3.classList.add(revealCss)
+                        link3.rel  = 'stylesheet';
+                        link3.type = 'text/css';
+                        link3.href = 'https://rawgit.com/hakimel/reveal.js/master/css/theme/sky.css';
+                        head.appendChild(link3);
+                
+                        var style = document.createElement('style')
+                        style.innerHTML = 'p {text-align: justify !important; font-size: 38px} h1,h2,h3,h4,h5,h6 {text-transform: capitalize !important;}'
+                        head.appendChild(style);
+                }
             
     </script>
     </body>
