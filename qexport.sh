@@ -7,13 +7,7 @@ export USER='devopscourse'
 export PASSWORD='releaseit!'
 export HOST='devopscourse.mysql.pythonanywhere-services.com'
 
-echo "dollar 1 is $1"
 
 export utilsdir="utils"
-#if [ -z "$1" ]
-#then
-#    utilsdir=$1
-#fi
-echo "utils dir is $utilsdir"
 
 python3 $utilsdir/qexport.py
