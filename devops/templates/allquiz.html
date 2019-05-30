@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+    
+    <script type="text/javascript" src="data"></script>
+</head>
+
+<body>
+    
+    <div id="cont" class="container">
+        
+    </div>
+</body>
+<script>
+    var local_data = data;
+    cont.innerHTML += '&nbsp;';
+    cont.innerHTML += '&nbsp;';
+    
+    for (var i = 0; i < local_data.length; i++) 
+    {
+        cont.innerHTML += '&nbsp;';
+        cont.innerHTML += '&nbsp;';
+         var newParagraph = document.createElement('h3');
+        newParagraph.textContent = local_data[i]["fields"]["text"];
+        document.getElementById("cont").appendChild(newParagraph);
+        
+        var a1 = document.createElement('p');
+        a1.textContent = "a: "+ data[i]["fields"]["answerA"];
+        document.getElementById("cont").appendChild(a1);
+        var b1 = document.createElement('p');
+        b1.textContent = "b: " + data[i]["fields"]["answerB"];
+        document.getElementById("cont").appendChild(b1);
+        var c1 = document.createElement('p');
+        c1.textContent = "c: " + data[i]["fields"]["answerC"];
+        document.getElementById("cont").appendChild(c1);
+        var d1 = document.createElement('p');
+        d1.textContent = "d: " + data[i]["fields"]["answerD"];
+        document.getElementById("cont").appendChild(d1);
+
+        cont.innerHTML += '&nbsp;';
+        cont.innerHTML += '&nbsp;';
+
+    }
+</script>
+
+{% endblock content %}

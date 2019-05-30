@@ -1,0 +1,73 @@
+
+DevOps Quiz 6
+
+Name: ________________________________________
+
+
+1) Humble believes that developers should push code to "trunk"
+(the main source code control branch)...?
+a. once a month
+b. whenever they are ready
+c. every day
+d. only when a major new version is about to be released
+
+2) With all the kinds of automated tests available, where is manual
+testing still needed?
+a. Functional acceptance tests
+b. Unit tests
+c. System tests
+d. Usability tests 
+
+3) As a best practice, what to do when the build on the version control fails
+after a push?
+a. Leave the broken code on trunk
+b. Revert the change and work on it 
+c. Create a branch and work on it
+d. Try to push again because the local build works
+
+4) Which among the following performance metrics indicate stability?
+a. Lead time for changes
+b. Release frequency
+c. Time to restore service 
+d. Lines of code
+
+5) Humble says the most important part of continuous delivery is...?
+a. culture and architecture
+b. a tool like Travis
+c. a good test runner
+d. a good version control system
+
+6) The main benefit of continuous delivery is...?
+a. it keeps operations busy
+b. it looks good on your resume
+c. it reduces the transaction cost of making changes
+d. it eliminates automated testing
+
+7) The difference between continuous _________ means the software always
+*could* be shipped to customers, while continuous _________ means actually
+shipping it.
+a. integration, delivery
+b. delivery, deployment
+c. deployment, delivery
+d. delivery, integration
+
+8) Water-scrum-fall means...?
+a. just sticking a little bit of Agile development in the middle
+of a Waterfall process
+b. scrum sessions held on the water in the fall
+c. combining the best of Agile and Waterfall
+d. all of the above
+
+9) According to careful studies, among well-thought out new features...
+a. almost all are useful.
+b. less than half prove to be useful.
+c. every one is useful.
+d. who knows?
+
+10) Given the success rate of new software, a great benefit of CD
+is that it...
+a. slows down the release process so the bad features never are released
+b. relies on a longer planning phase so that the new software is sure
+to be useful.
+c. locks us in to what we know to be the best features very early on.
+d. allows A/B testing to quickly see what features are liked.

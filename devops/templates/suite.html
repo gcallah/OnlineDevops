@@ -529,6 +529,19 @@
           href="https://docs.microsoft.com/en-us/azure/automation/automation-intro"
           target="_blank" style="text-decoration: underline">here</a>
       </li>
+      <li>
+          <span class="hilight">
+              Azure Service Health
+          </span>
+          <br />
+          Azure Service Health provides personalized alerts thereby notifying
+          and helping us understand the impact of the Azure service issue
+          affecting the availability of our resources. It integrates into
+          Azure monitor and provides alert through emails and text messages.
+          <br /> More information about Azure Service Health can be found <a
+          href="https://azure.microsoft.com/en-us/features/service-health/"
+          target="_blank" style="text-decoration: underline">here</a>
+      </li>
       <br />
   </ol>
 
@@ -866,7 +879,7 @@
             application to Azure
          </p>
         <br />
-        <p> Steps to deploy the script to Azure</p>
+        <p> Steps to deploy the script to Azure (Web Portal)</p>
         <ol class="nested">
             <li>
                 Go to <a href="https://portal.azure.com" target="_blank"
@@ -895,6 +908,35 @@
             <li>
                 Click on "Purchase" after reviewing and confirming to Azure's
                 terms and conditions
+            </li>
+        </ol>
+
+        <br />
+
+        <p> Steps to deploy the script to Azure (Shell Script)</p>
+        <ol class="nested">
+            <li>
+                The shell script is accessible  <a
+                href="https://gist.github.com/shaivaldalal/151c4b20722d63f579771d599f8710ab"
+                target="_blank" style="text-decoration:underline">here</a>
+            </li>
+            <li>
+                Download the shell script and the template file. Make sure to
+                rename the template file to <code>template.json</code>
+            </li>
+            <li>
+                Mark the shell script executable using <code>chmod +x
+                azure_infrastructure_deploy.sh</code> and place the
+                <code>template.json</code> in the same directory as the
+                script
+            </li>
+            <li>
+                Execute the shell script and pass parameters like your
+                <code>subscriptionID (-i)</code>, <code>resourceGroupName
+                (-g)</code>, <code>deploymentName (-n)</code> and
+                <code>resourceGroupLocation (l-)</code> <br />
+                <i>Example:</i> <code>deploy.sh -i lorem -g ipsum -n lorem -l
+                ipsum</code>
             </li>
         </ol>
         <hr>
@@ -1038,11 +1080,15 @@
         </summary>
         <ol class="nested">
             <li>
-                Select Pipelines -&gt New -&gt New build pipeline on the Azure
-                Devops page.
+                Select New Pipelines (Pipelines -&gt New -&gt New build
+                pipeline) on the Azure Devops page.
+                <br />
+                <img src="../static/devops/build_pipeline.png" style="width:80%;">
             </li>
             <li>
                 Select the location of source code and the desired repository.
+                <br />
+                <img src="../static/devops/pipeline_source.png" style="width:80%;">
             </li>
             <li>
                 If the repository contains the <code>azure-pipelines.yml
@@ -1050,6 +1096,11 @@
                 asked to pick a starter template. Select Save and Run, then
                 select commit directly to the master branch, and then select
                 Save and Run again.
+                <br />
+                <img src="../static/devops/pipeline-yaml-template.png" style="width:80%;">
+                <br />
+                Update the YAML file appropriately depending on whether you are
+                using Docker Hub or Azure Container registry.
             </li>
             <li>
                 Wait until the build finishes.
@@ -1081,6 +1132,32 @@
     </details>
 </details>
 
+
+<details>
+  <summary class="sum1">
+      Azure Monitoring Services
+  </summary>
+  <p>
+      By Default Azure provides some monitoring services for
+      all its applications,including Docker which can be found
+      <a target="_blank" href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/docker">
+          here
+      </a>
+  </p>
+  <p>
+    <ul class="nested">
+        <li>
+          Go to Azure potal, and click on monitoring services
+        </li>
+        <li>
+          Go to metrics, it will look like this
+          </br>
+            <img src="../static/devops/monitoring.png" style="width:80%;">
+        </li>
+    </ul>
+  </p>
+
+</details>
 <details>
     <summary class="sum1">
         Other Readings
@@ -1163,6 +1240,12 @@
                 Azure Monitor: Creating Metrics
             </a>
         </li>
+
+        <li>
+            <a target="_blank" href="https://adinermie.com/azure-monitoring-tools-explained-part-1-introduction/">
+                Azure Monitoring Tools Explained
+            </a>
+       </li>
     </ul>
 
 </details>

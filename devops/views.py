@@ -268,6 +268,14 @@ def search(request: request) -> object:
     return get_pg_w_quiz(request, 'search')
 
 
+def allquiz(request: request) -> object:
+    return render(request, 'allquiz.html', {'header': site_hdr})
+
+
+def data(request: request) -> object:
+    return render(request, 'data.txt', {'header': site_hdr})
+
+
 @require_http_methods(["GET", "POST"])
 def parse_search(request) -> object:
 

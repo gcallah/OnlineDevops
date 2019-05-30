@@ -2,25 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <!-- link href="style.css" rel="stylesheet" type="text/css"/ -->
-		<!-- Reveal.js required css files -->
-		<link rel="stylesheet" type="text/css" href="https://rawgit.com/hakimel/reveal.js/master/css/reset.css">
-        <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/css/reveal.css">
-        <link rel="stylesheet"
-        href="https://rawgit.com/hakimel/reveal.js/master/css/theme/sky.css">
-
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="https://rawgit.com/hakimel/reveal.js/master/lib/css/monokai.css">
-		<style>
-		p    {text-align: justify !important;}
-		</style>
         <title>
             What Is DevOps?
         </title>
     </head>
 
     <body>
-		<div class="reveal">
+		<div id="revealDiv" class="">
 			<div class="slides">
 				<section>
 					<h1>
@@ -62,9 +52,9 @@
 
 				</section>
 				<section>
-					<h2>
+					<h3>
 						Why Incremental Development?
-					</h2>
+					</h3>
 						<ul>
 							<li class="fragment">
                                 Small batches of work make testing easier.</li>
@@ -72,8 +62,10 @@
                                 Easier to find a bug when you have one.</li>
 							<li class="fragment">
                                 Enables rapid feedback from the users on whether the software is delivering what they want.</li>
-							<li class="fragment">Allows us to deliver value to the user more rapidly.</li>
-							<li class="fragment">Small batches are more satisfying to the developers, because their software gets used soon after they write it.</li>
+							<li class="fragment">
+                                Allows us to deliver value to the user more rapidly.</li>
+							<li class="fragment">
+                                Small batches are more satisfying to the developers, their software gets used soon after they write it.</li>
 						</ul>
 						
 				</section>
@@ -109,7 +101,7 @@
 				</section>
 				<section>
 					<h2>
-						Continuous Integration / Continuous Deployment
+						CI / CD
 					</h2>
 					<p>
 						Continuous integration (CI) and continuous delivery (CD) are a pair of practices that, when done properly, greatly aid an organization's ability to deliver software frequently and reliably to its customers. We often hear the combination of these practices referred to as "the CI/CD pipeline," and they are among the most important practices a DevOps team can implement.
@@ -133,22 +125,66 @@
 				</section>
 			</div>
 		</div>
-	<!-- Reveal.js required js files -->
-	<script type="text/javascript" src="https://www.rawgit.com/hakimel/reveal.js/master/js/reveal.js"></script>
-	<script>
-            // More info about config & dependencies:
-            // - https://github.com/hakimel/reveal.js#configuration
-            // - https://github.com/hakimel/reveal.js#dependencies
-            Reveal.initialize({
-				// Transition style
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-				// Transition speed
-				transitionSpeed: 'default', // default/fast/slow
-                dependencies: [
-                    { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/notes/notes.js', async: true },
-                    { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/highlight/highlight.js', async: true }
-                ]
-            });
+
+    <script>
+            var mode = "html"
+            var convertBtn = document.createElement("BUTTON");
+            convertBtn.innerHTML = "PPT View";
+            convertBtn.id = "convertBtn"
+            convertBtn.style = "position: fixed; bottom: 60px; right: 10px; padding: 10px 14px; font-size: 14px; border-radius: 5px; background-color: #555555; color: white;"
+            convertBtn.addEventListener ("click", switchToPPTView)
+            document.body.appendChild(convertBtn);
+
+        
+            function switchToPPTView(){
+                        var revealCss = 'revealCss';
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.classList.add(revealCss)
+                        script.onload = loadScript
+                        script.setAttribute('src', 'https://www.rawgit.com/hakimel/reveal.js/master/js/reveal.js');
+                        document.body.appendChild(script);
+                        var btn = document.getElementById('convertBtn')
+                        btn.parentNode.removeChild(btn)
+                    }
+        
+            function loadScript(){
+                        var revealCss = 'revealCss';
+                        var revealDiv = document.getElementById("revealDiv");
+                        revealDiv.classList.add("reveal");
+                        var script_tag = document.createElement('script');
+                        script_tag.classList.add(revealCss)
+                        script_tag.text = "Reveal.initialize({ transition: 'slide', transitionSpeed: 'default', dependencies: [ { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/notes/notes.js', async: true }, { src: 'https://rawgit.com/hakimel/reveal.js/master/plugin/highlight/highlight.js', async: true }]});";
+                        document.body.appendChild(script_tag);
+                        var revealDiv = document.getElementById("revealDiv");
+                        revealDiv.classList.add("reveal");
+                        var head  = document.getElementsByTagName('head')[0];
+                        
+                        var link1  = document.createElement('link');
+                        link1.classList.add(revealCss)
+                        link1.rel  = 'stylesheet';
+                        link1.type = 'text/css';
+                        link1.href = 'https://rawgit.com/hakimel/reveal.js/master/css/reset.css';
+                        head.appendChild(link1);
+                       
+                        var link2  = document.createElement('link');
+                        link2.classList.add(revealCss)
+                        link2.rel  = 'stylesheet';
+                        link2.type = 'text/css';
+                        link2.href = 'https://rawgit.com/hakimel/reveal.js/master/css/reveal.css';
+                        head.appendChild(link2);
+                        
+                        var link3  = document.createElement('link');
+                        link3.classList.add(revealCss)
+                        link3.rel  = 'stylesheet';
+                        link3.type = 'text/css';
+                        link3.href = 'https://rawgit.com/hakimel/reveal.js/master/css/theme/sky.css';
+                        head.appendChild(link3);
+                
+                        var style = document.createElement('style')
+                        style.innerHTML = 'p {text-align: justify !important; font-size: 38px} h1,h2,h3,h4,h5,h6 {text-transform: capitalize !important;}'
+                        head.appendChild(style);
+                }
             
     </script>
     </body>
