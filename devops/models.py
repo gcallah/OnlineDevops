@@ -72,6 +72,9 @@ class Question(models.Model):
     def __str__(self):
         return self.text
 
+    class Meta:
+        ordering = ['module']
+
 
 class Extras(models.Model):
     title = models.TextField()
