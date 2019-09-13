@@ -169,8 +169,22 @@
                 </li>
 
                 <li>
+                    Break your code up into modules that handle one aspect of
+                    the program... your accounting program might have modules
+                    for taxes, payroll, invoices, bills, and bank accounts
+                    (perhaps).
+                </li>
+
+                <li>
+                    Keep interfaces between modules narrow (as little data has
+                    to pass between them as possible) and clearly defined.
+                    Change these interfaces as little as possible.
+                </li>
+
+                <li>
                     <span class="hilight">Test, test, test!</span>
                     <br />
+                    Test <i>small</i> pieces of code as you go along.
                     Write an automated test to go with every program or new
                     feature you write. Test as completely by hand as you can:
                     don't just test that your code fetches the data from the DB
