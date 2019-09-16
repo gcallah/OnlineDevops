@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>
+            A Guide to Our DevOps Projects 
+        </title>
+    </head>
+
+    <body>
+        <h1>
+            A Guide to Our DevOps Projects 
+        </h1>
+
+        <p>
+        The goal of DevOps is to be able to rapidly and reliably deliver new
+        features to customers, thus delivering value and enabling rapid
+        feedback and learning.
+        </p>
+
+        <ul>
+
+        <li>
+        Work on all projects should proceed by regular, incremental
+        improvements. The "school model" of waiting until the end of the
+        semester and doing everything at once will result in significant points
+        lost. (It also results in significantly worse outcomes, which is the
+        real point here.)
+        </li>
+
+        <li>
+            Tasks in a project should appear on a kanban board.
+        </li>
+
+        <li>
+            Project discussions take place on Slack.
+        </li>
+
+        <li>
+        Every project should be under version control using git.
+        </li>
+
+        <li>
+        All relevant computer files relating to the project should be under
+        version control, not just source code. This includes statements of
+        goals, documentation, other sources used in the project, configuration
+        scripts, List of dependencies, diagrams.
+        </li>
+
+        <li>
+        All local products that can be built should be built with a makefile.
+        </li>
+
+        <li>
+        Every project should have an extensive, automated test coverage.
+        </li>
+
+        <li>
+        Every project should be deployed with scripts and configuration files,
+        not things run by hand and stored in participants' heads.
+        </li>
+
+        <li>
+        Each project should conduct regular code reviews.
+        </li>
+
+        <li>
+        We should use automated linting.
+        </li>
+
+        <li>
+        Commits should trigger a test so that testing is done even if an
+        individual programmer tries to skip it. Code should be pushed onto
+        production servers only if these tests pass.
+        We currently use Travis to that end.
+        </li>
+
+        <li>
+        Each project should be deployable in the Docker container, if possible.
+        </li>
+
+        <li>
+        If the project involves a server that should run on an ongoing basis,
+        that server should be monitored.
+        </li>
+        </ul>
+
+
+    </body>
+</html>
