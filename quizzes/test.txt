@@ -5,6 +5,7 @@ a. a very regressive form of testing
 b. a way to make tests more primitive each go-round
 *c. a way to see if the program has regressed after a change
 d. none of the above
+e. Test
 
 2. (1 point)
 The "zero-bug mindset" means that...?
@@ -51,8 +52,8 @@ In pytest, assert statements are a way to...?
 
 a. practice getting what you really want from life
 b. push some code into production
-*c. assert what code should be run
-d. state what condition should be true at the end of a unit of test code
+c. assert what code should be run
+*d. state what condition should be true at some point in the code being tested
 
 8. (1 point)
 One of Bob Martin's rules of TDD is...?

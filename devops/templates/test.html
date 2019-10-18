@@ -81,14 +81,16 @@
                 </li>
                 <ol type="a" class="nested">
                   <li>
-                      Unit tests for individual classes and methods (models,
-                      controllers, views)
+                      Unit tests for individual classes and methods 
                   </li>
                   <li>
                       Integration tests to check feature top-down.
+                      We test larger units to see if the components work
+                      together.
                   </li>
                   <li>
                 Acceptance test to check feature as user sees it.
+                This is typically performed by the users.
                   </li>
                 </ol>
                 <li>
@@ -102,7 +104,8 @@
                 Fixture: prepared data to be loaded into the db.
                   </li>
                   <li>
-                Fake: a real object created for the test.
+                Fake: an actual object created for the test, but with fake
+                data.
                   </li>
                   <li>
                     Stub: a crude imitation of real object returning hard-coded
@@ -113,12 +116,11 @@
                     is not yet ready or expensive).
                   </li>
                   <li>
-                    Test suite: set of tests serving specific purpose. Always:
-                    smoke test, main success [AKA happy path], extended tests.
+                    Test suite: set of tests serving specific purpose. 
                   </li>
                 </ol>
                 <li>
-                Django benefits:
+                Django-specific testing:
                 </li>
                 <ol type="a" class="nested">
                   <li>
@@ -138,13 +140,66 @@
                 setUp()
                   </li>
                   <li>
-                Test_whatYouTest_whatYouDo_whatYouExpect.
+                test_method_name
                   </li>
                   <li>
-                Arrange -- Act -- Assert.
+                    Arrange the system to get it ready;
+                    Act in a way to test the behavior you are interested in;
+                    Assert the condition that should hold.
                   </li>
                   <li>
-                Assert kinds.
+                Assert kinds:
+                    <ul class="nested">
+                        Method
+                        <li>
+                            assertEqual(a, b): a == b
+                        </li>
+
+                        <li>
+                            assertNotEqual(a, b): a != b
+                        </li>
+
+                        <li>
+                            assertTrue(x): bool(x) is True
+                        </li>
+
+                        <li>
+                            assertFalse(x): bool(x) is False
+                        </li>
+
+                        <li>
+                            assertIs(a, b): a is b
+                        </li>
+
+                        <li>
+                            assertIsNot(a, b): a is not b
+                        </li>
+
+                        <li>
+                            assertIsNone(x): x is None
+                        </li>
+
+                        <li>
+                            assertIsNotNone(x): x is not None
+                        </li>
+
+                        <li>
+                            assertIn(a, b): a in b
+                        </li>
+
+                        <li>
+                            assertNotIn(a, b): a not in b
+                        </li>
+                        
+                        <li>
+                            assertIsInstance(a, b): isinstance(a, b)
+                        </li>
+
+                        <li>
+                            assertNotIsInstance(a, b): not isinstance(a, b)
+                        </li>
+
+                    </ul>
                   </li>
                   <li>
                 tearDown()
@@ -179,6 +234,7 @@
                     persisted).
                   </li>
                   <li>
+                      We don't want large tests.
                 Large tests? Fat controllers! 
                   </li>
                   <li>
@@ -296,8 +352,8 @@
             </figure>
 
             <p>
-                <a href="https://docs.pytest.org/en/latest/">
-                    PyTest documentation
+                <a href="https://docs.python.org/3/library/unittest.html">
+                    UnitTest documentation
                 </a>
             </p>
 
