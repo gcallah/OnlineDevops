@@ -767,10 +767,9 @@
                     All we need to do is just make a container
                     out of the image. We will put the code of
                     website inside the container so that the
-                    webserver which is nginx in our case can
-                    read the html files and host it in local
-                    server.
-                    The command for that is as shown below.
+                    web server which is nginx in our case can
+                    read the html files and host it in a local
+                    server. The command for that is as shown below.
                 </p>
                 <p>
                     <code>
@@ -848,6 +847,8 @@
             automating the build of the image.
             This is <i>infrastructure as code</i>, since the infrastructure for
             the project is built from these files of code.
+            (For development containers, we also should have a file
+            called <code>requirements-dev.txt</code>.)
             </p>
 
             <p>
