@@ -227,16 +227,92 @@
             </code>
             </p>
 
+            <details>
+                <summary class = "sum2">
+                    Implementing Travis Deploy to PythonAnywhere
+                </summary>
+                <p>
+					After the Travis YAML file is written, once it is made
+					sure that all the tests are passing, the next step would 
+					be to start a cloud deployment. This website is deployed 
+					to PythonAnywhere.
+                </p>
+				<p>
+					For any deployment, one of the ways Travis would 
+					establish a connection with the cloud is SSH. But,
+					for an automated deployment by Travis, there is a 
+					need for a non interactive SSH connection. One of 
+					the ways to set up such a connection is to use a 
+					package called SSHPass. This package provides a 
+					way to pass the password to the ssh command.
+				</p>
+				<p>
+					Here are the steps to do that:
+					<ul class="nested">
+						<li>
+							In the Travis YAML file add the following 
+							lines to before_install:
+							<p>
+								<code>
+									<pre>
+	before_install:
+	  - sudo apt-get update
+	  - sudo apt-get install sshpass
+									</pre>
+								</code>
+							</p>
+							The first line updates apt-get, and the 
+							second line installs the sshpass package
+							on Travis
+						</li>
+						<li>
+							The password to ssh should not be present in
+							any of the scripts. Luckily, there is a way
+							to encript environment variables on Travis.
+							So, the ssh password should be added as an
+							encrypted environment variable (say "pa-pwd")
+							on Travis.(This can be done on the settings 
+							tab of Travis.)
+						</li>
+						<li>
+							In the script, where the ssh command is used 
+							(say <span class="code"> deploy.sh</span>), 
+							pass the ssh password from the Travis
+							environment variable set in the previous
+							step by adding the sshpass command as follows:
+							<p>
+								<code>
+									<pre>
+	sshpass -p $pa_pwd ssh $project_name@ssh.pythonanywhere.com
+									</pre>
+								</code>
+							</p>
+							
+							Note: $pa_pwd is available in <span class="code">
+							.travis.yml</span> file. So, if the script 
+							"<span class="code"> deploy.sh</span>" is 
+							being called from <span class="code">
+							.travis.yml</span> file, then make sure that 
+							$pa_pwd is passed as an argument to 
+							"<span class="code"> deploy.sh</span>", 
+							which can be used along with the sshpass
+							command.
+						</li>
+					</ul>
+				</p>
+
+            </details>
+
         </details>
 
 
         <details>
             <summary class = "sum1">
-                Running Jenkins
+                Lesson 4: Running Jenkins
             </summary>
             <p>
                 <span class="hilight">Note: Below information is about making
-                    jenkins build on Github changes.</span>
+                    a Jenkins build triggered by Github changes.</span>
             </p>
                 <details>
                         <summary class="sum2">
