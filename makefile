@@ -86,5 +86,5 @@ final_test:
 
 prod: $(SRCS) tests db
 	-git commit -a
+	-git pull origin master
 	git push origin master
-	# The deploy to the prod server is handled by Travis.
