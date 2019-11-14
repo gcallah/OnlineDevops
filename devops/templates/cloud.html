@@ -22,6 +22,14 @@
                 Lesson 1: Heroku
             </summary>
 
+            <p>
+                Heroku provides "platform-as-a-service" (PAAS). A PAAS provides
+                not just a virtual machine, but the full infrastructure
+                typically needed to run a modern web app, such as a database, a
+                load balancer, a data cache, and connections to other popular
+                platforms.
+            </p>
+
             <figure>
                 <iframe width="560" height="315"
                     src="https://www.youtube.com/embed/QTOkqzCTGxw"
@@ -39,6 +47,41 @@
             <summary class="sum1">
                 Lesson 2: Kubernetes and Docker
             </summary>
+
+            <p>
+                Docker is useful for containerizing an application and
+                deploying it to the cloud. But, as noted in the section above,
+                a modern web app typically consists of a fair
+                number of independent services. With a 
+                <a href="http://www.thedevopscourse.com/devops/micro">
+                microservice architecture</a>, even the basic business logic
+                may be split among several servers. What if we want to deploy
+                these different services in multiple containers? How do we
+                make sure we have the right number of each? How do we make 
+                sure some vital service hasn't gone down?
+            </p>
+
+            <p>
+                The most common answer today is
+                <span class="hilight">Kubernetes</span>.
+                Kubernetes acts as an orchestrator of a number of inter-related
+                Docker containers. (The name is from the Greek word for 
+                "captain.") The basic unit in Kubernetes is called a
+                <span class="hilight">pod</span>: a number of Docker containers
+                co-located on a server. Some number of pods can provide a
+                <span class="hilight">service</span> (such as search or
+                payment authorization), so that the load can be balanced among
+                the pods, and if one pod goes down, the service can just use
+                the other pods. An organized group of pods is called a
+                <span class="hilight">cluster</span>.
+            </p>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Pod-networking.png/700px-Pod-networking.png">
+                <figcaption>
+                    Containers, pods, and services in a Kubernetes cluster.
+                </figcaption>
+            </figure>
 
             <p>
                 From IBM:
