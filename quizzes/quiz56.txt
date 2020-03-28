@@ -95,20 +95,20 @@ c. risk is reduced
 *d. all of the above
 
 13. (1 point)
-Small batches enabled Toyota to...?
-
-*a. respond more quickly to customer demand
-b. fit the batches into their small factory
-c. fire workers more easily
-d. all of the above
-
-14. (1 point)
 You should measure your productivity by...?
 
 a. the amount of tasks you are working on
 b. how busy you are
 *c. the amount of tasks you finish
 d. how many hours per day you work
+
+14. (1 point)
+To respond more quickly to customer demand, Toyota used...?
+
+a. economies of scale
+b. giant orders of parts, to drive down prices
+*c. small batches
+d. all of the above
 
 15. (1 point)
 By limiting work-in-progress, kanban helps to eliminate the  waste of...?
@@ -149,22 +149,14 @@ c. the analysis phase of software development must be completely separated from 
 d. all of the above
 
 20. (1 point)
-In scrum, the product owner has what role?
-
-a. making all technical decisions
-*b. being the voice of the customer
-c. garnering the profits from the release of the product
-d. being the only one allowed to speak at daily scrums
-
-21. (1 point)
 The small batch principle of faster feedback would recommend what practice?
 
 a. only show your work to the customer once you are sure it is completely correct
-b. show early work stages to your team members, but never outside the team
-*c. make your work visible as early and as often as possible
+*b. make your work visible as early and as often as possible
+c. show early work stages to your team members, but never outside the team
 d. none of the above
 
-22. (1 point)
+21. (1 point)
 Small batches help debugging because...?
 
 a. bugs come in batches
@@ -172,23 +164,23 @@ b. we will never have bugs if we work in small batches
 c. debuggers are small programs
 *d. we know right away what area of the program caused a new problem
 
-23. (1 point)
+22. (1 point)
 A makefile includes... ?
 
 a. servers, ports, and inodes
 b. documentation, a version control system, and monitoring
-*c. target, dependencies and commands
+*c. targets, dependencies and commands
 d. none of the above
 
-24. (1 point)
-A line in a makefile like `prod: test docker` means...?
+23. (1 point)
+A line in a makefile like `website: html exes` means...?
 
-*a. There is a target named `prod` that depends on `test` and `docker`.
-b. There is a command named `prod` that gets the arguments `test` and `docker`.
-c. There is a server named `prod` that lives on the `test docker` subnet.
+*a. There is a target named `website` that depends on `html` and `exes`.
+b. There is a command named `website` that gets the arguments `html` and `exes`.
+c. There is a server named `website` that lives on the `html exes` subnet.
 d. None of the above.
 
-25. (1 point)
+24. (1 point)
 In make, we use variables largely to...
 
 a. do complex arithmetic
@@ -197,15 +189,15 @@ b. control for loops
 d. as parameters to user defined functions
 
 
-26. (1 point)
-As opposed to Toyota, American car manufacturers often used a _____ system of production.
+25. (1 point)
+As opposed to American car manufacturers, Toyota often used a _____ system of production.
 
 a. scrum
-*b. push
-c. pull
+b. push
+*c. pull
 d. waterfall
 
-27. (1 point)
+26. (1 point)
 To eliminate the waste of over-production, we should...?
 
 a. build all things we think the customer might want in advance
@@ -213,7 +205,7 @@ b. stop have meetings
 *c. only build an MVP at first, and then see what more is needed
 d. avoid having any inventory
 
-28. (1 point)
+27. (1 point)
 In scrum, an epic is...?
 
 a. a poem like the Mahabharata or the Illiad
