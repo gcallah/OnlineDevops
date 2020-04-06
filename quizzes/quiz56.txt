@@ -1,0 +1,215 @@
+1. (1 point)
+Which of the following is an automated build tool?
+
+a. kanban
+b. slack
+c. unittest
+*d. make
+
+2. (1 point)
+We want to automate our builds because...?
+
+a. it reduces errors
+b. it documents the build process
+c. it allows engineers to do more interesting work
+*d. all of the above
+
+3. (1 point)
+If we automate our builds, we can include... ?
+
+a. monitoring
+b. kanban boards
+*c. code checkers (linters)
+d. none of the above
+
+4. (1 point)
+Popular build tools include...?
+
+a. grep, awk, and sed
+b. git, StatusCake, and Slack
+*c. make, Ant, and Maven
+d. all of the above
+
+5. (1 point)
+If in a makefile we see `X: Y`, then X is the ___ and Y is the ___.
+
+a. dependency, target
+*b. target, dependency
+c. command, target
+d. dependency, command
+
+6. (1 point)
+When running `make target`, if you get "Nothing to be done for target," the most likely cause is...
+
+a. target is so out-of-date it's hopeless
+b. the dependency is newer than the target
+c. make is broken
+*d. target is up-to-date
+
+7. (1 point)
+When we are using make and have things to build in subdirectories, a good solution is to...?
+
+*a. recursively call `make` in the subdirectory
+b. turn to Ant or Maven to build your program
+c. write your own build manager
+d. just build things in the subdirectories by hand
+
+8. (1 point)
+Kanban is a method of managing work that...?
+
+a. makes work visible
+b. limits work-in-progress
+c. implements a pull system for taking on new work
+*d. all of the above
+
+9. (1 point)
+Over-production is a waste because...?
+
+a. Toyota said it was
+*b. our batch may not be what the customer really wants
+c. we can make more profit from under-production
+d. none of the above
+
+10. (1 point)
+An advantage of documenting a process by automating it versus writing a document about how it is done is that...?
+
+*a. the script is guaranteed to be the current process
+b. scripts are easier to read than prose
+c. it gives programmers an edge over tech writers in producing the documentation
+d. all of the above
+
+11. (1 point)
+A manual process that is boring is... ?
+
+a. good for one's character
+*b. likely to produce errors
+c. likely to command a high salary
+d. suitable for junior programmers
+
+12. (1 point)
+Working in small batches means...?
+
+a. faster feedback
+b. problems are localized
+c. risk is reduced
+*d. all of the above
+
+13. (1 point)
+You should measure your productivity by...?
+
+a. the amount of tasks you are working on
+b. how busy you are
+*c. the amount of tasks you finish
+d. how many hours per day you work
+
+14. (1 point)
+To respond more quickly to customer demand, Toyota used...?
+
+a. economies of scale
+b. giant orders of parts, to drive down prices
+*c. small batches
+d. all of the above
+
+15. (1 point)
+By limiting work-in-progress, kanban helps to eliminate the  waste of...?
+
+a. nonsense
+*b. inventory
+c. rework
+d. transportation
+
+16. (1 point)
+Which of the following is not a benefit of kanban?
+
+*a. allowing greater re-use of software components
+b. limiting work-in-progress
+c. visualizing work
+d. detecting bottlenecks
+
+17. (1 point)
+Is every card system a kanban system?
+
+a. yes
+*b. no
+
+18. (1 point)
+Working in small batches, per our article, means releasing work...?
+
+a. every few years
+*b. every few hours
+c. every few months
+d. every few weeks
+
+19. (1 point)
+A key principle of scrum is that...?
+
+*a. customers can and will change their minds
+b. requirements must be locked down months in advance
+c. the analysis phase of software development must be completely separated from coding
+d. all of the above
+
+20. (1 point)
+The small batch principle of faster feedback would recommend what practice?
+
+a. only show your work to the customer once you are sure it is completely correct
+*b. make your work visible as early and as often as possible
+c. show early work stages to your team members, but never outside the team
+d. none of the above
+
+21. (1 point)
+Small batches help debugging because...?
+
+a. bugs come in batches
+b. we will never have bugs if we work in small batches
+c. debuggers are small programs
+*d. we know right away what area of the program caused a new problem
+
+22. (1 point)
+A makefile includes... ?
+
+a. servers, ports, and inodes
+b. documentation, a version control system, and monitoring
+*c. targets, dependencies and commands
+d. none of the above
+
+23. (1 point)
+A line in a makefile like `website: html exes` means...?
+
+*a. There is a target named `website` that depends on `html` and `exes`.
+b. There is a command named `website` that gets the arguments `html` and `exes`.
+c. There is a server named `website` that lives on the `html exes` subnet.
+d. None of the above.
+
+24. (1 point)
+In make, we use variables largely to...
+
+a. do complex arithmetic
+b. control for loops
+*c. set path names
+d. as parameters to user defined functions
+
+
+25. (1 point)
+As opposed to American car manufacturers, Toyota often used a _____ system of production.
+
+a. scrum
+b. push
+*c. pull
+d. waterfall
+
+26. (1 point)
+To eliminate the waste of over-production, we should...?
+
+a. build all things we think the customer might want in advance
+b. stop have meetings
+*c. only build an MVP at first, and then see what more is needed
+d. avoid having any inventory
+
+27. (1 point)
+In scrum, an epic is...?
+
+a. a poem like the Mahabharata or the Illiad
+b. part of a story
+*c. a large body of work that can be broken down into smaller stories
+d. someone going on and on in a scrum
+
