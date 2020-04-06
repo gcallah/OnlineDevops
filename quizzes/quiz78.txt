@@ -1,0 +1,225 @@
+1. (1 point)
+What is regression testing?
+
+a. a very regressive form of testing
+b. a way to make tests more primitive each go-round
+*c. a way to see if the program has regressed after a change
+d. none of the above
+e. Test
+
+2. (1 point)
+The "zero-bug mindset" means that...?
+
+a. no developers should be bugging out
+*b. no bug backlog should ever build up
+c. no one should ever make a coding mistake
+d. we should ridicule anyone who introduces a bug
+
+3. (1 point)
+Unit tests work primarily at the level of...?
+
+*a. individual classes and methods
+b. user-level interactions
+c. checking the integration of the various modules of the software
+d. all of the above
+
+4. (1 point)
+Acceptance testing tests features as...?
+
+a. the computer sees them
+b. the tester sees them
+*c. the user sees them
+d. the regulator sees them
+
+5. (1 point)
+Testing Python code is aided by a package called...?
+
+a. pylib
+b. numpy
+c. scipy
+*d. pytest
+
+6. (1 point)
+'zero-length feedback' means...?
+
+*a. developers can test and fix bugs immediately
+b. the length of a CI/CD pipeline should be 0
+c. all tests should take 0 time
+d. all of the above
+
+7. (1 point)
+In pytest, assert statements are a way to...?
+
+a. practice getting what you really want from life
+b. push some code into production
+c. assert what code should be run
+*d. state what condition should be true at some point in the code being tested
+
+8. (1 point)
+One of Bob Martin's rules of TDD is...?
+
+a. Always code for a day before writing a test
+b. Write a test that passes before you write one that fails
+*c. Before you write any production code, write a failing test for that (planned) code.
+d. All of the above
+
+9. (1 point)
+When we test how modules work together, that is called...?
+
+a. unit testing
+b. acceptance testing
+*c. integration testing
+d. none of the above
+
+10. (1 point)
+In testing, a "mock" is...?
+
+*a. a simulation of some resource
+b. someone who makes fun of the tests
+c. the white garment usually worn by lab technicians
+d. all of the above
+
+11. (1 point)
+In testing, a "stub" is...?
+
+a. a real object that takes up very few bytes
+*b. a crude imitation of a real object, returning hard-coded values
+c. a very short test
+d. a test that got cut off early
+
+12. (1 point)
+The "setup" portion of a test...?
+
+*a. sets up the data our tests will use
+b. sets up the logical assertions the test will use
+c. sets up the test suite for failure
+d. sets up the user for a big surprise
+
+13. (1 point)
+The teardown section of a test suite...?
+
+a. tears down code that didn't work
+b. tears down the user's confidence
+c. tears down the CI/CD tool
+*d. tears down the setup data so each new test has fresh data
+
+14. (1 point)
+One of Bob Martin's rules of TDD is...?
+
+*a. Only write enough production code to make a test pass.
+b. Write all of your production code before any tests, since tests are less important
+c. Write a complete test suite before you write a line of production code
+d. All of the above
+
+15. (1 point)
+To enable zero-length feedback, we must have a culture of...?
+
+a. multiple levels of approval for each change
+b. suspicion
+c. waterfall model development
+*d. trust
+
+16. (1 point)
+In testing a "fake" is...?
+
+a. a mock of an object
+*b. an actual object but with fake data
+c. someone who pretends they ran the tests but didn't
+d. a crude initation of a real object
+
+17. (1 point)
+A test suite is...?
+
+a. tests that can be run by the "C-suite" level of management
+b. a suite of assert statements
+*c. a set of tests to test some particular aspect of the software
+d. all of the above
+
+18. (1 point)
+`assertIsInstance(a, b)` asserts that...?
+
+a. `a` and `b` are objects of  the exact same type
+b. the type of `b` is a sub-type of the type `a`
+*c. the type of `a` is a sub-type of the type `b`
+d. none of the above.
+
+19. (1 point)
+The steps in a test are:
+
+*a. Arrange - Act - Assert
+b. Argue - Assert - Abduct
+c. Assign - Abridge - Adjourn
+d. Arbitrate - Adjudicate - Abdicate
+
+1. (1 point)
+The scripting language for Jenkins is called...?
+
+*a. Groovy
+b. Movie
+c. Groupie
+d. Snoopy
+
+2. (1 point)
+Jenkins uses a __________ architecture?
+
+a. master-master
+*b. master-agent
+c. peer-to-peer
+d. monolithic
+
+3. (1 point)
+One common way to trigger a Jenkins build is....?
+
+a. type some new code in an IDE
+b. run make
+c. run Docker
+*d. push a commit in a version control system
+
+4. (1 point)
+Configuration languages are often examples of...?
+
+a. functional programming
+b. object-oriented programming
+c. procedural programming
+*d. declarative programming
+
+5. (1 point)
+A declarative language focuses on...?
+
+*a. saying what needs to be done rather than how it needs to be done
+b. the exact steps necessary to carry out an installation
+c. pure mathematical functions
+d. all of the above
+
+6. (1 point)
+Travis CI can...?
+
+a. hook to GitHub and watch your repo
+b. connect to Slack
+c. build your test environment and run your tests
+*d. all of the above
+
+7. (1 point)
+In Travis if we want to send a message to Slack about a build, it should go in the section called:
+
+a. add_ons
+b. authorizations
+c. nullifications
+*d. notifications
+
+8. (1 point)
+If we need to set a path that Travis will use in our tests, it should go in a section called:
+
+*a. env
+b. add_ons
+c. services
+d. install
+
+9. (1 point)
+In Travis, we should deploy our code to the end users in a section called:
+
+a. before_install
+b. addons
+*c. after_success
+d. services
+
