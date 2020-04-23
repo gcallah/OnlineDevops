@@ -1,0 +1,117 @@
+
+
+
+Name: ___________________________________
+
+
+1. (1 point)
+The three ways of DevOps focus on improving...?
+a. simple processes
+b. solitary work flows
+c. complex processes
+d. none of the above
+
+2. (1 point)
+A complex process is defined as one involving...?
+a. communication among multiple teams
+b. more than 100 lines of code
+c. more than three DevOps tools
+d. more than seven tests
+
+3. (1 point)
+Tom's version of of the three ways of DevOps is...?
+a. source control, testing, and CI/CD
+b. the process, communication, and trying new things
+c. Python, Django, and API Servers
+d. load balancers, web servers, and databases
+
+4. (1 point)
+Once we standardize our process, we have a better chance to ___ it.
+a. ameliorate
+b. idempotentize
+c. MVP
+d. automate
+
+5. (1 point)
+In a truly bad company, communication is...?
+a. punished
+b. encouraged
+c. resisted
+d. lacking
+
+6. (1 point)
+Tom improved onboarding at Bell Labs by...?
+a. standardizing the process
+b. picking a regular start day
+c. improving communications
+d. all of the above
+
+7. (1 point)
+If we encounter a quality problem, we are more likely to correct it if we have...?
+a. a big batch
+b. a government regulator
+c. a small batch
+d. lots of work before we check
+
+8. (1 point)
+Our procedure should generally be...?
+a. Work, work, work, check
+b. Work, check, work, check, work, check
+c. Check, check, check, work
+d. All f the above are equally good
+
+9. (1 point)
+If a failover is hard and expensive, a good site reliability team should...?
+a. failover more often, until it becomes easy and cheap
+b. avoid failovers at all costs
+c. punish anyone causing a failover
+d. none of the above
+
+10. (1 point)
+We want to avoid people who are SPOF because we don't want...?
+a. single points of failure
+b. strategic power outage failures
+c. strange python overt functions
+d. surging pulsating OCR fans
+
+11. (1 point)
+One difficulty with handling rare emergencies is...?
+a. the team will have little experience with emergencies
+b. there will be little chance to automate procedures
+c. there will be little documentation available
+d. all of the above
+
+12. (1 point)
+In the context of replacing old PCs, the preference should be...?
+a. do them all at once
+b. do all but a couple, so at least a few still work
+c. do a small percentage of them each week until all are done
+d. none of the above
+
+13. (1 point)
+One reason to build an MVP is ...?
+a. that most valuable players are great
+b. to deliver some value sooner rather than all value later
+c. because it is easier
+d. all of the above
+
+14. (1 point)
+MVPs are good because...?
+a. we get rapid feedback
+b. we deliver at least some features very early
+c. if the project is cancelled, at least there is some working software
+d. all of the above
+
+15. (1 point)
+Tom discovered that delivering MVPs worked...?
+a. only for software
+b. only on massive projects
+c. on his book project
+d. almost never
+
+16. (1 point)
+As Professor Frankl noted, the MVP idea can be applied...?
+a. almost never in real life
+b. to your school projects as well
+c. to school lunches
+d. none of the above

@@ -1,0 +1,87 @@
+
+	DevOps Quiz 1
+
+
+	Name: ______________________________________________
+
+
+
+The "silent killer" of productivity is...?
+
+
+a. the waterfall model
+b. flow
+c. work in progress
+d. meetings
+
+2. (1 point)
+The theory of constraints says...?
+
+a. improvements anywhere besides the bottleneck are an illusion
+b. software must be constrained to certain nodes in a network
+c. projects must be constrained by listing them on a kanban board
+d. code must be constrained to 80 characters per line
+
+3. (1 point)
+Step 1 of The Goal is...?
+
+a. identify the restraint
+b. identify the constraint
+c. identify the objective
+d. identify the enemy
+
+4. (1 point)
+We should release work
+
+a. as fast as possible
+b. as slowly as possible
+c. at random
+d. at the pace it can be consumed by the constraint
+
+5. (1 point)
+Things like security, operability, and scalability should be...?
+
+a. built into software from day one
+b. added on at the end of a software project
+c. the responsibility of operations: development has nothing to do with them
+d. none of the above
+
+6. (1 point)
+The machine, the people, the method, and the measures define a...?
+
+a. CI/CD pipeline
+b. factory floor
+c. work protocol
+d. work center
+
+7. (1 point)
+An important step in reducing reliance on a single person in production is...?
+
+a. documentation
+b. standardization
+c. automation
+d. all of the above
+
+8. (1 point)
+The three ways of DevOps are...?
+
+a. work centers, kanban, and lean development
+b. flops, feel goods, and continuous regression
+c. flow, feedback, and continual improvement
+d. none of the above
+
+9. (1 point)
+The wait time for a resource is...?
+
+a. the percentage of time the resource is idle, divided by the percentage it is busy
+b. the percentage of time the resource is busy, divided by the percentage it is idle
+c. the percentage of time the resource is asked for, minus the percentage it is ignored
+d. the percentage of time the resource is asked for, multiplied by the percentage it is ignored
+
+10. (1 point)
+The way of feedback says to improve quality we should...?
+
+a. reduce batch sizes
+b. increase batch sizes
+c. only put code into production once per year
+d. stop changing the product
