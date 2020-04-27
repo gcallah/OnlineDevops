@@ -38,3 +38,35 @@ b. the exact steps necessary to carry out an installation
 c. pure mathematical functions
 d. all of the above
 
+6. (1 point)
+Travis CI can...?
+
+a. hook to GitHub and watch your repo
+b. connect to Slack
+c. build your test environment and run your tests
+*d. all of the above
+
+7. (1 point)
+In Travis if we want to send a message to Slack about a build, it should go in the section called:
+
+a. add_ons
+b. authorizations
+c. nullifications
+*d. notifications
+
+8. (1 point)
+If we need to set a path that Travis will use in our tests, it should go in a section called:
+
+*a. env
+b. add_ons
+c. services
+d. install
+
+9. (1 point)
+In Travis, we should deploy our code to the end users in a section called:
+
+a. before_install
+b. addons
+*c. after_success
+d. services
+

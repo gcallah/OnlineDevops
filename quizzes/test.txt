@@ -103,3 +103,51 @@ b. tears down the user's confidence
 c. tears down the CI/CD tool
 *d. tears down the setup data so each new test has fresh data
 
+14. (1 point)
+One of Bob Martin's rules of TDD is...?
+
+*a. Only write enough production code to make a test pass.
+b. Write all of your production code before any tests, since tests are less important
+c. Write a complete test suite before you write a line of production code
+d. All of the above
+
+15. (1 point)
+To enable zero-length feedback, we must have a culture of...?
+
+a. multiple levels of approval for each change
+b. suspicion
+c. waterfall model development
+*d. trust
+
+16. (1 point)
+In testing a "fake" is...?
+
+a. a mock of an object
+*b. an actual object but with fake data
+c. someone who pretends they ran the tests but didn't
+d. a crude initation of a real object
+
+17. (1 point)
+A test suite is...?
+
+a. tests that can be run by the "C-suite" level of management
+b. a suite of assert statements
+*c. a set of tests to test some particular aspect of the software
+d. all of the above
+
+18. (1 point)
+`assertIsInstance(a, b)` asserts that...?
+
+a. `a` and `b` are objects of  the exact same type
+b. the type of `b` is a sub-type of the type `a`
+*c. the type of `a` is a sub-type of the type `b`
+d. none of the above.
+
+19. (1 point)
+The steps in a test are:
+
+*a. Arrange - Act - Assert
+b. Argue - Assert - Abduct
+c. Assign - Abridge - Adjourn
+d. Arbitrate - Adjudicate - Abdicate
+

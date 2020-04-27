@@ -62,3 +62,35 @@ b. There is a command named `prod` that gets the arguments `test` and `docker`.
 c. There is a server named `prod` that lives on the `test docker` subnet.
 d. None of the above.
 
+9. (1 point)
+In make, we use variables largely to...
+
+a. do complex arithmetic
+b. control for loops
+*c. set path names
+d. as parameters to user defined functions
+
+10. (1 point)
+If in a makefile we see `X: Y`, then X is the ___ and Y is the ___.
+
+a. dependency, target
+*b. target, dependency
+c. command, target
+d. dependency, command
+
+11. (1 point)
+When running `make target`, if you get "Nothing to be done for target," the most likely cause is...
+
+a. target is so out-of-date it's hopeless
+b. the dependency is newer than the target
+c. make is broken
+*d. target is up-to-date
+
+12. (1 point)
+When we are using make and have things to build in subdirectories, a good solution is to...?
+
+*a. recursively call `make` in the subdirectory
+b. turn to Ant or Maven to build your program
+c. write your own build manager
+d. just build things in the subdirectories by hand
+

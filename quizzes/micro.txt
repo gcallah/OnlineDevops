@@ -1,0 +1,23 @@
+1. (1 point)
+Advantages of microservices include...?
+
+a. they are easier to scale
+b. they are simpler to understand
+c. there is looser coupling between components
+*d. all of the above
+
+2. (1 point)
+The alternative architecture to microservices is called...?
+
+*a. monolithic
+b. monotonic
+c. monotonous
+d. monomaniacal
+
+3. (1 point)
+Each time owning a product from beginning to end is characteristic of...?
+
+a. monolithic architectures
+*b. microservice architectures
+c. neither
+
