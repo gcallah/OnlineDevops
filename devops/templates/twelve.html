@@ -155,12 +155,36 @@
             <summary class="sum1">
                 V. Build, release, run
             </summary>
+
+            <p>
+                We should separate the <i>build</i>, <i>release</i>, and
+                <i>run</i> aspects of our app as strictly as possible.
+            </p>
+
+            <p>
+                In our applications, we build by running <i>make prod</i> on
+                the developer's machine. We release through Travis-CI passing
+                the build and pushing it to PythonAnywhere. We can re-run the
+                app at anytime through the PythonAnywhere web interface.
+            </p>
+
         </details>
 
         <details>
             <summary class="sum1">
                 VI. Processes
             </summary>
+
+            <p>
+                We should prefer, as far as possible, to run our app in
+                stateless processes. Things like web "sessions" (which we can
+                detect when we leave a web page up for a few minutes and learn
+                "Your session has timed out") should be avoided. Each new
+                interaction with our app should carry all of the information
+                needed to carry out the necessary processing, even if our app
+                has been re-booted in the meantime.
+            </p>
+
         </details>
 
         <details>
