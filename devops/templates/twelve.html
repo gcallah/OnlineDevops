@@ -185,30 +185,76 @@
                 has been re-booted in the meantime.
             </p>
 
+            <p>
+                Let's look at the Indra <a href="https://gcallah.github.io/indras_net/index.html">API server</a>
+                as an example of a <a
+                         href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST
+                         service</a>.
+            </p>
+
         </details>
 
         <details>
             <summary class="sum1">
                 VII. Port binding
             </summary>
+
+            <p>
+                I need to think about this one more before I could do my own
+                write up.
+            </p>
+
         </details>
 
         <details>
             <summary class="sum1">
                 VIII. Concurrency
             </summary>
+
+            <p>
+                We scale our app by running additional processes. This is much
+                simpler than adding threads inside a process, and relies on the
+                OSs (already debugged) multitasking.
+            </p>
+
+            <figure>
+                <img src="https://12factor.net/images/process-types.png">
+                <figcaption>
+                    The vertical and horizontal aspects of the process model.
+                </figcaption>
+            </figure>
         </details>
 
         <details>
             <summary class="sum1">
                 IX. Disposability
             </summary>
+
+            <p>
+                We want the parts of our app to start up quickly and shut down
+                gracefully (not leave any work half done). Quick start up is
+                important, for instance, if we release a new server, discover a
+                serious bug, and need to roll back to the previous version or
+                deploy a new version with the bug fixed. A quick start up
+                assures minimal down time.
+            </p>
+
+            <p>
+                We want to be able to bring down servers deliberately, or even
+                have them crash, without disrupting service. (Think of 
+                <a href="">Chaos Monkey</a>.) 
+            </p>
+
         </details>
 
         <details>
             <summary class="sum1">
                 X. Dev/prod parity
             </summary>
+
+            <p>
+
+            </p>
         </details>
 
         <details>
@@ -236,6 +282,10 @@
             <summary class="sum1">
                 XII. Admin processes
             </summary>
+
+            <p>
+
+            </p>
         </details>
 
 
