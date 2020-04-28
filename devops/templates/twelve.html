@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="module">
+        <h1>
+            The Twelve-Factor App
+        </h1>
+
+        <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Devops.svg/440px-Devops.svg.png"
+            width="21%">
+            <figcaption>
+            </figcaption>
+        </figure>
+
+        <p class="leadquote">
+        </p>
+
+        <details>
+            <summary class="sum1">
+                Lesson 1
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                I. Codebase
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                II. Dependencies
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                III. Config
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                IV. Backing services
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                V. Build, release, run
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                VI. Processes
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                VII. Port binding
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                VIII. Concurrency
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                IX. Disposability
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                X. Dev/prod parity
+            </summary>
+        </details>
+
+        <details>
+            <summary class="sum1">
+                XI. Logs
+            </summary>
+
+            <p>
+                Logs should be treated as streams to which are
+                fed reports of significant events as they occur.
+                Writing logs to standard output is very flexible:
+                the developer on her laptop can watch the flow of events right
+                on her screen. In production, standard output can be
+                captured by the process that runs the server and can be
+                re-directed as needed, into a file, or perhaps into a log
+                aggregator. In the latter case, multiple servers providing
+                microservices can all feed the same log, giving a better
+                picture of the overall state of the system than would
+                individual logs.
+            </p>
+
+        </details>
+
+        <details>
+            <summary class="sum1">
+                XII. Admin processes
+            </summary>
+        </details>
+
+
+        {% include 'quiz.html' %}
+
+{% endblock content %}
