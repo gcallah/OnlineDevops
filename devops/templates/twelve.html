@@ -15,16 +15,39 @@
         <p class="leadquote">
         </p>
 
-        <details>
-            <summary class="sum1">
-                Lesson 1
-            </summary>
-        </details>
+        <p>
+            The <i>Twelve-Factor App</i> is a method for creating portable,
+            rapidly deployable, and easily maintainable software-as-a-service
+            apps that can live in the cloud.
+        </p>
+
 
         <details>
             <summary class="sum1">
                 I. Codebase
             </summary>
+            <p>
+                There is one codebase per app, and it contains all of the code
+                for that app. Shared code across apps is held in libraries that
+                are recorded as dependencies for the app.
+            </p>
+
+            <p>
+                The entire codebase, including all versions, are stored in a
+                version control system. Deployments of the app are done from
+                this version control <i>repository</i>. While there is a single
+                codebase, there may be many versions in the codebase, deployed
+                to development, staging, acceptance testing, and production. We
+                might even have A/B versions out in production simultaneously,
+                to test new features.
+            </p>
+
+            <figure>
+                <img src="https://12factor.net/images/codebase-deploys.png">
+                <figcaption>
+                    Many versions from one codebase.
+                </figcaption>
+            </figure>
         </details>
 
         <details>
