@@ -260,6 +260,10 @@ def test(request: request) -> object:
     return get_pg_w_quiz(request, 'test')
 
 
+def twelve(request: request) -> object:
+    return get_pg_w_quiz(request, 'twelve')
+
+
 def work(request: request) -> object:
     return get_pg_w_quiz(request, 'work')
 
