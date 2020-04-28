@@ -54,6 +54,40 @@
             <summary class="sum1">
                 II. Dependencies
             </summary>
+
+            <p>
+                The Twelve-Factor App should not have hidden or implicit
+                dependencies. For our Python servers, we achieve this by:
+            </p>
+
+            <ol class="nested">
+                <li>
+                    Putting all packages needed for running the server in
+                    <i>requirements.txt</i> and for developing it in
+                    <i>requirements-dev.txt</i>, and
+                </li>
+                <li>
+                    Running the server in a
+                    <i>virtualenv</i> that contains just those packages.
+                    <br />
+                    (Note: we should set up developer envs with virtualenv as
+                    well.)
+                </li>
+            </ol>
+
+            <p>
+                A great benefit of this explicit declaration of dependencies is
+                that we can set up new developers quickly:
+            </p>
+            <ol class="nested">
+                <li>
+                    git clone the repo; and
+                </li>
+                <li>
+                    pip install -r requirements-dev.txt
+                </li>
+            </ol>
+
         </details>
 
         <details>
@@ -73,7 +107,7 @@
                 changing code risks:
             </p>
 
-            <ol>
+            <ol class="nested">
                 <li>
                     Introducing a typo which breaks something; or
                 </li>
@@ -99,6 +133,13 @@
             <summary class="sum1">
                 IV. Backing services
             </summary>
+
+            <figure>
+                <img src="https://12factor.net/images/attached-resources.png">
+                <figcaption>
+                    Backing services
+                </figcaption>
+            </figure>
         </details>
 
         <details>
