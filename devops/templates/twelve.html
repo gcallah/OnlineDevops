@@ -242,7 +242,7 @@
             <p>
                 We want to be able to bring down servers deliberately, or even
                 have them crash, without disrupting service. (Think of 
-                <a href="">Chaos Monkey</a>.) 
+                <a href="https://en.wikipedia.org/wiki/Chaos_engineering">Chaos Monkey</a>.) 
             </p>
 
         </details>
@@ -253,8 +253,28 @@
             </summary>
 
             <p>
-
+                We try to keep the gap between dev and prod small. We do this
+                in three ways:
             </p>
+
+            <ol>
+                <li>
+                    The time gap is small: code goes into production hours or even
+                    minutes after it is worked on.
+                </li>
+
+                <li>
+                    The personnel gap is small: the developer who wrote the
+                    code also manages its release and tracks it in production.
+                </li>
+
+                <li>
+                    The tool gap is small: as far as possible, the developer
+                    works on the same stack as exists in production. (Question:
+                    How do we do this for a PAAS like PythonAnywhere?)
+                </li>
+
+            </ol>
         </details>
 
         <details>
