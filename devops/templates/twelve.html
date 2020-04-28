@@ -60,6 +60,39 @@
             <summary class="sum1">
                 III. Config
             </summary>
+
+            <p>
+                "Config," or <i>configuration</i>, should be done through
+                environment variables, rather than (separate or changing)
+                configuration files.
+            </p>
+
+            <p>
+                The problem with changing a configuration file to, say, use a
+                local web server instead of the production one, is that
+                changing code risks:
+            </p>
+
+            <ol>
+                <li>
+                    Introducing a typo which breaks something; or
+                </li>
+                <li>
+                    Forgetting to set the web server back to prod, which breaks
+                    everything.
+                </li>
+            </ol>
+
+            <p>
+                The problem with alternate configuration files is that, as the
+                app grows more complex and more combinations of services are
+                needed, for example, run the developer's Javascript code
+                against the production API server but a staging database, the
+                number of config files undergoes a combinatorial explosion.
+                Environment variables do not have this problem: there is just
+                one setting for each service, file location, etc.
+            </p>
+
         </details>
 
         <details>
