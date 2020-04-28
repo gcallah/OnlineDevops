@@ -134,6 +134,15 @@
                 IV. Backing services
             </summary>
 
+            <p>
+                <i>Backing services</i> are things like databases, cache
+                managers, mail services, authentication services (like SAML),
+                and messaging systems. These services should be swappable, and
+                the app should be indifferent as to whether they are a local
+                service or a third-party service: they should all be accessed
+                via a URL stored in the <i>config</i>.
+            </p>
+
             <figure>
                 <img src="https://12factor.net/images/attached-resources.png">
                 <figcaption>
