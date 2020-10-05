@@ -102,3 +102,59 @@ b. construction and transition
 *c. both A and B
 d. none of the above
 
+14. (1 point)
+A quite different way of developing than Incremental Development is...?
+
+*a. Waterfall development
+b. Agile
+c. DevOps
+d. Fine Motor Skill Development
+
+15. (1 point)
+Versioning everything allows...?
+
+a. to distribute the source files that make up the system across shared serves
+*b. any team member to recreate any version of the software system
+c. both A and B
+d. none of the above
+
+16. (1 point)
+An example of version control software is...?
+
+a. TensorFlow
+b. Git
+c. Subversion
+*d. both B and C
+
+17. (1 point)
+Versioning everything means...?
+
+a. scripting only infrastructure
+*b. all source artifacts must be in a scripted form
+c. scripting only application code
+d. using GitHub
+
+18. (1 point)
+Configuration defines...?
+
+*a. information that varies across environments
+b. documentation
+c. structure of a relational database
+d. both A and C
+
+19. (1 point)
+To rename a file in git...?
+
+*a. run git mv <old_filename> <new_filename>
+b. rename a file using your native OS
+c. run git rm <filename>
+d. both A and B
+
+20. (1 point)
+Fail-fast principle means...?
+
+a. writing software that does NOT fail
+b. failing fast
+c. failing early
+*d. both B and C
+
