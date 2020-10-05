@@ -78,3 +78,27 @@ b. manual steps to make sure the sys admin is on their toes
 c. manual configuration
 d. none of the above
 
+11. (1 point)
+Iterative and incremental development means...?
+
+a. developing a system through repeated cycles
+b. developing a system in smaller portions at a time
+*c. both A and B
+d. none of the above
+
+12. (1 point)
+Iterative and incremental development consists of the following steps...?
+
+a. initialization
+b. iteration
+c. Project Control List
+*d. all of the above
+
+13. (1 point)
+Incremental development slices the system functionality into increments, namely...?
+
+a. inception and elaboration
+b. construction and transition
+*c. both A and B
+d. none of the above
+

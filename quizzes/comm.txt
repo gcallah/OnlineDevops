@@ -78,3 +78,91 @@ b. people won't forget to include someone who needs to see a message
 c. it is easy to bring in a new person and have them pick up on the whole conversation
 *d. all of the above
 
+11. (1 point)
+Having a cross-functional team means...?
+
+a. every team member is responsible for the delivery process
+b. having no project manager on the team
+*c. answers A and B
+d. any person on the team can modify any part of the software system
+
+12. (1 point)
+To increase collaboration between development and operations teams, one should...?
+
+a. ensure collective ownership
+b. establish cross-functional teams
+c. broad the skill set of engineers
+*d. all of the above
+
+13. (1 point)
+The DevOps dashboard...?
+
+a. shows how each change affects the entire system in every stage in the progression to deploying to production
+b. is another name for the kanban board
+c. provides real-time information on the software system
+*d. both A and C
+
+14. (1 point)
+Company's development and operations teams' aims are in inherent conflict because...?
+
+a. operations is measured by the system's stability
+b. development is measured by the number of features it makes available
+*c. both A and B
+d. neither A nor B
+
+15. (1 point)
+Each member of a cross-functional team needs to...?
+
+a. write tests
+b. write scripts
+c. version
+*d. all of the above
+
+16. (1 point)
+The most essential element of employing DevOps is...?
+
+*a. making cultural change in an organization
+b. finding the right tools
+c. having as many operations people as developers
+d. building silos between the teams
+
+17. (1 point)
+Organizational functions which should be centralized are...?
+
+a. those that develop the platform services used by the rest of the software-delivery team
+b. those that perform system monitoring
+*c. both A and B
+d. no organizational functions should be centralized
+
+18. (1 point)
+A member of the cross-functional team should...?
+
+a. be delivering all the software on his own
+b. not be involved in the delivery process
+c. always rely on the members of other teams as a part of the delivery process
+*d. never need another team member outside his team to perform an activity as part of the delivery process
+
+19. (1 point)
+To have a solid understanding of computer systems one needs...?
+
+a. practical understanding of programming
+b. theoretical understanding of programming
+*c. both A and B
+d. NOT to understand programming
+
+20. (1 point)
+The study of software includes...?
+
+a. software engineering on a small group scale
+b. the use of programming languages
+c. individual and group projects
+*d. all of the above
+
+21. (1 point)
+To learn writing correct software one needs to start by...?
+
+*a. writing code
+b. learning theoretical basis of software engineering
+c. learning abstract algebra
+d. learning the design of compilers
+

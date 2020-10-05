@@ -966,6 +966,109 @@ c. to school lunches
 d. none of the above
 
 122. (1 point)
+Advantages of microservices include...?
+
+a. they are easier to scale
+b. they are simpler to understand
+c. there is looser coupling between components
+*d. all of the above
+
+123. (1 point)
+The alternative architecture to microservices is called...?
+
+*a. monolithic
+b. monotonic
+c. monotonous
+d. monomaniacal
+
+124. (1 point)
+Each team owning a product from beginning to end is characteristic of...?
+
+a. monolithic architectures
+*b. microservice architectures
+c. neither
+
+125. (1 point)
+The "silent killer" of productivity is...?
+
+a. the waterfall model
+b. flow
+*c. work in progress
+d. meetings
+
+126. (1 point)
+The theory of constraints says...?
+
+*a. improvements anywhere besides the bottleneck are an illusion
+b. software must be constrained to certain nodes in a network
+c. projects must be constrained by listing them on a kanban board
+d. code must be constrained to 80 characters per line
+
+127. (1 point)
+Step 1 of The Goal is...?
+
+a. identify the restraint
+*b. identify the constraint
+c. identify the objective
+d. identify the enemy
+
+128. (1 point)
+We should release work
+
+a. as fast as possible
+b. as slowly as possible
+c. at random
+*d. at the pace it can be consumed by the constraint
+
+129. (1 point)
+Things like security, operability, and scalability should be...?
+
+*a. built into software from day one
+b. added on at the end of a software project
+c. the responsibility of operations: development has nothing to do with them
+d. none of the above
+
+130. (1 point)
+The machine, the people, the method, and the measures define a...?
+
+a. CI/CD pipeline
+b. factory floor
+c. work protocol
+*d. work center
+
+131. (1 point)
+An important step in reducing reliance on a single person in production is...?
+
+a. documentation
+b. standardization
+c. automation
+*d. all of the above
+
+132. (1 point)
+The three ways of DevOps are...?
+
+a. work centers, kanban, and lean development
+b. flops, feel goods, and continuous regression
+*c. flow, feedback, and continual improvement
+d. none of the above
+
+133. (1 point)
+The wait time for a resource is...?
+
+a. the percentage of time the resource is idle, divided by the percentage it is busy
+*b. the percentage of time the resource is busy, divided by the percentage it is idle
+c. the percentage of time the resource is asked for, minus the percentage it is ignored
+d. the percentage of time the resource is asked for, multiplied by the percentage it is ignored
+
+134. (1 point)
+The way of feedback says to improve quality we should...?
+
+*a. reduce batch sizes
+b. increase batch sizes
+c. only put code into production once per year
+d. stop changing the product
+
+135. (1 point)
 What is regression testing?
 
 a. a very regressive form of testing
@@ -974,7 +1077,7 @@ b. a way to make tests more primitive each go-round
 d. none of the above
 e. Test
 
-123. (1 point)
+136. (1 point)
 The "zero-bug mindset" means that...?
 
 a. no developers should be bugging out
@@ -982,7 +1085,7 @@ a. no developers should be bugging out
 c. no one should ever make a coding mistake
 d. we should ridicule anyone who introduces a bug
 
-124. (1 point)
+137. (1 point)
 Unit tests work primarily at the level of...?
 
 *a. individual classes and methods
@@ -990,7 +1093,7 @@ b. user-level interactions
 c. checking the integration of the various modules of the software
 d. all of the above
 
-125. (1 point)
+138. (1 point)
 Acceptance testing tests features as...?
 
 a. the computer sees them
@@ -998,7 +1101,7 @@ b. the tester sees them
 *c. the user sees them
 d. the regulator sees them
 
-126. (1 point)
+139. (1 point)
 Testing Python code is aided by a package called...?
 
 a. pylib
@@ -1006,7 +1109,7 @@ b. numpy
 c. scipy
 *d. pytest
 
-127. (1 point)
+140. (1 point)
 'zero-length feedback' means...?
 
 *a. developers can test and fix bugs immediately
@@ -1014,7 +1117,7 @@ b. the length of a CI/CD pipeline should be 0
 c. all tests should take 0 time
 d. all of the above
 
-128. (1 point)
+141. (1 point)
 In pytest, assert statements are a way to...?
 
 a. practice getting what you really want from life
@@ -1022,7 +1125,7 @@ b. push some code into production
 c. assert what code should be run
 *d. state what condition should be true at some point in the code being tested
 
-129. (1 point)
+142. (1 point)
 One of Bob Martin's rules of TDD is...?
 
 a. Always code for a day before writing a test
@@ -1030,7 +1133,7 @@ b. Write a test that passes before you write one that fails
 *c. Before you write any production code, write a failing test for that (planned) code.
 d. All of the above
 
-130. (1 point)
+143. (1 point)
 When we test how modules work together, that is called...?
 
 a. unit testing
@@ -1038,7 +1141,7 @@ b. acceptance testing
 *c. integration testing
 d. none of the above
 
-131. (1 point)
+144. (1 point)
 In testing, a "mock" is...?
 
 *a. a simulation of some resource
@@ -1046,7 +1149,7 @@ b. someone who makes fun of the tests
 c. the white garment usually worn by lab technicians
 d. all of the above
 
-132. (1 point)
+145. (1 point)
 In testing, a "stub" is...?
 
 a. a real object that takes up very few bytes
@@ -1054,7 +1157,7 @@ a. a real object that takes up very few bytes
 c. a very short test
 d. a test that got cut off early
 
-133. (1 point)
+146. (1 point)
 The "setup" portion of a test...?
 
 *a. sets up the data our tests will use
@@ -1062,7 +1165,7 @@ b. sets up the logical assertions the test will use
 c. sets up the test suite for failure
 d. sets up the user for a big surprise
 
-134. (1 point)
+147. (1 point)
 The teardown section of a test suite...?
 
 a. tears down code that didn't work
@@ -1070,7 +1173,7 @@ b. tears down the user's confidence
 c. tears down the CI/CD tool
 *d. tears down the setup data so each new test has fresh data
 
-135. (1 point)
+148. (1 point)
 One of Bob Martin's rules of TDD is...?
 
 *a. Only write enough production code to make a test pass.
@@ -1078,7 +1181,7 @@ b. Write all of your production code before any tests, since tests are less impo
 c. Write a complete test suite before you write a line of production code
 d. All of the above
 
-136. (1 point)
+149. (1 point)
 To enable zero-length feedback, we must have a culture of...?
 
 a. multiple levels of approval for each change
@@ -1086,7 +1189,7 @@ b. suspicion
 c. waterfall model development
 *d. trust
 
-137. (1 point)
+150. (1 point)
 In testing a "fake" is...?
 
 a. a mock of an object
@@ -1094,7 +1197,7 @@ a. a mock of an object
 c. someone who pretends they ran the tests but didn't
 d. a crude initation of a real object
 
-138. (1 point)
+151. (1 point)
 A test suite is...?
 
 a. tests that can be run by the "C-suite" level of management
@@ -1102,7 +1205,7 @@ b. a suite of assert statements
 *c. a set of tests to test some particular aspect of the software
 d. all of the above
 
-139. (1 point)
+152. (1 point)
 `assertIsInstance(a, b)` asserts that...?
 
 a. `a` and `b` are objects of  the exact same type
@@ -1110,7 +1213,7 @@ b. the type of `b` is a sub-type of the type `a`
 *c. the type of `a` is a sub-type of the type `b`
 d. none of the above.
 
-140. (1 point)
+153. (1 point)
 The steps in a test are:
 
 *a. Arrange - Act - Assert
@@ -1118,7 +1221,69 @@ b. Argue - Assert - Abduct
 c. Assign - Abridge - Adjourn
 d. Arbitrate - Adjudicate - Abdicate
 
-141. (1 point)
+154. (1 point)
+According to twelve-factor, configuration should be in...?
+
+*a. environment variables
+b. source code
+c. the sys admin's head
+d. a GUI
+
+155. (1 point)
+In 12-factor, we should send logging messages to...?
+
+a. a file
+b. a port
+c. a URL
+*d. standard out
+
+156. (1 point)
+Twelve-factor says we should avoid...?
+
+a. source code control
+*b. hidden dependencies
+c. CI/CD
+d. kanban boards
+
+157. (1 point)
+In our course, we make our Python dependencies explicit by putting them in...?
+
+a. our documentation
+b. a list we hand to each developer
+*c. a requirements.txt file
+d. our makefile
+
+158. (1 point)
+In 12-factor, the preferred way to scale an app is...?
+
+a. adding threads
+*b. adding processes
+c. getting a faster CPU
+d. adding RAM
+
+159. (1 point)
+When the bottleneck of a process is at the end, WIP...?
+
+a. goes down
+*b. goes up
+c. is unaffected
+
+160. (1 point)
+To reduce WIP...?
+
+a. make everyone work faster
+b. eliminate the bottleneck
+*c. pace work to the rate of the bottleneck
+d. all of the above
+
+161. (1 point)
+When WIP increases...?
+
+*a. lead time increases
+b. lead time decreases
+c. lead time is unaffected
+
+162. (1 point)
 Lean and agile development displaced the ____ model of development?
 
 a. unicorn
@@ -1126,7 +1291,7 @@ b. silo
 c. all-at-once
 *d. waterfall
 
-142. (1 point)
+163. (1 point)
 The division of labor is cited by Adam Smith as...?
 
 *a. increasing productivity
@@ -1134,7 +1299,7 @@ b. decreasing productivity
 c. make workers smarter
 d. making jobs more enjoyable
 
-143. (1 point)
+164. (1 point)
 One of the reasons the Waterfall Model often fails is...?
 
 a. not enough advanced planning
@@ -1142,7 +1307,7 @@ b. the stages are not separated clearly enough in the model
 *c. we often only realize what software we need to build in the process of building it
 d. none of the above
 
-144. (1 point)
+165. (1 point)
 The DevOps idea of incremental development can be seen as an extension of...?
 
 a. monolithic mainframe applications
@@ -1150,7 +1315,7 @@ a. monolithic mainframe applications
 c. an all-at-once development style
 d. all of the above
 
-145. (1 point)
+166. (1 point)
 When we set out to develop software, we...?
 
 a. usually know all we need to know at the start
@@ -1158,7 +1323,7 @@ b. can easily plan everything in advance
 c. should lock down all requirements right away
 *d. rarely know all we need to know at the start
 
-146. (1 point)
+167. (1 point)
 In software engineering, "MVP" stands for...?
 
 *a. minimum viable product
@@ -1166,7 +1331,7 @@ b. maximum value produced
 c. major vehicle production
 d. none of the above
 
-147. (1 point)
+168. (1 point)
 In the Lean paradigm of development, decisions about the product should be made...?
 
 a. right at the start
@@ -1174,7 +1339,7 @@ b. as soon as possible
 *c. as late as possible
 d. none of the above
 
-148. (1 point)
+169. (1 point)
 The term "DevOps" was created by combining the terms...?
 
 *a. development and operations
@@ -1182,7 +1347,7 @@ b. deviance and opacity
 c. devilish and operatic
 d. none of the above
 
-149. (1 point)
+170. (1 point)
 DevOps can be understood as the need for _____ to keep up with ______ development practices.
 
 a. Lean and Agile, operations
@@ -1190,7 +1355,7 @@ b. development, Lean and Agile
 c. development, operations
 *d. operations, Lean and Agile
 
-150. (1 point)
+171. (1 point)
 The advantages of incremental development include...?
 
 a. value is delivered to customers more rapidly
@@ -1198,7 +1363,7 @@ b. testing becomes easier
 c. programmer job satisfaction increases
 *d. all of the above
 
-151. (1 point)
+172. (1 point)
 Automated testing is an important part of DevOps because...?
 
 *a. It enables rapid deployment of new software
@@ -1206,7 +1371,7 @@ b. "Automated" has a nice sound to it
 c. It saves money in hiring testers.
 d. none of the above
 
-152. (1 point)
+173. (1 point)
 The waterfall model follows the work organization example of...?
 
 a. lean manufacturers
@@ -1215,7 +1380,7 @@ c. Toyota
 *d. mid-20th-century American factories
 e. prison camps
 
-153. (1 point)
+174. (1 point)
 In the Toyota way of production, work should be...?
 
 a. pushed to each workstation by earlier phases
@@ -1223,7 +1388,7 @@ b. planned well in advance
 *c. pulled to a workstation when the worker is ready
 d. directed entirely from the top
 
-154. (1 point)
+175. (1 point)
 While in the "Ford" model of production, intelligence is ______, in the Toyota model it is ______?
 
 a. distributed throughout the organization, concentrated at the top
@@ -1231,7 +1396,7 @@ b. non-existent,  distributed throughout the organization
 c. distributed throughout the organization, non-existent
 *d. concentrated at the top, distributed throughout the organization
 
-155. (1 point)
+176. (1 point)
 The three ways of DevOps focus on improving...?
 
 a. simple processes
@@ -1239,7 +1404,7 @@ b. solitary work flows
 *c. complex processes
 d. none of the above
 
-156. (1 point)
+177. (1 point)
 A complex process is defined as one involving...?
 
 *a. communication among multiple teams
@@ -1247,7 +1412,7 @@ b. more than 100 lines of code
 c. more than three DevOps tools
 d. more than seven tests
 
-157. (1 point)
+178. (1 point)
 Tom Limoncelli's version of of the three ways of DevOps is...?
 
 a. source control, testing, and CI/CD
@@ -1255,7 +1420,7 @@ a. source control, testing, and CI/CD
 c. Python, Django, and API Servers
 d. load balancers, web servers, and databases
 
-158. (1 point)
+179. (1 point)
 Once we standardize our process, we have a better chance to ___ it.
 
 a. ameliorate
@@ -1263,7 +1428,7 @@ b. idempotentize
 c. MVP
 *d. automate
 
-159. (1 point)
+180. (1 point)
 Tom Limoncelli improved onboarding at Bell Labs by...?
 
 a. standardizing the process
@@ -1271,7 +1436,7 @@ b. picking a regular start day
 c. improving communications
 *d. all of the above
 
-160. (1 point)
+181. (1 point)
 If a failover is hard and expensive, a good site reliability team should...?
 
 *a. failover more often, until it becomes easy and cheap
@@ -1279,7 +1444,7 @@ b. avoid failovers at all costs
 c. punish anyone causing a failover
 d. none of the above
 
-161. (1 point)
+182. (1 point)
 One difficulty with handling rare emergencies is...?
 
 a. the team will have little experience with emergencies
@@ -1287,7 +1452,7 @@ b. there will be little chance to automate procedures
 c. there will be little documentation available
 *d. all of the above
 
-162. (1 point)
+183. (1 point)
 One reason to build an MVP is ...?
 
 a. that most valuable players are great
@@ -1295,7 +1460,7 @@ a. that most valuable players are great
 c. because it is easier
 d. all of the above
 
-163. (1 point)
+184. (1 point)
 MVPs are good because...?
 
 a. we get rapid feedback
