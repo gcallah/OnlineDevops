@@ -94,3 +94,91 @@ b. turn to Ant or Maven to build your program
 c. write your own build manager
 d. just build things in the subdirectories by hand
 
+13. (1 point)
+During the build process 'make' builds...?
+
+a. all of the components
+*b. updated or changed components
+c. make is NOT a build tool
+d. none of the above
+
+14. (1 point)
+Ant build scripts are written in...?
+
+a. Markdown
+b. Python
+*c. XML
+d. C++
+
+15. (1 point)
+The drawback of 'make' is that...?
+
+*a. the more complex application is, the more complex 'make' rules become, which makes them hard to debug
+b. 'make' builds all of the dependencies every time, which increases the compilation time
+c. it has to be written in XML
+d. it is only suitable for building coding projects
+
+16. (1 point)
+SonarQube is a tool which...?
+
+a. helps to build the application
+*b. helps to analyze the quality of source code
+c. is a continuous integration tool
+d. none of the above
+
+17. (1 point)
+The build automation process includes...?
+
+*a. compilation of source code into binary
+b. running automated tests
+c. using version control system
+d. all of the above
+
+18. (1 point)
+Gradle is a build tool whose scripts are written in...?
+
+*a. DSL based on Groovy
+b. XML
+c. plain text
+d. none of the above
+
+19. (1 point)
+The basic structure of makefile is a...?
+
+a. target
+b. list of dependencies
+c. series of commands to be run
+*d. all of the above
+
+20. (1 point)
+If the timestamps on the dependency files are older than that of a target, make...?
+
+a. will rebuild the target
+*b. will NOT rebuild the target
+c. timestamps have nothing to do with the build process
+d. none of the above
+
+21. (1 point)
+When make fails to execute a command while building a target, make will ...?
+
+a. stop building a target
+b. skip the command and still build a target
+c. report an error
+*d. both A and C
+
+22. (1 point)
+Inserting automated tests into build process...?
+
+a. is a bad practice
+b. cannot be done if we are using make
+*c. allows us to halt the build in case of a test failure
+d. none of the above
+
+23. (1 point)
+Build management includes...?
+
+a. source repository
+b. build console
+c. package repository
+*d. all of the above
+
