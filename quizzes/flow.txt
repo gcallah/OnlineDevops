@@ -132,3 +132,52 @@ b. part of a story
 c. someone going on and on in a scrum
 *d. a large body of work that can be broken down into smaller stories
 
+18. (1 point)
+Story in Scrum is...?
+
+*a. small body of work
+b. large body of work
+c. the same as Epic
+d. the same as Task
+
+19. (1 point)
+A Scrum Master is responsible for...?
+
+a. management of human resources
+b. communications with the clients
+c. management of logistical resources
+*d. both A and C
+
+20. (1 point)
+Having to much work in progress is likely to lead a knowledge worker (like a programmer) to...?
+
+*a. "thrash," or move from task to task without getting anything done
+b. "crash": have to take many days off
+c. "smash": want to destroy the kanban board
+d. get a promotion
+e. become a better engineer
+
+21. (1 point)
+The theory of constraints says process improvement must always focus on...?
+
+a. making all workers busy
+b. testing
+c. the least efficient process
+*d. the bottleneck
+
+22. (1 point)
+A good approach to preventing the waste of re-work would be...?
+
+a. punish all errors severely
+*b. add tests right from the moment you start coding
+c. have an extensive QA process once you have completed all programming
+d. have a form so that users can report bugs
+
+23. (1 point)
+The theory of constraints works...?
+
+a. only for manufacturing plants
+b. only in rare cases
+*c. in service industries as well as manufacturing
+d. only in agriculture
+
