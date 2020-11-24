@@ -70,3 +70,75 @@ b. addons
 *c. after_success
 d. services
 
+10. (1 point)
+Continuous integration requires developers to...?
+
+a. make sure that the new code is integrated only within their own branch
+*b. push their code to master branch regularly
+c. commit their changes all at once
+d. all of the above
+
+11. (1 point)
+Continuous Delivery stage...?
+
+a. integrates the code with the master branch
+b. puts the code into production
+*c. delivers the code to the place of execution
+d. all of the above
+
+12. (1 point)
+Jenkins is written in...?
+
+a. Python
+*b. Java
+c. C++
+d. Ruby
+
+13. (1 point)
+With the use of Jenkins the source code is built and tested...?
+
+a. Jenkins does NOT build or test the source code
+b. once the entire source code was built
+*c. after every single commit
+d. none of the above
+
+14. (1 point)
+The Travis YAML file is an example of...?
+
+a. imperative programming
+*b. declarative programming
+c. procedural programming
+d. object oriented programming
+
+15. (1 point)
+The password to SSH on Travis should be...?
+
+*a. stored as an encrypted environment variable
+b. hard-coded in Travis YML file
+c. there is NO need to have a password to SSH on Travis
+d. hard-coded in the deploy.sh file
+
+16. (1 point)
+CI developers integrate their work into master...?
+
+*a. at least daily
+b. as infrequently as possible
+c. at the end of the project
+d. never
+
+17. (1 point)
+Feature branching is a practice of...?
+
+a. distributing the work on project features among the teammates
+*b. merging your code into the mainline only once complete
+c. merging your code into the mainline as frequently as possible
+d. using a version control software
+
+18. (1 point)
+Software was moved away from release versions due to the...?
+
+a. rise of agile software practices
+b. growing capabilities of web services
+c. shift from monolithic to service-oriented architectures
+*d. all of the above
+

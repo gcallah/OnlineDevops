@@ -151,3 +151,59 @@ b. Argue - Assert - Abduct
 c. Assign - Abridge - Adjourn
 d. Arbitrate - Adjudicate - Abdicate
 
+20. (1 point)
+Functional tests work by testing...?
+
+a. only functions within a program
+*b. the program against various inputs
+c. the third party packages used in a program
+d. testing the maximum workload of a system
+
+21. (1 point)
+Black Box tests test...?
+
+a. compatibility of branches in Git with the master branch
+b. internal system design of a program
+c. the third party packages used in a program
+*d. the functionality and requirements of a program
+
+22. (1 point)
+White Box tests test...?
+
+*a. internal logic of the application
+b. functionality of the application
+c. whether application satisfies the requirenments
+d. none of the above
+
+23. (1 point)
+An example of a Black Box testing is...?
+
+a. Mutation Testing
+b. Unit Testing
+*c. Functional Testing
+d. all of the above
+
+24. (1 point)
+The Test Pyramid consists of...?
+
+a. Unit tests
+b. Integration tests
+c. Acceptance tests
+*d. all of the above
+
+25. (1 point)
+Fixture is...?
+
+a. a set of checks to be performed
+b. the initiation of an object returning hard-coded values
+c. a test object with fake data
+*d. a prepared data to be loaded into the database
+
+26. (1 point)
+Continuous testing is the...?
+
+a. technique of writing tests before you write your code
+*b. process of executing tests as a part of software delivery pipeline
+c. process of calculating coverage of your code
+d. testing using nose package
+
