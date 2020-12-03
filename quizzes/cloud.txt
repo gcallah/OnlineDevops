@@ -1,0 +1,176 @@
+1. (1 point)
+Which of the following is a cloud service provider?
+
+a. AWS
+b. Azure
+c. Google Cloud Services
+*d. All of the above
+
+2. (1 point)
+Kubernetes is a tool for...?
+
+a. managing CI/CD pipelines
+b. versioning source code
+*c. managing many docker containers
+d. testing software
+
+3. (1 point)
+Heroku is a...?
+
+*a. platform-as-a-service
+b. tool for testing software
+c. tool for managing docker containers
+d. all of the above
+
+4. (1 point)
+The basic unit of Kubernetes organization is the...?
+
+a. the prod
+b. the virtual machine
+c. the repo
+*d. the pod
+
+5. (1 point)
+If we want to coordinate a number of Docker containers, the most popular tool today is...?
+
+*a. Kubernetes
+b. Travis CI
+c. GitHub
+d. Heroku
+
+6. (1 point)
+"PAAS" stands for...?
+
+a. Please Authenticate All Services
+b. Pull Authorization Activated Soon
+c. Pods Across All Subnets
+*d. Platform as a Service
+
+7. (1 point)
+A strong point of Google Cloud is...?
+
+a. its complete suite of services
+*b. its focus on AI
+c. its focus on the enterprise
+d. none of the above.
+
+8. (1 point)
+A strong point of Microsoft Azure is...?
+
+a. its AI tools
+b. its version control capabilities
+*c. its focus on the enterprise
+d. none of the above.
+
+9. (1 point)
+In Kubernetes, a number of Docker containers co-located on a server is called...?
+
+a. a plod
+b. a codpiece
+c. a scrod
+*d. a pod
+
+10. (1 point)
+The cloud feature of not having to wait for IT to get you a new server is called...?
+
+a. consumption-based pricing
+*b. on-demand self-service
+c. ubiquitous network access
+d. zone-based agility
+
+11. (1 point)
+"Location-transparent resource pooling" means...?
+
+a. all of your resources get pooled into one location
+b. you don't need to pay any attention to where your resources are
+*c. you know where on the globe your servers are located
+d. none of the above
+
+12. (1 point)
+The ability to scale your cloud service up or down as needed is called...?
+
+*a. rapid elasticity
+b. elastic search
+c. rapid development
+d. ubiquitous elasticity
+
+13. (1 point)
+Cloud services give us higher ____ expenses while building our own data center gives us higher ___ expenses.
+
+a. capital, operating
+b. software, hardware
+c. network, hardware
+*d. operating, capital
+
+14. (1 point)
+A "cold" recovery zone has a site template to rebuild your site. This is an example of...?
+
+*a. infrastructure as code
+b. CI/CD pipeline
+c. kanban board
+d. version control
+
+15. (1 point)
+The main operational difference between the different recovery zones is...?
+
+a. how far away they are from your data center
+b. what temperature the machines run at
+*c. how fast you can recover from the different zones
+d. how much RAM they have
+
+16. (1 point)
+Because the cloud providers but lots of servers and lots of network bandwidth, by signing up with them, we can achieve...?
+
+*a. economies of scale
+b. scalar processing
+c. economies of recovery
+d. economies of fault tolerance
+
+17. (1 point)
+Hosting our services in the cloud generally gets us...?
+
+a. high availability
+b. agility
+c. fault tolerance
+*d. all of the above
+
+18. (1 point)
+The fastest recovery is available from a ___ recovery zone.
+
+a. cold
+*b. hot
+c. warm
+d. tepid
+
+19. (1 point)
+Hosting in the cloud adds to our agility because...?
+
+a. cloud hosting means we don't need version control
+b. cloud hosting eliminates the need for testing
+*c. we can easily add services as our users need them
+d. all of the above
+
+20. (1 point)
+IaaS means...?
+
+*a. infrastructure as a service
+b. idempotency as a service
+c. integration as a service
+d. identity-checking as a service
+
+21. (1 point)
+An example of SaaS is...?
+
+*a. Microsoft Office 365
+b. Heroku
+c. Linode virtual machines
+d. none of the above
+
+22. (1 point)
+Our main cloud platform, PythonAnywhere, is an example of...?
+
+a. IaaS
+*b. PaaS
+c. SaaS
+d. GaaS
+
