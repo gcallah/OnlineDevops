@@ -1,0 +1,441 @@
+1. (1 point)
+DRY means your code should ...?
+
+a. Delete Random Years
+b. not be all wet
+*c. not repeat itself
+d. Dally Really Youthfully
+e. None
+
+2. (1 point)
+Interfaces between modules should be...?
+
+a. free form
+b. broad and consistent
+*c. narrow and well-defined
+d. narrow and vague
+e. non-existent
+
+3. (1 point)
+Automated testing is an important part of DevOps because...?
+
+*a. It enables rapid deployment of new software
+b. It saves money in hiring testers.
+c. "Automated" has a nice sound to it
+d. none of the above
+e. None
+
+4. (1 point)
+The progress of a process can be uniquely characterized by...?
+
+a. a textual indices
+b. repetition clauses
+*c. a mixed sequence of textual and/or dynamic indices
+d. recursive procedures
+e. None
+
+5. (1 point)
+The three ways of DevOps focus on improving...?
+
+a. simple processes
+*b. complex processes
+c. none of the above
+d. solitary work flows
+e. None
+
+6. (1 point)
+MVPs are good because...?
+
+a. we get rapid feedback
+b. if the project is cancelled, at least there is some working software
+*c. all of the above
+d. we deliver at least some features very early
+e. None
+
+7. (1 point)
+The best way to make your code understandable is...?
+
+*a. to write clear code
+b. to use as many comments as possible
+c. to use the longest variable names possible
+d. none of the above
+e. None
+
+8. (1 point)
+Each module in modular decomposition should be...?
+
+*a. small and simple enough
+b. be as large as possible
+c. dependent on other modules
+d. responsible for multiple parts of a program
+e. None
+
+9. (1 point)
+One difficulty with handling rare emergencies is...?
+
+a. there will be little documentation available
+b. the team will have little experience with emergencies
+c. there will be little chance to automate procedures
+*d. all of the above
+e. None
+
+10. (1 point)
+"No magic constants" means you should not...?
+
+a. define constants to have values like "Harry Potter"
+*b. scatter constants like 7, 12, or 3.14 through your program
+c. use an irrational number in your code
+d. use integer values in your code
+e. None
+
+11. (1 point)
+When it comes to naming variables, we should...?
+
+*a. use the convention most widespread in our coding language
+b. always use camel case
+c. keep everything in ALL Caps
+d. always employ underscores
+e. None
+
+12. (1 point)
+Our functions should...?
+
+*a. do one clearly definable task
+b. none of the above
+c. precisely embody the mathematical notion of a function
+d. do as many tasks as possible, since functions calls take time
+e. None
+
+13. (1 point)
+The advantages of incremental development include...?
+
+a. value is delivered to customers more rapidly
+*b. all of the above
+c. programmer job satisfaction increases
+d. testing becomes easier
+e. None
+
+14. (1 point)
+While in the "Ford" model of production, intelligence is ______, in the Toyota model it is ______?
+
+a. distributed throughout the organization, concentrated at the top
+b. distributed throughout the organization, non-existent
+c. non-existent,  distributed throughout the organization
+*d. concentrated at the top, distributed throughout the organization
+e. None
+
+15. (1 point)
+The division of labor is cited by Adam Smith as...?
+
+a. making jobs more enjoyable
+b. decreasing productivity
+*c. increasing productivity
+d. make workers smarter
+e. None
+
+16. (1 point)
+According to PEP 8, constants should...?
+
+a. be defined on a per project basis
+b. be_defined_with_underscores
+c. beInCamelCase
+*d. BE_IN_ALL_CAPS
+e. None
+
+17. (1 point)
+The most important reason to use consistent indentation is...?
+
+a. it looks prettier that way
+*b. it makes it easy for readers to see the control blocks
+c. all of the above
+d. to pass the tests of code-style tools
+e. None
+
+18. (1 point)
+If a failover is hard and expensive, a good site reliability team should...?
+
+*a. failover more often, until it becomes easy and cheap
+b. punish anyone causing a failover
+c. none of the above
+d. avoid failovers at all costs
+e. None
+
+19. (1 point)
+An important feature of modular programming is...?
+
+*a. to allow one module to be coded with little knowledge of how other modules are coded
+b. to allow modules to access as much of the code in other modules as possible
+c. to allow one module to see all data in another module
+d. all of the above
+e. None
+
+20. (1 point)
+One reason to build an MVP is ...?
+
+a. because it is easier
+*b. to deliver some value sooner rather than all value later
+c. that most valuable players are great
+d. all of the above
+e. None
+
+21. (1 point)
+In modularization, the data structure, with its accessing and modifying procedures, should...?
+
+a. be reused by different modules
+*b. be a part of single module
+c. be shared by all modules within the same class
+d. be shared by many modules within a program
+e. None
+
+22. (1 point)
+You should test your program...?
+
+a. rarely: testing wastes time you should be using to code
+b. only when completely done
+*c. after every few lines of code you write
+d. never: that is the job of the testers
+e. None
+
+23. (1 point)
+In the Lean paradigm of development, decisions about the product should be made...?
+
+a. right at the start
+b. none of the above
+c. as soon as possible
+*d. as late as possible
+e. None
+
+24. (1 point)
+The DevOps idea of incremental development can be seen as an extension of...?
+
+a. all of the above
+b. an all-at-once development style
+c. monolithic mainframe applications
+*d. the UNIX style of development
+e. None
+
+25. (1 point)
+Tom Limoncelli's version of of the three ways of DevOps is...?
+
+a. Python, Django, and API Servers
+b. source control, testing, and CI/CD
+*c. the process, communication, and trying new things
+d. load balancers, web servers, and databases
+e. None
+
+26. (1 point)
+To mitigate our poor ability to visualize processes evolving in time the programmers should...?
+
+*a. shorten the conceptual gap between the static program and the dynamic process
+b. rely exclusively on static processes
+c. use dynamic visualization tools
+d. manage the complexity of dynamic processes
+e. None
+
+27. (1 point)
+According to PEP 8, if we need a line break near a binary operator, it should come...?
+
+a. wherever looks good
+b. nowhere: rewrite the code so you don't need it
+*c. before the operator
+d. after the operator
+e. None
+
+28. (1 point)
+We need independent coordinates in which to describe the progress of a process because...?
+
+a. this helps us to avoid the use of go to statements
+b. this helps us to visualize processes evolving in time
+c. this is a way to shorten the gap between the static program and dynamic process
+*d. we can interpret the value of a variable only with respect to the progress of a process
+e. None
+
+29. (1 point)
+When we set out to develop software, we...?
+
+a. can easily plan everything in advance
+*b. rarely know all we need to know at the start
+c. should lock down all requirements right away
+d. usually know all we need to know at the start
+e. None
+
+30. (1 point)
+In the first modular decomposition described in the paper on "decomposing systems into modules", the criterion used was...?
+
+*a. to make each major step in the processing a module
+b. to increase interdependence between modules as much as possible
+c. the first decomposition did not rely on using separate modules
+d. to compress the functionality of a program to as few modules as possible
+e. None
+
+31. (1 point)
+The main consequence of using the "go to" statements is...?
+
+a. they prevent us from effectively using recursive procedures within our program
+b. it is hard to implement them on a modern day equipment
+c. they create too much repetition within our program
+*d. it becomes hard to find meaningful set of coordinates in which to describe the progress of a process
+e. None
+
+32. (1 point)
+The waterfall model follows the work organization example of...?
+
+a. lean manufacturers
+*b. mid-20th-century American factories
+c. Toyota
+d. craft guilds
+e. prison camps
+
+33. (1 point)
+PEP 8 recommends that when indenting, we should use..?
+
+a. asterisks
+b. underscores
+*c. spaces
+d. tabs
+e. None
+
+34. (1 point)
+In software engineering, "MVP" stands for...?
+
+a. none of the above
+b. major vehicle production
+*c. minimum viable product
+d. maximum value produced
+e. None
+
+35. (1 point)
+One of the reasons the Waterfall Model often fails is...?
+
+a. none of the above
+b. not enough advanced planning
+*c. we often only realize what software we need to build in the process of building it
+d. the stages are not separated clearly enough in the model
+e. None
+
+36. (1 point)
+Dijkstra, in "Goto considered harmful," claims that the programmer does NOT have control over...?
+
+*a. the values of textual and dynamic indices
+b. repetition clauses within the program
+c. none of the above
+d. recursive procedures within the program
+e. None
+
+37. (1 point)
+PEP 8 recommends using blank lines in functions...?
+
+*a. sparingly, to indicate logical sections
+b. whenever the heck you want to
+c. never
+d. as much as possible
+e. None
+
+38. (1 point)
+Once we standardize our process, we have a better chance to ___ it.
+
+*a. automate
+b. MVP
+c. ameliorate
+d. idempotentize
+e. None
+
+39. (1 point)
+Lean and agile development displaced the ____ model of development?
+
+a. all-at-once
+*b. waterfall
+c. silo
+d. unicorn
+e. None
+
+40. (1 point)
+A complex process is defined as one involving...?
+
+*a. communication among multiple teams
+b. more than 100 lines of code
+c. more than seven tests
+d. more than three DevOps tools
+e. None
+
+41. (1 point)
+In the second modular decomposition described in the paper, the criterion used was...?
+
+a. to increase dependency between different modules compared to the first decomposition
+*b. information hiding
+c. to have as much processing done in the Alphabetizer module
+d. flowchart
+e. None
+
+42. (1 point)
+Function and variable names should be...?
+
+a. as long as possible
+*b. hitting the mean between very short and very long
+c. in all upper case
+d. as short as possible
+e. None
+
+43. (1 point)
+Modularizations include design decisions which must be made...?
+
+*a. before the work on independent modules begins
+b. after the workable system has been built
+c. any old time
+d. dependent on the module in question
+e. None
+
+44. (1 point)
+DevOps can be understood as the need for _____ to keep up with ______ development practices.
+
+a. development, Lean and Agile
+*b. operations, Lean and Agile
+c. Lean and Agile, operations
+d. development, operations
+e. None
+
+45. (1 point)
+In the Toyota way of production, work should be...?
+
+a. planned well in advance
+b. pushed to each workstation by earlier phases
+c. directed entirely from the top
+*d. pulled to a workstation when the worker is ready
+e. None
+
+46. (1 point)
+The term "DevOps" was created by combining the terms...?
+
+a. deviance and opacity
+b. none of the above
+*c. development and operations
+d. devilish and operatic
+e. None
+
+47. (1 point)
+Comments should be...?
+
+a. never used at all
+*b. employed only when necessary
+c. scattered through the code as widely as possible
+d. used for every line of code
+e. None
+
+48. (1 point)
+If our program employs a database, we should define the data tables...?
+
+a. in our code
+*b. in one place used by both our code and the database
+c. in the database
+d. in both the code and database
+e. None
+
+49. (1 point)
+Tom Limoncelli improved onboarding at Bell Labs by...?
+
+a. standardizing the process
+b. picking a regular start day
+*c. all of the above
+d. improving communications
+e. None
+
