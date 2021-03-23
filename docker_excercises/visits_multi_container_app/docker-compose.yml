@@ -1,0 +1,34 @@
+# both containers will be created on the same network and will able to 
+# communicate with each other in every way 
+# specify the version of docker compose that we intend to use 
+version: '3'
+# service specifies the type of containers we want to create 
+services: 
+  # specify the first service we want to create 
+  redis-server:
+  # specify the image that docker compose will use to create this container 
+    image: 'redis' 
+  node-app:
+    # specify a restart policy 
+    # restart: on-failure # restarts the container only on error code 
+    # e.g. process.exit(1);
+    # always restart a container if it crashes 
+    restart: always
+    # build the image using the Dockerfile inside the current directory 
+    build: .
+    # specify ports that we want to have open on this container 
+    # connect port 4001 on our local machine to the port 8081 inside the 
+    # docker container 
+    ports:
+      - "4001:8081"
+
+# to create instances of all the images:
+  # docker-compose up 
+# to rebuild and run images:
+  # docker-compose up --build 
+# to launch all containers in the background:
+  # docker-compose up -d
+# to close all containers 
+  # docker-compose down 
+# to view the status of all containers
+  # docker-compose ps 
