@@ -15,11 +15,59 @@
         </figure>
 
         <p class="leadquote">
+        "With the cloud, individuals and small businesses can snap their
+        fingers and instantly set up enterprise-class services." -- Roy Stephan
         </p>
 
         <details>
             <summary class="sum1">
-                Lesson 1: Why the Cloud?
+                Lesson 1: Types of Cloud Services
+            </summary>
+            <p>
+            There are three main types of cloud services:
+            </p>
+
+            <ul class="nested">
+                <li>
+                    Infrastructure-as-a-Service (IaaS)
+                    <br />
+                    <b>Examples</b>: Amazon EC2 instance, Google Compute
+                    Engine, Digital Ocean
+                </li>
+
+                <li>
+                    Platform-as-a-Service (PaaS)
+                    <br />
+                    <b>Examples</b>: AWS Elastic Beanstalk, Heroku,
+                    PythonAnywhere
+                </li>
+
+                <li>
+                    Software-as-a-Service (SaaS)
+                    <br />
+                    <b>Examples</b>: Google Docs, Travis, Slack, GitHub
+                </li>
+            </ul>
+
+            <p>
+            The key difference between IaaS, PaaS, and SaaS is how many
+            responsibilities the cloud provider takes on, versus how many the
+            customer is responsible for. Here is a nice diagram illustrating
+            the differences (in SaaS, the provider takes over the whole stack!):
+            </p>
+
+            <figure>
+                <img src="../static/devops/IaaSPaaSSaaS.png" width="40%">
+                <figcaption>
+                    (Diagram courtesy of John Ronfrano, IBM.)
+                </figcaption>
+            </figure>
+
+        </details>
+
+        <details>
+            <summary class="sum1">
+                Lesson 2: Why the Cloud?
             </summary>
 
             <p>
@@ -81,11 +129,11 @@
 
         <details>
             <summary class="sum1">
-                Lesson 2: Heroku
+                Lesson 3: Heroku
             </summary>
 
             <p>
-                Heroku provides "platform-as-a-service" (PAAS). A PAAS provides
+                Heroku provides "platform-as-a-service" (PaaS). A PaaS provides
                 not just a virtual machine, but the full infrastructure
                 typically needed to run a modern web app, such as a database, a
                 load balancer, a data cache, and connections to other popular
@@ -118,7 +166,7 @@
 
         <details>
             <summary class="sum1">
-                Lesson 3: Kubernetes and Docker
+                Lesson 4: Kubernetes and Docker
             </summary>
 
             <p>
@@ -177,7 +225,7 @@
 
         <details>
             <summary class="sum1">
-                Lesson 4: Cloud Providers
+                Lesson 5: Cloud Providers
             </summary>
 
             <p>
