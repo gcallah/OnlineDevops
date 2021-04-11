@@ -1,7 +1,7 @@
 const express = require('express');
 const redis = require('redis');
 const process = require('process');
-var crash = true;
+var crash = false;
 
 // create a new instance of the express application 
 const app = express();
