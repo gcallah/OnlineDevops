@@ -11,6 +11,9 @@ WORKDIR /usr/app
 # COPY (from current working dir) to (current working dir inside the container)
 COPY ./package.json ./
 # install some dependencies 
+# npm install will be ran only if we make changes to the package.json file
+# or above, if we make changes to the application code, it will not be executed
+# the files that have not been changed will be pulled from the cache 
 RUN npm install 
 # COPY (everything from current working dir) to (current working dir inside the container)
 COPY ./ ./
