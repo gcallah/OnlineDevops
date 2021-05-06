@@ -19,6 +19,7 @@ PYTHONFILES += $(shell ls $(SITEDIR)/*.py)
 PYTHONFILES += $(shell ls $(PARTSDIR)/*.py)
 PYTHONFILES += $(shell ls $(DEVDIR)/$(TEST_DIR)/*.py)
 DOCKER_DIR = docker
+REQ_DIR = docker
 REPO = OnlineDevops
 LOWER_REPO = `echo $(REPO) | tr A-Z a-z`
 DH_ACCOUNT = gcallah
@@ -31,6 +32,9 @@ dev_container: $(DOCKER_DIR)/Dockerfile $(DOCKER_DIR)/requirements.txt $(DOCKER_
 
 prod_container: $(DOCKER_DIR)/Deployable $(DOCKER_DIR)/requirements.txt
 	docker build -t $(DH_ACCOUNT)/$(REPO) $(DOCKER_DIR) --no-cache --build-arg repo=$(REPO) -f $(DOCKER_DIR)/Deployable
+
+dev_env:
+	pip3 install -r $(REQ_DIR)/requirements-dev.txt
 
 # update our submodules:
 submods:

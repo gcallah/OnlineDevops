@@ -6,7 +6,4 @@ django-autofixture
 selenium
 urllib3
 flake8
-django-tinymce
-beautifulsoup4
 bs4
-
