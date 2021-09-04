@@ -224,9 +224,17 @@
             </summary>
 
             <p>
-                I need to think about this one more before I could do my own
-                write up.
+                The idea here is for the app to be self-contained, and not rely
+                on the addition of some other software for it to function.
+                Export, say, HTTP by binding to a port and handling HTTP
+                requests on that port.
             </p>
+
+            <p>
+                This says that, for instance, our addition of gunicorn to our
+                Heroku deploy should be changed!
+            </p>
+
 
         </details>
 
@@ -328,13 +336,25 @@
             </summary>
 
             <p>
-                More to come!
+                Admin processes are one-off things a developer does to maintain
+                the app, such as a clean up of bad records or a purging of
+                unused logins.
+                The idea here is that admin processes should share as much as
+                possible with the regular app processes: environment variables,
+                library versions, language versions, etc.
             </p>
+
+            <p>
+                In addition, code for admin processes should be in the repo
+                with the app code, and should ship along with it.
+            </p>
+
+
         </details>
 
         <p>
             The above material is largely drawn from
-            <a href="https://12factor.net/processes">The Twelve-Factor App</a>
+            <a href="https://12factor.net/">The Twelve-Factor App</a>
             web site. The image at the top of the page is from the
              Walters Art Museum in Baltimore, Maryland.
         </p>

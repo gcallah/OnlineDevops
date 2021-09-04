@@ -14,8 +14,8 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: "devops"
-      MYSQL_PASSWORD: "releaseit!"
-      MYSQL_ROOT_PASSWORD: "releaseit!"
+      MYSQL_PASSWORD: $MYSQL_PWD
+      MYSQL_ROOT_PASSWORD: $MYSQL_PWD
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     healthcheck:
       test: mysql -u root -preleaseit! -e 'show databases'
@@ -43,7 +43,7 @@ services:
       ENGINE: "django.db.backends.mysql"
       NAME: "devops"
       USER: "root"
-      PASSWORD: "releaseit!"
+      PASSWORD: $DJANGO_PWD
       HOST: "dbengine"
       PORT: "3306"
     command: >
