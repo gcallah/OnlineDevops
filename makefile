@@ -23,6 +23,7 @@ REQ_DIR = docker
 REPO = OnlineDevops
 LOWER_REPO = `echo $(REPO) | tr A-Z a-z`
 DH_ACCOUNT = gcallah
+FORMAT = brightspace
 
 FORCE:
 
@@ -82,7 +83,11 @@ tests: html_tests django_tests lint
 # ways to extract questions from db for use in LMS:
 # to make a quiz for 'mod' set MOD=mod on the command line:
 quiz:
-	$(UDIR)/qexport.py $(MOD) $(FORMAT) > quizzes/$(MOD).txt
+	ifeq($(FORMAT),brightspace)
+		$(UDIR)/qexport.py $(MOD) $(FORMAT) > quizzes/$(MOD).csv
+	else
+		$(UDIR)/qexport.py $(MOD) $(FORMAT) > quizzes/$(MOD).txt
+	endif
 
 # this extracts ALL questions for, say, the final
 final_test:
