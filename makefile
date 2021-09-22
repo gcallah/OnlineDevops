@@ -83,11 +83,7 @@ tests: html_tests django_tests lint
 # ways to extract questions from db for use in LMS:
 # to make a quiz for 'mod' set MOD=mod on the command line:
 quiz:
-	ifeq($(FORMAT),brightspace)
-		$(UDIR)/qexport.py $(MOD) $(FORMAT) > quizzes/$(MOD).csv
-	else
-		$(UDIR)/qexport.py $(MOD) $(FORMAT) > quizzes/$(MOD).txt
-	endif
+	$(UDIR)/qexport.py $(MOD) $(FORMAT) > quizzes/$(MOD).csv
 
 # this extracts ALL questions for, say, the final
 final_test:
