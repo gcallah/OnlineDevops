@@ -1,4 +1,5 @@
 Slack found in: <br>    devops/templates/cicd.html
+<br>    devops/templates/cloud.html
 <br>    devops/templates/comm.html
 <br>    devops/templates/flow.html
 <br>    devops/templates/gloss.html

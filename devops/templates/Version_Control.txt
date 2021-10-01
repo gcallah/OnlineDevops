@@ -4,4 +4,5 @@ Version Control found in: <br>    devops/templates/about.html
 <br>    devops/templates/infra.html
 <br>    devops/templates/secur.html
 <br>    devops/templates/suite.html
+<br>    devops/templates/twelve.html
 <br>
