@@ -6,4 +6,5 @@ django-autofixture
 selenium
 urllib3
 flake8
+flake8-functions
 bs4
