@@ -13,7 +13,7 @@ GLOSS = $(DJANGO_TEMPLDIR)/gloss.html
 GLOSS_SRC = $(OUR_TEMPLDIR)/gloss_terms.txt
 HTMLS = $(shell ls $(DJANGO_TEMPLDIR)/*.html)
 PYLINT = flake8
-PYLINTFLAGS =
+PYLINTFLAGS = --max-returns-amount=5
 PYTHONFILES = $(shell ls $(DEVDIR)/*.py)
 PYTHONFILES += $(shell ls $(SITEDIR)/*.py)
 PYTHONFILES += $(shell ls $(PARTSDIR)/*.py)
