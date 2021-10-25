@@ -9,3 +9,4 @@ flake8
 flake8-functions
 mypy_extensions
 bs4
+typing-extensions
