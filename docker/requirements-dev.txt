@@ -3,6 +3,7 @@ setuptools
 coverage
 nose
 django-autofixture
+ez_setup
 selenium
 urllib3
 flake8
