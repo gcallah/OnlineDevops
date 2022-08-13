@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup as bs
 import re
 from .models import Question, Grade, Quiz, CourseModule, ModuleSection, Extras
 
-site_hdr = "The DevOps Course"
+site_hdr = "Software Engineering Course"
 
 DEF_NUM_RAND_QS = 10
 DEF_MINPASS = 80
@@ -323,7 +323,7 @@ def parse_search(request) -> object:
     url = "http://www.thedevopscourse.com"
 
     try:
-        header = "The DevOps Course"
+        header = "Software Engineering Course"
         path = request.get_full_path()
         query = path.split("query=")[1]
         if("+") in query:
