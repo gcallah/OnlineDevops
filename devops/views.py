@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup as bs
 import re
 from .models import Question, Grade, Quiz, CourseModule, ModuleSection, Extras
 
-site_hdr = "Software Engineering Course"
+site_hdr = "Modern Software Engineering"
 
 DEF_NUM_RAND_QS = 10
 DEF_MINPASS = 80

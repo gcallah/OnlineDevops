@@ -11,4 +11,4 @@ else
     export capture="--nocapture"
 fi
 
-python3 manage.py test $test_dir.test_integration.py
+python3 manage.py test $test_dir.test_integration
