@@ -16,11 +16,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Establish OpenSSL connection
+        run: openssl aes-256-cbc -K $encrypted_4cefc8a5b2ff_key -iv $encrypted_4cefc8a5b2ff_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
+        
+      - name: Install the development requirements
+        run: pip install -r docker/requirements-dev.txt
+        
+      - name: Run the tests
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          PYTHONPATH=/home/travis/build/gcallah/OnlineDevops
+          make tests
+          
+      - name: Deploy the project to PythonAnywhere
+        run: ./deploy.sh
+        
+      - name: Send Slack notification
+        run: echo Sending Slack notification!
