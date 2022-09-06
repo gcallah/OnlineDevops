@@ -89,13 +89,96 @@
                 Consider the spark plug.
                 <br>
                 <figure>
-                <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Four_stroke_engine_diagram.jpg/440px-Four_stroke_engine_diagram.jpg">
-                <figcaption>
-                    The sparkplug is labeled 'S'
-                </figcaption>
+                    <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Four_stroke_engine_diagram.jpg/440px-Four_stroke_engine_diagram.jpg">
+                    <figcaption>
+                        The sparkplug is labeled 'S'
+                    </figcaption>
                 </figure>
                 <br>
+                The spark plug is a modular component in your car. When you
+                need new sparks, you just plug them in, and off you go. Even if
+                there is a new, higher grade spark plug available, as long as
+                it plugs into its <i>interface</i> to the rest of the system
+                with no trouble, it will work.
+            </p>
+
+            <p>
+                Imagine your surprise if, when you went to replace the sparks
+                in your car, you were told by the garage that you'd also have
+                to replace the brakes, the radio, and the windshield wipers!
+                <br />
+                "Why," you'd ask, "are they faulty?"
+                <br />
+                "Nope: they just aren't compatible with the new spark plugs."
+                <br />
+                Badly engineered software is like that: to change one part, you
+                often need to change many others. This makes each change
+                expensive, and likely to introduce bugs, since it is hard to
+                keep track of all the parts a change might affect.
+            </p>
+
+            <h3>
+                Focus on Interfaces!
+            </h3>
+
+            <p>
+                Again, let's think about a car. This time, we will look at the
+                gas pedal.
+            </p>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Saabsonettpedals.jpg/500px-Saabsonettpedals.jpg">
+                <figcaption>
+                    The gas pedal is the one on the right.
+                </figcaption>
+            </figure>
+
+            <p>
+                The gas pedal is an outstanding example of a <i>narrow
+                    interface</i>.
+                The driver (the 'user'!) interfaces with the system that
+                accelerates the car with only two inputs:
+                <br />
+                * Push harder, go faster!
+                <br />
+                * Ease up, slow down!
+            </p>
+
+            <p>
+                The great thing about narrow interfaces is that the engineers
+                can change almost everything about a component, without the
+                users of the component noticing, <i>so long as they don't
+                change the interface</i>.
+                Say, one night, a team of dedicated eco-activists break into
+                your garage and replace your gasoline engine with an electric
+                one. So long as the "gas" pedal still works the same way, you
+                might not even notice, at least until you tried to refill your
+                gas tank.
+            </p>
+
+            <p>
+                Early musical synthesizers were examples of an engineered
+                product that did <i>not</i> have a narrow interface:
+            </p>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Emerson_moog.jpg/440px-Emerson_moog.jpg">
+                <figcaption>
+                    Keith Emerson playing an early Moog synthesizer.
+                </figcaption>
+            </figure>
+
+            <p>
+                By contract, in modern synths, the player typically just
+                presses a few buttons to get a new sound.
+            </p>
+
+            <p>
+                One reason we are going to focus on building an API server is
+                that doing so puts our focus squarely on <i>interfaces</i>. We
+                will put our early design efforts into thinking about what
+                interface we should provide to the user of our API server.
             </p>
 
         </details>
