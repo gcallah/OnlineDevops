@@ -127,22 +127,6 @@ Option,100 , " to allow one module to be coded with little knowledge of how othe
 Option,0 , " all of the above "
 Option,0 , " None "
 NewQuestion,MC
-QuestionText,"To mitigate our poor ability to visualize processes evolving in time the programmers should...?"
-Points,1
-Option,0 , " rely exclusively on static processes "
-Option,100 , " shorten the conceptual gap between the static program and the dynamic process "
-Option,0 , " manage the complexity of dynamic processes "
-Option,0 , " use dynamic visualization tools "
-Option,0 , " None "
-NewQuestion,MC
-QuestionText,"The progress of a process can be uniquely characterized by...?"
-Points,1
-Option,0 , " a textual indices "
-Option,0 , " recursive procedures "
-Option,0 , " repetition clauses "
-Option,100 , " a mixed sequence of textual and/or dynamic indices "
-Option,0 , " None "
-NewQuestion,MC
 QuestionText,"Dijkstra, in "Goto considered harmful," claims that the programmer does NOT have control over...?"
 Points,1
 Option,100 , " the values of textual and dynamic indices "
@@ -151,44 +135,12 @@ Option,0 , " recursive procedures within the program "
 Option,0 , " none of the above "
 Option,0 , " None "
 NewQuestion,MC
-QuestionText,"We need independent coordinates in which to describe the progress of a process because...?"
-Points,1
-Option,0 , " this helps us to visualize processes evolving in time "
-Option,100 , " we can interpret the value of a variable only with respect to the progress of a process "
-Option,0 , " this is a way to shorten the gap between the static program and dynamic process "
-Option,0 , " this helps us to avoid the use of go to statements "
-Option,0 , " None "
-NewQuestion,MC
-QuestionText,"The main consequence of using the "go to" statements is...?"
-Points,1
-Option,0 , " they create too much repetition within our program "
-Option,0 , " it is hard to implement them on a modern day equipment "
-Option,0 , " they prevent us from effectively using recursive procedures within our program "
-Option,100 , " it becomes hard to find meaningful set of coordinates in which to describe the progress of a process "
-Option,0 , " None "
-NewQuestion,MC
-QuestionText,"Modularizations include design decisions which must be made...?"
-Points,1
-Option,0 , " after the workable system has been built "
-Option,100 , " before the work on independent modules begins "
-Option,0 , " any old time "
-Option,0 , " dependent on the module in question "
-Option,0 , " None "
-NewQuestion,MC
 QuestionText,"Each module in modular decomposition should be...?"
 Points,1
 Option,0 , " dependent on other modules "
 Option,0 , " responsible for multiple parts of a program "
 Option,0 , " be as large as possible "
 Option,100 , " small and simple enough "
-Option,0 , " None "
-NewQuestion,MC
-QuestionText,"In the first modular decomposition described in the paper on "decomposing systems into modules", the criterion used was...?"
-Points,1
-Option,100 , " to make each major step in the processing a module "
-Option,0 , " to compress the functionality of a program to as few modules as possible "
-Option,0 , " to increase interdependence between modules as much as possible "
-Option,0 , " the first decomposition did not rely on using separate modules "
 Option,0 , " None "
 NewQuestion,MC
 QuestionText,"In the second modular decomposition described in the paper, the criterion used was...?"
@@ -205,28 +157,4 @@ Option,0 , " be reused by different modules "
 Option,0 , " be shared by all modules within the same class "
 Option,0 , " be shared by many modules within a program "
 Option,100 , " be a part of single module "
-Option,0 , " None "
-NewQuestion,MC
-QuestionText,"Linting means...?"
-Points,1
-Option,0 , " merging different parts of the projects "
-Option,100 , " stylistically checking the quality of the code "
-Option,0 , " testing the functionality of the program "
-Option,0 , " both B and C "
-Option,0 , " None "
-NewQuestion,MC
-QuestionText,"The Flake8 is a...?"
-Points,1
-Option,0 , " version control system "
-Option,0 , " linter for React "
-Option,0 , " C++ compiler "
-Option,100 , " linting tool for Python "
-Option,0 , " None "
-NewQuestion,MC
-QuestionText,"Adding # noqa to the Python line will..."
-Points,1
-Option,100 , " prevent Python linter from checking the line "
-Option,0 , " force Python linter to check the line "
-Option,0 , " do nothing, since it's just a comment "
-Option,0 , " none of the above "
 Option,0 , " None "
