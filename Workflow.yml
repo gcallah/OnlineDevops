@@ -1,0 +1,44 @@
+name: Workflow
+
+on:
+  push:
+    branches: [staging]
+
+env:
+  INDRA_HOME: '''/home/travis/build/TandonDevOps/IndraABM/'''
+  PYTHONPATH: '''$INDRA_HOME:$(pwd)'''
+  props_dir: '''$INDRA_HOME/APIServer/data/'''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+steps:
+  -uses: actions/checkout@v3
+  -name: Set up Python 3.8
+   uses: actions/setup-python@v4
+   with:
+     python-version: '3.8'
+
+  -name: Install
+   run: |
+     sudo apt-get clean
+     make dev_pkgs
+     sudo apt-get update
+     sudo apt-get install sshpassa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
