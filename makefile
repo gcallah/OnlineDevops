@@ -91,5 +91,4 @@ final_test:
 
 prod: $(SRCS) tests db
 	-git commit -a
-	-git pull origin master
 	git push origin master
