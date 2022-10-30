@@ -38,4 +38,6 @@ jobs:
           host: 'ssh.pythonanywhere.com'
           username: 'devopscourse'
           key: ${{ secrets.SECRET_KEY }}
-          script: ls
+          port: 22
+          script: |
+            ls
