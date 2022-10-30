@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: main
 
     steps:
       - name: Checkout repo
@@ -36,5 +37,5 @@ jobs:
         with:
           host: 'ssh.pythonanywhere.com'
           username: 'devopscourse'
-          key: "123456"
+          key: ${{ secrets.SECRET_KEY }}
           script: ls
