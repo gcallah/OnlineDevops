@@ -37,7 +37,4 @@ jobs:
           host: 'ssh.pythonanywhere.com'
           username: 'devopscourse'
           key: ${{ secrets.SECRET_KEY }}
-          script: ./deploy.sh
-        
-      - name: Send Slack notification
-        run: echo Sending Slack notification!
+          script: ls
