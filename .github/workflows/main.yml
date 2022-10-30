@@ -35,7 +35,7 @@ jobs:
       - name: Deploy the project to PythonAnywhere
         uses: appleboy/ssh-action@master
         with:
-          host: 'ssh.pythonanywhere.com'
+          host: 'devopscourse@ssh.pythonanywhere.com'
           username: 'devopscourse'
           key: ${{ secrets.SECRET_KEY }}
           port: 22
