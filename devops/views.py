@@ -326,7 +326,7 @@ def parse_search(request) -> object:
         header = "Software Engineering Course"
         path = request.get_full_path()
         query = path.split("query=")[1]
-        if("+") in query:
+        if ("+") in query:
             query = " ".join(query.split("+")).lower()
         else:
             query = query.lower()

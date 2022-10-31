@@ -32,7 +32,9 @@ jobs:
           make tests
           
       - name: Deploy the project to PythonAnywhere
-        run: ./deploy.sh
-        
-      - name: Send Slack notification
-        run: echo Sending Slack notification!
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SECRET_KEY }}
+          known_hosts: 'devopscourse@ssh.pythonanywhere.com'
+          run: |
+            ls
