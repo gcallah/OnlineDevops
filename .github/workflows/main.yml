@@ -12,7 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: main
 
     steps:
       - name: Checkout repo
@@ -33,11 +32,9 @@ jobs:
           make tests
           
       - name: Deploy the project to PythonAnywhere
-        uses: appleboy/ssh-action@master
+        uses: shimataro/ssh-key-action@v2
         with:
-          host: 'ssh.pythonanywhere.com'
-          username: 'devopscourse'
           key: ${{ secrets.SECRET_KEY }}
-          port: 22
-          script: |
+          known_hosts: 'devopscourse@ssh.pythonanywhere.com'
+          run: |
             ls
