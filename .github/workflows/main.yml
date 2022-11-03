@@ -34,7 +34,7 @@ jobs:
       - name: Deploy the project to PythonAnywhere
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.SECRET_KEY }}
+          key: ${{ secrets.PA_SSH_KEY }}
           known_hosts: 'devopscourse@ssh.pythonanywhere.com'
           run: |
             ls
