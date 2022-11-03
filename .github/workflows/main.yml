@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: build_website
 
     steps:
       - name: Checkout repo
