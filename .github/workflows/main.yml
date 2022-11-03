@@ -33,9 +33,10 @@ jobs:
           make tests
           
       - name: Deploy the project to PythonAnywhere
-        uses: shimataro/ssh-key-action@v2
+        uses: appleboy/ssh-action@master
         with:
-          key: ${{ secrets.PA_SSH_KEY }}
-          known_hosts: 'devopscourse@ssh.pythonanywhere.com'
-          run: |
-            ls
+          host: 'ssh.pythonanywhere.com'
+          username: 'devopscourse'
+          key: ${{ secrets.SECRET_KEY }}
+          port: 22
+          script: ls
