@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: build-website
 
     steps:
       - name: Checkout repo
@@ -32,9 +33,10 @@ jobs:
           make tests
           
       - name: Deploy the project to PythonAnywhere
-        uses: shimataro/ssh-key-action@v2
+        uses: appleboy/ssh-action@master
         with:
-          key: ${{ secrets.SECRET_KEY }}
-          known_hosts: 'devopscourse@ssh.pythonanywhere.com'
-          run: |
-            ls
+          host: 'ssh.pythonanywhere.com'
+          username: 'devopscourse'
+          key: ${{ secrets.PA_SSH_KEY }}
+          port: 22
+          script: cd /home/devopscourse/OnlineDevops; /home/devopscourse/OnlineDevops/rebuild.sh
