@@ -364,6 +364,9 @@ def grade_quiz(request: HttpRequest()) -> list:
     Returns an html page containing results of quiz.
     """
     try:
+        curr_quiz = None
+        show_answers = True
+        num_rand_qs = 0
         num_rand_qs = DEF_NUM_RAND_QS
         # First, we process only when form is POSTed...
         if request.method == 'POST':
