@@ -71,11 +71,9 @@ def get_pg_w_quiz(request, mod_nm):
         if num_questions > 0:
             # we have to fetch numq from here:
             quizzes = Quiz.objects.filter(module=mod_nm)
-            # we should log if we get count > 1 here!
-            for quiz in quizzes:
-                # we should have only 1 if any!
-                num_qs_to_randomize = quiz.numq
-                break
+
+            if len(quizzes) > 0:
+                num_qs_to_randomize = quizzes[0].numq
             if num_questions >= num_qs_to_randomize:
                 rand_qs = random.sample(list(questions), num_qs_to_randomize)
             else:
@@ -389,13 +387,16 @@ def grade_quiz(request: HttpRequest()) -> list:
             questions = Question.objects.filter(module=mod_nm)
 
             quizzes = Quiz.objects.filter(module=mod_nm)
+            
             # we should log if we get count > 1 here!
-            for quiz in quizzes:
-                num_rand_qs = quiz.numq
-                show_answers = quiz.show_answers
-                curr_quiz = quiz
-                break
-
+            if len(quizzes) > 0:
+                curr_quiz = quizzes[0]
+                num_rand_qs = curr_quiz.numq
+                show_answers = curr_quiz.show_answers
+            else:
+                pass
+                # To-Do: Handle this case later
+            
             num_qs_to_check = min(questions.count(), num_rand_qs)
 
             # Function to mark quiz
