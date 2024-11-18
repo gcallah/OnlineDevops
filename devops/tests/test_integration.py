@@ -1,10 +1,6 @@
-from unittest import skip
-
-from django.http import HttpResponseBadRequest
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
-from devops.models import Quiz, Question, Grade
 
 
 class UserAuthenticationTestCase(TestCase):
