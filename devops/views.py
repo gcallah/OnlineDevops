@@ -387,7 +387,7 @@ def grade_quiz(request: HttpRequest()) -> list:
             questions = Question.objects.filter(module=mod_nm)
 
             quizzes = Quiz.objects.filter(module=mod_nm)
-            
+
             # we should log if we get count > 1 here!
             if len(quizzes) > 0:
                 curr_quiz = quizzes[0]
@@ -396,7 +396,7 @@ def grade_quiz(request: HttpRequest()) -> list:
             else:
                 pass
                 # To-Do: Handle this case later
-            
+
             num_qs_to_check = min(questions.count(), num_rand_qs)
 
             # Function to mark quiz
