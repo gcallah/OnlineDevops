@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     urls.path('admin/', admin.site.urls),
-    urls.re_path(r'', urls.include('devops.re_paths')),
-    urls.re_path('participants/', urls.include('participants.re_paths')),
-    urls.re_path(r'^tinymce/', urls.include('tinymce.re_paths'))
+    urls.re_path(r'', urls.include('devops.urls')),
+    urls.re_path('participants/', urls.include('participants.urls')),
+    urls.re_path(r'^tinymce/', urls.include('tinymce.urls'))
 ]
