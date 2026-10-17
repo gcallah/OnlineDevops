@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@+%x+r-cfv@*2+qi)&9w^6jvp-h=bypm+7$uee8jlm1%=qvcjw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# On by default for local dev; prod sets DJANGO_DEBUG=False in its WSGI file.
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() not in \
+    ('false', '0', 'no')
 
 ALLOWED_HOSTS = [
     'www.thedevopscourse.com',

@@ -1,6 +1,5 @@
 #!/bin/bash
 # Backs up our database in json format.
-export USE_MYSQL=1
 export backup_dir=backups
 export backup_file=$backup_dir/dbbackup_$(date +\%m-\%d-\%Y).json
 
