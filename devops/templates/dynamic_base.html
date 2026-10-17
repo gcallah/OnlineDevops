@@ -4,9 +4,9 @@
 <nav class="site-nav">
     <div id="navbar" class="site-nav-links">
         <a href="/devops/landing_page/">Home</a>
-        <a href="/devops/dynamic_gloss">Glossary</a>
+        <a href="/devops/gloss">Glossary</a>
         <a href="https://gcallah.pythonanywhere.com/berkeley/">Biblio.</a>
-        <a href="/devops/dynamic_about/">About</a>
+        <a href="/devops/about">About</a>
         {% if user.is_authenticated is False %}
             <a href="{% url 'participant_login' %}">Login</a>
         {% else %}
