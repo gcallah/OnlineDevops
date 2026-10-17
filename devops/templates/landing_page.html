@@ -19,7 +19,7 @@
     <ol class="module-list">
         {% for module in modules %}
             <li>
-                <a href="/devops/chapter/{% autoescape off %}{{ module.module }}{% endautoescape %}">
+                <a href="/devops/{% autoescape off %}{{ module.module }}{% endautoescape %}">
                     {% autoescape off %}{{ module.title }}{% endautoescape %}
                 </a>
             </li>
