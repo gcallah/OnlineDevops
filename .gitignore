@@ -13,3 +13,4 @@
 /.venv
 /.superset/port
 /.superset/config.local.json
+/.superset/run.pid

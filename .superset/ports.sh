@@ -9,6 +9,7 @@ PORT_RANGE_END=8099
 PORT_REGISTRY="${SUPERSET_HOME_DIR:-$HOME/.superset}/port-allocations/OnlineDevops"
 WORKSPACE_PATH="${SUPERSET_WORKSPACE_PATH:-$(pwd)}"
 PORT_FILE="$WORKSPACE_PATH/.superset/port"
+PID_FILE="$WORKSPACE_PATH/.superset/run.pid"
 
 port_in_use() {
   lsof -nP -iTCP:"$1" -sTCP:LISTEN >/dev/null 2>&1
