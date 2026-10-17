@@ -320,106 +320,258 @@
 
         <details>
             <summary class = "sum1">
-                Lesson 4: Running Jenkins
+                Lesson 4: Running GitHub Actions
             </summary>
             <p>
-                <span class="hilight">Note: Below information is about making
-                    a Jenkins build triggered by Github changes.</span>
+                <a href="https://docs.github.com/en/actions">GitHub Actions</a>
+                is the CI/CD system built into GitHub itself. Because it
+                lives right next to your code, there is no separate service
+                to sign up for and no webhook to wire up: you add a YAML file
+                to your repository, and GitHub runs it for you on its own
+                machines whenever something happens in the repo, such as a
+                push or a pull request. Public repositories get it for free.
             </p>
-                <details>
-                        <summary class="sum2">
-                            Install the prerequisites
-                        </summary>
-                        <ul class = "nested">
-                                <li>
-                                    Install JAVA if you don't already have it !
-                                </li>
-                                <li>
-                                    Install Git if you don't already have it!
-                                </li>
-                                <li>
-                                    Install Docker (optional)
-                                </li>
-                                <li>
-                                    Create a git repo to test the demo. It
-                                    should consist of:
-                                    <ul class="nested">
-                                        <p>Readme.md</p>
-                                        <p>Jenkinsfile</p>
-                                    </ul>
-                                </li>
-                        </ul>
-                </details>
-                <details>
-                        <summary class="sum2">
-                            Install and initialize Jenkins
-                        </summary>
-                        <p>
-                            Jenkins can be installed on various platforms and
-                            operating systems. For this demonstration we are
-                            using Docker to install Jenkins.
-                        </p>
-                        <p>
-                            There are several Docker images of Jenkins
-                            available. The recommended Docker image to use is
-                            the jenkinsci/blueocean image (from the Docker Hub
-                            repository). This image contains the current
-                            Long-Term Support (LTS) release of Jenkins (which
-                            is production-ready) bundled with all Blue Ocean
-                            plugins and features.
-                        </p>
 
-                        <p>
-                            After downloading the jenkins image you can use
-                            below docker command to install and run jenkins on
-                            docker.
-                        </p>
-                        <p>
-                            <B>For macOS/Linux : </B> Open terminal and run the
-                            image as container in Docker using below command
-                            </br>
-                            <pre><code data-lang="bash">
-                                docker run \
-                                -u root \
-                                --rm \
-                                -d \
-                                -p 8080:8080 \
-                                -p 50000:50000 \
-                                -v jenkins-data:/var/jenkins_home \
-                                -v /var/run/docker.sock:/var/run/docker.sock \
-                                jenkinsci/blueocean
-                            </code></pre>
-                            </br>
-                        </p>
-                        <p>
-                            <B>For Windows : </B> Open command prompt and run below command
-                            <pre><code data-lang="bash">
-                                docker run ^
-                                -u root ^
-                                --rm ^
-                                -d ^
-                                -p 8080:8080 ^
-                                -p 50000:50000 ^
-                                -v jenkins-data:/var/jenkins_home ^
-                                -v /var/run/docker.sock:/var/run/docker.sock ^
-                                jenkinsci/blueocean
-                            </code></pre>
-                        </p>
-                </details>
-                <details>
-                        <summary class="sum2">
-                            Connect Jenkins to Github
-                        </summary>
-                </details>
-                <details>
-                        <summary class="sum2">
-                            Create a project to build your application
-                        </summary>
-                </details>
-            </br>
+            <details>
+                <summary class="sum2">
+                    The building blocks
+                </summary>
+                <ul class="nested">
+                    <li>
+                        A <span class="hilight">workflow</span> is an
+                        automated process defined in a YAML file in the
+                        <span class="code">.github/workflows/</span>
+                        directory of your repository. A repository can have
+                        several workflows.
+                    </li>
+                    <li>
+                        An <span class="hilight">event</span> triggers a
+                        workflow: a push, a pull request, a schedule, or a
+                        button click in the GitHub UI
+                        (<span class="code">workflow_dispatch</span>).
+                    </li>
+                    <li>
+                        A workflow contains one or more
+                        <span class="hilight">jobs</span>. By default, jobs
+                        run in parallel, each on a fresh virtual machine
+                        called a <span class="hilight">runner</span>
+                        (e.g., <span class="code">ubuntu-latest</span>).
+                    </li>
+                    <li>
+                        Each job is a sequence of
+                        <span class="hilight">steps</span>. A step either
+                        runs shell commands
+                        (<span class="code">run:</span>) or uses an
+                        <span class="hilight">action</span>
+                        (<span class="code">uses:</span>), a reusable
+                        building block such as
+                        <span class="code">actions/checkout</span>, which
+                        checks out your code. Thousands of ready-made
+                        actions are listed on the
+                        <a href="https://github.com/marketplace?type=actions">
+                            GitHub Marketplace</a>.
+                    </li>
+                </ul>
+                <p>
+                    Like the Travis file in Lesson 3, a workflow file is an
+                    example of declarative programming: we describe
+                    <i>what</i> should happen, and GitHub figures out how to
+                    make it happen.
+                </p>
+            </details>
+
+            <details>
+                <summary class="sum2">
+                    Your first workflow: run the tests on every push
+                </summary>
+                <p>
+                    Save the following as
+                    <span class="code">.github/workflows/tests.yml</span>,
+                    commit it, and push:
+                </p>
+{% verbatim %}
+<pre><code>name: Tests
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run the tests
+        run: make tests
+</code></pre>
+{% endverbatim %}
+                <p>
+                    Now every push to <span class="code">master</span>, and
+                    every pull request, runs the test suite. If any step
+                    fails (exits with a non-zero status), the job stops and
+                    is marked as failed, GitHub shows a red &#10007; next to
+                    the commit, and you get an email. On a pull request, the
+                    result appears right on the PR, so reviewers can see
+                    whether the change breaks the build before merging it.
+                </p>
+            </details>
+
+            <details>
+                <summary class="sum2">
+                    Keeping secrets secret
+                </summary>
+                <p>
+                    Deploying usually needs credentials: an SSH key, an API
+                    token, a password. These must <i>never</i> be committed
+                    to the repository. Instead, store them as
+                    <span class="hilight">encrypted secrets</span> in the
+                    repository's <i>Settings &rarr; Secrets and
+                    variables &rarr; Actions</i> page, or from the command
+                    line with the GitHub CLI:
+                </p>
+<pre><code>gh secret set PA_API_TOKEN</code></pre>
+                <p>
+                    A workflow refers to a secret as
+                    <span class="code">{% verbatim %}${{ secrets.PA_API_TOKEN }}{% endverbatim %}</span>.
+                    GitHub injects the value when the job runs and masks it
+                    in the logs, so it never appears in your code or your
+                    build output. Secrets can also be attached to an
+                    <span class="hilight">environment</span> (such as
+                    "production"), which can require a reviewer's approval
+                    before a job using them runs.
+                </p>
+            </details>
+
+            <details>
+                <summary class="sum2">
+                    A real example: how this website deploys itself
+                </summary>
+                <p>
+                    Here is the workflow that deploys this very website
+                    (lightly trimmed).
+                    Every push to <span class="code">master</span> installs
+                    the dependencies and runs the tests; if they pass, it
+                    connects to our PythonAnywhere server over SSH to pull
+                    the new code, and then asks PythonAnywhere's API to
+                    reload the site. If the tests fail, nothing is deployed.
+                </p>
+{% verbatim %}
+<pre><code>name: PythonAnywhere deployment
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: build-website
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+
+      - name: Install the development requirements
+        run: pip install -r requirements-dev.txt
+
+      - name: Run the tests
+        run: make tests
+
+      - name: Deploy the project to PythonAnywhere
+        uses: appleboy/ssh-action@master
+        with:
+          host: 'ssh.pythonanywhere.com'
+          username: 'devopscourse'
+          key: ${{ secrets.PA_SSH_KEY }}
+          port: 22
+          script: cd /home/devopscourse/OnlineDevops; ./rebuild.sh
+
+      - name: Reload the PythonAnywhere web app
+        env:
+          PA_API_TOKEN: ${{ secrets.PA_API_TOKEN }}
+        run: |
+          curl --fail-with-body -sS -X POST \
+            -H "Authorization: Token $PA_API_TOKEN" \
+            https://www.pythonanywhere.com/api/v0/user/devopscourse/webapps/www.thedevopscourse.com/reload/
+</code></pre>
+{% endverbatim %}
+                <p>
+                    Compare this with the Travis setup in Lesson 3: there, we
+                    had to encrypt an SSH key into the repository and install
+                    <span class="code">sshpass</span> by hand. Here, the SSH
+                    key and the API token are stored as GitHub secrets, and a
+                    ready-made action from the Marketplace
+                    (<span class="code">appleboy/ssh-action</span>) handles
+                    the SSH connection for us.
+                </p>
+            </details>
+
+            <details>
+                <summary class="sum2">
+                    Watching and debugging runs
+                </summary>
+                <ul class="nested">
+                    <li>
+                        The <i>Actions</i> tab of your repository lists every
+                        workflow run. Click a run to see each job and step,
+                        with its full log output.
+                    </li>
+                    <li>
+                        From the command line, the GitHub CLI can do the
+                        same: <span class="code">gh run list</span> shows
+                        recent runs, <span class="code">gh run watch</span>
+                        follows one live, and
+                        <span class="code">gh run view --log-failed</span>
+                        shows just the output of the steps that failed.
+                    </li>
+                    <li>
+                        Some failures are transient (a network hiccup, a
+                        server briefly refusing a connection). Rather than
+                        pushing a new commit, use <i>Re-run failed jobs</i>
+                        in the UI, or
+                        <span class="code">gh run rerun --failed</span>.
+                    </li>
+                    <li>
+                        A workflow that only runs on a push can be tedious to
+                        test. Adding <span class="code">workflow_dispatch:</span>
+                        to its <span class="code">on:</span> section lets you
+                        start it by hand from the Actions tab.
+                    </li>
+                </ul>
+            </details>
+
             <p><B>References :</B></p>
-            <li>https://www.mirantis.com/blog/intro-to-cicd-how-
-              to-make-jenkins-build-on-github-changes/</li>
+            <ul>
+                <li>
+                    <a href="https://docs.github.com/en/actions/get-started/quickstart">
+                        GitHub Actions quickstart
+                    </a>
+                </li>
+                <li>
+                    <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax">
+                        Workflow syntax for GitHub Actions
+                    </a>
+                </li>
+                <li>
+                    <a href="https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets">
+                        Using secrets in GitHub Actions
+                    </a>
+                </li>
+            </ul>
         </details>
         <details>
             <summary class="sum1">
