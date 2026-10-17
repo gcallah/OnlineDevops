@@ -1,5 +1,1 @@
-Pattern found in: <br>    devops/templates/gloss.html
-<br>    devops/templates/incr.html
-<br>    devops/templates/test.html
-<br>    devops/templates/work.html
-<br>
+<span class="found-in">Found in: <a href="/devops/work">The Modern Software Engineering Way of Work</a>, <a href="/devops/incr">Incremental Development</a>, <a href="/devops/test">Automated Testing</a></span>

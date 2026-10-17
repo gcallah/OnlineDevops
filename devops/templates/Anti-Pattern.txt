@@ -1,2 +1,0 @@
-Anti-Pattern found in: <br>    devops/templates/gloss.html
-<br>

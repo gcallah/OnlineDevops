@@ -1,2 +1,0 @@
-Containerization found in: <br>    devops/templates/gloss.html
-<br>

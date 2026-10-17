@@ -1,2 +1,1 @@
-Infrastructure-as-Code found in: <br>    devops/templates/gloss.html
-<br>
+<span class="found-in">Found in: <a href="/devops/work">The Modern Software Engineering Way of Work</a>, <a href="/devops/infra">Infrastructure as Code</a>, <a href="/devops/suite">Complete Agile Operations (Tool: Azure DevOps)</a></span>

@@ -1,4 +1,1 @@
-linting found in: <br>    devops/templates/build.html
-<br>    devops/templates/gloss.html
-<br>    devops/templates/secur.html
-<br>
+<span class="found-in">Found in: <a href="/devops/build">Automating Builds</a>, <a href="/devops/secur">Security (Tool: in-toto)</a></span>

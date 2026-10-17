@@ -1,3 +1,1 @@
-Agile Development found in: <br>    devops/templates/gloss.html
-<br>    devops/templates/work.html
-<br>
+<span class="found-in">Found in: <a href="/devops/work">The Modern Software Engineering Way of Work</a></span>

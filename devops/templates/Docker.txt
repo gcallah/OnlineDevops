@@ -1,9 +1,1 @@
-Docker found in: <br>    devops/templates/about.html
-<br>    devops/templates/build.html
-<br>    devops/templates/cicd.html
-<br>    devops/templates/cloud.html
-<br>    devops/templates/gloss.html
-<br>    devops/templates/index.html
-<br>    devops/templates/infra.html
-<br>    devops/templates/suite.html
-<br>
+<span class="found-in">Found in: <a href="/devops/build">Automating Builds</a>, <a href="/devops/cicd">Continuous Integration / Continuous Deployment</a>, <a href="/devops/infra">Infrastructure as Code</a>, <a href="/devops/cloud">Cloud Deployment</a>, <a href="/devops/suite">Complete Agile Operations (Tool: Azure DevOps)</a>, <a href="/devops/about">About the Software Engineering Course</a></span>

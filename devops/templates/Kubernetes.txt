@@ -1,5 +1,1 @@
-Kubernetes found in: <br>    devops/templates/cloud.html
-<br>    devops/templates/gloss.html
-<br>    devops/templates/index.html
-<br>    devops/templates/suite.html
-<br>
+<span class="found-in">Found in: <a href="/devops/cloud">Cloud Deployment</a>, <a href="/devops/suite">Complete Agile Operations (Tool: Azure DevOps)</a></span>

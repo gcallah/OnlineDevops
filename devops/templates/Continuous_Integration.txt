@@ -1,6 +1,1 @@
-Continuous Integration found in: <br>    devops/templates/build.html
-<br>    devops/templates/cicd.html
-<br>    devops/templates/gloss.html
-<br>    devops/templates/suite.html
-<br>    devops/templates/test.html
-<br>
+<span class="found-in">Found in: <a href="/devops/work">The Modern Software Engineering Way of Work</a>, <a href="/devops/build">Automating Builds</a>, <a href="/devops/test">Automated Testing</a>, <a href="/devops/cicd">Continuous Integration / Continuous Deployment</a>, <a href="/devops/suite">Complete Agile Operations (Tool: Azure DevOps)</a></span>

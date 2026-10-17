@@ -1,3 +1,1 @@
-DockerHub found in: <br>    devops/templates/gloss.html
-<br>    devops/templates/infra.html
-<br>
+<span class="found-in">Found in: <a href="/devops/infra">Infrastructure as Code</a></span>

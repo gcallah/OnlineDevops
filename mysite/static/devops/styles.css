@@ -366,6 +366,14 @@ p.def {
     color: var(--text);
 }
 
+/* glossary: "Found in" links under each term */
+.found-in {
+    display: block;
+    margin-top: .25rem;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
 span.hilight {
     color: var(--hilight);
     font-weight: 500;

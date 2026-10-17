@@ -58,7 +58,7 @@ $(GLOSS): $(GLOSS_SRC)
 	git add $(GLOSS)
 	-git commit $(GLOSS) -m "Building new glossary template."
 	# now make include files:
-	$(UDIR)/gloss_links.py $(GLOSS_SRC) $(DJANGO_TEMPLDIR) --lf $(HTMLS)
+	python3 $(DEVDIR)/gloss_links.py $(GLOSS_SRC) $(DJANGO_TEMPLDIR)
 	git add $(DJANGO_TEMPLDIR)/*.txt
 	-git commit $(DJANGO_TEMPLDIR)/*.txt -m "Building new glossary includes."
 
