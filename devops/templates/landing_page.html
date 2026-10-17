@@ -1,51 +1,28 @@
-{% include "dynamic_base.html" %}
-{% include "image_slider.html" %}
-<script>
-{% comment %} alert('{{message}}') {% endcomment %}
-</script>
+{% extends "dynamic_base.html" %}
+
+{% block page_class %}page page--wide{% endblock page_class %}
+
 {% block content %}
-    <div class="container-fluid">
-     <div class="row">
-
-
-        <div class="col-sm-5">
-
-        {% autoescape off %}{{ devopslogo }}{% endautoescape %}
-
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-
-          <div id="slider">
-              <a target="_blank"id="imageLink"><img id="image1"  style="width:80%;border-radius: 25px;border: 2px solid #FFFFFF; margin-left:10%; margin-right: 10%"/>
-                </a>
-          </div>
-          <div>
-              <h2 id="sliderHeader" style="text-align:center;font-size:20px"></h2>
-              <p id="sliderPara"style="text-align:center;font-size:15px"></p>
-          </div>
+    <section class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">$ course --list-modules</p>
+            <h1 class="hero-title">{{ header }}</h1>
+            <p class="hero-sub">{{ message }}</p>
         </div>
+        {% if devopslogo %}
+        <div class="hero-figure">
+            {% autoescape off %}{{ devopslogo }}{% endautoescape %}
+        </div>
+        {% endif %}
+    </section>
 
-
-         <div class="col-sm-7">
-              <h1 class="toc_head">
-              {{message}}
-              </h1>
-              
-         <ol>
-              {% for module in modules %}
-                      <li>
-                        <a href="/devops/chapter/{% autoescape off %}{{ module.module }}{% endautoescape %}">
-                          {% autoescape off %}{{ module.title }}{% endautoescape %}
-                        </a>
-                     </li>
-              {% endfor %}
-        </ol>
-       </div>
-      </div>
-
-    </div>
-
+    <ol class="module-list">
+        {% for module in modules %}
+            <li>
+                <a href="/devops/chapter/{% autoescape off %}{{ module.module }}{% endautoescape %}">
+                    {% autoescape off %}{{ module.title }}{% endautoescape %}
+                </a>
+            </li>
+        {% endfor %}
+    </ol>
 {% endblock content %}

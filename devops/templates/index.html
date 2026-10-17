@@ -1,24 +1,23 @@
-{% include "base.html" %}
-{% include "image_slider.html" %}
+{% extends "base.html" %}
+
+{% block page_class %}page page--wide{% endblock page_class %}
+
 {% block content %}
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-5">
-              <figure style="margin-top:5%; margin-left:50%">
-                  <img src="/static/devops/devops_inter.png" style="width:50%;">
-                  <figcaption>
-                      <h3>The DevOps cycle</h3>
-                  </figcaption>
-              </figure>
-            </div>
+    <section class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">$ course --list-modules</p>
+            <h1 class="hero-title">{{ header }}</h1>
+            <p class="hero-sub">Course Modules</p>
         </div>
+        <div class="hero-figure">
+            <figure>
+                <img src="/static/devops/devops_inter.png" alt="The DevOps cycle">
+                <figcaption>The DevOps cycle</figcaption>
+            </figure>
+        </div>
+    </section>
 
-        <div class="col-sm-7">
-             <h1 class="toc_head">
-             Course Modules
-             </h1>
-             <ol>
+    <ol class="module-list">
                  <li>
                       <a href="/devops/basics">
                       Software Engineering and Programming Fundamentals
@@ -108,8 +107,5 @@
                      Complete DevOps Suites (Tool: Azure DevOps)
                      </a>
                  </li>
-             </ol>
-        </div>
-    </div>
-
+    </ol>
 {% endblock content %}

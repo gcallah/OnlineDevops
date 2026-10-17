@@ -1,6 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 {% load static %}
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         {% block title %}
         {{ header }}
@@ -11,9 +14,14 @@
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/static/devops/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
+        <!-- bump the ?v= when styles.css changes, so browsers refetch it -->
+        <link rel="stylesheet" type="text/css" href="/static/devops/styles.css?v=2">
         <!--Tinymce Text-Editor (Must be in Head Tag) -->
         <script src="{% static 'devops/js/tinymce/tinymce.min.js' %}"></script>
         <script type="text/javascript"
@@ -25,32 +33,26 @@
 </head>
 
 <body class="dashboard">
-    <div id="container-fluid">
-        <div id="header" >
-            <div id="user-tools">
-
-                <a href="/" class="header-title">{{ header }}</a>
-                <div id="navbar">
-                    <a href="/">Home</a>
-                &nbsp;&nbsp;
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="/" class="site-brand">
+                <span class="site-brand-mark">&lt;/&gt;</span>
+                {{ header }}
+            </a>
+            {% block nav %}
+            <nav id="navbar" class="site-nav">
+                <a href="/">Home</a>
                 <a href="/devops/gloss">Glossary</a>
-
-                &nbsp;&nbsp;
                 <a href="/devops/about">About</a>
-
-
-                &nbsp;&nbsp;
-                &nbsp;&nbsp;
-                </div>
-            </div>
+            </nav>
+            {% endblock nav %}
         </div>
+    </header>
 
-        <div id="content" class="container-fluid">
-                {% block content %}
-                {% endblock content %}
-        </div>
-
-    </div>
+    <main id="content" class="{% block page_class %}page{% endblock page_class %}">
+            {% block content %}
+            {% endblock content %}
+    </main>
 
 
     <!-- Optional JavaScript -->
@@ -61,6 +63,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 
     </script>
+    {% block scripts %}
+    {% endblock scripts %}
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -69,5 +73,5 @@
 <script>
     $.support.cors = true;
 </script>
-    
+
 </html>
