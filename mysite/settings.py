@@ -143,6 +143,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+# YouTube embeds need to see our origin as the referrer; Django's default
+# ('same-origin') sends none, which makes the player show "Error 153".
+SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+
 # Matches the id columns our existing tables already use, so no migration.
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
