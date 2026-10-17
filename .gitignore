@@ -8,3 +8,8 @@
 /venv
 /video
 .DS_Store
+
+# Superset workspace state
+/.venv
+/.superset/port
+/.superset/config.local.json
