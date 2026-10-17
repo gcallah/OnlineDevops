@@ -143,6 +143,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Matches the id columns our existing tables already use, so no migration.
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
