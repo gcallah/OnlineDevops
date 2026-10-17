@@ -142,3 +142,82 @@ b. growing capabilities of web services
 c. shift from monolithic to service-oriented architectures
 *d. all of the above
 
+19. (1 point)
+GitHub Actions workflow files live in which directory of a repository...?
+
+*a. .github/workflows/
+b. .travis/
+c. workflows/ at the top level
+d. .git/hooks/
+
+20. (1 point)
+A GitHub Actions workflow file is written in...?
+
+*a. YAML
+b. Groovy
+c. Python
+d. a Makefile
+
+21. (1 point)
+The on: section of a GitHub Actions workflow specifies...?
+
+a. which machine the jobs run on
+*b. the events that trigger the workflow
+c. the shell commands to run
+d. the secrets the workflow may use
+
+22. (1 point)
+By default, the jobs in a GitHub Actions workflow run...?
+
+a. one after another, in the order they appear in the file
+*b. in parallel, each on a fresh runner
+c. on the same machine, sharing their files
+d. only when someone starts them by hand
+
+23. (1 point)
+A workflow step that says "uses: actions/checkout@v7"...?
+
+a. runs a shell command named checkout
+*b. uses a ready-made action that checks out the repository's code
+c. checks out version 7 of your repository
+d. installs git on your laptop
+
+24. (1 point)
+How should a workflow get an SSH key or API token it needs in order to deploy?
+
+a. commit it to the repository in a config file
+b. type it directly into the workflow YAML
+*c. store it as an encrypted secret and refer to it with the secrets context
+d. print it in the build log so the runner can read it
+
+25. (1 point)
+If any step in a GitHub Actions job exits with a non-zero status...?
+
+a. GitHub ignores it and runs the remaining steps
+*b. the job stops and is marked as failed
+c. the step is retried until it succeeds
+d. the workflow file is deleted
+
+26. (1 point)
+Adding workflow_dispatch: to a workflow's on: section lets you...?
+
+*a. start the workflow by hand from the Actions tab
+b. send the workflow to another repository
+c. run the workflow every night
+d. disable the workflow
+
+27. (1 point)
+In this website's deploy workflow, the tests run before the deploy step so that...?
+
+a. GitHub can bill for the minutes used
+*b. code that fails its tests is never deployed
+c. the tests can check the live site
+d. the deploy runs faster
+
+28. (1 point)
+A deploy failed because a server briefly refused a connection. The simplest fix is to...?
+
+a. delete the workflow and write a new one
+*b. re-run the failed jobs
+c. switch to Jenkins
+d. turn off the tests
